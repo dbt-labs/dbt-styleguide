@@ -1,0 +1,39 @@
+@mixin small(){        @media ( "max-width: " ($tablet) ) { @content; } }
+@mixin large(){        @media ( "min-width: " ($tablet + 1px) ) { @content; } }
+@mixin small-device(){ @media ( $query_small_device ) { @content; } }
+@mixin large-device(){ @media ( "min-device-width: " ($tablet + 1px) ) { @content; } }
+
+@mixin mini(){         @media ( "max-width: " $mini ) { @content; } }
+@mixin phone(){        @media ( "max-width: " $phone ) { @content; } }
+@mixin phablet(){      @media ( "min-width: " ($phone + 1px) ") and (max-width: " ($phablet) ) { @content; } }
+@mixin tablet(){       @media ( "min-width: " ($phablet + 1px) ") and (max-width: " ($tablet) ) { @content; } }
+@mixin laptop(){       @media ( "min-width: " ($tablet + 1px) ") and (max-width: " ($laptop) ) { @content; } }
+@mixin desktop(){      @media ( "min-width: " ($laptop + 1px) ") and (max-width: " ($desktop) ) { @content; } }
+@mixin display(){      @media ( "min-width: " ($desktop + 1px) ) { @content; } }
+
+@mixin max-mini(){     @media ( max-width: $mini ) { @content; } }
+@mixin max-phone(){    @media ( max-width: $phone ) { @content; } }
+@mixin max-phablet(){  @media ( max-width: $phablet ) { @content; } }
+@mixin max-tablet(){   @media ( max-width: $tablet ) { @content; } }
+@mixin max-laptop(){   @media ( max-width: $laptop ) { @content; } }
+@mixin max-desktop(){  @media ( max-width: $desktop ) { @content; } }
+@mixin max-display(){  @media ( max-width: $display ) { @content; } }
+@mixin min-mini(){     @media ( min-width: ( $mini + 1px ) ) { @content; } }
+@mixin min-phone(){    @media ( min-width: ( $phone + 1px ) ) { @content; } }
+@mixin min-phablet(){  @media ( min-width: ( $phablet + 1px ) ) { @content; } }
+@mixin min-tablet(){   @media ( min-width: ( $tablet + 1px ) ) { @content; } }
+@mixin min-laptop(){   @media ( min-width: ( $laptop + 1px ) ) { @content; } }
+@mixin min-desktop(){  @media ( min-width: ( $desktop + 1px ) ) { @content; } }
+@mixin min-display(){  @media ( min-width: ( $display + 1px ) ) { @content; } }
+
+@mixin screen {        @media screen { @content; } }
+@mixin print {         @media print { @content; } }
+@mixin click {         html.no-touchevents & { @content; } }
+@mixin touch {         html.touchevents & { @content; } }
+
+// [data-large] {         @include small { display: none !important; } }
+// [data-small] {         @include large { display: none !important; } }
+// [data-print] {         @include screen { display: none !important; } }
+// [data-screen] {        @include print { display: none !important; } }
+// [data-click] {         @include touch { display: none !important; } }
+// [data-touch] {         @include click { display: none !important; } }

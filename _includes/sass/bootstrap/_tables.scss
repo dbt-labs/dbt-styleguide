@@ -1,0 +1,87 @@
+//
+// States
+// --------------------------------------------------
+@mixin table-row-status($class,$color) {
+	.table tr.#{$class} { box-shadow: inset $outline 0 0 $color; }
+}
+
+@include table-row-variant('success', transparent);
+@include table-row-variant('info', transparent);
+@include table-row-variant('warning', transparent);
+@include table-row-variant('danger', transparent);
+
+@include table-row-status(success,$green);
+@include table-row-status(info,$blue);
+@include table-row-status(warning,$yellow);
+@include table-row-status(danger,$red);
+
+//
+// Alignment
+// --------------------------------------------------
+th, td {
+	.table-flush & {
+		&:first-child { padding-left: 0; }
+		&:last-child { padding-right: 0; }
+	}
+	.table-justified & {
+		&:last-child { text-align: right; }
+	}
+	&.sm {
+		width: 1px;
+		white-space: nowrap;
+	}
+}
+
+//
+// Headers
+// --------------------------------------------------
+thead > tr > * {
+	.table:not(.table-borderless) > & {
+		border-width: 1px;
+	}
+	@include labels;
+}
+
+//
+// Borders
+// --------------------------------------------------
+.table-borderless {
+	tr * {
+		border-width: 0 !important;
+	}
+}
+
+//
+// Sizes
+// --------------------------------------------------
+.table-condensed {
+	@include font-size-small;
+}
+
+//
+// Spacing
+// --------------------------------------------------
+.table-responsive {
+	border-radius: $border-radius-base;
+	@include large(){ overflow: visible; }
+	@include small(){ @include scroll; }
+}
+.table-alignment {
+	@include large(){
+		margin-left: $padding-base-horizontal*-1;
+		margin-right: $padding-base-horizontal*-1;
+	}
+}
+
+//
+// Mock tables
+// --------------------------------------------------
+.table { display: table; }
+.table-caption { display: table-caption; }
+.table-colgroup { display: table-column-group; }
+.table-thead { display: table-header-group; }
+.table-tfoot { display: table-footer-group; }
+.table-tbody { display: table-row-group; }
+.table-td { display: table-cell; }
+.table-col { display: table-column; }
+.table-tr { display: table-row; }

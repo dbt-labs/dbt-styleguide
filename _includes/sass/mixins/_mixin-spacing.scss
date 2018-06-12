@@ -1,0 +1,90 @@
+@mixin clear() { 
+	&:after { 
+		display: table; 
+		content: ''; 
+		clear: both; 
+	} 
+}
+
+@mixin fill() {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+@mixin full(){
+	@include fill;
+	position: fixed;
+}
+
+@mixin cover($type:false) {
+	@include fill;
+	@if $type != right { left: 0; }
+	@if $type != bottom { top: 0; }
+	@if $type != top { bottom: 0; }
+	@if $type != left { right: 0; }
+}
+
+@mixin center($type:false){
+	@include cover($type);
+	margin: auto;
+}
+
+@mixin bookend(){
+	@content;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin middle-child(){
+	&:not(:first-child):not(:last-child) {
+		@content;
+	}
+}
+
+@mixin trim() { 
+	> * {
+		@include bookend;
+	}
+}
+
+@mixin compact() { 
+	* {
+		margin-top: 0; 
+		margin-bottom: 0; 
+	}
+}
+
+@mixin snug() { 
+	> * {
+		@include bookend {
+			margin-top: .5rem; 
+			margin-bottom: .5rem;
+		}
+	}
+}
+
+
+@mixin clip($lines:2){
+	height: $line-height-base * $font-size-base * $lines;
+	overflow: hidden;
+}
+
+@mixin relative() {
+	position: relative;
+	* { 
+		position: relative; 
+	}
+}
+
+@mixin box-normal() {
+	box-sizing: content-box;
+}
+

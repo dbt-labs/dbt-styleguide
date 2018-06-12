@@ -1,0 +1,34 @@
+$arr: ( "up":"a", "right":"b", "down":"c", "left":"d", "close":"e", "vertical":"f", "horizontal":"g", "north":"h", "west":"i", "south":"j", "east":"k", "check":"l", "moveup":"m", "moveright":"n", "movedown":"o", "moveleft":"p" );
+@mixin arrow-styles(){ font-family: "arrows"; text-transform: none; font-style: normal; }
+@mixin arrow-pseudo(){ &:before, &:after { @content; } }
+
+//
+// Classes
+// --------------------------------------------------
+@include font-face-woff("arrows","../fonts/arrows/arrows.woff");
+@include font-face-woff("arrows","../fonts/arrows/arrows-bold.woff",bold);
+@each $var, $glyph in $arr { .arrow-#{$var} { @include arrow-pseudo { content: " #{$glyph} "; } } }
+[class*="arrow-"] {
+	@include arrow-pseudo { @include arrow-styles; }
+	&.arrow-before:after { content: ''; }
+	&:not(.arrow-before):before { content: ''; }
+}
+.arrow-large { @include arrow-pseudo { text-transform: uppercase !important; } }
+.arrow-bold { @include arrow-pseudo { font-weight: bold !important; } }
+
+//
+// Mixins
+// --------------------------------------------------
+@mixin arrow($type,$position:after,$large:false){
+	&:#{$position} {
+		@include arrow-styles;
+		@each $var, $glyph in $arr {
+			@if $var == $type {
+				content: " #{$glyph} ";
+			}
+		}
+		@if $large {
+			text-transform: uppercase;
+		}
+	}
+}

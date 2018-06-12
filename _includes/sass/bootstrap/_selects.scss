@@ -1,0 +1,37 @@
+.select {
+	@include arrow(down);
+	padding: 0;
+	&:after {
+		pointer-events: none;
+		@include center(right);
+		line-height: 1;
+		height: 1em;
+		padding: 0 $padding-base-horizontal 0 0;
+	}
+	&.input-sm:after {
+		padding: 0 $padding-small-horizontal;
+	}
+	&.input-lg:after {
+		padding: 0 $padding-large-horizontal;
+	}
+	select.form-control {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		text-indent: .01px !important;
+		text-overflow: '';
+		padding-right: 2em;
+		&::-ms-expand {
+			display: none;
+		}
+		&[multiple] {
+			height: $textarea-height;
+			padding-top: $padding-large-vertical;
+			padding-bottom: $padding-large-vertical;
+		}
+		&[data-status="default"] {
+			color: $light;
+			font-style: oblique;
+		}
+	}
+}
+

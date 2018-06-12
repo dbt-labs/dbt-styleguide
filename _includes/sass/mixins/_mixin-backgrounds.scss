@@ -1,0 +1,7 @@
+@mixin background($hue:transparent){
+	background: $hue no-repeat 50% 50% / cover;
+}
+
+@mixin gradient($start-color: #555, $end-color: #333, $deg: 180deg) {
+	background-image: linear-gradient($deg, $start-color, $end-color);
+}

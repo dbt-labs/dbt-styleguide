@@ -1,0 +1,18 @@
+.matrix {
+	margin: 0 $component-buffer/-4;
+	@include flex-row;
+	@include flex-align(stretch);
+	@include flex-wrap;
+	&.matrix-nowrap {
+		@include flex-wrap(nowrap);
+	}
+	.matrix-item {
+		padding: $component-buffer/4;
+		@include flex-column;
+		@include flex(1,1,$component-break);
+		> * {
+			@include flex(1,1);
+			margin: 0;
+		}
+	}
+}

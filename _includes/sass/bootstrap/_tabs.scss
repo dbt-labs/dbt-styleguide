@@ -1,0 +1,61 @@
+
+.nav-tabs {
+	border: 0;
+	box-shadow: 0 1px 0 $line;
+	&:before, &:after { display: none; }
+	@include flex-row;
+	@include flex-wrap;
+	> li {
+		float: none;
+		@include flex(0,0,auto);
+		background: transparent !important;
+		margin: 0;
+		&:not(:first-child) { margin-left: .75em; }
+		&:not(:last-child) { margin-right: .75em; }
+		> a {
+			line-height: $component-line-height;
+			background: transparent !important;
+			padding: $padding-large-vertical 0;
+			margin: 0 !important;
+			border: 0 !important;
+			border-radius: 0;
+		}
+		&.active {
+			box-shadow: 0 1px 0 $link;
+			a {
+				color: $dark;
+			}
+		}
+	}
+	&-fill {
+		> li {
+			@include flex(1,0,auto);
+			margin: 0 !important;
+			> a {
+				text-align: center;
+				padding-left: $padding-large-horizontal;
+				padding-right: $padding-large-horizontal;
+			}
+		}
+	}
+	html.touch & {
+		@include flex-wrap(nowrap);
+		overflow: hidden;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+
+
+.tab-content{
+	> .tab-pane {
+		height: 0;
+		display: block;
+		overflow: hidden;
+		&.active {
+			height: auto;
+			overflow: visible;
+		}
+	}
+}

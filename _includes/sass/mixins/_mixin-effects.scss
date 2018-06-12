@@ -1,0 +1,14 @@
+@mixin sharpen(){
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+@mixin filter($filter) {
+	-webkit-filter: $filter;
+	filter: $filter;
+}

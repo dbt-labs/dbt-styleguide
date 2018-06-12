@@ -1,0 +1,37 @@
+.modal {
+	.modal-dialog {
+		margin: auto;
+		display: table;
+		width: $modal-md;
+		max-width: 100vw;
+		height: 100vh;
+		&.modal-sm { width: $modal-sm; }
+		&.modal-lg { width: $modal-lg; }
+	}
+	.modal-content {
+		display: table-cell;
+		vertical-align: middle;
+		box-shadow: none;
+	}
+	&.fade {
+		.modal-dialog {
+			@include transitions(.25s);
+			@include transform(translate(0,-20px));
+		}
+		&.in .modal-dialog {
+			@include transform(translate(0,0));
+		}
+	}
+}
+
+.modal-backdrop {
+	@include fill;
+	position: fixed;
+	z-index: $zindex-modal-background;
+}
+
+@include small {
+	.modal-content:not(.modal-content-flush) {
+		padding: $margin-small;
+	}
+}

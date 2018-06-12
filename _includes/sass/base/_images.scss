@@ -1,0 +1,8 @@
+img {
+	display: block;
+	max-width: 100%;
+}
+
+[data-bg] {
+	@include background;
+}

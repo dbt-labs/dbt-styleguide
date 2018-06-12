@@ -1,0 +1,10 @@
+.caret,
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+	@include arrow($input-caret);
+	border: 0 !important;
+	margin-left: 0;
+	width: auto;
+	height: auto;
+	display: inline;
+}

@@ -1,0 +1,26 @@
+$hue: 0%;
+
+@function dark($color) {        @return blend-softlight(black,darken($color,$hue)); }
+@function darker($color) {      @return blend-softlight(black,darken(dark($color),$hue)); }
+@function darkest($color) {     @return blend-softlight(black,darken(darker($color),$hue)); }
+@function light($color) {       @return blend-softlight(white,lighten($color,$hue)); }
+@function lighter($color) {     @return blend-softlight(white,lighten(light($color),$hue)); }
+@function lightest($color) {    @return blend-softlight(white,lighten(lighter($color),$hue)); }
+@function highlight($color) {    @return change-color(blend-hardlight(#eee,$color),$lightness:93%); }
+
+@function luminance($color){
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  @return percentage( ( ($red * 0.2126) + ($green * 0.7152) + ($blue * 0.0722) ) / 255);
+}
+
+@function change-luminance($color,$val){
+  $lum: luminance($color);
+  $ratio: $val / $lum;
+  $red: red($color) * $ratio;
+  $green: green($color) * $ratio;
+  $blue: blue($color) * $ratio;
+  @return rgb($red,$green,$blue);
+  @return white;
+}

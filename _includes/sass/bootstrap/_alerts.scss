@@ -1,0 +1,15 @@
+.alert {
+	border: 0;
+	font-style: oblique;
+	@include bookend {
+		margin: 1em 0;
+	}
+	strong {
+		color: inherit;
+		font-style: normal;
+	}
+	&-default {
+		background: $silver-light;
+		color: $light;
+	}
+}

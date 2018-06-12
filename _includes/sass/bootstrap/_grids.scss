@@ -1,0 +1,36 @@
+
+.row { margin: 0; }
+
+.container {
+	padding-left: 0;
+	padding-right: 0;
+	@include large(){
+		width: 90%;
+		max-width: 1320px;
+	}
+	@include small(){
+		width: auto;
+	}
+}
+
+.row-reverse {
+	> [class*="col-lg-"] {
+		@include large {
+			float: right;
+		}
+	}
+}
+
+@mixin buffer-grid($attr) {
+	#{$attr} {
+		& + & {
+			margin-top: $component-buffer/2;
+			margin-bottom: $component-buffer/2;
+			@include bookend;
+		}
+	}
+}
+
+@media ( max-width: $screen-lg ) { @include buffer-grid('[class*="col-lg-"]'); }
+@media ( max-width: $screen-md ) { @include buffer-grid('[class*="col-md-"]'); }
+@media ( max-width: $screen-sm ) { @include buffer-grid('[class*="col-sm-"]'); }

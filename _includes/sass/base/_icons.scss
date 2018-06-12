@@ -1,0 +1,22 @@
+.icn {
+	font-size: $icon-size;
+	top: -1px;
+	width: 1em;
+	height: 1em;
+	margin: auto;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-backface-visibility: hidden; 
+	@include transform(translateZ(0));
+	use {
+		fill: currentColor;
+	}
+	&-md {
+		width: 1.5em; height: 1.5em;
+		@include transform(scale(1.5),0 0);
+	}
+	&-lg {
+		width: 2em; height: 2em;
+		@include transform(scale(2),0 0);
+	}
+}

@@ -1,0 +1,90 @@
+$card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
+
+.card {
+	@include component;
+	margin: 20px 0;
+	@include flex-column;
+	> .card-header,
+	> .card-footer {
+		@include flex(0,0);
+	}
+	> .card-body {
+		@include flex(1,0	);
+	}
+}
+
+.card-footer,
+.card-header,
+.card-body,
+.card-padding {
+	padding: $component-padding;
+}
+
+.card-body { padding-bottom: $component-padding-horizontal; }
+
+.card-header {
+	#{h()} { margin: 0; }
+}
+
+.card-flush-top { padding-top: 0; }
+.card-flush-bottom { padding-bottom: 0; }
+.card-flush-vertical { padding-top: 0; padding-bottom: 0; }
+.card-flush { padding: 0; }
+
+.card-control {
+	display: block;
+	#{$card-controls} {
+		display: block;
+		margin: 0 !important;
+		height: $input-height-large;
+		padding: ( ( $component-height-large - $font-size-base * $component-line-height ) / 2 ) $component-padding-horizontal;
+		border-radius: 0;
+		width: 100%;
+	}
+	.form-control {
+		background: white;
+		&:not(:disabled):not(.disabled):hover {
+			background-color: $silver;
+		}
+	}
+	.btn,
+	.input-group-addon {
+		text-align: center;
+	}
+	.card-footer & {
+		&:first-child { #{$card-controls} { border-bottom-left-radius: $component-border-radius; } }
+		&:last-child { #{$card-controls} { border-bottom-right-radius: $component-border-radius; } }
+	}
+	.card-body & {
+		&:first-child { #{$card-controls} { border-top-left-radius: $component-border-radius; } }
+		&:last-child { #{$card-controls} { border-top-right-radius: $component-border-radius; } }
+	}
+}
+
+.card-toolbar {
+	@include flex-row;
+	@include flex-wrap;
+	padding: 0;
+	.card-control {
+		display: block;
+		@include flex(1,0,auto);
+	}
+}
+
+.card-form {
+	padding: 0;
+	display: table;
+	width: 100%;
+	.card-formrow {
+		display: table-row;
+		.card-control {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		&:not(:last-child) {
+			.card-control {
+				border-bottom: 1px solid $line;
+			}
+		}
+	}
+}

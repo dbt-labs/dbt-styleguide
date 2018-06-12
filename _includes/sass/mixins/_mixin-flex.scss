@@ -1,0 +1,118 @@
+//
+// Prefixes
+// --------------------------------------------------
+@mixin flex-prefix($key,$val) {
+	//-webkit-#{$key}: $val;
+	//-ms-#{$key}: $val;
+	#{$key}: $val;
+}
+
+//
+// Flexbox
+// --------------------------------------------------
+@mixin flexbox(){
+	//display: -ms-flexbox;
+	//display: -webkit-flex;
+	display: flex;
+}
+
+//
+// Arrangement
+// --------------------------------------------------
+@mixin flex-row(){
+	@include flexbox;
+	@include flex-prefix(flex-direction,row);
+}
+
+@mixin flex-row-reverse(){
+	@include flexbox;
+	@include flex-prefix(flex-direction,row-reverse);
+}
+
+@mixin flex-column(){
+	@include flexbox;
+	@include flex-prefix(flex-direction,column);
+}
+
+@mixin flex-column-reverse(){
+	@include flexbox;
+	@include flex-prefix(flex-direction,column-reverse);
+}
+
+//
+// Justification
+// --------------------------------------------------
+@mixin flex-justify($val){
+	$pack: justify;
+	@if $val == "flex-start" { $pack: start; }
+	@if $val == "flex-end" { $pack: end; }
+	@if $val == "center" { $pack: center; }
+	@if $val == "space-around" { $pack: distribute; }
+	@if $val == "space-evenly" { $pack: distribute; }
+	@if $val == "space-between" { $pack: justify; }
+	-ms-flex-pack: $pack;
+	@include flex-prefix(justify-content,$val);
+}
+
+//
+// Alignment
+// --------------------------------------------------
+@mixin flex-align($val){
+	$align: stretch;
+	@if $val == "flex-start" { $align: start; }
+	@if $val == "flex-end" { $align: end; }
+	@if $val == "center" { $align: center; }
+	@if $val == "stretch" { $align: stretch; }
+	@if $val == "baseline" { $align: baseline; }
+	-ms-flex-align: $align;
+	@include flex-prefix(align-items,$val);
+}
+
+//
+// Wrapping
+// --------------------------------------------------
+@mixin flex-wrap($val:wrap){
+	@include flex-prefix(flex-wrap,$val);
+}
+
+
+//
+// Flexbox Items
+// --------------------------------------------------
+@mixin flex($grow:0,$shrink:1,$basis:auto){
+	// -webkit-flex: $grow $shrink $basis;
+	// @if $basis == 0 {
+	// 	-ms-flex: $grow $shrink 0px;
+	// } @else {
+	// 	-ms-flex: $grow $shrink $basis;
+	// }
+	flex: $grow $shrink $basis;
+}
+
+@mixin flex-order($n){
+	@include flex-prefix(order,$n);
+}
+
+@mixin flex-basis($n){
+	@if ( $n == 0 ) {
+		@include flex-prefix(flex-basis,0px);
+	} @else {
+		@include flex-prefix(flex-basis,$n);
+	}
+}
+
+
+//
+// Flexbox Grid
+// --------------------------------------------------
+
+@mixin flex-grid($base,$min,$max){
+	@include flex-row;
+	@include flex-wrap;
+	@include flex-align(stretch);
+	> * {
+		@include flex(1,1,$base);
+		min-width: percentage(1/$max);
+		max-width: percentage(1/$min);
+	}
+}

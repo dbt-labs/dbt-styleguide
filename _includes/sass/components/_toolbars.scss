@@ -1,0 +1,47 @@
+.toolbar {
+	a {
+		display: block;
+	}
+	.toolbar-content {
+		@include flex-row;
+		@include flex-wrap;
+		@include flex-align(center);
+		.toolbar-item {
+			@include flex(0,0,auto);
+			> .btn {
+				width: 100%;
+			}
+			> .toolbar-link {
+				padding: 1rem 1.5rem;
+			}
+		}
+		.toolbar-gap {
+			@include flex(1000,1,auto);
+		}
+	}
+	&-fill {
+		.btn { border-radius: 0; }
+		.toolbar-content {
+			> .btn,
+			.toolbar-item {
+				@include flex(1,0,auto);
+			}
+		}
+	}
+	&-separate {
+		.toolbar-content {
+			margin: -.375rem;
+			.toolbar-item {
+				margin: .375rem;
+			}
+		}
+	}
+	&-fixed {
+		.toolbar-content {
+			> .btn,
+			.toolbar-item {
+				@include flex(1,0,0);
+			}
+		}
+	}
+}

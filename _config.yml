@@ -1,0 +1,69 @@
+# --------------------------------------------------
+# Site settings
+
+title: DBT Docs
+description: "Documentation for DBT (Data Build Tool)"
+robots: false
+
+# --------------------------------------------------
+# Site imagery
+
+favicon: /favicon.ico
+avatar: /ui/img/graph/avatar.png
+poster: /ui/img/graph/poster.png
+
+# --------------------------------------------------
+# the subpath of your site, e.g. /blog
+
+url: "https://docs.getdbt.com"
+baseurl: "/"
+
+# --------------------------------------------------
+# Includes
+
+# Fonts
+googlefonts: false
+typekit: false
+entypo: true
+arrows: true
+blank: false
+
+# Frameworks
+bootstrap: true
+jqueryui: true
+
+# Techniques
+svgicons: true
+inliner: false
+
+# --------------------------------------------------
+# Build settings
+
+sass:
+  style: compressed
+  sass_dir: _includes
+
+collections:
+  docs:
+    output: true
+    permalink: /docs/:path/
+  pages:
+    output: true
+    permalink: /:path/
+
+defaults:
+-
+  scope:
+    path: ""
+    type: "docs"
+  values:
+    layout: "doc"
+-
+  scope:
+    path: ""
+    type: "pages"
+  values:
+    layout: "page"
+
+
+

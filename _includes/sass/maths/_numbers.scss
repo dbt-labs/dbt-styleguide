@@ -1,0 +1,60 @@
+@function clamp($number, $min, $max) {
+	@return min(max($number, $min), $max);
+}
+
+@function number($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
+}
+
+@function rem($size){
+	$remsize: number( $size / $font-size-root );
+	@return $remsize * 1rem;
+}
+
+@function rem-full($size){
+	$remsize: number( $size / $font-size-root-full );
+	@return $remsize * 1rem;
+}
+
+@function rem-multiply($size,$mult){
+	$unit: number($size) * $mult;
+	@return #{$unit}rem;
+}
+
+@mixin scale-px($attrs,$min,$max:false,$minscreen:$phone,$maxscreen:$laptop){
+	@each $attr in $attrs {
+		#{$attr}: $min;
+		@if $max and $min != $max {
+			$slope: ( $max - $min ) / ( $maxscreen - $minscreen );
+			@media ( min-width: $minscreen ) and ( max-width: ( $maxscreen - 1px ) ) {
+				$a: 100vw * $slope;
+				$b: $minscreen * $slope;
+				#{$attr}: calc(#{$a} - #{$b} + #{$min});
+			}
+			@media ( min-width: $maxscreen ) { #{$attr}: $max; }
+		}
+	}
+}
+
+@mixin scale-rem($attrs,$min,$max:false,$minscreen:$phone,$maxscreen:$laptop){
+	@if index('px',unit($min)) != null {
+		$min: rem($min);
+		@if $max {
+			$max: rem-full($max);
+		}
+	}
+	@each $attr in $attrs {
+		#{$attr}: $min;
+		@if $max and $max != $min {
+			$slope: number($max - $min) / number($maxscreen - $minscreen);
+			@media ( min-width: $minscreen ) and ( max-width: ( $maxscreen - 1px ) ) {
+				$factor: number($font-size-root) * $slope;
+				#{$attr}: calc((100vw - #{$maxscreen}) * #{$factor} + #{$max});
+			}
+			@media ( min-width: $maxscreen ) { #{$attr}: $max; }
+		}
+	}
+}

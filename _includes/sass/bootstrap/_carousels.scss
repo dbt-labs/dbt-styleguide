@@ -1,0 +1,36 @@
+.carousel {
+	.carousel-control {
+		background: transparent;
+		&:after {
+			width: 1em;
+			@include center;
+			height: $line-height-base * 1em;
+			font-size: 2rem;
+		}
+	}
+	.carousel-indicators {
+		bottom: 10px;
+		li {
+			background: $carousel-indicator-active-bg;
+			@include transitions;
+			margin: 0 2px;
+			opacity: .25;
+			height: 8px;
+			width: 8px;
+			border: 0;
+			&.active {
+				opacity: 1;
+			}
+		}
+	}
+	.carousel-inner {
+		.item {
+			img {
+				width: 100%;
+			}
+		}
+	}
+	&.carousel-dark {
+
+	}
+}

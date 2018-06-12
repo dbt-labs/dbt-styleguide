@@ -1,0 +1,90 @@
+.btn {
+	border-width: 0;
+	margin: 0;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	@include font-size-base;
+	@include transitions(.25s);
+	height: $component-height-base;
+	line-height: $component-line-height !important;
+
+	&-red { @include button-variant(white,$red,$red); }
+	&-blue { @include button-variant(white,$blue,$blue); }
+	&-navy { @include button-variant(white,$navy,$navy); }
+	&-green { @include button-variant(white,$green,$green); }
+	&-orange { @include button-variant(white,$orange,$orange); }
+	&-yellow { @include button-variant(white,$yellow,$yellow); }
+	&-white { @include button-variant($btn-default-color,white,white); @include shadow; }
+	&-default {
+		font-weight: normal;
+		box-shadow: none !important;
+		@include active {
+			background-color: $silver-dark;
+		}
+	}
+	&-clear,
+	&-text,
+	&-link {
+		background: transparent !important;
+	}
+	&-text {
+		font-weight: normal;
+		color: inherit;
+	}
+
+	&-lg {
+		height: $component-height-large;
+		@include font-size-large;
+	}
+	&-sm {
+		height: $component-height-small;
+		@include font-size-small;
+	}
+	&-pill {
+		@include pill;
+	}
+	&-block,
+	&-slim,
+	&-link,
+	&-text {
+		padding-left: .5em;
+		padding-right: .5em;
+	}
+	&-icon {
+		padding-left: 0;
+		padding-right: 0;
+		width: $component-height-base;
+		&.btn-sm {
+			width: $component-height-small;
+		}
+		&.btn-lg {
+			width: $component-height-large;
+		}
+	}
+	&.active, &:active {
+		@include box-shadow(none);
+	}
+	&.disabled, &[disabled] {
+		opacity: .375;
+	}
+}
+
+
+.btn-file {
+	&:before { content: attr(data-placeholder); }
+	&[data-value] {
+		&:before { content: attr(data-placeholder)" "; }
+		&:after { content: "(" attr(data-value) ")"; }
+	}
+	input {
+		position: absolute;
+		opacity: 0;
+	}
+}
+
+.btn-inliner {
+	.btn {
+		margin-bottom: .3rem;
+	}
+}

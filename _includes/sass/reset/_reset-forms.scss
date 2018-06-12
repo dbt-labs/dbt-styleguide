@@ -1,0 +1,135 @@
+@mixin btn-colors($bg,$color,$color-active:$color) {
+	background: $bg;
+	color: $color;
+	@include active {
+		color: $color-active;
+		background: $bg;
+		@content;
+	}
+}
+
+.label {
+	font-weight: bold;
+	display: block;
+	margin-top: .5em;
+}
+
+.btn, .form-control, .option {
+	@include transitions;
+	@include font-size-base;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	vertical-align: middle;
+	height: $component-height-base;
+	padding: $padding-base-vertical $padding-base-horizontal;
+	line-height: $line-height-base;
+	border-radius: $border-radius-base;
+	background: transparent;
+	display: inline-block;
+	cursor: pointer;
+	color: inherit;
+	margin: 0;
+	input {
+		position: absolute;
+		opacity: 0;
+	}
+	&.block {
+		display: block;
+	}
+	&.lg, &.input-lg, &.btn-lg {
+		@include font-size-large;
+		height: $component-height-large;
+		padding: $padding-large-vertical $padding-large-horizontal;
+	}
+	&.sm, &.input-sm, &.btn-sm {
+		@include font-size-small;
+		height: $component-height-small;
+		padding: $padding-small-vertical $padding-small-horizontal;
+	}
+}
+
+.btn {
+	color: inherit;
+	cursor: pointer;
+	overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;
+	border-radius: $border-radius-base;
+	&:not[class*="btn-"] {
+		padding-left: .375em;
+		padding-right: .375em;
+	}
+	&-default { @include btn-colors($btn-default-bg,$btn-default-color,$dark); }
+	&-primary { @include btn-colors($btn-primary-bg,$btn-primary-color); }
+	&-file {
+		&:before { content: attr(data-placeholder); }
+		&[data-value] {
+			&:before { content: attr(data-placeholder)" "; }
+			&:after { content: "(" attr(data-value) ")"; }
+		}
+	}
+}
+
+.form-control {
+	width: 100%;
+	display: block;
+	color: $input-color;
+	background: $input-bg;
+	@include placeholder($input-color-placeholder);
+	&:hover {
+		background: $input-bg-hover;
+	}
+	&:focus {
+		background: white;
+		@include shadow(5px,$brand-primary);
+	}
+}
+
+textarea.form-control {
+	resize: vertical;
+	overflow: hidden;
+}
+
+textarea.form-control, select[multiple].form-control {
+	height: $textarea-height;
+}
+
+
+// .btn-group, .input-group {
+// 	@include flex-row;
+// 	@include flex-wrap;
+// 	> * {
+// 		@include flex(0,1,auto);
+// 		&:not(:first-child) {
+// 			border-top-left-radius: 0;
+// 			border-bottom-left-radius: 0;
+// 		}
+// 		&:not(:last-child) {
+// 			border-top-right-radius: 0;
+// 			border-bottom-right-radius: 0;
+// 		}
+// 	}
+// }
+
+// .btns {
+// 	@include clear;
+// 	margin: .75rem -.25rem;
+// 	.btn {
+// 		display: block;
+// 		float: left;
+// 		margin: .25rem;
+// 	}
+// }
+
+
+// .fields {
+// 	@include flex-row;
+// 	@include flex-wrap;
+// 	margin: 0 -.5rem;
+// 	.field {
+// 		margin: 0;
+// 		@include flex(1,0,200px);
+// 		padding: 0 .5rem .5rem;
+// 	}
+// }
+

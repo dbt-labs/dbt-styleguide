@@ -1,0 +1,13 @@
+*, *:before, *:after {
+	position: relative;
+	outline: none !important;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: grayscale;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	@include font-size-root;
+}

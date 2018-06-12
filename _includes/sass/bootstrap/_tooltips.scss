@@ -1,0 +1,25 @@
+.tooltip {
+	@include shadow(20px);
+	padding: 0 !important;
+	&, .tooltip-inner, .tooltip-arrow {
+		@include round;
+	}
+	.tooltip-arrow { 
+		@include transform(rotate(45deg));
+		background: $tooltip-bg;
+		@include shadow(20px);
+		border-width: 0;
+		height: 12px;
+		width: 12px;
+	}
+	&.top .tooltip-arrow { margin-bottom: -3px; }
+	&.bottom .tooltip-arrow { margin-top: -3px; }
+	&.left .tooltip-arrow { margin-right: -3px; }
+	&.right .tooltip-arrow { margin-left: -3px; }
+	.tooltip-inner {
+		@include font-size-small;
+		padding: $padding-base-vertical $padding-base-horizontal;
+		margin: 0 !important;
+		font-style: normal;
+	}
+}

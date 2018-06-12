@@ -1,0 +1,139 @@
+@mixin line-height($height){
+	$slope: -1 * ( 1 - $height ) / number( $line-height-max - 1rem );
+	line-height: calc(1em + #{$slope} * (#{$line-height-max} - 1em));
+}
+
+@mixin font-size-root(){ @include scale-px(font-size,$font-size-root,$font-size-root-full); }
+
+@mixin font-size-label(){ @include scale-rem(font-size,$font-size-label); }
+@mixin font-size-code(){ @include scale-rem(font-size,$font-size-code); }
+@mixin font-size-small(){ @include scale-rem(font-size,$font-size-small); }
+@mixin font-size-base(){ @include scale-rem(font-size,$font-size-base); }
+@mixin font-size-large(){ @include scale-rem(font-size,$font-size-large); }
+
+@mixin font-size-larger(){ @include scale-rem(font-size,$font-size-larger,$font-size-larger-full); }
+@mixin font-size-largest(){ @include scale-rem(font-size,$font-size-largest,$font-size-largest-full); }
+@mixin font-size-huge(){ @include scale-rem(font-size,$font-size-huge,$font-size-huge-full); }
+@mixin font-size-huger(){ @include scale-rem(font-size,$font-size-huger,$font-size-huger-full); }
+@mixin font-size-hugest(){ @include scale-rem(font-size,$font-size-hugest,$font-size-hugest-full); }
+@mixin font-size-h1(){ @include scale-rem(font-size,$font-size-h1,$font-size-h1-full); }
+@mixin font-size-h2(){ @include scale-rem(font-size,$font-size-h2,$font-size-h2-full); }
+@mixin font-size-h3(){ @include scale-rem(font-size,$font-size-h3,$font-size-h3-full); }
+@mixin font-size-h4(){ @include scale-rem(font-size,$font-size-h4,$font-size-h4-full); }
+@mixin font-size-h5(){ @include scale-rem(font-size,$font-size-h5,$font-size-h5-full); }
+@mixin font-size-h6(){ @include scale-rem(font-size,$font-size-h6,$font-size-h6-full); }
+
+
+
+@function h($from:false, $to:false) {
+	@if $from and $to {
+		// nothing
+	} @else {
+		@if $from {
+			$to: $from;
+		}
+	}
+	@if $from == false { $from: 1; }
+	@if $to == false { $to: 6; }
+	@if $from == $to {
+		@return 'h#{$from}, .h#{$from}';
+	} @else {
+		@return 'h#{$from}, .h#{$from},' + h($from+1, $to);
+	}
+}
+
+
+@mixin labels($size:small){
+	text-transform: uppercase;
+	letter-spacing: .15em;
+	font-size: $font-size-label;
+	font-weight: normal;
+}
+
+@mixin active(){
+	&:hover,
+	&:focus {
+		@content;
+	}
+}
+
+@mixin stoic(){
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+@mixin columns($count:4,$width:100px,$gap:0){
+	-webkit-column-count: $count;
+	column-count: $count;
+	-webkit-column-gap: $gap;
+	column-gap: $gap;
+	-webkit-column-width: $width;
+	column-width: $width;
+}
+
+@mixin avoid-break {
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid-column;
+}
+
+@mixin placeholder($color) {
+	&::-moz-placeholder { color: $color; font-style: $input-style-placeholder; }
+	&::-webkit-input-placeholder { color: $color; font-style: $input-style-placeholder; }
+	&::-ms-input-placeholder { color: $color; font-style: $input-style-placeholder; }
+	&:-ms-input-placeholder { color: $color; font-style: $input-style-placeholder; }
+}
+
+
+@mixin clean() { 
+	margin: 0; 
+	padding: 0; 
+	border: 0;
+	list-style-type: none; 
+	li { 
+		margin: 0; 
+		padding: 0; 
+		list-style-type: none; 
+	}
+}
+
+@mixin inlinelist($dir:false) { 
+	@include clean;
+	@if $dir { text-align: $dir; }
+	> li {
+		display: inline-block;
+		@if $dir == 'left' { margin-right: 1.5em; }
+		@if $dir == 'right' { margin-left: 1.5em; }
+		@if $dir == 'center' { margin-right: .75em; margin-left: .75em; }
+		> a { display: block; }
+	}
+}
+
+@mixin smallcaps() { 
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: $light;
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@mixin ellipsis($lines:1){
+	overflow: hidden;
+	text-overflow: ellipsis;
+	@if $lines == 1 {
+		white-space: nowrap;
+	} @else {
+		max-height: line-height($line-height-base*$lines);
+	}
+}
+
+@mixin tab-size($n:2) {
+	-moz-tab-size: $n;
+	-o-tab-size: $n;
+	tab-size: $n;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		{% include settings/meta.html %}
+		{% include settings/scripts.html %}
+		{% include settings/styles.html %}
+	</head>
+	<body class="bg-silver-light">
+		{% include content/icons.html %}
+		<div class="container" style="padding: 80px 0;">
+			<div class="row">
+				<div class="col-lg-3 col-3">
+					<div class="pad">
+						<ul class="nav nav-stacked">
+							{% assign guides = site.docs | where: 'type' , 'docs' | sort: 'order' %}
+							{% assign styles = site.docs | where: 'type' , page.styles | sort: 'order' | reverse | group_by: 'section' %}
+							{% for guide in guides %}
+
+								{% assign show_guide = true %}
+								
+								{% if guide.requirements %}
+									{% assign requirements = guide.requirements | split: ',' %}
+									{% for req in requirements %}
+										{% if site[req] != true %}
+											{% assign show_guide = false %}
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+
+								{% if show_guide %}
+									<li>
+										<a href="{{site.baseurl}}{{guide.url}}">{{guide.title}}</a>
+										{% if guide.url == page.url %}
+											<ul class="nav nav-stacked flush">
+												{% for type in styles %}
+													{% assign entries = type.items | sort: "title" %}
+													{% for entry in entries %}
+														{% unless site.jqueryui == false and entry.require_jqueryui == true %}
+															<li><a href="#{{ entry.title | slugify }}">{{ entry.title | capitalize }}</a></li>
+														{% endunless %}
+													{% endfor %}
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endif %}
+								
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9 col-9">
+					<div class="pad">
+						{% for type in styles %}
+							<div id="{{ type.name | slugify }}"></div>
+							{% assign entries = type.items | sort: "title" %}
+							{% for entry in entries %}
+								
+								{% assign show_entry = true %}
+								
+								{% if entry.requirements %}
+									{% assign requirements = entry.requirements | split: ',' %}
+									{% for req in requirements %}
+										{% if site[req] != true %}
+											{% assign show_entry = false %}
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+								
+								{% if show_entry %}
+									{% include styles/spec.html %}
+								{% endif %}
+
+							{% endfor %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		<div>
+	</body>
+</html>

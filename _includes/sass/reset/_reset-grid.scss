@@ -1,0 +1,26 @@
+.row {
+	@include flex-row;
+	@include flex-wrap;
+	@include flex-align(stretch);
+	max-width: $laptop;
+	margin: 0 auto;
+	&.middle {
+		@include flex-align(center);
+	}
+}
+
+[class*="col-"] {
+	@include flex(1,0,$component-break);
+}
+
+.col {
+	@for $i from 1 through 12 {
+		&-#{$i} { min-width: percentage($i/12); }
+	}
+}
+
+.pad {
+	padding: $grid-gutter-width/2;
+}
+
+

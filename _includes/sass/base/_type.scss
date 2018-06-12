@@ -1,0 +1,73 @@
+body {
+	@include font-size-base;
+	font-family: $font-family-base;
+	background: $body-bg;
+	color: $text-color;
+}
+
+* {
+	@include line-height($line-height-base);
+	text-align: inherit;
+}
+
+// ELEMENTS -------------------------------------------------------
+
+a, .a {
+	cursor: pointer;
+	color: $link-color;
+	text-decoration: none; 
+	@include active { text-decoration: none; color: $link-hover-color; }
+}
+i, .i, em, .em { font-style: oblique; }
+b, .b, strong, .strong { font-weight: bold; }
+
+// MARGINS -------------------------------------------------------
+
+iframe { margin: 0; display: block; }
+label { margin: .5em 0; font-weight: normal; }
+hr { margin: 3em 0; border-top: 1px solid $hr-border; }
+blockquote, ul, ol, p, .field, .table { margin: 1.5em 0; }
+#{h()} { margin: 1.5em 0 .5em; }
+ul, ol { padding-left: 1.25em; }
+dl { dt + dd { margin-bottom: 1em; } }
+blockquote { padding: 0; font-size: inherit; }
+
+// SIZES -------------------------------------------------------
+
+small, .small, .text-small { @include font-size-small; }
+#{h(5,6)}, .text-base { @include font-size-base; font-weight: bold; }
+#{h(4)}, .text-large { @include font-size-large; font-weight: bold; }
+#{h(3)}, .text-larger { @include font-size-larger; font-weight: bold; }
+#{h(1,2)}, .text-largest { @include font-size-largest; }
+
+
+// ALIGNMENT -------------------------------------------------------
+
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+@include large(){
+	.text-center-large { text-align: center !important; }
+	.text-right-large { text-align: right !important; }
+	.text-left-large { text-align: left !important; }
+}
+
+@include small(){
+	.text-center-small { text-align: center !important; }
+	.text-right-small { text-align: right !important; }
+	.text-left-small { text-align: left !important; }
+}
+
+// WRAPPING -------------------------------------------------------
+
+.nowrap { @include min-mini(){ white-space: nowrap; } }
+.condensed { white-space: nowrap; width: 1px; }
+.ellipsis { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wrap { white-space: normal; }
+.break { word-break: break-word; }
+
+// SPACING -------------------------------------------------------
+
+*:first-child { margin-top: 0; }
+*:last-child { margin-bottom: 0; }

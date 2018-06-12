@@ -1,0 +1,49 @@
+.panel {
+	border-width: 0;
+	@include flex-column;
+	@include component;
+	@include bookend {
+		margin: 1em 0;
+	}
+	> * {
+		border-color: $panel-inner-border !important;
+		@include flex(0,0,auto);
+		&:first-child {
+			border-top-right-radius: $component-border-radius;
+			border-top-left-radius: $component-border-radius;
+		}
+		&:last-child {
+			border-bottom-right-radius: $component-border-radius;
+			border-bottom-left-radius: $component-border-radius;
+		}
+	}
+	> *, > * > .panel-fill {
+		padding: $component-padding;
+		&.panel-flush { padding: 0 !important; }
+		&.panel-flush-top { padding-top: 0 !important; }
+		&.panel-flush-bottom { padding-bottom: 0 !important; }
+	}
+	&-large {
+		> *, > * > .panel-fill {
+			padding: $component-padding-large;
+			@include small {
+				padding: ($margin-small*2/3) $margin-small;
+			}
+		}
+	}
+	> .panel-body {
+		@include flex(1,0,auto);
+		@include trim;
+		> .panel-fill {
+			@include fill;
+			@include scroll;
+		}
+	}
+}
+
+#{h(1)} { &.panel-title { @include font-size-h1; } }
+#{h(2)} { &.panel-title { @include font-size-h2; } }
+#{h(3)} { &.panel-title { @include font-size-h3; } }
+#{h(4)} { &.panel-title { @include font-size-h4; } }
+#{h(5)} { &.panel-title { @include font-size-h5; } }
+#{h(6)} { &.panel-title { @include font-size-h6; } }

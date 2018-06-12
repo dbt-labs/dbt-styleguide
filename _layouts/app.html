@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		{% include settings/meta.html %}
+		{% include settings/scripts.html %}
+		{% include settings/styles.html %}
+	</head>
+	<body>
+		{% include content/icons.html %}
+		<div class="app app-row">
+			<div class="app-menu app-column">
+				<div class="app-overlay" data-toggle=".app-menu"></div>
+				<div class="app-header app-navbar app-shadow app-pad">
+					<div class="app-row app-middle">
+						<div class="app-body">
+							<img class="app-logo" src="{{site.baseurl}}/ui/img/logos/dbt.svg" alt="dbt" />
+						</div>
+						<div class="app-footer app-toggle" data-toggle=".app-menu">
+							<svg class="icn icn-md"><use xlink:href="#icn-close"></use></svg>
+						</div>
+					</div>
+				</div>
+				<div class="app-body">
+					<div class="app-scroll app-pad">
+						<div class="menu">
+							<ul>
+								<li>
+									<a href="#" class="menu-tree menu-main active"><svg class="icn menu-icon-on"><use xlink:href="#icn-down"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-right"></use></svg> Schemas</a>
+									<ul>
+										<li>
+											<a href="#" class="menu-tree active"><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg> dbt_dbanin</a>
+											<ul>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_accounts</a></li>
+												<li><a href="#" class="menu-node active"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_accounts</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_pageviews</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_attachments</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_orders</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_products</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_messages</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_categories</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
+												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
+											</ul>
+										</li>
+										{% assign dirs = 'dbt_azure,dbt_tangerine,dbt_umber,dbt_olivine' | split: ',' %}
+										{% for dir in dirs %}
+											<li>
+												<a href="#" class="menu-tree"><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg> {{dir}}</a>
+												<ul>
+													{% assign docs = 'snowplow_accounts,snowplow_pageviews,snowplow_groups,snowplow_attachments,snowplow_orders,snowplow_products,snowplow_messages,snowplow_categories,snowplow_groups' | split: ',' %}
+													{% for doc in docs %}<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> {{doc}}</a></li>{% endfor %}
+												</ul>
+											</li>
+										{% endfor %}
+									</ul>
+								</li>
+								{% assign cats = 'Category,Group' | split: ',' %}
+								{% for cat in cats %}
+									<li>
+										<a href="#" class="menu-tree menu-main"><svg class="icn menu-icon-on"><use xlink:href="#icn-down"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-right"></use></svg> {{cat}}</a>
+										<ul>
+											{% assign dirs = 'dbt_azure,dbt_tangerine,dbt_umber,dbt_olivine' | split: ',' %}
+											{% for dir in dirs %}
+												<li>
+													<a href="#" class="menu-tree"><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg> {{dir}}</a>
+													<ul>
+														{% assign docs = 'snowplow_accounts,snowplow_pageviews,snowplow_groups,snowplow_attachments,snowplow_orders,snowplow_products,snowplow_messages,snowplow_categories,snowplow_groups' | split: ',' %}
+														{% for doc in docs %}<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> {{doc}}</a></li>{% endfor %}
+													</ul>
+												</li>
+											{% endfor %}
+										</ul>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="app-content app-column">
+				<div class="app-header app-navbar app-shadow">
+					<div class="app-frame app-pad app-row app-middle">
+						<div class="app-header app-toggle" data-toggle=".app-menu">
+							<svg class="icn icn-md"><use xlink:href="#icn-dbt"></use></svg>
+						</div>
+						<div class="app-body">
+							<input type="text" class="form-control" placeholder="Search for tables, columns..."/>
+						</div>
+					</div>
+				</div>
+				<div class="app-body">
+					<div class="app-scroll">
+						<div class="app-title">
+							<div class="app-frame app-pad app-flush-bottom">
+								<h1>
+									<span class="break">{{page.object}}</span>
+									<small>{{page.type}}</small>
+								</h1>
+							</div>
+						</div>
+						{% if page.sections and page.sections.size %}
+							<div class="app-links app-sticky">
+								<div class="app-frame app-pad-h">
+									<ul class="nav nav-tabs">
+										{% for section in page.sections %}
+											<li><a href="#{{section | downcase | replace: ' ','-' }}">{{section}}</a></li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						{% endif %}
+						<div class="app-details">
+							<div class="app-frame app-pad">
+								{{content}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

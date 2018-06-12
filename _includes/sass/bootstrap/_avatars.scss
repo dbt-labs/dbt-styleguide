@@ -1,0 +1,9 @@
+.avatar {
+	font-size: 40px;
+	img {
+		display: block;
+		@include circle;
+		height: 1em;
+		width: 1em;
+	}
+}

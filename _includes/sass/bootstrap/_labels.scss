@@ -1,0 +1,28 @@
+.label {
+	@include labels;
+	@include transitions;
+	display: inline-block;
+	text-align: inherit;
+	padding: 6px 0;
+	border: 0;
+	&-default { color: $label-color; }
+	&-success { color: #{dark($green)}; }
+	&-info { color: #{dark($blue)}; }
+	&-warning { color: #{dark($yellow)}; }
+	&-danger { color: #{dark($red)}; }
+	+ .label {
+		&:not(.block) {
+			margin-left: 1.5em;
+		}
+	}
+}
+
+a.label {
+	&:hover, &:focus {
+		&.label-default { color: darkest($light); }
+		&.label-success { color: darkest($green); }
+		&.label-info { color: darkest($blue); }
+		&.label-warning { color: darkest($yellow); }
+		&.label-danger { color: darkest($red); }
+	}
+}

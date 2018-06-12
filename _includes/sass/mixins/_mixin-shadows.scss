@@ -1,0 +1,5 @@
+@mixin shadow($height: 4px, $border:rgba(0,0,0,.025)) {
+	$darkness: number($height) * .01;
+	$contract: $height * -.5;
+	box-shadow: 0 0 0 1px $border, 0 $height $height $contract rgba(0,0,0,$darkness);
+}

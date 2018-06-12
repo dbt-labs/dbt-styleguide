@@ -1,0 +1,35 @@
+@mixin range-thumb($size,$thumbradius,$thumb) { box-shadow: none; border: 0; height: $size; width: $size; border-radius: $thumbradius; background: $thumb; cursor: pointer; @include transitions; }
+@mixin range-trackbar($height) { width: 100%; height: $height; cursor: pointer; }
+@mixin range-track($track,$trackradius) { box-shadow: none; background: $track; border-radius: $trackradius; border: 0 solid transparent; color: transparent; @include transitions; }
+@mixin range-input($track,$trackactive,$height,$trackradius,$thumb,$thumbactive,$size,$thumbradius){
+	// general
+	-webkit-appearance: none; margin: 0; width: 100%; outline: none !important;
+	&::-moz-focus-outer { border: 0; }
+	// track
+	&::-webkit-slider-runnable-track { @include range-trackbar($height); @include range-track($track,$trackradius); }
+	&::-moz-range-track { @include range-trackbar($height); @include range-track($track,$trackradius); }
+	&::-ms-track { @include range-trackbar($height); @include range-track($track,$trackradius); background: transparent; border-width: ( ( $size - $height ) / 2 ) 0; }
+	&::-ms-fill-lower { @include range-track($track,$trackradius); }
+	&::-ms-fill-upper { @include range-track($track,$trackradius); }
+	// thumb
+	&::-webkit-slider-thumb { @include range-thumb($size,$thumbradius,$thumb); -webkit-appearance: none; margin-top: ( $size - $height ) / -2; }
+	&::-moz-range-thumb { @include range-thumb($size,$thumbradius,$thumb); }
+	&::-ms-thumb { @include range-thumb($size,$thumbradius,$thumb); }
+	@supports (-ms-ime-align: auto) { &::-ms-thumb { margin-top: 1px; } }
+	// active thumb
+	&:hover::-webkit-slider-thumb { background: $thumbactive; }
+	&:focus::-webkit-slider-thumb { background: $thumbactive; }
+	&:hover::-moz-range-thumb { background: $thumbactive; }
+	&:focus::-moz-range-thumb { background: $thumbactive; }
+	&:hover::-ms-thumb { background: $thumbactive; }
+	&:focus::-ms-thumb { background: $thumbactive; }
+	// active track
+	&:hover::-webkit-slider-runnable-track { background: $trackactive; }
+	&:focus::-webkit-slider-runnable-track { background: $trackactive; }
+	&:hover::-moz-range-track { background: $trackactive; }
+	&:focus::-moz-range-track { background: $trackactive; }
+	&:hover::-ms-fill-lower { background: $trackactive; }
+	&:focus::-ms-fill-lower { background: $trackactive; }
+	&:hover::-ms-fill-upper { background: $trackactive; }
+	&:focus::-ms-fill-upper { background: $trackactive; }
+}

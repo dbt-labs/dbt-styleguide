@@ -1,0 +1,131 @@
+@mixin focus-shadow($color){
+	@include shadow(15px,$color);
+}
+
+.form-control,
+.input-group-addon,
+.form-control-static,
+.option {
+	line-height: $component-line-height !important;
+	border-width: 0 !important;
+	@include font-size-base;
+	.form-group-lg &,
+	.input-group-lg & {
+		@include font-size-large;
+	}
+	.form-group-sm &,
+	.input-group-sm & {
+		@include font-size-small;
+	}
+	&.input-lg {
+		@include font-size-large;
+	}
+	&.input-sm {
+		@include font-size-small;
+	}
+}
+
+.form-control,
+.form-control-static,
+textarea.form-control,
+.option {
+	height: $input-height-base;
+	line-height: $component-line-height !important;
+	padding: $padding-base-vertical $padding-base-horizontal;
+	border: 0;
+	&.input-sm {
+		height: $input-height-small;
+		padding: $padding-small-vertical $padding-small-horizontal;
+	}
+	&.input-lg {
+		height: $input-height-large;
+		padding: $padding-large-vertical $padding-large-horizontal;
+	}
+}
+
+
+
+textarea.form-control {
+	&:not(.form-control-height) {
+		height: $textarea-height;
+	}
+}
+
+.form-control {
+	@include placeholder($input-color-placeholder);
+	@include transition-properties();
+	@include box-shadow(none);
+	-webkit-appearance: none;
+	text-overflow: ellipsis;
+	box-shadow: none;
+	color: $dark;
+
+	&.input-white { background: white; }
+	&.input-short { width: 64px; }
+	&.input-medium { width: 240px; }
+	&.input-long { width: 100%; }
+	&.input-pill { @include pill(!important); }
+	&.input-dark { background: $silver-dark; }
+
+	&:not(:disabled):not(.disabled):hover {
+		background-color: $input-bg-hover;
+		@include placeholder($input-color-placeholder-hover);
+	}
+
+	&:focus {
+		color: $input-color !important;
+		background-color: white !important;
+		@include focus-shadow($brand-primary);
+		border-radius: $border-radius-base !important;
+		@include placeholder(($light !important));
+		z-index: 3;
+	}
+}
+
+.form-control[type="number"]:not(.spinner) {
+	-moz-appearance: textfield;
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+
+.form-control-static {
+	display: block;
+	min-height: 0;
+	@include ellipsis;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+@mixin form-control-variation($bg,$text,$border){
+	.input-group-addon,
+	.form-control {
+		border-color: transparent !important;
+		background-color: $bg;
+		@include placeholder(mix($text,white));
+		box-shadow: none;
+	}
+	.input-group-addon,
+	.form-control,
+	.select {
+		color: $text;
+	}
+	.form-control:not(:disabled):not(.disabled) {
+		&:hover {
+			@include placeholder(mix($text,white,75%));
+			background-color: darkest($bg);
+			color: darker($text);
+		}
+		&:focus {
+			@include focus-shadow($border);
+		}
+	}
+}
+
+.has-info { @include form-control-variation($state-info-bg,$state-info-text,$brand-info); }
+.has-success { @include form-control-variation($state-success-bg,$state-success-text,$brand-success); }
+.has-warning { @include form-control-variation($state-warning-bg,$state-warning-text,$brand-warning); }
+.has-danger, .has-error { @include form-control-variation($state-danger-bg,$state-danger-text,$brand-danger); }

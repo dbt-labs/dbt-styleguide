@@ -1,0 +1,11 @@
+.waterfall {
+	margin: 0 $component-buffer/-4;
+	@include columns(4,$component-break+$component-buffer,0);
+	.waterfall-item {
+		@include avoid-break;
+		padding: $component-buffer/4;
+		> * {
+			margin: 0;
+		}
+	}
+}

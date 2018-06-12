@@ -1,0 +1,41 @@
+// DISPLAY -------------------------------------------------------
+
+.block { display: block !important; }
+.inline { display: inline !important; }
+.inline-block { display: inline-block !important; }
+.invisible { visibility: hidden; }
+.hidden { display: none; }
+
+// COVERAGE -------------------------------------------------------
+
+.fill { @include fill; }
+.full { @include full; }
+.cover { @include cover; }
+
+// CHILDREN -------------------------------------------------------
+
+.clear { @include clear; }
+.clean { @include clean; }
+
+.trim { @include trim; }
+.snug { @include snug; }
+.compact { @include compact; }
+
+// HELPERS -------------------------------------------------------
+
+.component { @include component; }
+.transitions { @include transitions(.5s); }
+
+// SPACING -------------------------------------------------------
+
+.margin, .margin-top { margin-top: 2em; }
+.margin, .margin-bottom { margin-bottom: 2em; }
+
+.margin-small, .margin-small-top { margin-top: 1em; }
+.margin-small, .margin-small-bottom { margin-bottom: 1em; }
+
+.padding, .padding-top { padding-top: 2em; }
+.padding, .padding-bottom { margin-bottom: 2em; }
+
+.flush, .flush-top { margin-top: 0; }
+.flush, .flush-bottom { margin-bottom: 0; }

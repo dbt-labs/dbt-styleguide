@@ -1,0 +1,21 @@
+<h3 id="{{ entry.title | slugify }}">{{ entry.title | capitalize }} <small><a href="{{site.baseurl}}{{entry.url}}">open</a></small></h3>
+<div class="panel panel-large mobile-expand object {{entry.class}}">
+	<div class="panel-body">
+		<div id="{{ entry.title | slugify }}-example">
+			{% capture baseui %}="{{site.baseurl}}/ui{% endcapture %}
+			{{ entry.content | markdownify | replace: '="/ui',baseui }}
+		</div>
+	</div>
+	<div class="panel-footer {{ entry.title | slugify }}-code">
+		<a
+			href="#{{ entry.title | slugify }}-code"
+			data-target=".{{ entry.title | slugify }}-code"
+			data-toggle="slide"
+		>view code</a>
+	</div>
+	<div class="panel-footer panel-flush {{ entry.title | slugify }}-code hidden" id="{{ entry.title | slugify }}-code">
+		<div class="code panel-code">
+			{% highlight html %}{{ entry.content }}{% endhighlight %}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,6 @@
+.well {
+	padding: $well-padding;
+	box-shadow: none;
+	@include trim;
+	border: 0;
+}

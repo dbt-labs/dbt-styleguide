@@ -1,0 +1,42 @@
+$basis: $component-break + $component-buffer;
+
+.mosaic {
+	@include flex-column;
+	@include flex-align(stretch);
+	&-buffer {
+		margin: 0 $component-buffer/-4;
+	}
+}
+
+.mosaic-row {
+	@include flex-row;
+	@include flex-wrap;
+	@include flex(1,1);
+}
+
+.mosaic-column {
+	@include flex-column;
+	@include flex(1,1,$basis);
+	@for $i from 1 through 12 {
+		&-#{$i} {
+			@include flex(1,1,$basis*$i);
+		}
+	}
+}
+
+.mosaic-item {
+	@include flex-column;
+	> * {
+		@include flex(1,0);
+		margin: 0;
+	}
+	.mosaic-column > & {
+		@include flex(1,1,auto);
+	}
+	.mosaic-row > & {
+		@include flex(1,0,$component-break);
+	}
+	.mosaic-buffer & {
+		margin: $component-buffer/4;
+	}
+}

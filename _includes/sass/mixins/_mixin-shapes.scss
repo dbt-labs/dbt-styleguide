@@ -1,0 +1,25 @@
+//
+// Components
+// --------------------------------------------------
+@mixin component(){
+	display: block;
+	border-width: 0;
+	background: white;
+	@include shadow();
+	border-radius: $component-border-radius;
+}
+
+//
+// Corners
+// --------------------------------------------------
+@mixin circle() {
+	border-radius: 50%;
+}
+
+@mixin round() {
+	border-radius: $border-radius-base;
+}
+
+@mixin pill($important:'') {
+	border-radius: 200px #{$important};
+}

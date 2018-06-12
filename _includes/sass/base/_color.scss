@@ -1,0 +1,64 @@
+$colors: (
+	"red":$red,
+	"orange":$orange,
+	"yellow":$yellow,
+	"green":$green,
+	"blue":$blue,
+	"purple":$purple,
+	"navy":$navy,
+	"gray":$gray
+);
+
+@each $var, $color in $colors {
+	.text-#{$var} { color: $color !important; }
+	.text-#{$var}-dark { color: dark($color) !important; }
+	.text-#{$var}-darker { color: darker($color) !important; }
+	.text-#{$var}-darkest { color: darkest($color) !important; }
+	.text-#{$var}-light { color: light($color) !important; }
+	.text-#{$var}-lighter { color: lighter($color) !important; }
+	.text-#{$var}-lightest { color: lightest($color) !important; }
+	.text-#{$var}-highlight { color: highlight($color) !important; }
+
+	.bg-#{$var} { background-color: $color !important; }
+	.bg-#{$var}-dark { background-color: dark($color) !important; }
+	.bg-#{$var}-darker { background-color: darker($color) !important; }
+	.bg-#{$var}-darkest { background-color: darkest($color) !important; }
+	.bg-#{$var}-light { background-color: light($color) !important; }
+	.bg-#{$var}-lighter { background-color: lighter($color) !important; }
+	.bg-#{$var}-lightest { background-color: lightest($color) !important; }
+	.bg-#{$var}-highlight { background-color: highlight($color) !important; }
+}
+
+
+.text-success { color: $brand-success !important; }
+.text-danger { color: $brand-danger !important; }
+.text-warning { color: $brand-warning !important; }
+.text-info { color: $brand-info !important; }
+
+.text-white { color: white !important; }
+.text-light { color: $light !important; }
+.text-lighter { color: $lighter !important; }
+.text-dark { color: $dark !important; }
+
+.text-silver { color: $silver !important; }
+.text-silver-light { color: $silver-light !important; }
+.text-silver-dark { color: $silver-dark !important; }
+.text-silver-darker { color: $silver-darker !important; }
+.text-silver-darkest { color: $silver-darkest !important; }
+
+.bg-silver { background-color: $silver; }
+.bg-silver-light { background-color: $silver-light !important; }
+.bg-silver-dark { background-color: $silver-dark !important; }
+.bg-silver-darker { background-color: $silver-darker !important; }
+.bg-silver-darkest { background-color: $silver-darkest !important; }
+
+.bg-transparent { background-color: transparent !important; }
+
+::selection {
+  background: $selection-bg;
+	color: $selection-text;
+}
+::-moz-selection {
+  background: $selection-bg;
+	color: $selection-text;
+}

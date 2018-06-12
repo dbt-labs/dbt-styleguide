@@ -1,0 +1,71 @@
+
+
+.message {
+	margin: 20px 0;
+	.message-content {
+		@include flex-row;
+		> * {
+			padding: 0 .5rem;
+		}
+	}
+	&:not(.message-secondary) {
+		.message-content {
+			.message-header {
+				padding-left: 0;
+			}
+			.message-body {
+				padding-right: 4rem;
+				.message-text {
+					border-top-left-radius: $border-radius-base;
+				}
+			}
+		}
+	}
+	&.message-secondary {
+		.message-content {
+			@include flex-justify(flex-end);
+			.message-header {
+				padding-right: 0;
+			}
+			.message-body {
+				padding-left: 4rem;
+				.message-text {
+					border-top-right-radius: $border-radius-base;
+				}
+			}
+		}
+	}
+}
+
+.message-header {
+	@include flex(0,0,auto);
+	.message-secondary & {
+		@include flex-order(2);
+	}
+	.message-avatar {
+		.avatar {
+			font-size: 2.5rem;
+		}
+	}
+}
+
+.message-body {
+	@include flex(0,1,auto);
+	.message-text {
+		background: $silver;
+		padding: $padding-large-vertical $padding-large-horizontal;
+		border-radius: 1.333em;
+		.message-blue & {
+			background: $blue;
+			color: white;
+		}
+		.message-green & {
+			background: $green;
+			color: white;
+		}
+		.message-purple & {
+			background: $purple;
+			color: white;
+		}
+	}
+}

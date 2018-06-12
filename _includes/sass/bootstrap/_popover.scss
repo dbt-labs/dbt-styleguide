@@ -1,0 +1,30 @@
+.popover {
+	@include shadow(20px);
+	@include font-size-base;
+	border-width: 0 !important;
+	color: $popover-color;
+	padding: 0;
+	&, .popover-content, .arrow {
+		@include round;
+	}
+	.popover-content {
+		@include round;
+		margin: 0 !important;
+	}
+	.popover-title, .popover-content {
+		padding: $padding-large-vertical $padding-large-horizontal;
+		background: $popover-bg;
+	}
+	.arrow { 
+		width: 20px;
+		height: 20px;
+		background: $popover-bg;
+		@include shadow(20px);
+		@include transform(rotate(45deg));
+		&:after { display: none; }
+	}
+	&.top .arrow { margin: -10px; margin-bottom: -4px; }
+	&.bottom .arrow { margin: -10px; margin-top: -4px; }
+	&.left .arrow { margin: -10px; margin-right: -4px; }
+	&.right .arrow { margin: -10px; margin-left: -4px; }
+}

@@ -1,0 +1,129 @@
+$app-menus: 320px;
+
+// layout ----------------------------------------
+.app {
+	@include fill;
+	position: fixed;
+}
+.app-row {
+	@include flex-row;
+	@include flex-align(stretch);
+}
+.app-column {
+	@include flex-column;
+	@include flex-align(stretch);
+}
+.app-middle {
+	@include flex-align(center);
+}
+
+// app rows ----------------------------------------
+
+.app-header,
+.app-footer {
+	@include flex(0,0,auto);
+}
+.app-body {
+	@include flex(1,0,0);
+}
+.app-navbar {
+	height: calc( #{$component-height-base} + #{2*$component-padding-vertical} );
+	z-index: 3;
+	background: white;
+}
+
+// app columns ----------------------------------------
+
+.app-menu,
+.app-sidebar,
+.app-content {
+	@include transitions;
+	background: $body-bg;
+}
+.app-menu,
+.app-sidebar {
+	width: 25%;
+	@include flex(0,0,auto);
+}
+.app-content {
+	@include flex(1,0,0);
+}
+
+.app-overlay {
+	background: $silver;
+	position: absolute;
+	display: none;
+	z-index: 2;
+	right: -100vw;
+	left: -100vw;
+	bottom: 0;
+	top: 0;
+	opacity: .9;
+	.app-menu & { left: 100%; box-shadow: inset 5px 0 10px -5px rgba(0,0,0,.2); }
+	.app-sidebar & { right: 100%; box-shadow: inset -5px 0 10px -5px rgba(0,0,0,.2); }
+}
+
+.app-toggle {
+	&:not(:first-child) { padding-left: $component-padding-vertical; }
+	&:not(:last-child) { padding-right: $component-padding-vertical; }
+}
+
+@include min-tablet {
+	.app-toggle { display: none; }
+}
+@include max-tablet {
+	.app-menu,
+	.app-sidebar {
+		z-index: 5;
+		width: $app-menus;
+	}
+	.app-menu,
+	.app-sidebar,
+	.app-menu + .app-content { left: -$app-menus; }
+	.app-content { @include flex(0,0,100%); }
+	.in {
+		&.app-menu { left: 0; }
+		&.app-sidebar { margin-left: -$app-menus; }
+		.app-overlay { display: block; }
+		@include shadow(30px);
+	}
+}
+
+
+// app interior ----------------------------------------
+.app-scroll {
+	@include fill;
+	@include scroll;
+}
+.app-pad {
+	padding: $component-padding;
+}
+.app-pad, .app-pad-v {
+	padding-top: $component-padding-vertical;
+	padding-bottom: $component-padding-vertical;
+}
+.app-pad, .app-pad-h {
+	padding-left: $component-padding-horizontal;
+	padding-right: $component-padding-horizontal;
+}
+.app-sticky {
+	top: 0;
+	z-index: 2;
+	position: sticky;
+	background: $body-bg;
+}
+.app-frame {
+	margin: auto;
+	max-width: 960px;
+}
+.app-shadow {
+	box-shadow: 0 1px 0 rgba(0,0,0,.075);
+}
+.app-flush, .app-flush-top { padding-top: 0; }
+.app-flush, .app-flush-bottom { padding-bottom: 0; }
+
+// sections ----------------------------------------
+
+.app-logo {
+	width: 100px;
+}

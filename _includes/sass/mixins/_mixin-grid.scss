@@ -1,0 +1,19 @@
+@mixin grid($min:200px,$max:320px,$gap:2em){
+	
+	// standard grid
+	display: grid;
+	grid-gap: $gap;
+	grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+	
+	// flexbox grid (incomplete last row will have odd sizing)
+	html.cssgridlegacy & {
+		@include flex-row;
+		@include flex-wrap;
+		padding: $gap/2;
+		> * {
+			@include flex(1,0,$min);
+			max-width: $max;
+			padding: $gap/2;
+		}
+	}
+}

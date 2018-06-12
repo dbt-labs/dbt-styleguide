@@ -1,0 +1,5 @@
+		{% if site.inliner and jekyll.environment == 'production' %}
+		<style>{% capture styles %}{% include sass/sass.scss %}{% endcapture %}{% capture ui %}{{site.baseurl}}/ui/{% endcapture %}{{ styles | scssify | replace: '/ui/' , ui }}</style>
+		{% else %}
+		<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/ui/css/styles.css?{{site.time | date: '%s%N'}}" media="all" />
+		{% endif %}

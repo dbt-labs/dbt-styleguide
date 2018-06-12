@@ -1,0 +1,36 @@
+.menu {
+	margin: 0 -5px;
+	@include font-size-small;
+	ul {
+		@include clean;
+		display: none;
+		ul { margin-left: 23px; }
+	}
+	a {
+		display: block;
+		padding: 3px 5px;
+		border-radius: $border-radius-base;
+		&.menu-tree { color: $light; }
+		&.menu-main { @include font-size-base; margin-bottom: .25em; font-weight: bold; color: $dark; }
+		&.active { color: $dark; }
+		&:hover { 
+			background: $silver;
+			color: $dark;
+		}
+		&.menu-node.active {
+			background: $silver-dark;
+			color: $dark;
+		}
+	}
+	.icn { margin-right: 3px; }
+	> ul,
+	.active + ul {
+		display: block;
+	}
+	> ul {
+		> li { margin-bottom: 1.5em; }
+	}
+}
+
+.menu-icon-on { a:not(.active) & { display: none; } }
+.menu-icon-off { a.active & { display: none; } }

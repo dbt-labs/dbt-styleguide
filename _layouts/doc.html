@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		{% include settings/meta.html %}
+		{% include settings/scripts.html %}
+		{% include settings/styles.html %}
+		<style>
+			.code pre { border-top-left-radius: 0; border-top-right-radius: 0; margin: 0; }
+		</style>
+	</head>
+	<body class="bg-silver-light">
+		{% include content/icons.html %}
+		<div class="container" style="padding: 40px 0;">
+			<div class="row">
+				<div class="col-lg-12">
+					{% assign entry = page %}
+					{% include styles/spec.html %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

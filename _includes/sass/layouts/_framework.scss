@@ -1,0 +1,77 @@
+@mixin grid-rows($rows){
+	-ms-grid-rows: $rows;
+	grid-template-rows: $rows;
+}
+
+@mixin grid-row($start,$span:false){
+	-ms-grid-row: $start;
+	@if $span {
+		-ms-grid-row-span: $span;
+		grid-row: #{$start} / #{$start + $span};
+	} @else {
+		grid-row: $start;
+	}
+}
+
+@mixin grid-cols($cols){
+	-ms-grid-columns: $cols;
+	grid-template-columns: $cols;
+}
+
+@mixin grid-col($start,$span:1){
+	-ms-grid-column: $start;
+	@if $span != 1 {
+		-ms-grid-column-span: $span;
+		grid-column: #{$start} / #{$start + $span};
+	} @else {
+		grid-column: $start;
+	}
+}
+
+.framework {
+	-ms-display: grid;
+	display: grid;
+	height: 100%;
+	> * { padding: 1em 1.5em; }
+	.framework-header { background: $blue; color: white; }
+	.framework-nav { background: $silver; }
+	.framework-menu { background: $silver-light; }
+	.framework-content { background: white; }
+	.framework-content {
+		padding: 0;
+		overflow: auto;
+		> * { padding: 1em 1.5em; }
+		@include flex-column;
+		@include flex-align(stretch);
+		.framework-title { }
+		.framework-actions {
+			position: sticky;
+			top: 0;
+			z-index: 2;
+			background: white;
+		}
+		.framework-body {}
+	}
+	@include min-tablet {
+		@include grid-rows(60px auto);
+		@include grid-cols(60px 240px auto);
+		.framework-header { @include grid-row(1); @include grid-col(1,3); }
+		.framework-nav { @include grid-row(2); @include grid-col(1); }
+		.framework-menu { @include grid-row(2); @include grid-col(2); }
+		.framework-content { @include grid-row(2); @include grid-col(3); }
+	}
+	@include max-tablet {
+		@include grid-rows(60px auto);
+		@include grid-cols(auto);
+		.framework-header { @include grid-row(1); @include grid-col(1); }
+		.framework-nav { display: none; }
+		.framework-menu { display: none; }
+		.framework-content { @include grid-row(2); @include grid-col(1);
+			.framework-actions {
+				@include flex-order(-1);
+			}
+		}
+	}
+}
+
+

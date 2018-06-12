@@ -1,0 +1,17 @@
+.section-target {
+	position: absolute;
+	visibility: hidden;
+	top: -4em;
+}
+
+.section {
+	padding: .75em 0;
+}
+
+.section-content {
+	.panel {
+		.section-target:target + & {
+			@include shadow(30px);
+		}
+	}
+}

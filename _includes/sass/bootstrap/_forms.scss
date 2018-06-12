@@ -1,0 +1,46 @@
+
+.form-group,
+.form-inline {
+	> * {
+		&:not(:last-child) {
+			margin-right: 1em;
+			.form-horizontal & {
+				margin-right: 0;
+			}
+		}
+		label {
+			vertical-align: middle;
+			margin: $padding-base-vertical 0;
+		}
+	}
+}
+
+.help-block {
+	display: block;
+	color: $light;
+	font-style: oblique;
+	font-weight: normal;
+	@include font-size-small;
+	margin: .25em 0;
+	&:empty {
+		display: none;
+	}
+	p {
+		margin: 0;
+		display: inline;
+	}
+	&-inline {
+		display: inline;
+	}
+}
+
+.form-group-lg {
+	@include font-size-large;
+}
+
+
+.form-footer {
+	@include bookend {
+		margin: 2em 0;
+	}
+}

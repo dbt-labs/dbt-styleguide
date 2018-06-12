@@ -1,0 +1,25 @@
+		{% capture title %}{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+		{% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}{% capture image %}{{ site.baseurl }}{% if page.poster %}{{ page.poster }}{% else %}{{ site.poster }}{% endif %}{% endcapture %}{% capture url %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1" />
+		{% comment %} METADATA {% endcomment %}
+		<title>{{ title }}</title>
+		<meta name="description" content="{{ description }}" />
+		<link rel="canonical" href="{{ url }}" />
+		{% comment %} IMAGES {% endcomment %}
+		{% if site.favicon %}<link rel="shortcut icon" href="{{site.baseurl}}{{ site.favicon }}" />{% endif %}
+		{% if site.avatar %}<link rel="apple-touch-icon" href="{{site.baseurl}}{{ site.avatar }}" />{% endif %}
+		{% comment %} OPENGRAPH {% endcomment %}
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{ site.url }}" />
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ title }}" />
+		<meta property="og:description" content="{{ description }}" />
+		<meta property="og:image" content="{{ image }}" />
+		{% comment %} TWITTER {% endcomment %}
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:title" content="{{ title }}"/>
+		<meta name="twitter:description" content="{{ description }}"/>
+		<meta name="twitter:image" content="{{ image }}"/>
+		{% if site.twitter %}<meta name="twitter:site" content="@{{ site.twitter }}"/>{% endif %}

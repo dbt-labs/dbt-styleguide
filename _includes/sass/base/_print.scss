@@ -1,0 +1,32 @@
+$page-w: 8.5in;
+$page-h: 11in;
+$page-m: 0.75in 1in;
+$page-f: 9pt;
+
+@mixin print-settings {
+	font-size: $page-f;
+	body { -webkit-print-color-adjust: exact; }
+	a { white-space: nowrap; }
+}
+
+@include print {
+	html { @include print-settings; }
+	html, body { background: white !important; }
+	@include print-settings;
+	@page { margin: $page-m; }
+}
+
+@include screen {
+	html.print {
+		@include print-settings;
+		@include print-settings;
+		background: $body-bg;
+		body {
+			padding: $page-m;
+			margin: .5in auto;
+			max-width: $page-w;
+			@include shadow;
+			height: auto;
+		}
+	}
+}
