@@ -11,6 +11,7 @@ $('.menu a').on('click',function(){
 		case ( $(this).hasClass('menu-node') ) :
 			$('.menu-node').removeClass('active');
 			$(this).addClass('active');
+			$('.app-menu').removeClass('in');
 			break;
 	}
 });
