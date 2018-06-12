@@ -15,8 +15,8 @@ poster: /ui/img/graph/poster.png
 # --------------------------------------------------
 # the subpath of your site, e.g. /blog
 
-url: "https://docs.getdbt.com"
-baseurl: "/"
+url: "https://somegoodpixels.github.io"
+baseurl: "/dbt-docs"
 
 # --------------------------------------------------
 # Includes
