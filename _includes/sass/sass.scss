@@ -4,11 +4,13 @@
 @import "sass/mixins/mixins";
 
 @import "sass/bootstrap/bootstrap-sass";
-@import "vendors/bootstrap-suggest/css/bootstrap-suggest";
-@import "sass/widgets/suggest";
 
-@import "sass/fonts/arrows";
-@import "sass/fonts/entypo";
+{% if site.arrows %}
+	@import "sass/fonts/arrows";
+{% endif %}
+{% if site.entypo %}
+	@import "sass/fonts/entypo";
+{% endif %}
 
 @import "sass/base/base";
 
