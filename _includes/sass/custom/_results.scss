@@ -1,0 +1,26 @@
+.results {
+	@include font-size-small;
+	.result {
+		@include blocklink;
+		padding: 15px 20px;
+		margin: 0 -20px;
+		@include radius;
+		@include active {
+			background: $silver;
+		}
+	}
+	.result-content {
+		@include flex-row;
+		.result-icn {
+			@include flex(0,0,auto);
+			color: $light;
+			opacity: .5;
+			padding: 2px 20px 0 0;
+
+		}
+		.result-body {
+			@include slim;
+			@include flex(1,1,auto);
+		}
+	}
+}

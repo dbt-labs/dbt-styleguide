@@ -20,6 +20,7 @@ a, .a {
 }
 i, .i, em, .em { font-style: oblique; }
 b, .b, strong, .strong { font-weight: bold; }
+mark { background: $state-info-bg; color: $dark; padding: .1em 0; @include radius; }
 
 // MARGINS -------------------------------------------------------
 
@@ -36,10 +37,9 @@ blockquote { padding: 0; font-size: inherit; }
 
 small, .small, .text-small { @include font-size-small; }
 #{h(5,6)}, .text-base { @include font-size-base; font-weight: bold; }
-#{h(4)}, .text-large { @include font-size-large; font-weight: bold; }
-#{h(3)}, .text-larger { @include font-size-larger; font-weight: bold; }
+#{h(4)}, .text-large { @include font-size-large; }
+#{h(3)}, .text-larger { @include font-size-larger; }
 #{h(1,2)}, .text-largest { @include font-size-largest; }
-
 
 // ALIGNMENT -------------------------------------------------------
 
@@ -71,3 +71,4 @@ small, .small, .text-small { @include font-size-small; }
 
 *:first-child { margin-top: 0; }
 *:last-child { margin-bottom: 0; }
+

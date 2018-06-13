@@ -20,6 +20,10 @@
 	border-radius: $border-radius-base;
 }
 
+@mixin radius($radius:$border-radius-base) {
+	border-radius: $radius;
+}
+
 @mixin pill($important:'') {
 	border-radius: 200px #{$important};
 }

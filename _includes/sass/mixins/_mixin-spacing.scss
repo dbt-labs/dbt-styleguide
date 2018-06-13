@@ -71,6 +71,15 @@
 	}
 }
 
+@mixin slim() { 
+	> * {
+		@include bookend {
+			margin-top: .25em; 
+			margin-bottom: .25em;
+		}
+	}
+}
+
 
 @mixin clip($lines:2){
 	height: $line-height-base * $font-size-base * $lines;

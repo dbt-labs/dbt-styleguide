@@ -42,11 +42,15 @@ $app-menus: 320px;
 }
 .app-menu,
 .app-sidebar {
-	width: 25%;
+	width: 300px;
 	@include flex(0,0,auto);
 }
 .app-content {
 	@include flex(1,0,0);
+	a, .a {
+		color: $blue;
+		@include active { color: dark($blue); }
+	}
 }
 
 .app-overlay {
@@ -63,7 +67,7 @@ $app-menus: 320px;
 	.app-sidebar & { right: 100%; box-shadow: inset -5px 0 10px -5px rgba(0,0,0,.2); }
 }
 
-.app-toggle {
+.app-icn {
 	&:not(:first-child) { padding-left: $component-padding-vertical; }
 	&:not(:last-child) { padding-right: $component-padding-vertical; }
 }
@@ -114,7 +118,9 @@ $app-menus: 320px;
 }
 .app-frame {
 	margin: auto;
-	max-width: 960px;
+	@include min-tablet {
+		width: 90%;
+	}
 }
 .app-shadow {
 	box-shadow: 0 1px 0 rgba(0,0,0,.075);

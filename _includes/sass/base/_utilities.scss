@@ -5,6 +5,7 @@
 .inline-block { display: inline-block !important; }
 .invisible { visibility: hidden; }
 .hidden { display: none; }
+.blocklink { @include blocklink; }
 
 // COVERAGE -------------------------------------------------------
 

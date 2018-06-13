@@ -22,11 +22,8 @@ baseurl: "/dbt-docs"
 # Includes
 
 # Fonts
-googlefonts: false
-typekit: false
 entypo: true
 arrows: true
-blank: false
 
 # Frameworks
 bootstrap: true
@@ -34,7 +31,7 @@ jqueryui: true
 
 # Techniques
 svgicons: true
-inliner: false
+inliner: true
 
 # --------------------------------------------------
 # Build settings

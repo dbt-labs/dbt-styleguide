@@ -75,7 +75,7 @@ textarea.form-control {
 	&:focus {
 		color: $input-color !important;
 		background-color: white !important;
-		@include focus-shadow($brand-primary);
+		@include focus-shadow($blue);
 		border-radius: $border-radius-base !important;
 		@include placeholder(($light !important));
 		z-index: 3;

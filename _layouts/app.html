@@ -15,7 +15,7 @@
 						<div class="app-body">
 							<img class="app-logo" src="{{site.baseurl}}/ui/img/logos/dbt.svg" alt="dbt" />
 						</div>
-						<div class="app-footer app-toggle" data-toggle=".app-menu">
+						<div class="app-footer app-toggle app-icn" data-toggle=".app-menu">
 							<svg class="icn icn-md"><use xlink:href="#icn-close"></use></svg>
 						</div>
 					</div>
@@ -24,55 +24,80 @@
 					<div class="app-scroll app-pad">
 						<div class="menu">
 							<ul>
-								<li>
-									<a href="#" class="menu-tree menu-main active"><svg class="icn menu-icon-on"><use xlink:href="#icn-down"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-right"></use></svg> Schemas</a>
+								{% capture overviewclass %}{% if page.menu == 'overview' %}active{% endif %}{% endcapture %}
+								{% capture nodeclass %}{% if page.menu == 'node' %}active{% endif %}{% endcapture %}
+								<li>{% include menu.html type="link,main" name="Overview" class=overviewclass link="/overview" %}</li>
+								<li>{% include menu.html type="tree,main" name="Schemas" class=nodeclass %}
 									<ul>
-										<li>
-											<a href="#" class="menu-tree active"><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg> dbt_dbanin</a>
+										<li>{% include menu.html type="tree" name="dbt_dbanin" class=nodeclass %}
 											<ul>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_accounts</a></li>
-												<li><a href="#" class="menu-node active"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_accounts</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_pageviews</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_attachments</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_orders</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_products</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_messages</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_categories</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
-												<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> snowplow_groups</a></li>
+												<li>{% include menu.html type="doc" name="snowplow_accounts" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_accounts" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_pageviews" class=nodeclass link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_groups" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_attachments" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_orders" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_products" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_messages" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_categories" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_groups" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_groups" link="/table" %}</li>
 											</ul>
 										</li>
 										{% assign dirs = 'dbt_azure,dbt_tangerine,dbt_umber,dbt_olivine' | split: ',' %}
 										{% for dir in dirs %}
-											<li>
-												<a href="#" class="menu-tree"><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg> {{dir}}</a>
+											<li>{% include menu.html type="tree" name=dir %}
 												<ul>
 													{% assign docs = 'snowplow_accounts,snowplow_pageviews,snowplow_groups,snowplow_attachments,snowplow_orders,snowplow_products,snowplow_messages,snowplow_categories,snowplow_groups' | split: ',' %}
-													{% for doc in docs %}<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> {{doc}}</a></li>{% endfor %}
+													{% for doc in docs %}<li>{% include menu.html type="doc" name=doc link="/table" %}</li>{% endfor %}
 												</ul>
 											</li>
 										{% endfor %}
 									</ul>
 								</li>
-								{% assign cats = 'Category,Group' | split: ',' %}
-								{% for cat in cats %}
-									<li>
-										<a href="#" class="menu-tree menu-main"><svg class="icn menu-icon-on"><use xlink:href="#icn-down"></use></svg><svg class="icn menu-icon-off"><use xlink:href="#icn-right"></use></svg> {{cat}}</a>
-										<ul>
-											{% assign dirs = 'dbt_azure,dbt_tangerine,dbt_umber,dbt_olivine' | split: ',' %}
-											{% for dir in dirs %}
-												<li>
-													<a href="#" class="menu-tree"><svg class="icn menu-icon-off"><use xlink:href="#icn-dir"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-dir-on"></use></svg> {{dir}}</a>
+								<li>{% include menu.html type="dir,main" name="Models" %}
+									<ul>
+										<li>{% include menu.html type="dir" name="base" %}
+											<ul>
+												<li>{% include menu.html type="dir" name="optional" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_base_events.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_base_web_page_context.sql" link="/table" %}</li>
+											</ul>
+										</li>
+										<li>{% include menu.html type="dir" name="fivetran" %}</li>
+										<li>{% include menu.html type="dir" name="identification" %}
+											<ul>
+												<li>{% include menu.html type="doc" name="snowplow_id_map.sql" link="/table" %}</li>
+											</ul>
+										</li>
+										<li>{% include menu.html type="dir" name="page_views" %}
+											<ul>
+												<li>{% include menu.html type="dir" name="optional" %}
 													<ul>
-														{% assign docs = 'snowplow_accounts,snowplow_pageviews,snowplow_groups,snowplow_attachments,snowplow_orders,snowplow_products,snowplow_messages,snowplow_categories,snowplow_groups' | split: ',' %}
-														{% for doc in docs %}<li><a href="#" class="menu-node"><svg class="icn menu-icon-off"><use xlink:href="#icn-doc"></use></svg><svg class="icn menu-icon-on"><use xlink:href="#icn-doc-on"></use></svg> {{doc}}</a></li>{% endfor %}
+														<li>{% include menu.html type="doc" name="snowplow_web_timing_context.sql" link="/table" %}</li>
+														<li>{% include menu.html type="doc" name="snowplow_web_ua_parser_context.sql" link="/table" %}</li>
 													</ul>
 												</li>
-											{% endfor %}
-										</ul>
-									</li>
-								{% endfor %}
+												<li>{% include menu.html type="doc" name="schema.yml" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_page_views.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_events_internal_fixed.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_events_scroll_depth.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_events_timed.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_events.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_events_context.sql" link="/table" %}</li>
+											</ul>
+										</li>
+										<li>{% include menu.html type="dir" name="sessions" %}
+											<ul>
+												<li>{% include menu.html type="doc" name="schema.yml" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_sessions_tmp.sql" link="/table" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_sessions.sql" link="/table" %}</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir,main" name="Category" %}</li>
+								<li>{% include menu.html type="dir,main" name="Group" %}</li>
 							</ul>
 						</div>
 					</div>
@@ -81,15 +106,18 @@
 			<div class="app-content app-column">
 				<div class="app-header app-navbar app-shadow">
 					<div class="app-frame app-pad app-row app-middle">
-						<div class="app-header app-toggle" data-toggle=".app-menu">
+						<div class="app-header app-icn app-toggle" data-toggle=".app-menu">
 							<svg class="icn icn-md"><use xlink:href="#icn-dbt"></use></svg>
 						</div>
 						<div class="app-body">
-							<input type="text" class="form-control" placeholder="Search for tables, columns..."/>
+							<input type="text" class="form-control" placeholder="Search for tables, columns..." data-search />
+						</div>
+						<div class="app-footer app-icn" data-search-close hidden>
+							<svg class="icn icn-md"><use xlink:href="#icn-close"></use></svg>
 						</div>
 					</div>
 				</div>
-				<div class="app-body">
+				<div class="app-body" data-content>
 					<div class="app-scroll">
 						<div class="app-title">
 							<div class="app-frame app-pad app-flush-bottom">
@@ -113,6 +141,50 @@
 						<div class="app-details">
 							<div class="app-frame app-pad">
 								{{content}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="app-body" data-search-content hidden>
+					<div class="app-scroll">
+						<div class="app-title">
+							<div class="app-frame app-pad">
+								<h1>
+									<span class="break" data-search-title></span>
+									<small><span data-search-count>5</span> search results</small>
+								</h1>
+							</div>
+						</div>
+						<div class="app-details">
+							<div class="app-frame app-pad">
+								<div class="results" data-search-results>
+									{% assign results = 'snowplow_accounts,snowplow_account_access,snowplow_useraccounts,snowplow_account_map.sql' | split: ',' %}
+									{% for result in results %}
+										<a href="#" class="result">
+											<div class="result-content">
+												<div class="result-icn">
+													<svg class="icn"><use xlink:href="#icn-tree"></use></svg>
+												</div>
+												<div class="result-body">
+													<h4 class="a">{{result | replace: 'account','<mark>account</mark>' }} <small>incremental</small></h4>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+												</div>
+											</div>
+										</a>
+									{% endfor %}
+									<a href="#" class="result">
+										<div class="result-content">
+											<div class="result-icn">
+												<svg class="icn "><use xlink:href="#icn-doc"></use></svg>
+											</div>
+											<div class="result-body">
+												<h4 class="a">snowplow_id_map.sql <small>incremental</small></h4>
+												<p>Lorem ipsum dolor sit amet, consectetur <mark>account</mark> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+											</div>
+										</div>
+									</a>
+
+								</div>
 							</div>
 						</div>
 					</div>

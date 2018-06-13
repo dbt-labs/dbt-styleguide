@@ -23,6 +23,9 @@ order: 98
 	<svg class="icn"><use xlink:href="#icn-close"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-more"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-menu"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-search"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-tree"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-tree-on"></use></svg>
 </div>
 
 <div class="icns">
@@ -40,4 +43,7 @@ order: 98
 	<svg class="icn icn-lg"><use xlink:href="#icn-close"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-more"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-menu"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-search"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-tree"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-tree-on"></use></svg>
 </div>

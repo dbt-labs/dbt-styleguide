@@ -1,0 +1,12 @@
+{% assign types = include.type %}
+{% unless types contains 'link' %}
+	{% capture icn_on %}<svg class="icn menu-icon-on"><use xlink:href="#icn-{% if types contains 'main' %}down{% else %}{{types}}-on{% endif %}"></use></svg>{% endcapture %}
+	{% capture icn_off %}<svg class="icn menu-icon-off"><use xlink:href="#icn-{% if types contains 'main' %}right{% else %}{{types}}{% endif %}"></use></svg>{% endcapture %}
+{% endunless %}
+{% assign types = types | replace: 'dir','tree' | replace: 'doc','node' | split: ',' %}
+
+<a href="{% if include.link %}{{site.baseurl}}{{include.link}}{% else %}#{% endif %}" class="{% for type in types %} menu-{{type}} {% endfor %} {{include.class}}">
+	{{icn_on}}
+	{{icn_off}}
+	{{include.name}}
+</a>
