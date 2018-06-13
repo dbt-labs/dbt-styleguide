@@ -12,7 +12,8 @@ section: dropdowns
 		<li><a href="#">Action</a></li>
 		<li><a href="#">Another action</a></li>
 		<li><a href="#">Something else here</a></li>
-		<li role="separator" class="divider"></li>
+		<li class="divider"></li>
+		<li class="dropdown-header">Header</li>
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
