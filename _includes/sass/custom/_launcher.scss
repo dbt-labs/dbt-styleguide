@@ -29,13 +29,17 @@
 	top: 0;
 	right: 0;
 	.launcher[data-launcher="sidebar"] & {
-		width: 320px;
+		width: 340px;
 		border-left: 0;
 		.launcher-hide-sidebar:not(.visible) { display: none; }
 	}
 	.launcher[data-launcher="fullscreen"] & {
 		width: 100vw;
 		.launcher-hide-fullscreen:not(.visible) { display: none; }
+	}
+	@include small {
+		width: 100vw !important;
+		border-left-width: 20px;
 	}
 }
 

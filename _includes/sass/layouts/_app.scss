@@ -53,7 +53,9 @@ $app-menus: 320px;
 		@include active { color: dark($blue); }
 	}
 	.launcher.on + .app & {
-		padding-right: 320px;
+		@include large {
+			padding-right: 320px;
+		}
 	}
 }
 

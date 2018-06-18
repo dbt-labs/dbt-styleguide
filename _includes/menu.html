@@ -11,8 +11,8 @@
 {% assign start = include.name | truncate: endsize,'' %}
 
 <a href="{% if include.link %}{{site.baseurl}}{{include.link}}{% else %}#{% endif %}" class="{% for type in types %} menu-{{type}} {% endfor %} {{include.class}}" title="{{include.name}}">
-	<span class="ellip">
-		<span class="ellip-normal">{{icn_on}}{{icn_off}}</span><span class="ellip-clip">{{start}}</span><span class="ellip-normal">{{end}}</span>
+	<span class="filename">
+		<span class="filename-normal">{{icn_on}}{{icn_off}}</span><span class="filename-ellip">{{start}}</span><span class="filename-normal">{{end}}</span>
 	</span>
 </a>
 

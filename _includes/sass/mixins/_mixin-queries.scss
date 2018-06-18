@@ -31,9 +31,9 @@
 @mixin click {         html.no-touchevents & { @content; } }
 @mixin touch {         html.touchevents & { @content; } }
 
-// [data-large] {         @include small { display: none !important; } }
-// [data-small] {         @include large { display: none !important; } }
-// [data-print] {         @include screen { display: none !important; } }
-// [data-screen] {        @include print { display: none !important; } }
-// [data-click] {         @include touch { display: none !important; } }
-// [data-touch] {         @include click { display: none !important; } }
+[data-large] {         @include small { display: none !important; } }
+[data-small] {         @include large { display: none !important; } }
+[data-print] {         @include screen { display: none !important; } }
+[data-screen] {        @include print { display: none !important; } }
+[data-click] {         @include touch { display: none !important; } }
+[data-touch] {         @include click { display: none !important; } }
