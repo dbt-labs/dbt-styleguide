@@ -24,22 +24,23 @@
 
 .launcher-content {
 	position: fixed;
-	height: 100vh;
+	height: 100%;
 	border: 20px solid transparent;
 	top: 0;
 	right: 0;
 	.launcher[data-launcher="sidebar"] & {
-		width: 340px;
-		border-left: 0;
+		@include large {
+			width: 340px;
+			border-left: 0;
+		}
+		@include small {
+			width: 100vw;
+		}
 		.launcher-hide-sidebar:not(.visible) { display: none; }
 	}
 	.launcher[data-launcher="fullscreen"] & {
 		width: 100vw;
 		.launcher-hide-fullscreen:not(.visible) { display: none; }
-	}
-	@include small {
-		width: 100vw !important;
-		border-left-width: 20px;
 	}
 }
 
