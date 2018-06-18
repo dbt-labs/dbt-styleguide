@@ -1,0 +1,28 @@
+.switches {
+	margin: 1.5em 0;
+	@include flex-row;
+	@include flex-wrap;
+	background: mix($silver,$silver-dark);
+	box-shadow: inset 0 0 5px rgba(0,0,0,.05);
+	@include radius;
+	@include font-size-small;
+	.switch {
+		@include flex(1,1,auto);
+		.switch-label {
+			padding: $padding-small-vertical $padding-base-horizontal;
+			color: $light;
+			display: block;
+			text-align: center;
+			@include transitions;
+			@include active {
+				color: $dark;
+			}
+			&.active {
+				@include component;
+				font-weight: bold;
+				//@include shadow(15px,rgba(0,0,0,.05));
+				color: $dark;
+			}
+		}
+	}
+}

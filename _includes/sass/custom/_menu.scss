@@ -28,15 +28,14 @@
 			}
 		}
 	}
-	.icn { margin-right: 3px; }
+	.icn { margin-right: 8px; }
 	> ul,
 	.active + ul {
 		display: block;
 	}
-	> ul {
-		> li { margin-bottom: 1.5em; }
-	}
+	
 }
+
 
 .menu-icon-on { a:not(.active) & { display: none; } }
 .menu-icon-off { a.active & { display: none; } }

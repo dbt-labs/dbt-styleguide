@@ -31,6 +31,9 @@
 	&-text {
 		font-weight: normal;
 		color: inherit;
+		@include active {
+			color: inherit;
+		}
 	}
 
 	&-lg {

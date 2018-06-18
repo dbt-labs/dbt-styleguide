@@ -74,7 +74,7 @@ $font-size-root:                                 14px;
 $font-size-root-full:                            14px;
 
 $font-size-base:                                 1rem; // base
-$font-size-label:                                rem-full(11px); // label
+$font-size-label:                                rem-full(10px); // label
 $font-size-code:                                 rem-full(12px); // code
 $font-size-small:                                rem-full(12px); // small
 $font-size-large:                                1.125rem; // large
@@ -115,7 +115,7 @@ $line-height-max:                                5rem;
 $component-line-height:                          1.5;
 $component-height-small:                         rem-full(28px);
 $component-height-base:                          rem-full(36px);
-$component-height-large:                         rem-full(56px);
+$component-height-large:                         rem-full(60px);
 
 //
 // States
@@ -154,9 +154,9 @@ $padding-xs-vertical:                            $padding-small-vertical;
 $padding-xs-horizontal:                          $padding-small-horizontal;
 $line-height-large:                              $line-height-base;
 $line-height-small:                              $line-height-base;
-$border-radius-base:                             3px;
-$border-radius-large:                            3px;
-$border-radius-small:                            3px;
+$border-radius-base:                             4px;
+$border-radius-large:                            4px;
+$border-radius-small:                            4px;
 
 $component-padding-vertical:                     20px;
 $component-padding-horizontal:                   30px;
@@ -165,7 +165,7 @@ $component-padding-short:                        10px 25px;
 $component-padding-large:                        40px 50px;
 $component-break:                                260px;
 $component-buffer:                               60px;
-$component-border-radius:                        3px;
+$component-border-radius:                        4px;
 
 $margin-vertical:                                50px;
 $margin-small:                                   7.5vw;
@@ -401,7 +401,7 @@ $state-danger-border:                            transparent;
 // --------------------------------------------------
 $tooltip-max-width:                              $mini*3/4;
 $tooltip-color:                                  white;
-$tooltip-bg:                                     $brand;
+$tooltip-bg:                                     light($navy);
 $tooltip-opacity:                                1;
 $tooltip-arrow-width:                            5px;
 $tooltip-arrow-color:                            $tooltip-bg;

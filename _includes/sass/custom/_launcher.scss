@@ -1,0 +1,97 @@
+.launcher {
+	z-index: 10;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	&:not(.on) {
+		.launcher-content { display: none; }
+	}
+	&.on {
+		.launcher-btn {
+			display: none;
+		}
+	}
+}
+
+.launcher-btn {
+	.btn {
+		@include shadow(20px);
+		@include active {
+			@include shadow(40px);
+		}
+	}
+}
+
+.launcher-content {
+	position: fixed;
+	height: 100vh;
+	border: 20px solid transparent;
+	top: 0;
+	right: 0;
+	.launcher[data-launcher="sidebar"] & {
+		width: 320px;
+		border-left: 0;
+		.launcher-hide-sidebar:not(.visible) { display: none; }
+	}
+	.launcher[data-launcher="fullscreen"] & {
+		width: 100vw;
+		.launcher-hide-fullscreen:not(.visible) { display: none; }
+	}
+}
+
+.launcher-window {
+	#{h()} { color: inherit; }
+	@include flex-column;
+	@include scroll;
+	width: 100%;
+	height: 100%;
+	color: white;
+	background: $navy;
+	@include radius;
+	@include shadow(20px);
+	.launcher-header,
+	.launcher-footer {
+		@include flex(0,0,auto);
+		@include flex-row;
+		@include flex-align(center);
+		.launcher-spacer {
+			@include flex(1,0,0);
+		}
+		.launcher-cell {
+			@include flex(1,1,auto);
+			min-width: 0;
+			padding: 20px;
+			&.launcher-flush { padding: 0; }
+			.field-label,
+			.field-input {
+				padding-left: 20px;
+				padding-right: 20px;
+				border-radius: 0 !important;
+				box-shadow: none !important;
+			}
+			.field-input {
+				background-position: calc(100% - #{$padding-base-horizontal} - 5px) 50%;
+			}
+		}
+		.launcher-actions {
+			@include flex(0,0,auto);
+		}
+	}
+	.launcher-footer {
+		@include flex-wrap;
+	}
+	.launcher-body {
+		@include flex(1,1,0);
+		.launcher-scroll {
+			@include fill;
+			.launcher[data-launcher="sidebar"] {
+				@include scroll;
+			}
+		}
+		.launcher-embed {
+			&, iframe, canvas {
+				@include fill;
+			}
+		}
+	}
+}

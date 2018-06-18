@@ -1,0 +1,36 @@
+
+.field {
+	display: block;
+	margin: 0;
+	.field-input {
+		height: $component-height-base + 1.75rem;
+		border-top: 1.75rem solid transparent !important;
+		&:hover, &:focus {
+			+ .field-label { color: $normal; }
+		}
+		
+	}
+	.field-label {
+		pointer-events: none;
+		z-index: 4;
+		@include code;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: $padding-base-vertical $padding-base-horizontal 0;
+	}
+}
+
+
+.fields {
+	@include flex-row;
+	@include flex-wrap;
+	.field {
+		@include flex(1,0,160px);
+	}
+	&:not(.fields-flush) {
+		margin: -5px;
+		.field { border: 5px solid transparent; }
+	}
+}

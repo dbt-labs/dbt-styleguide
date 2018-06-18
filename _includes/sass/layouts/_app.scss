@@ -42,7 +42,8 @@ $app-menus: 320px;
 }
 .app-menu,
 .app-sidebar {
-	width: 300px;
+	width: 20%;
+	min-width: 300px;
 	@include flex(0,0,auto);
 }
 .app-content {
@@ -50,6 +51,9 @@ $app-menus: 320px;
 	a, .a {
 		color: $blue;
 		@include active { color: dark($blue); }
+	}
+	.launcher.on + .app & {
+		padding-right: 320px;
 	}
 }
 
@@ -127,6 +131,8 @@ $app-menus: 320px;
 }
 .app-flush, .app-flush-top { padding-top: 0; }
 .app-flush, .app-flush-bottom { padding-bottom: 0; }
+.app-flush, .app-flush-left { padding-left: 0; }
+.app-flush, .app-flush-right { padding-right: 0; }
 
 // sections ----------------------------------------
 

@@ -1,0 +1,12 @@
+
+.ellip {
+	@include flex-row;
+	.ellip-clip {
+		@include flex(0,1,auto);
+		min-width: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.ellip-normal { @include flex(0,0,auto); }
+}

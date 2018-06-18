@@ -60,12 +60,23 @@ textarea.form-control {
 	box-shadow: none;
 	color: $dark;
 
-	&.input-white { background: white; }
+	&.input-white { background-color: white; }
 	&.input-short { width: 64px; }
 	&.input-medium { width: 240px; }
 	&.input-long { width: 100%; }
 	&.input-pill { @include pill(!important); }
-	&.input-dark { background: $silver-dark; }
+	&.input-dark {
+		background-color: dark($navy);
+		color: white;
+		@include active {
+			background-color: white;
+			color: $dark;
+		}
+		@include placeholder(lightest($navy));
+	}
+	&.input-transparent {
+		background-color: transparent;
+	}
 
 	&:not(:disabled):not(.disabled):hover {
 		background-color: $input-bg-hover;

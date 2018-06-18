@@ -1,0 +1,8 @@
+.nav-pills {
+	> li {
+		> a {
+			@include font-size-small;
+			padding: $padding-small-vertical 1em;
+		}
+	}
+}

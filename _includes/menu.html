@@ -5,8 +5,15 @@
 {% endunless %}
 {% assign types = types | replace: 'dir','tree' | replace: 'doc','node' | split: ',' %}
 
-<a href="{% if include.link %}{{site.baseurl}}{{include.link}}{% else %}#{% endif %}" class="{% for type in types %} menu-{{type}} {% endfor %} {{include.class}}">
-	{{icn_on}}
-	{{icn_off}}
-	{{include.name}}
+{% assign end_chars = 15 %}
+{% assign end = include.name | split: '' | reverse | join: '' | truncate: end_chars,'' | split: '' | reverse | join: '' %}
+{% assign endsize = include.name.size | minus: end.size %}
+{% assign start = include.name | truncate: endsize,'' %}
+
+<a href="{% if include.link %}{{site.baseurl}}{{include.link}}{% else %}#{% endif %}" class="{% for type in types %} menu-{{type}} {% endfor %} {{include.class}}" title="{{include.name}}">
+	<span class="ellip">
+		<span class="ellip-normal">{{icn_on}}{{icn_off}}</span><span class="ellip-clip">{{start}}</span><span class="ellip-normal">{{end}}</span>
+	</span>
 </a>
+
+

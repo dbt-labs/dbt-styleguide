@@ -15,7 +15,7 @@ if ( !is_touch() ) {
 	$(document).tooltip({
 		selector: '[data-toggle="tooltip"]',
 		placement: function(tip,element){
-			return ( $(element).attr('data-placement') ) ? $(element).attr('data-placement') : 'top';
+			return ( $(element).attr('data-placement') ) ? $(element).attr('data-placement') : 'auto';
 		},
 		container: 'body'
 	});
