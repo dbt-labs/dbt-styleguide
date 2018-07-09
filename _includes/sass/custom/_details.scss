@@ -1,0 +1,55 @@
+.details {
+	.details-content {
+		margin: -1em 0;
+		@include large {
+			display: table;
+			width: 100%;
+			.detail-group {
+				display: table-row;
+				> * {
+					display: table-cell;
+					vertical-align: top;
+				}
+				&:not(:last-child) {
+					> * { border-bottom: 1px solid $line; }
+				}
+			}
+		}
+	}
+}
+
+.detail-group {
+	padding-bottom: 1em;
+	&:not(:last-child) { border-bottom: 1px solid $line; }
+	.detail-header {
+		white-space: nowrap;
+		width: 1px;
+		padding: 1em;
+		padding-left: 0;
+		@include small {
+			.detail-label { color: $dark; }
+		}
+	}
+	.detail-body {
+		padding: .5em;
+		@include small {
+			padding: 0;
+			margin: 0 -1em;
+		}
+		.detail {
+			margin: 0;
+			display: inline-block;
+			vertical-align: top;
+			padding: .5em 1em;
+		}
+	}
+}
+
+.detail-label {
+	margin: 0;
+	@include labels;
+	color: $light;
+}
+.detail-value {
+	color: $dark;
+}
