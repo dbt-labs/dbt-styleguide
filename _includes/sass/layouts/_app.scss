@@ -52,11 +52,6 @@ $app-menus: 320px;
 		color: $blue;
 		@include active { color: dark($blue); }
 	}
-	.launcher.on + .app & {
-		@include large {
-			padding-right: 320px;
-		}
-	}
 }
 
 .app-overlay {
