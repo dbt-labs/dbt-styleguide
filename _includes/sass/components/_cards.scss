@@ -2,8 +2,9 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 
 .card {
 	@include component;
-	margin: 20px 0;
 	@include flex-column;
+	margin: 0;
+	padding: 0;
 	> .card-header,
 	> .card-footer {
 		@include flex(0,0);
@@ -11,6 +12,11 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 	> .card-body {
 		@include flex(1,0	);
 	}
+	.section { border-left: $stripe solid $silver-dark; margin: 0; }
+	&.card-success .section { border-color: $green; }
+	&.card-danger .section { border-color: $red; }
+	&.card-warning .section { border-color: $yellow; }
+	&.card-info .section { border-color: $blue; }
 }
 
 .card-footer,
@@ -86,5 +92,23 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 				border-bottom: 1px solid $line;
 			}
 		}
+	}
+}
+
+.cards {
+	margin: -20px;
+	@include columns(3,480px,0);
+	.card {
+		@include avoid-break;
+		padding: 20px;
+	}
+}
+
+.cards-sm {
+	margin: -20px;
+	@include columns(4,360px,0);
+	.card {
+		@include avoid-break;
+		padding: 20px;
 	}
 }

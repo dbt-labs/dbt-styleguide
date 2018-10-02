@@ -1,0 +1,14 @@
+// these are hacks to ease the transition from Sinter's styleguide to
+// the dbt cloud styleguide.
+
+// hide app header, since it will be replaced with breadcrumbs later
+// on.
+.app-header .header .header-title {
+    display: none;
+}
+
+// slide the page down slightly
+
+.app-body .app-page {
+    margin-top: $navbar-height;
+}
