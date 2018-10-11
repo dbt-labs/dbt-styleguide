@@ -63,21 +63,7 @@ class: bg-silver-light
 			<span class="bg-orange-lightest"></span>
 			<span class="bg-orange-highlight"></span>
 		</div>
-		<div class="swatch-label">orange</div>
-	</div>
-	<div class="swatch card text-red">
-		<div class="swatch-color"></div>
-		<div class="swatch-variations">
-			<span class="bg-red-darkest"></span>
-			<span class="bg-red-darker"></span>
-			<span class="bg-red-dark"></span>
-			<span class="bg-red"></span>
-			<span class="bg-red-light"></span>
-			<span class="bg-red-lighter"></span>
-			<span class="bg-red-lightest"></span>
-			<span class="bg-red-highlight"></span>
-		</div>
-		<div class="swatch-label">red</div>
+		<div class="swatch-label">orange/red</div>
 	</div>
 	<div class="swatch card text-purple">
 		<div class="swatch-color"></div>

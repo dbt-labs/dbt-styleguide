@@ -24,3 +24,18 @@ $hue: 0%;
   @return rgb($red,$green,$blue);
   @return white;
 }
+
+@function text($color,$lum:.55) {
+  $desire: $lum;
+  @if luminance($color) > $desire {
+    $dark: dark($color);
+    @if luminance($dark) > $desire {
+      $darker: darker($color);
+      @if luminance($darker) > $desire {
+        @return darkest($color);
+      } @else { @return $darker; }
+    } @else { @return $dark; }
+  } @else {
+    @return $color;
+  }
+}

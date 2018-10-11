@@ -1,14 +1,14 @@
 //
 // Colors
 // --------------------------------------------------
-$red:                                            #d95037;
-$orange:                                         #fb9a14;
+$red:                                            #ff694b;
+$orange:                                         $red;
 $yellow:                                         #ffcc00;
-$green:                                          #89d00c;
-$blue:                                           #0ab0b2;
-$purple:                                         #88447d;
-$navy:                                           #004b61;
-$gray:                                           #919599;
+$green:                                          #7ec631;
+$blue:                                           #00bbbb;
+$purple:                                         #7f6cc5;
+$navy:                                           #005e7a;
+$gray:                                           #8b969e;
 $silver:                                         #f1f3f5;
 $outline:                                        rgba(0,0,0,.075);
 
@@ -33,7 +33,7 @@ $line:                                           $borders;
 //
 // Branding
 // --------------------------------------------------
-$brand:                                          #f56249;
+$brand:                                          $orange;
 //$brand:                                          $blue;
 $link:                                           $brand;
 $hover-bg:                                       $silver;
