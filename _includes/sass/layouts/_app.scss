@@ -48,10 +48,6 @@ $app-menus: 320px;
 }
 .app-content {
 	@include flex(1,0,0);
-	a, .a {
-		color: $blue;
-		@include active { color: dark($blue); }
-	}
 	.launcher.on + .app & {
 		@include large {
 			padding-right: 320px;
@@ -129,7 +125,7 @@ $app-menus: 320px;
 	}
 }
 .app-shadow {
-	box-shadow: 0 1px 0 rgba(0,0,0,.075);
+	box-shadow: 0 1px 0 rgba(0,16,32,.05);
 }
 .app-flush, .app-flush-top { padding-top: 0; }
 .app-flush, .app-flush-bottom { padding-bottom: 0; }

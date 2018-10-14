@@ -5,10 +5,10 @@
 	.table tr.#{$class} { box-shadow: inset $outline 0 0 $color; }
 }
 
-@include table-row-variant('success', transparent);
-@include table-row-variant('info', transparent);
-@include table-row-variant('warning', transparent);
-@include table-row-variant('danger', transparent);
+// @include table-row-variant('success', transparent);
+// @include table-row-variant('info', transparent);
+// @include table-row-variant('warning', transparent);
+// @include table-row-variant('danger', transparent);
 
 @include table-row-status(success,$green);
 @include table-row-status(info,$blue);
@@ -52,6 +52,17 @@ thead > tr > * {
 }
 
 //
+// Spacing
+// --------------------------------------------------
+.table-compact { th, td { @include compact; } }
+.table-middle { th, td { vertical-align: middle !important; } }
+.table-large {
+	tbody { th, td { @include set(padding-top padding-bottom, 1rem !important); } }
+}
+.card .table {
+	th, td { @include set(padding-left padding-right,$padding-large-horizontal); }
+}
+//
 // Sizes
 // --------------------------------------------------
 .table-condensed {
@@ -72,7 +83,24 @@ thead > tr > * {
 		margin-right: $padding-base-horizontal*-1;
 	}
 }
-
+//
+// Links
+// --------------------------------------------------
+.table-linked {
+	overflow: hidden;
+	a { z-index: 3; }
+	.table-link {
+		@include set(width padding, 0 !important);
+		vertical-align: top !important;
+		.table-anchor {
+			position: absolute;
+			display: block;
+			height: 100%;
+			width: 1000vw;
+			z-index: 2;
+		}
+	}
+}
 //
 // Mock tables
 // --------------------------------------------------

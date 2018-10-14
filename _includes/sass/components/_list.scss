@@ -1,0 +1,37 @@
+.list {
+	color: $light;
+	&-item {
+		&:not(:last-child) { border-bottom: 1px solid $line; }
+		&:first-child .list-row { @include set(border-top-right-radius border-top-left-radius,$border-radius-base); }
+		&:last-child .list-row { @include set(border-bottom-right-radius border-bottom-left-radius,$border-radius-base); }
+	}
+	&-link {
+		@include fill;
+		z-index: 2;
+		@include active {
+			+ .list-row {
+				background: $hover-bg;
+				//color: $hover-text;
+			}
+		}
+	}
+	&-row {
+		@include flex-row;
+		@include flex-align(center);
+		@include transitions;
+		> * {
+			@include compact;
+			@include flex(1,1,0);
+			padding: 1.5rem 2rem;
+			a { z-index: 3; }
+		}
+		&-group {
+			padding-left: 0;
+			padding-right: 1rem;
+		}
+		&-graphic, &-arrow {
+			@include flex(0,0,auto);
+			.glyph { opacity: (1/3); }
+		}
+	}
+}

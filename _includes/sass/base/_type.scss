@@ -36,10 +36,16 @@ blockquote { padding: 0; font-size: inherit; }
 // SIZES -------------------------------------------------------
 
 small, .small, .text-small { @include font-size-small; }
-#{h(5,6)}, .text-base { @include font-size-base; font-weight: bold; }
+#{h()} { font-weight: bold; letter-spacing: .01em; }
+#{h(5,6)}, .text-base { @include font-size-base; }
 #{h(4)}, .text-large { @include font-size-large; }
 #{h(3)}, .text-larger { @include font-size-larger; }
 #{h(1,2)}, .text-largest { @include font-size-largest; }
+
+// FONTS -------------------------------------------------------
+
+.text-body { font-family: $font-family-base; }
+.text-mono { font-family: $font-family-monospace; font-size: $font-size-code !important; }
 
 // ALIGNMENT -------------------------------------------------------
 

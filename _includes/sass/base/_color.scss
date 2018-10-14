@@ -54,6 +54,8 @@ $colors: (
 
 .bg-transparent { background-color: transparent !important; }
 
+.faint { opacity: .5; }
+
 ::selection {
   background: $selection-bg;
 	color: $selection-text;

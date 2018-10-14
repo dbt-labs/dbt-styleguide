@@ -39,6 +39,11 @@
 	@include flex-prefix(flex-direction,column-reverse);
 }
 
+@mixin flex-inline(){
+	display: inline-flex;
+}
+
+
 //
 // Justification
 // --------------------------------------------------

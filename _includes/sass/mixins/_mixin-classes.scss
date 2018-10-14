@@ -1,0 +1,19 @@
+@mixin class($class,$attr,$sides,$a,$b:null,$c:false) {
+	@if $c {
+		.#{$class}-#{$a} { #{$attr}: $b $c; }
+		@each $side in $sides {
+			.#{$class}-#{$side}-#{$a} { #{$attr}-#{$side}: $b; }
+		}
+	} @else {
+		.#{$class} { #{$attr}: $a $b; }
+		@each $side in $sides {
+			.#{$class}-#{$side} { #{$attr}-#{$side}: $a; }
+		}
+	}
+}
+
+@mixin set($attrs,$val) {
+	@each $attr in $attrs {
+		#{$attr}: $val;
+	}
+}

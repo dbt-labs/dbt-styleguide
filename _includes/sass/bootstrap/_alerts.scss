@@ -1,8 +1,8 @@
 .alert {
 	border: 0;
-	font-style: oblique;
+	//font-style: oblique;
 	@include bookend {
-		margin: 1em 0;
+		margin: 1.5em 0;
 	}
 	strong {
 		color: inherit;

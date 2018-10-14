@@ -1,0 +1,17 @@
+$control-pad: 7px;
+
+.controls {
+	@include flex-row;
+	@include flex-wrap;
+	@include flex-justify(space-between);
+	&:not(&-block) { @include flex-inline; }
+	margin: -$control-pad;
+	.control {
+		padding: $control-pad;
+		@include flex(0,0,auto);
+		.btn { text-align: center; }
+		.btn, .form-control { width: 100%; }
+		&-grow { @include flex(1,0,auto); }
+		&-full { @include flex(0,0,100%); }
+	}
+}

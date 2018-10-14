@@ -53,6 +53,7 @@
 		height: 0;
 		display: block;
 		overflow: hidden;
+		&:not(.active) { padding: 0; }
 		&.active {
 			height: auto;
 			overflow: visible;
