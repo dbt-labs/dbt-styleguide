@@ -4,6 +4,7 @@ $settings-pad: 15px;
 	@include flex-row;
 	@include flex-wrap;
 	margin: 0 $settings-pad*-2;
+	
 	> * { padding: $settings-pad $settings-pad*2; }
 	&-header {
 		@include flex(1,0,percentage(2/7));
@@ -35,21 +36,25 @@ $settings-pad: 15px;
 			min-width: 120px;
 			padding-top: 8px;
 		}
-		&-response {
-			@include flex(1,1,auto);
-		}
-		&-edit {
-			@include flex(0,0,auto);
-		}
-		&-actions {
-			@include flex(1,1,auto);
-		}
+		&-response { @include flex(1,1,auto); }
+		&-edit { @include flex(0,0,auto); }
+		&-actions { @include flex(1,1,auto); }
 	}
 	&-form {
-		&:not(.active) .setting-active { display: none; }
-		&.active {
-			.setting-row:not(.setting-row-border) { border-color: transparent; }
-			.setting-static { display: none; }
-		}
+		
 	}
+}
+
+.settings {
+	@extend .buffer;
+}
+
+
+[setting-active] { body:not(.editing) .setting-form:not(.editing) & { display: none; } }
+[setting-static] { .editing & { display: none; } }
+[setting-old] { body.editing & { display: none; } }
+[setting-new] { body:not(.editing) & { display: none; } }
+
+.setting-row:not(.setting-row-border) {
+	.editing & { border-color: transparent; }
 }

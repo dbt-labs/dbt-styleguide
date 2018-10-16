@@ -1,0 +1,41 @@
+<nav class="sidenav">
+	<div class="sidenav-overlay" data-sidenav-hide></div>
+	<div class="sidenav-content">
+		<div class="sidenav-navigation">
+			<div class="navigation navigation-pad">
+				<div class="navigation-row">
+					<div class="navigation-item navigation-grow">
+						<div class="logo"><svg class="logo"><use xlink:href="#brand"></use></svg></div>
+					</div>
+					<div class="navigation-item">
+						<a href="#" class="navigation-link" data-sidenav-hide><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sidenav-body">
+			<div class="sidenav-section">
+				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'home' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-home"></use></svg> Home</a></div>
+				<div class="sidenav-region"><a href="/jobs" class="sidenav-link sidenav-link-main {% if page.menu == 'jobs' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-play-circle"></use></svg> Jobs</a></div>
+				<div class="sidenav-region"><a href="/history" class="sidenav-link sidenav-link-main {% if page.menu == 'history' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-list"></use></svg> Run History</a></div>
+			</div>
+			<div class="sidenav-section">
+				<div class="sidenav-region"><a href="/environments" class="sidenav-link sidenav-link-main {% if page.menu == 'environments' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-box"></use></svg> Environments</a></div>
+				<div class="sidenav-region"><a href="/connections" class="sidenav-link sidenav-link-main {% if page.menu == 'connections' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-connection"></use></svg> Connections</a></div>
+				<div class="sidenav-region"><a href="/repos" class="sidenav-link sidenav-link-main {% if page.menu == 'repos' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-book"></use></svg> Repos</a></div>
+			</div>
+			<div class="sidenav-section">
+				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'team' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-users"></use></svg> Team</a></div>
+				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'billing' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-credit-card"></use></svg> Billing</a></div>
+				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'settings' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-settings"></use></svg> Account Settings</a></div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	window.addEventListener('DOMContentLoaded', function() { (function($) {
+		$('[data-sidenav-hide]').on('click',function(){ $('body').removeClass('navigating'); return false; });
+		$('[data-sidenav-show]').on('click',function(){ $('body').addClass('navigating'); return false; });
+	})(jQuery); });
+</script>

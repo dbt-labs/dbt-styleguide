@@ -1,37 +1,22 @@
 ---
-title: Job
+title: List
 layout: cloud
-menu: jobs
+menu: history
 ---
 
-{% capture api %}
-POST https://cloud.getdbt.com/accounts/17/jobs/42/
-{
-  “Param”: “whatever”
-}
-{% endcapture %}
 
 
 <div class="title">
 	<div class="title-header">
-		<ol class="breadcrumb breadcrumb-flush h1">
-			<li><a href="/jobs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Jobs</a></li>
-			<li class="active" setting-old>General</li>
-			<li class="active" setting-new>New Job</li>
-		</ol>
+		<h1>Run History</h1>
 	</div>
 	<div class="title-actions">
 		<div class="controls">
-			<div class="control"><a href="/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-sliders"></use></svg> Job Settings</a></div>
+			<div class="control"><a href="/jobs" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-play-circle"></use></svg> View Jobs</a></div>
 		</div>
 	</div>
 </div>
 
-<div class="card">
-	<div class="card-body">
-		task: job summary goes here...
-	</div>
-</div>
 
 
 <div class="tokens">
@@ -67,12 +52,29 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 	</div>
 	<div class="tokens-content">
 		<div class="token">
+			<div class="token-element"><select class="form-control input-sm  strong"><option selected>Status is</option></select></div>
+			<div class="token-element"><select class="form-control input-sm  strong"><option selected>Running</option></select></div>
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a></div>
+		</div>
+		<div class="token">
+			<div class="token-element"><select class="form-control input-sm  strong"><option selected>User is</option></select></div>
+			<div class="token-element"><input type="text" class="form-control input-sm " value="dbanin" size="16"/></div>
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a></div>
+		</div>
+		<div class="token">
+			<div class="token-element"><select class="form-control input-sm  strong"><option selected>Query Tag</option></select></div>
+			<div class="token-element"><select class="form-control input-sm  strong"><option selected>contains</option></select></div>
+			<div class="token-element"><input type="text" class="form-control input-sm " value="snow" size="16"/></div>
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a></div>
+		</div>
+		<div class="token">
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default">clear</a></div>
+		</div>
+		<div class="token">
 			<div class="token-element"><a href="#" class="btn btn-sm btn-highlight-info">add filter</a></div>
 		</div>
 	</div>
 </div>
-
-
 <div class="card">
 	<div class="table-responsive">
 		<table class="table table-compact table-middle table-justified table-hover table-large table-linked">

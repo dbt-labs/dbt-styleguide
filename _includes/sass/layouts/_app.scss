@@ -4,6 +4,7 @@ $app-menus: 320px;
 .app {
 	@include fill;
 	position: fixed;
+	min-width: $tablet;
 }
 .app-row {
 	@include flex-row;
@@ -74,26 +75,26 @@ $app-menus: 320px;
 	&:not(:last-child) { padding-right: $component-padding-vertical; }
 }
 
-@include min-tablet {
-	.app-toggle { display: none; }
-}
-@include max-tablet {
-	.app-menu,
-	.app-sidebar {
-		z-index: 5;
-		width: $app-menus;
-	}
-	.app-menu,
-	.app-sidebar,
-	.app-menu + .app-content { left: -$app-menus; }
-	.app-content { @include flex(0,0,100%); }
-	.in {
-		&.app-menu { left: 0; }
-		&.app-sidebar { margin-left: -$app-menus; }
-		.app-overlay { display: block; }
-		@include shadow(30px);
-	}
-}
+// @include min-tablet {
+// 	.app-toggle { display: none; }
+// }
+// @include max-tablet {
+// 	.app-menu,
+// 	.app-sidebar {
+// 		z-index: 5;
+// 		width: $app-menus;
+// 	}
+// 	.app-menu,
+// 	.app-sidebar,
+// 	.app-menu + .app-content { left: -$app-menus; }
+// 	.app-content { @include flex(0,0,100%); }
+// 	.in {
+// 		&.app-menu { left: 0; }
+// 		&.app-sidebar { margin-left: -$app-menus; }
+// 		.app-overlay { display: block; }
+// 		@include shadow(30px);
+// 	}
+// }
 
 
 // app interior ----------------------------------------

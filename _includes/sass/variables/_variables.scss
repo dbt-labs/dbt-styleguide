@@ -9,7 +9,7 @@ $blue:                                           #00bbbb;
 $purple:                                         #7f6cc5;
 $navy:                                           #005e7a;
 $gray:                                           #8b969e;
-$silver:                                         #f1f3f5;
+$silver:                                         #f0f2f4;
 $outline:                                        rgba(0,16,32,.04);
 
 //
@@ -21,14 +21,14 @@ $gray-dark:                                      darker($gray);
 $gray-darker:                                    darkest($gray);
 $light:                                          $gray;
 $lighter:                                        $gray-light;
-$normal:                                         $gray;
 $dark:                                           #313539;
-$silver-light:                                   mix($silver,white);
+$normal:                                         mix($gray,$dark);
+$silver-light:                                   #f9fafb;
 $silver-dark:                                    darker($silver);
 $silver-darkest:                                 darker(darker($silver));
 $silver-darker:                                  mix($silver-dark,$silver-darkest);
 $borders:                                        $outline;
-$line:                                           rgba(0,16,32,.06);
+$line:                                           rgba(0,16,32,.075);
 
 //
 // Branding
@@ -212,7 +212,7 @@ $input-bg-disabled:                              $silver-darker;
 $input-color:                                    $btn-default-color;
 $input-color-placeholder:                        light($light);
 $input-style-placeholder:                        oblique;
-$input-color-placeholder-hover:                  #555;
+$input-color-placeholder-hover:                  $normal;
 $input-border:                                   transparent;
 $input-border-focus:                             transparent;
 $textarea-height:                                6em;

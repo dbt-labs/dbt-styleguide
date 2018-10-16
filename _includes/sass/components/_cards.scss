@@ -3,7 +3,7 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card {
 	@include component;
 	@include flex-column;
-	@include bookend { margin: 20px 0; }
+	@extend .buffer;
 	> .card-header,
 	> .card-footer {
 		@include flex(0,0);

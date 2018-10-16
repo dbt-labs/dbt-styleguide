@@ -13,3 +13,4 @@ Clean Modular CSS Interface Framework for Responsive Web Apps
 
 * __New Glyph Format:__ In addition to the .icn specification, there is now a .glyph specification for line-art icons.
 * __New Radios/Checks:__ The specification for custom radio/checkbox icons is updated to use new glyphs.
+* __Legacy Docs:__ Added menu icon, added helper attributes and classes, and removed some responsive styles to hide left menu

@@ -19,6 +19,7 @@ select:not([multiple]).form-control {
 
 .option {
 	&:not(.input-group-addon) { padding-left: 0 !important; }
+	&-flush { @include set(padding-left padding-right,0 !important); }
 	&.input-group-addon { @include set(padding-left padding-right,$padding-small-horizontal); }
 	.glyph { margin-right: .375em; }
 	margin: 0;

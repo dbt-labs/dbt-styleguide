@@ -4,8 +4,9 @@ $control-pad: 7px;
 	@include flex-row;
 	@include flex-wrap;
 	@include flex-justify(space-between);
-	&:not(&-block) { @include flex-inline; }
 	margin: -$control-pad;
+	&:not(&-block) { @include flex-inline; }
+	&-nowrap { @include flex-wrap(nowrap); }
 	.control {
 		padding: $control-pad;
 		@include flex(0,0,auto);

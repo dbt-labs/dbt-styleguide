@@ -11,3 +11,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	@include font-size-root;
 }
+
+body {
+	min-width: $tablet;
+}

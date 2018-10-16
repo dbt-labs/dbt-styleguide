@@ -7,23 +7,24 @@
 	</head>
 	<body>
 		{% include content/icons.html %}
-		<div class="app app-row">
-			<div class="app-content app-column">
-				<div class="app-header app-navbar app-shadow">
-					<div class="app-frame app-pad app-row app-middle">
-						<div class="app-header app-icn app-toggle" data-toggle=".app-menu">
-							<svg class="icn icn-md"><use xlink:href="#icn-dbt"></use></svg>
-						</div>
-						<div class="app-body">
-							<input type="text" class="form-control" placeholder="Search for tables, columns..." data-search />
-						</div>
-						<div class="app-footer app-icn" data-search-close hidden>
-							<svg class="icn icn-md"><use xlink:href="#icn-close"></use></svg>
+		{% if page.include contains 'launcher' %}
+			{% include launcher.html %}
+		{% endif %}
+		{% include sidenav.html %}
+		<div class="layout">
+			<div class="layout-navigation layout-sticky">
+				{% include navigation.html %}
+			</div>
+			<div class="layout-content navigating-blur">
+				{% if page.include contains 'menu' %}
+					<div class="layout-menu">
+						<div class="layout-frame layout-pad">
+							{% include sidemenu.html %}
 						</div>
 					</div>
-				</div>
-				<div class="app-body" data-content>
-					<div class="app-scroll">
+				{% endif %}
+				<div class="layout-body">
+					<div class="layout-frame layout-pad">
 						{{content}}
 					</div>
 				</div>
@@ -31,15 +32,17 @@
 		</div>
 		<script>
 			window.addEventListener('DOMContentLoaded', function() { (function($) {
-				$('[data-submit]').on('submit',function(){ $(this).removeClass('active'); return false; });
-				$('[data-edit]').on('click',function(){ $(this).closest('.setting-form').addClass('active').find(':input:first').focus(); return false; });
-				$('[data-cancel]').on('click',function(){ $(this).closest('.setting-form').removeClass('active'); return false; });
+				$('[data-submit]').on('submit',function(){ $(this).removeClass('editing'); return false; });
+				$('[data-edit]').on('click',function(){ $(this).closest('.setting-form').addClass('editing').find(':input:first').focus(); return false; });
+				$('[data-save]').on('click',function(){ $('.editing').removeClass('editing'); return false; });
+				$('[data-cancel]').on('click',function(){ $(this).closest('.setting-form').removeClass('editing'); return false; });
 				$('[data-add]').on('click',function(){
 					var template = $($(this).attr('data-add')).html();
-					$(this).closest('.setting-form').addClass('active');
+					$(this).closest('.setting-form').addClass('editing');
 					$(this).closest('.setting-row').before(template);
 					return false;
 				});
+				if ( get_param('editing') ) { $('body').addClass('editing'); }
 			})(jQuery); });
 		</script>
 	</body>

@@ -1,0 +1,80 @@
+{% capture overviewclass %}{% if page.menu == 'overview' %}active{% endif %}{% endcapture %}
+{% capture nodeclass %}{% if page.menu == 'node' %}active{% endif %}{% endcapture %}
+<div class="menu">
+	<ul>
+		<li>{% include menu.html type="link,main" name="Overview" class=overviewclass link="/overview" %}</li>
+	</ul>
+</div>
+<div class="switches">
+	<div class="switch "><a href="#" class="active switch-label" onclick="$('#schemas').show();$('#models').hide();$('.switch-label').removeClass('active');$(this).addClass('active')">schemas</a></div>
+	<div class="switch"><a href="#" class="switch-label" onclick="$('#models').show();$('#schemas').hide();$('.switch-label').removeClass('active');$(this).addClass('active')">models</a></div>
+</div>
+<div class="menu" id="schemas">
+	<ul>
+		<li>{% include menu.html type="tree" name="dbt_dbanin" class=nodeclass %}
+			<ul>
+				<li>{% include menu.html type="doc" name="snowplow_accounts" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_accounts" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_pageviews" class=nodeclass link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_mini" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_groups_with_a_really_long_title" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_orders" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_products" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_messages" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_categories" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_groups" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_groups" link="/table-cloud" %}</li>
+			</ul>
+		</li>
+		{% assign dirs = 'dbt_azure,dbt_tangerine,dbt_umber,dbt_olivine' | split: ',' %}
+		{% for dir in dirs %}
+			<li>{% include menu.html type="tree" name=dir %}
+				<ul>
+					{% assign docs = 'snowplow_accounts,snowplow_pageviews,snowplow_groups,snowplow_attachments,snowplow_orders,snowplow_products,snowplow_messages,snowplow_categories,snowplow_groups' | split: ',' %}
+					{% for doc in docs %}<li>{% include menu.html type="doc" name=doc link="/table-cloud" %}</li>{% endfor %}
+				</ul>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+<div class="menu" id="models" style="display:none">
+	<ul>
+		<li>{% include menu.html type="dir" name="base" %}
+			<ul>
+				<li>{% include menu.html type="dir" name="optional" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_base_events.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_base_web_page_context.sql" link="/table-cloud" %}</li>
+			</ul>
+		</li>
+		<li>{% include menu.html type="dir" name="fivetran" %}</li>
+		<li>{% include menu.html type="dir" name="identification" %}
+			<ul>
+				<li>{% include menu.html type="doc" name="snowplow_id_map.sql" link="/table-cloud" %}</li>
+			</ul>
+		</li>
+		<li>{% include menu.html type="dir" name="page_views" %}
+			<ul>
+				<li>{% include menu.html type="dir" name="optional" %}
+					<ul>
+						<li>{% include menu.html type="doc" name="snowplow_web_timing_context.sql" link="/table-cloud" %}</li>
+						<li>{% include menu.html type="doc" name="snowplow_web_ua_parser_context.sql" link="/table-cloud" %}</li>
+					</ul>
+				</li>
+				<li>{% include menu.html type="doc" name="schema.yml" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_page_views.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_web_events_internal_fixed.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_web_events_scroll_depth.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_web_events_timed.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_web_events.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_web_events_context.sql" link="/table-cloud" %}</li>
+			</ul>
+		</li>
+		<li>{% include menu.html type="dir" name="sessions" %}
+			<ul>
+				<li>{% include menu.html type="doc" name="schema.yml" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_sessions_tmp.sql" link="/table-cloud" %}</li>
+				<li>{% include menu.html type="doc" name="snowplow_sessions.sql" link="/table-cloud" %}</li>
+			</ul>
+		</li>
+	</ul>
+</div>
