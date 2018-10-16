@@ -12,7 +12,7 @@ menu: history
 	</div>
 	<div class="title-actions">
 		<div class="controls">
-			<div class="control"><a href="/jobs" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-play-circle"></use></svg> View Jobs</a></div>
+			<div class="control"><a href="{{site.baseurl}}/jobs" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-play-circle"></use></svg> View Jobs</a></div>
 		</div>
 	</div>
 </div>
@@ -82,7 +82,7 @@ menu: history
 			<tbody>
 				{% for i in (1..10) %}
 					<tr>
-						<td class="table-link"><a class="table-anchor" href="/run"></a></td>
+						<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/run"></a></td>
 						<td class="success"><span class="label label-success">success</span></td>
 						<td><h6>Incremental </h6><p>Scheduled</p></td>
 						<td><h6>master <code class="text-info">#12345</code></h6><p><em>default schema</em></p></td>

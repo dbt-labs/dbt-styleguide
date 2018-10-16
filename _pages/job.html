@@ -15,14 +15,14 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 <div class="title">
 	<div class="title-header">
 		<ol class="breadcrumb breadcrumb-flush h1">
-			<li><a href="/jobs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Jobs</a></li>
+			<li><a href="{{site.baseurl}}/jobs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Jobs</a></li>
 			<li class="active" setting-old>General</li>
 			<li class="active" setting-new>New Job</li>
 		</ol>
 	</div>
 	<div class="title-actions">
 		<div class="controls">
-			<div class="control"><a href="/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-sliders"></use></svg> Job Settings</a></div>
+			<div class="control"><a href="{{site.baseurl}}/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-sliders"></use></svg> Job Settings</a></div>
 		</div>
 	</div>
 </div>
@@ -80,7 +80,7 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 			<tbody>
 				{% for i in (1..10) %}
 					<tr>
-						<td class="table-link"><a class="table-anchor" href="/run"></a></td>
+						<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/run"></a></td>
 						<td class="success"><span class="label label-success">success</span></td>
 						<td><h6>Incremental </h6><p>Scheduled</p></td>
 						<td><h6>master <code class="text-info">#12345</code></h6><p><em>default schema</em></p></td>
