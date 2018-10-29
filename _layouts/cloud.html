@@ -16,16 +16,21 @@
 				{% include navigation.html %}
 			</div>
 			<div class="layout-content navigating-blur">
-				{% if page.include contains 'menu' %}
-					<div class="layout-menu">
-						<div class="layout-frame layout-pad">
-							{% include sidemenu.html %}
-						</div>
-					</div>
+				{% if page.alert %}
+					<div class="layout-alert text-center">{{ page.alert }}</div>
 				{% endif %}
-				<div class="layout-body">
-					<div class="layout-frame layout-pad">
-						{{content}}
+				<div class="layout-row">
+					{% if page.include contains 'menu' %}
+						<div class="layout-menu">
+							<div class="layout-frame layout-pad">
+								{% include sidemenu.html %}
+							</div>
+						</div>
+					{% endif %}
+					<div class="layout-body">
+						<div class="layout-frame layout-pad">
+							{{content}}
+						</div>
 					</div>
 				</div>
 			</div>

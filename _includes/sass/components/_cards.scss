@@ -21,7 +21,7 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 }
 
 .card-expand {
-	margin: -$component-padding;
+	margin: $component-padding-vertical*-1 $component-padding-horizontal*-1;
 }
 
 .card-header {
@@ -89,4 +89,8 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 			}
 		}
 	}
+}
+
+.card-list {
+	&:not(:first-child) { border-top: 1px solid $line; }
 }

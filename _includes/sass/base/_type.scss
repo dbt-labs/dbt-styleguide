@@ -80,3 +80,5 @@ small, .small, .text-small { @include font-size-small; }
 *:first-child { margin-top: 0; }
 *:last-child { margin-bottom: 0; }
 
+.margin-right { margin-right: .75em; }
+.margin-left { margin-left: .75em; }

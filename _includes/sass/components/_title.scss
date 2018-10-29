@@ -13,13 +13,18 @@
 		padding: 5px 0;
 		margin: 0 10px;
 	}
-	.title-header {
+	&-header {
 		@include flex(0,1,auto);
 	}
-	.title-body {
+	&-body {
 		@include flex(1,1,auto);
 	}
-	.title-actions {
+	&-actions {
 		@include flex(0,1,auto);
 	}
+	&-fix {
+		min-height: 50px;
+	}
+	&:first-child { margin-top: -5px; }
+	&:last-child { margin-bottom: -5px; }
 }

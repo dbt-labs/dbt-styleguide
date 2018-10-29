@@ -61,6 +61,12 @@
 		@include set(width min-width,$component-height-base);
 		&.btn-sm { @include set(width min-width,$component-height-small); }
 		&.btn-lg { @include set(width min-width,$component-height-large); }
+		.icon, .glyph {
+			margin: 0;
+			position: absolute;
+			@include set(top left,50%);
+			@include transform(translate(-50%,-50%));
+		}
 		&-slim {
 			min-width: 0;
 		}

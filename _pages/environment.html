@@ -6,17 +6,18 @@ menu: environments
 
 
 
-<div class="title">
+<div class="title title-fix">
 	<div class="title-header">
 		<ol class="breadcrumb breadcrumb-flush h1">
 			<li><a href="{{site.baseurl}}/environments"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Environments</a></li>
-			<li class="active" setting-old>Continuous Integration</li>
+			<li class="active" setting-old>Development</li>
 			<li class="active" setting-new>New Environment</li>
 		</ol>
 	</div>
-	<div class="title-actions" setting-new>
+	<div class="title-actions" >
 		<div class="controls">
-			<div class="control"><input type="submit" class="btn btn-primary" value="Save" data-save/></div>
+			<div class="control" setting-old><a href="{{site.baseurl}}/runs" class="btn btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> Run History</a></div>
+			<div class="control" setting-new><input type="submit" class="btn btn-primary" value="Save" data-save/></div>
 		</div>
 	</div>
 </div>
@@ -37,8 +38,8 @@ menu: environments
 					<form class="setting-form active" data-submit>
 						<div class="setting-row">
 							<div class="setting-row-label"><div class="label">Name</div></div>
-							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Continuous Integration</div></div>
-							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="Continuous Integration" autofocus/></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Development</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="Development" autofocus/></div>
 						</div>
 						<div class="setting-row">
 							<div class="setting-row-label"><div class="label">DBT Version</div></div>

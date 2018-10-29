@@ -36,12 +36,7 @@ $arrows: (
 	}
 }
 
-@font-face{
-	font-family: 'arrows';
-	src: asset_data_url('arrows/arrows.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
+@include font-face-woff("arrows","../fonts/arrows/arrows.woff");
 
 [class*="arrow-"] {
 	@include arrow-pseudo {

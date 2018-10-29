@@ -40,6 +40,7 @@ thead > tr > * {
 		border-width: 1px;
 	}
 	@include labels;
+	color: $light;
 }
 
 //

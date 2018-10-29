@@ -1,7 +1,5 @@
 $hue: 0%;
 
-
-
 @function luminance($color){
   $red: red($color);
   $green: green($color);

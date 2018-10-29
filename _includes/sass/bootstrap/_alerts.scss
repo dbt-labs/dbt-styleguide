@@ -12,4 +12,14 @@
 		background: $silver-light;
 		color: $light;
 	}
+	&-flush {
+		margin: 0;
+	}
+	&-trim {
+		@include set(padding-left padding-right,0);
+	}
+	&-link {
+		//margin: 0 2em;
+		font-weight: bold !important;
+	}
 }

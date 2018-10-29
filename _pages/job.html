@@ -12,7 +12,7 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 {% endcapture %}
 
 
-<div class="title">
+<div class="title title-fix">
 	<div class="title-header">
 		<ol class="breadcrumb breadcrumb-flush h1">
 			<li><a href="{{site.baseurl}}/jobs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Jobs</a></li>
@@ -22,14 +22,37 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 	</div>
 	<div class="title-actions">
 		<div class="controls">
-			<div class="control"><a href="{{site.baseurl}}/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-sliders"></use></svg> Job Settings</a></div>
+			<div class="control"><a href="{{site.baseurl}}/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-settings"></use></svg> Edit Job</a></div>
 		</div>
 	</div>
 </div>
 
 <div class="card">
-	<div class="card-body">
-		task: job summary goes here...
+	<div class="kpis">
+		<div class="kpi kpi-lg bg-success text-success">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value">Success</div>
+					<div class="kpi-label"><span class="label">Last Result</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value">7m ago <span class="label">2018-09-11 00:00:01SLIDWZ</span></div>
+					<div class="kpi-label"><span class="label">Last Run</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value"><a href="#" class="arrow-right">Production</a></div>
+					<div class="kpi-label"><span class="label">Environment</span></div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -40,7 +63,7 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 			<div class="token-element"><a href="#" class="btn btn-sm btn-text btn-icon"><svg class="glyph"><use xlink:href="#glyph-refresh"></use></svg></a></div>
 		</div>
 		<div class="token">
-			<div class="token-element"><a href="#" class="btn btn-sm btn-success">run job</a></div>
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> view in run history</a></div>
 		</div>
 		<!-- <div class="token">
 			<div class="token-element">
@@ -70,7 +93,7 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 	</div>
 	<div class="tokens-content">
 		<div class="token">
-			<div class="token-element"><a href="#" class="btn btn-sm btn-default">filter in run history</a></div>
+			<div class="token-element"><a href="#" class="btn btn-sm btn-success">run job</a></div>
 		</div>
 	</div>
 </div>
@@ -78,7 +101,7 @@ POST https://cloud.getdbt.com/accounts/17/jobs/42/
 
 <div class="card">
 	<div class="table-responsive">
-		<table class="table table-compact table-middle table-justified table-hover table-large table-linked">
+		<table class="table table-compact table-middle table-justified table-hover table-large table-linked text-light">
 			<thead><tr><th class="table-link"></th><th>Status</th><th>Job/Trigger</th><th>Info</th><th>Timing</th><th></th></tr></thead>
 			<tbody>
 				{% for i in (1..10) %}

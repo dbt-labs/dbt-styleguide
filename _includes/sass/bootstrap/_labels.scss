@@ -3,7 +3,7 @@
 	@include transitions;
 	display: inline-block;
 	text-align: inherit;
-	padding: 6px 0;
+	padding: 0;
 	border: 0;
 	&-default { color: $label-color; }
 	&-success { color: #{dark($green)}; }

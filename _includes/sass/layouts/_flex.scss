@@ -18,6 +18,10 @@ $basis: $component-break + $component-buffer;
 	margin: 0 $component-buffer/-4;
 }
 
+.flex-flush {
+	@include set(margin-top margin-bottom,$component-buffer/-4);
+}
+
 .flex-item {
 	.flex-column > & { @include flex(1,1,auto); }
 	.flex-row > & { @include flex(1,0,$component-break); }

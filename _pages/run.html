@@ -5,24 +5,45 @@ menu: jobs
 ---
 
 
-<div class="title">
+<div class="title title-fix">
 	<div class="title-header">
 		<ol class="breadcrumb breadcrumb-flush h1">
-			<li><a href="{{site.baseurl}}/history"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Run History</a></li>
+			<li><a href="{{site.baseurl}}/runs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Run History</a></li>
 			<li><a href="{{site.baseurl}}/job">Incremental</a></li>
 			<li class="active">Job 1234</li>
 		</ol>
 	</div>
-</div>
-
-<div class="card">
-	<div class="card-body">
-		task: run details go here...
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control"><a href="{{site.baseurl}}/table-cloud" class="btn btn-primary"><svg class="glyph glyph-before"><use xlink:href="#glyph-book-open"></use></svg> View Docs</a></div>
+		</div>
 	</div>
 </div>
 
-
-
+<div class="card">
+	<div class="kpis">
+		<div class="kpi kpi-lg bg-success text-success">
+			<div class="kpi-value">Success</div>
+			<div class="kpi-label"><span class="label">Run Result</div>
+		</div>
+		<div class="kpi kpi-lg">
+			<div class="kpi-value">19m <small class="label">00:19:01</small></div>
+			<div class="kpi-label"><span class="label">Total Duration</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">31s <small class="label">00:00:31</small></div>
+			<div class="kpi-label"><span class="label">In Queue</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">18m <small class="label">00:18:30</small></div>
+			<div class="kpi-label"><span class="label">In Queue</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">7m ago <small class="label">2018-09-11 00:00:01SLIDWZ</small></div>
+			<div class="kpi-label"><span class="label">Triggered</div>
+		</div>
+	</div>
+</div>
 
 <div class="card">
 	<div class="card-tabs">
@@ -35,7 +56,7 @@ menu: jobs
 		<div class="tab-content">
 			<div class="tab-pane active" id="steps">
 				<div class="table-responsive">
-					<table class="table table-compact table-middle table-justified table-hover table-linked">
+					<table class="table table-compact table-middle table-justified table-hover table-linked text-light">
 						<thead><tr><th class="table-link"></th><th class="sm">Status</th><th>Description</th><th>Logs</th></tr></thead>
 						<tbody>
 							<tr>

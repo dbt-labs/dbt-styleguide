@@ -16,8 +16,11 @@
 		@include shadow;
 		background: white;
 	}
-	&-content {
+	&-row {
 		@include flex-row;
+	}
+	&-alert {
+		@include flex(0,0,100%);
 	}
 	&-menu {
 		@include flex(0,0,percentage(1/4));
@@ -26,5 +29,6 @@
 	}
 	&-body {
 		@include flex(1,1,auto);
+		box-shadow: 0 -1px 0 $outline;
 	}
 }

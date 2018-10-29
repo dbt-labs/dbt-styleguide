@@ -1,7 +1,7 @@
 .list {
 	color: $light;
 	&-item {
-		&:not(:last-child) { border-bottom: 1px solid $line; }
+		&:not(:first-child) { border-top: 1px solid $line; }
 		&:first-child .list-row { @include set(border-top-right-radius border-top-left-radius,$border-radius-base); }
 		&:last-child .list-row { @include set(border-bottom-right-radius border-bottom-left-radius,$border-radius-base); }
 	}
@@ -14,6 +14,10 @@
 				//color: $hover-text;
 			}
 		}
+	}
+	&-item.active .list-row {
+		#{h()}, & { color: $component-active-color; }
+		background: $component-active-bg;
 	}
 	&-row {
 		@include flex-row;
@@ -31,7 +35,18 @@
 		}
 		&-graphic, &-arrow {
 			@include flex(0,0,auto);
-			.glyph { opacity: (1/3); }
+			> .glyph { opacity: (1/3); }
+		}
+		&-sm {
+			> * { @include set(padding-top padding-bottom,12px); }
+		}
+		&-xs {
+			> * { @include set(padding-top padding-bottom,7px); }
+		}
+	}
+	.card-list & {
+		.list-row > * {
+			@include set(padding-left paddign-right,$component-padding-horizontal);
 		}
 	}
 }

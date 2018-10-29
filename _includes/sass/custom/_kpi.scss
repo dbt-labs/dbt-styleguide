@@ -1,0 +1,27 @@
+.kpi {
+	color: $dark;
+	padding: 20px 32px;
+	&-lg {
+		.kpi-value {
+			font-weight: bold;
+			@include font-size-h2;
+		}
+	}
+	&-content {
+		@include table;
+	}
+	&-graphic {
+		white-space: nowrap;
+		width: 1px;
+		padding-right: .5em;
+	}
+}
+
+.kpis {
+	@include table(middle);
+	width: auto;
+	.kpi {
+		&:first-child { @include set(border-top-left-radius border-bottom-left-radius,$border-radius-base); }
+		&:last-child { @include set(border-top-right-radius border-bottom-right-radius,$border-radius-base); }
+	}
+}
