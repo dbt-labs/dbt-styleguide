@@ -30,6 +30,20 @@
 	&-region {
 		padding-bottom: .25em;
 	}
+	&-divider {
+		@include flex-row;
+		@include flex-align(center);
+		&:after {
+			content: '';
+			display: block;
+			border-top: 1px solid $line;
+			@include flex(1,1,auto);
+		}
+		&-heading {
+			@include flex(0,0,auto);
+			padding-right: 1em;
+		}
+	}
 	&-section {
 		padding: 24px 0;
 		& + & { border-top: 1px solid $line; }

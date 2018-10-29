@@ -11,10 +11,11 @@ menu: home
 </div>
 
 {% assign envs = 'Production, Development, Continuous Integration' | split: ',' %}
+{% assign count = 1 %}
 <div class="flex-row flex-buffer flex-flush">
 	{% for env in envs %}
 		<div class="card flex-item flex-buffer flex-column text-light">
-			<div class="card-body">
+			<div class="card-header snug">
 				<h3><a href="{{site.baseurl}}/environment" class="text-inherit arrow-right">{{env}}</a></h3>
 				<div class="compact">
 					<p>Repository: <a href="#">fishtown-analytics/snowplow</a></p>
@@ -24,19 +25,22 @@ menu: home
 			</div>
 			<div class="card-list flex-grow">
 				<div class="list">
-					{% assign jobs = 'Global,NYC,Southeast' | split: ',' %}
+					{% assign jobs = 'Global,NYC,Southeast,East Coast, Canada' | split: ',' %}
 					{% for job in jobs %}
-						<div class="list-item">
-							<a href="#" class="list-link"></a>
-							<div class="list-row list-row-xs">
-								<div class="list-row-group"><h6>{{job}} <span class="label margin-left"><span class="text-success">Success</span> 7m</span></h6></div>
-								<div class="list-row-arrow"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+						{% if forloop.index > count %}
+							<div class="list-item">
+								<a href="#" class="list-link"></a>
+								<div class="list-row list-row-xs">
+									<div class="list-row-group"><h6>{{job}} <span class="label margin-left"><span class="text-success">Success</span> 7m</span></h6></div>
+									<div class="list-row-arrow"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+								</div>
 							</div>
-						</div>
+						{% endif %}
 					{% endfor %}
 				</div>
 			</div>
 		</div>
+		{% assign count = count | plus: 1 %}
 	{% endfor %}
 </div>
 
