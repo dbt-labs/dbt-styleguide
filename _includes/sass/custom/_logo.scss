@@ -1,7 +1,7 @@
 .logo {
 	display: block;
 	overflow: hidden;
-	&, svg { height: 24px; width: 144px; }
+	&, svg { height: 24px; width: 88px; }
 	color: $dark;
 	svg { fill: currentColor; }
 	@include max-phone {

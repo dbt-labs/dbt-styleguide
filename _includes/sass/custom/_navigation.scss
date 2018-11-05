@@ -1,6 +1,7 @@
 $nav-pad: 14px;
 
 .navigation {
+	color: $headings-color;
 	&-row {
 		height: 72px;
 		margin: 0 $nav-pad*-1;

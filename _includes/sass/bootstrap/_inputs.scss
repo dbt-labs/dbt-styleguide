@@ -23,6 +23,10 @@
 	&.input-sm {
 		@include font-size-small;
 	}
+	&::-ms-expand { display: none; }
+	&::-ms-clear { display: none; }
+	&::-ms-value { background: transparent !important; }
+
 }
 
 .form-control,

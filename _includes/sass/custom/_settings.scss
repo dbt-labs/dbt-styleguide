@@ -2,7 +2,7 @@ $settings-pad: 15px;
 
 .setting {
 	@include flex-row;
-	@include flex-wrap;
+	//@include flex-wrap;
 	margin: 0 $settings-pad*-2;
 	
 	> * { padding: $settings-pad $settings-pad*2; }
