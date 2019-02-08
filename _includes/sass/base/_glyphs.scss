@@ -58,7 +58,7 @@ $glyph-size: 24px;
 		:checked ~ &, [type="checkbox"]:indeterminate ~ & { background: $link-color; use { opacity: 1; } }
 		:checked:hover ~ &, :checked:focus ~ &, [type="checkbox"]:indeterminate:hover ~ &, [type="checkbox"]:indeterminate:focus ~ &, :hover > :checked ~ &, :focus > :checked ~ & { background: $link-hover-color; }
 		[type="checkbox"]:indeterminate ~ & { use { fill: currentColor; stroke: transparent; } }
-		:disabled ~ &, :checked:disabled ~ & { background: dark($input-bg-disabled); color: inherit; }
+		:disabled ~ &, :checked:disabled ~ &, [type="checkbox"]:indeterminate:disabled ~ & { background: dark($input-bg-disabled); color: inherit; }
 	}
 	&-radio { @include circle; use { fill: currentColor; } }
 	&-check { @include radius($border-radius-small); }
