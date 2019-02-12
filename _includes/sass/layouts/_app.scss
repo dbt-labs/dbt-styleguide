@@ -49,11 +49,6 @@ $app-menus: 320px;
 }
 .app-content {
 	@include flex(1,0,0);
-	.launcher.on + .app & {
-		@include large {
-			padding-right: 320px;
-		}
-	}
 
 	a, .a {
 		color: $blue;
