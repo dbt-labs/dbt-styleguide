@@ -20,6 +20,23 @@
 		margin: 0;
 		padding: $padding-base-vertical $padding-base-horizontal 0;
 	}
+    .field-text {
+		height: $component-height-base + 1.75rem;
+		border-top: 1.75rem solid transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+		padding: $padding-base-vertical $padding-base-horizontal 0;
+    }
+	.field-text-label {
+		pointer-events: none;
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: $padding-base-vertical $padding-base-horizontal 0;
+        font-variant: small-caps;
+	}
 }
 
 

@@ -54,6 +54,11 @@ $app-menus: 320px;
 			padding-right: 320px;
 		}
 	}
+
+	a, .a {
+		color: $blue;
+		@include active { color: dark($blue); }
+	}
 }
 
 .app-overlay {
