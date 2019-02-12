@@ -1,0 +1,56 @@
+<div class="launcher" data-launcher="sidebar">
+	<div class="launcher-section">
+		<div class="launcher-btn">
+			<a href="#" onclick="$('.launcher').addClass('on')" class="btn btn-info btn-pill btn-lg btn-icon btn-shadow" data-toggle="tooltip" title="View Lineage Graph"><svg class="icn icn-md"><use xlink:href="#icn-flow"></use></svg></a>
+		</div>
+		<div class="launcher-content">
+			<div class="launcher-window">
+				<div class="launcher-header">
+					<div class="launcher-cell">
+						<h6>Lineage Graph</h6>
+					</div>
+					<div class="launcher-actions">
+						<a href="#" onclick="$('.launcher').attr('data-launcher','fullscreen')" data-large class="launcher-hide-fullscreen btn btn-text btn-lg btn-icon btn-shadow" data-toggle="tooltip" title="View Fullscreen"><svg class="icn icn-md"><use xlink:href="#icn-expand"></use></svg></a>
+						<a href="#" onclick="$('.launcher').attr('data-launcher','sidebar')" class="launcher-hide-sidebar btn btn-text btn-lg btn-icon btn-shadow" data-toggle="tooltip" title="View Fullscreen"><svg class="icn icn-md"><use xlink:href="#icn-contract"></use></svg></a>
+					</div>
+				</div>
+				<div class="launcher-body">
+					<div class="launcher-embed">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d97893.10826659044!2d-75.1029351667691!3d39.937818816833826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1529270748821" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="launcher-footer">
+					<div class="launcher-cell launcher-flush">
+						<div class="fields fields-flush launcher-hide-sidebar" id="filters">
+							<label class="field">
+								<select class="field-input form-control input-dark input-transparent"></select>
+								<div class="field-label">node configs</div>
+							</label>
+							<label class="field">
+								<select class="field-input form-control input-dark input-transparent"></select>
+								<div class="field-label">node types</div>
+							</label>
+							<label class="field">
+								<select class="field-input form-control input-dark input-transparent"></select>
+								<div class="field-label">packages</div>
+							</label>
+							<label class="field">
+								<input type="text" class="field-input form-control input-dark input-transparent" placeholder="model_1+model_2" />
+								<div class="field-label">--models</div>
+							</label>
+							<label class="field">
+								<input type="text" class="field-input form-control input-dark input-transparent" placeholder="model_3" />
+								<div class="field-label">--exclude</div>
+							</label>
+						</div>
+					</div>
+					<div class="launcher-spacer"></div>
+					<div class="launcher-actions">
+						<a href="#" onclick="$('#filters').toggleClass('visible')" class="launcher-hide-fullscreen btn btn-text btn-lg btn-icon btn-shadow" data-toggle="tooltip" title="Toggle Filters"><svg class="icn icn-md"><use xlink:href="#icn-filter"></use></svg></a>
+						<a href="#" onclick="$('.launcher').removeClass('on')" class="btn btn-text btn-lg btn-icon btn-shadow" data-toggle="tooltip" title="Close Graph"><svg class="icn icn-md"><use xlink:href="#icn-close"></use></svg></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,223 @@
+---
+title: Environment
+layout: cloud
+menu: environments
+---
+
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<ol class="breadcrumb breadcrumb-flush h1">
+			<li><a href="{{site.baseurl}}/environments"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Environments</a></li>
+			<li class="active" setting-old>Development</li>
+			<li class="active" setting-new>New Environment</li>
+		</ol>
+	</div>
+	<div class="title-actions" >
+		<div class="controls">
+			<div class="control" setting-old><a href="{{site.baseurl}}/runs" class="btn btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> Run History</a></div>
+			<div class="control" setting-new><input type="submit" class="btn btn-primary" value="Save" data-save/></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="settings">
+	
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Settings</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form active" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Name</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Development</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="Development" autofocus/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">DBT Version</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">0.11.1</div></div>
+							<div class="setting-row-response " setting-active><select class="form-control input-md"><option>0.11.1</option></select></div>
+						</div>
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions " setting-static>
+								<div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div>
+							</div>
+							<div class="setting-row-actions " setting-active>
+								<div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Repository <a href="{{site.baseurl}}/repository">add</a></h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Repository</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">fishtown-analytics/internal-analytics</div></div>
+							<div class="setting-row-response " setting-active><select class="form-control input-md"><option>fishtown-analytics/internal-analytics</option></select></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Branch</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">master</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="master"/></div>
+						</div>
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions " setting-static>
+								<div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div>
+							</div>
+							<div class="setting-row-actions " setting-active>
+								<div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Connection <a href="{{site.baseurl}}/connection">new</a></h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Connection</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Production</div></div>
+							<div class="setting-row-response " setting-active><select class="form-control input-md"><option>Production</option></select></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Schema</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">analytics</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="analytics"/></div>
+						</div>
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions " setting-static>
+								<div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div>
+							</div>
+							<div class="setting-row-actions " setting-active>
+								<div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Variables</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label " setting-static><div class="form-control-static input-md text-mono">exclude</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md text-mono">['/dir','/uploads','/sample']</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md text-mono" value="exclude" placeholder="key..."/></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md text-mono" value="['/dir','/uploads','/sample']" placeholder="value..."/></div>
+							<div class="setting-row-edit " setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-actions">
+								<div class="controls">
+									<div class="control " setting-static setting-old><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div>
+									<div class="control " setting-active setting-old><input type="submit" class="btn btn-sm btn-primary" value="save"/></div>
+									<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#variable">add variable</a></div>
+									<div class="control " setting-active setting-old><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div>
+
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Notifications</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form">
+						<div class="setting-row" setting-static>
+							<div class="setting-row-response ">
+								<div class="form-control-static input-md">
+									<svg class="glyph glyph-before faint"><use xlink:href="#glyph-mail"></use></svg>
+									Send an email to <strong>drew@fishtownanalytics</strong> when <strong>run fails</strong>.
+								</div>
+							</div>
+							<div class="setting-row-edit dropdown">
+								<a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint" data-toggle="dropdown"><svg class="glyph"><use xlink:href="#glyph-more-vertical"></use></svg></a>
+								<ul class="dropdown-menu dropdown-menu-right"><li><a href="#">Edit</a></li><li class="divider"></li><li><a class="text-danger" href="#">Remove</a></li></ul>
+							</div>
+						</div>
+						<div class="setting-row" setting-static>
+							<div class="setting-row-response ">
+								<div class="form-control-static input-md">
+									<svg class="glyph glyph-before faint"><use xlink:href="#glyph-slack"></use></svg>
+									Send a notification to <strong>fishtown analytics #bot</strong> when <strong>run fails</strong>.
+								</div>
+							</div>
+							<div class="setting-row-edit dropdown">
+								<a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint" data-toggle="dropdown"><svg class="glyph"><use xlink:href="#glyph-more-vertical"></use></svg></a>
+								<ul class="dropdown-menu dropdown-menu-right"><li><a href="#">Edit</a></li><li class="divider"></li><li><a class="text-danger" href="#">Remove</a></li></ul>
+							</div>
+						</div>
+
+						
+						<div class="setting-row">
+							<div class="setting-row-actions">
+								<div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-add>add notification</a></div></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+
+<div style="display: none;" id="variable">
+	<div class="setting-row">
+		<div class="setting-row-label " setting-static><div class="form-control-static input-md text-mono"></div></div>
+		<div class="setting-row-response " setting-static><div class="form-control-static input-md text-mono"></div></div>
+		<div class="setting-row-response " setting-active><input type="text" class="form-control input-md text-mono" value="" placeholder="key..."/></div>
+		<div class="setting-row-response " setting-active><input type="text" class="form-control input-md text-mono" placeholder="value..."/></div>
+		<div class="setting-row-edit " setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+	</div>
+</div>

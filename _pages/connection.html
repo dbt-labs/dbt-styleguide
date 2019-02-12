@@ -1,0 +1,109 @@
+---
+title: Connection
+layout: cloud
+menu: connections
+---
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<ol class="breadcrumb breadcrumb-flush h1">
+			<li><a href="{{site.baseurl}}/connections"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Connections</a></li>
+			<li class="active" setting-old>Production</li>
+			<li class="active" setting-new>New Connection</li>
+		</ol>
+	</div>
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control" setting-old><a href="{{site.baseurl}}/runs" class="btn btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> Run History</a></div>
+			<div class="control" setting-new><button type="submit" class="btn btn-highlight-info" data-save><svg class="glyph glyph-sm glyph-before"><use xlink:href="#glyph-check-circle"></use></svg> Save & test</div>
+			<div class="control" setting-new><input type="submit" class="btn btn-primary" value="Save" data-save/></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="settings">
+	
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Settings</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut...</p>
+			</div>
+			<div class="alert alert-info"><svg class="glyph glyph-before"><use xlink:href="#glyph-info"></use></svg><strong>Whitelisting</strong> DBT will always connect to your database from <code>52.45.144.63</code>. Make sure to whitelist this IP in your firewall, and include it in any database grants.</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Name</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Production</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="Production"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Type</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Redshift</div></div>
+							<div class="setting-row-response " setting-active><select class="form-control input-md"><option>Redshift</option></select></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Host</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">production.fishtownanalytics.com</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="production.fishtownanalytics.com"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Port</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">1234</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="1234"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Username</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">dbt</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="dbt"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Password</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" placeholder="password..." /></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Database</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">analytics</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="analytics"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Default Schema</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">analytics</div></div>
+							<div class="setting-row-response " setting-active><input type="text" class="form-control input-md" value="analytics"/></div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">SSH</div></div>
+							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Use SSH Tunnel</div></div>
+							<div class="setting-row-response " setting-active>
+								<label class="option input-md">
+									<input type="checkbox" checked />
+									<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
+									Use SSH Tunnel
+								</label>
+							</div>
+						</div>
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions " setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
+							<div class="setting-row-actions " setting-active>
+								<div class="controls">
+									<div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div>
+									<div class="control"><button type="submit" class="btn btn-sm btn-highlight-info"><svg class="glyph glyph-sm"><use xlink:href="#glyph-check-circle"></use></svg> save & test</div>
+									<div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

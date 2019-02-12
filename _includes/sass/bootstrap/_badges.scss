@@ -1,8 +1,11 @@
 .badge {
 	@include pill;
 	@include labels;
-	padding: 3px 8px;
-	border: 1px solid transparent;
+	@include set(line-height height min-width,1.8em);
+	text-align: center;
+	padding: 0 7px;
+	text-indent: 1px;
+	border: 0;
 	&-success { background: $brand-success; color: white; }
 	&-warning { background: $brand-warning; color: white; }
 	&-danger { background: $brand-danger; color: white; }
@@ -13,6 +16,15 @@
 		color: $component-active-color;
 		background: saturate(darken($component-active-bg,7%),15%);
 	}
+	&-digit {
+		padding: 0 2px;
+	}
+	&-corner {
+		position: absolute;
+		@include set(top right,0);
+		@include transform(translate(50%,-50%));
+	}
+
 }
 
 .badges {

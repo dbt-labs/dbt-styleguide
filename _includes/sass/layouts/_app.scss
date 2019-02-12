@@ -4,6 +4,7 @@ $app-menus: 320px;
 .app {
 	@include fill;
 	position: fixed;
+	min-width: $tablet;
 }
 .app-row {
 	@include flex-row;
@@ -48,6 +49,7 @@ $app-menus: 320px;
 }
 .app-content {
 	@include flex(1,0,0);
+
 	a, .a {
 		color: $blue;
 		@include active { color: dark($blue); }
@@ -73,26 +75,26 @@ $app-menus: 320px;
 	&:not(:last-child) { padding-right: $component-padding-vertical; }
 }
 
-@include min-tablet {
-	.app-toggle { display: none; }
-}
-@include max-tablet {
-	.app-menu,
-	.app-sidebar {
-		z-index: 5;
-		width: $app-menus;
-	}
-	.app-menu,
-	.app-sidebar,
-	.app-menu + .app-content { left: -$app-menus; }
-	.app-content { @include flex(0,0,100%); }
-	.in {
-		&.app-menu { left: 0; }
-		&.app-sidebar { margin-left: -$app-menus; }
-		.app-overlay { display: block; }
-		@include shadow(30px);
-	}
-}
+// @include min-tablet {
+// 	.app-toggle { display: none; }
+// }
+// @include max-tablet {
+// 	.app-menu,
+// 	.app-sidebar {
+// 		z-index: 5;
+// 		width: $app-menus;
+// 	}
+// 	.app-menu,
+// 	.app-sidebar,
+// 	.app-menu + .app-content { left: -$app-menus; }
+// 	.app-content { @include flex(0,0,100%); }
+// 	.in {
+// 		&.app-menu { left: 0; }
+// 		&.app-sidebar { margin-left: -$app-menus; }
+// 		.app-overlay { display: block; }
+// 		@include shadow(30px);
+// 	}
+// }
 
 
 // app interior ----------------------------------------
@@ -124,7 +126,7 @@ $app-menus: 320px;
 	}
 }
 .app-shadow {
-	box-shadow: 0 1px 0 rgba(0,0,0,.075);
+	box-shadow: 0 1px 0 rgba(0,16,32,.05);
 }
 .app-flush, .app-flush-top { padding-top: 0; }
 .app-flush, .app-flush-bottom { padding-bottom: 0; }

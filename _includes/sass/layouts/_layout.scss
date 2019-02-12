@@ -1,0 +1,34 @@
+.layout {
+	min-height: 100vh;
+	&-pad { @include set(padding-top padding-bottom,20px); }
+	&-sticky {
+		position: sticky;
+		z-index: 20;
+		top: 0;
+	}
+	&-frame {
+		margin: auto;
+		width: 90%;
+		@include set(padding-left padding-right,20px);
+		.layout-menu & { padding-right: 0; }
+	}
+	&-navigation {
+		@include shadow;
+		background: white;
+	}
+	&-row {
+		@include flex-row;
+	}
+	&-alert {
+		@include flex(0,0,100%);
+	}
+	&-menu {
+		@include flex(0,0,percentage(1/4));
+		max-width: 300px;
+		min-width: 0;
+	}
+	&-body {
+		@include flex(1,1,auto);
+		box-shadow: 0 -1px 0 $outline;
+	}
+}

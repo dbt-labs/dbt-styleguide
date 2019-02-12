@@ -1,0 +1,23 @@
+$token-pad: 5px;
+
+.token {
+	@include flex-row;
+	@include flex-inline;
+	&-element {
+		@include flex(0,0,auto);
+		&:not(:first-child) { .btn, .form-control { @include set(border-top-left-radius border-bottom-left-radius,0); } }
+		&:not(:last-child) { .btn, .form-control { @include set(border-top-right-radius border-bottom-right-radius,0); } }
+	}
+}
+
+.tokens {
+	@include set(margin-left margin-right,-$token-pad);
+	@extend .buffer;
+	@include clear;
+	&-actions { float: right; }
+	&-content {  }
+	.token {
+		float: left;
+		margin: $token-pad;
+	}
+}

@@ -1,0 +1,153 @@
+---
+title: Table
+layout: cloud
+
+object: "dbt_dbanin.snowplow_pageviews"
+type: "incremental"
+sections: [Details,Description,Columns,Lineage,Source SQL,Compiled]
+menu: node
+include: menu, launcher
+---
+
+<div class="title flush-bottom">
+	<div class="title-header">
+		<h1>
+			<span class="break">{{page.object}}</span>
+			<small>{{page.type}}</small>
+		</h1>
+	</div>
+</div>
+
+<ul class="nav nav-tabs buffer flush-top">
+	{% for section in page.sections %}
+		<li><a href="#{{section | downcase | replace: ' ','-' }}">{{section}}</a></li>
+	{% endfor %}
+</ul>
+
+<section class="section">
+	<div class="section-target" id="details"></div>
+	<div class="section-content">
+		<h6>Details</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				<div class="details">
+					<div class="details-content">
+						<div class="detail-group">
+							<div class="detail-header">
+								<h6 class="detail-label">Details</h6>
+							</div>
+							<div class="detail-body">
+								<dl class="detail">
+									<dt class="detail-label">Owner</dt>
+									<dd class="detail-value"><a href="#">Drew Banin</a></dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Tags</dt>
+									<dd class="detail-value"><a href="#">snowplow</a>, <a href="#">nighly run</a>, <a href="#">stitch</a></dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Sources</dt>
+									<dd class="detail-value"><a href="#">Snowplow</a>, <a href="#">Stitch</a></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="detail-group">
+							<div class="detail-header">
+								<h6 class="detail-label">Table</h6>
+							</div>
+							<div class="detail-body">
+								<dl class="detail">
+									<dt class="detail-label">Size</dt>
+									<dd class="detail-value">128mb</dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Sort Style</dt>
+									<dd class="detail-value">compound</dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Sort Keys</dt>
+									<dd class="detail-value">collector_tsamp</dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Dist Style</dt>
+									<dd class="detail-value">even</dd>
+								</dl>
+								<dl class="detail">
+									<dt class="detail-label">Dist Skew</dt>
+									<dd class="detail-value">0.5%</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="section-target" id="description"></div>
+	<div class="section-content">
+		<h6>Description</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				...
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="section-target" id="columns"></div>
+	<div class="section-content">
+		<h6>Columns</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				...
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="section-target" id="lineage"></div>
+	<div class="section-content">
+		<h6>Lineage</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				...
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="">
+	<div class="section-target" id="source-sql"></div>
+	<div class="section-content">
+		<h6>Source SQL</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				...
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="section-target" id="compiled"></div>
+	<div class="section-content">
+		<h6>Compiled</h6>
+		
+		<div class="panel">
+			<div class="panel-body">
+				...
+			</div>
+		</div>
+	</div>
+</section>
+

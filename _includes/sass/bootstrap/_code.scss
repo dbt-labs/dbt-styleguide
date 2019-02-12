@@ -38,7 +38,8 @@ figure.highlight {
 	tab-size: 2; 
 }
 
-.code {
+.code, code {
 	font-family: $font-family-monospace;
 	font-size: $font-size-code;
+	font-weight: normal;
 }

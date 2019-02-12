@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		{% include settings/meta.html %}
+		{% include settings/scripts.html %}
+		{% include settings/styles.html %}
+	</head>
+	<body>
+		{% include content/icons.html %}
+		{% if page.include contains 'launcher' %}
+			{% include launcher.html %}
+		{% endif %}
+		{% include sidenav.html %}
+		<div class="layout">
+			<div class="layout-navigation layout-sticky">
+				{% include navigation.html %}
+			</div>
+			<div class="layout-content navigating-blur">
+				{% if page.alert %}
+					<div class="layout-alert text-center">{{ page.alert }}</div>
+				{% endif %}
+				<div class="layout-row">
+					{% if page.include contains 'menu' %}
+						<div class="layout-menu">
+							<div class="layout-frame layout-pad">
+								{% include sidemenu.html %}
+							</div>
+						</div>
+					{% endif %}
+					<div class="layout-body">
+						<div class="layout-frame layout-pad">
+							{{content}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.addEventListener('DOMContentLoaded', function() { (function($) {
+				$('[data-submit]').on('submit',function(){ $(this).removeClass('editing'); return false; });
+				$('[data-edit]').on('click',function(){ $(this).closest('.setting-form').addClass('editing').find(':input:first').focus(); return false; });
+				$('[data-save]').on('click',function(){ $('.editing').removeClass('editing'); return false; });
+				$('[data-cancel]').on('click',function(){ $(this).closest('.setting-form').removeClass('editing'); return false; });
+				$('[data-add]').on('click',function(){
+					var template = $($(this).attr('data-add')).html();
+					$(this).closest('.setting-form').addClass('editing');
+					$(this).closest('.setting-row').before(template);
+					return false;
+				});
+				if ( get_param('editing') ) { $('body').addClass('editing'); }
+			})(jQuery); });
+		</script>
+	</body>
+</html>

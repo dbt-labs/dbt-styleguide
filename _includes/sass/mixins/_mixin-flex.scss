@@ -39,6 +39,11 @@
 	@include flex-prefix(flex-direction,column-reverse);
 }
 
+@mixin flex-inline(){
+	display: inline-flex;
+}
+
+
 //
 // Justification
 // --------------------------------------------------
@@ -80,13 +85,12 @@
 // Flexbox Items
 // --------------------------------------------------
 @mixin flex($grow:0,$shrink:1,$basis:auto){
-	// -webkit-flex: $grow $shrink $basis;
-	// @if $basis == 0 {
-	// 	-ms-flex: $grow $shrink 0px;
-	// } @else {
-	// 	-ms-flex: $grow $shrink $basis;
-	// }
-	flex: $grow $shrink $basis;
+	@if $basis == 0 {
+		flex: $grow $shrink 0px;
+	} @else {
+		flex: $grow $shrink $basis;
+	}
+	
 }
 
 @mixin flex-order($n){

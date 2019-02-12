@@ -1,0 +1,44 @@
+---
+title: Connections
+layout: cloud
+menu: connections
+alert: '<div class="alert alert-danger alert-flush alert-trim"><div class="layout-frame"><div class="title"><div class="title-header"><svg class="glyph glyph-before"><use xlink:href="#glyph-alert-circle"></use></svg> <strong>Billing Error:</strong> The credit card for this account has expired.</div><div class="title-actions"> <a href="#" class="alert-link arrow-right">update billing</a></div></div></div></div>'
+---
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<h1>Connections</h1>
+	</div>
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control"><a href="{{site.baseurl}}/connection?editing=1" class="btn btn-primary">New Connection</a></div>
+		</div>
+	</div>
+</div>
+
+
+{% assign environments = 'Production,Development' | split: ',' %}
+{% for environment in environments %}
+	<div class="title">
+		<div class="title-header">
+			<h5><a href="{{site.baseurl}}/environment" class="arrow-right">{{environment}}</a></h5>
+		</div>
+	</div>
+	<div class="card">
+		<div class="list">
+			{% assign connections = 'Production,Staging,Testing,Demo' | split: ',' %}
+			{% for connection in connections %}
+				<div class="list-item">
+					<a href="{{site.baseurl}}/connection" class="list-link"></a>
+					<div class="list-row">
+						<div class="list-row-graphic"><svg class="glyph glyph-md"><use xlink:href="#glyph-connection"></use></svg></div>
+						<div class="list-row-group"><h4>{{connection}}</h4><p>Type: Redshift</p></div>
+						<div class="list-row-group"><p>Owned by Drew Bannin</p><p><span class="label label-success">Connected</span></p></div>
+						<div class="list-row-arrow"><svg class="glyph"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endfor %}

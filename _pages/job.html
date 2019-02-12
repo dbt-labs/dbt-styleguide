@@ -1,0 +1,120 @@
+---
+title: Job
+layout: cloud
+menu: jobs
+---
+
+{% capture api %}
+POST https://cloud.getdbt.com/accounts/17/jobs/42/
+{
+  “Param”: “whatever”
+}
+{% endcapture %}
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<ol class="breadcrumb breadcrumb-flush h1">
+			<li><a href="{{site.baseurl}}/jobs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Jobs</a></li>
+			<li class="active" setting-old>General</li>
+			<li class="active" setting-new>New Job</li>
+		</ol>
+	</div>
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control"><a href="{{site.baseurl}}/job-settings" class="btn btn-white"><svg class="glyph glyph-before"><use xlink:href="#glyph-settings"></use></svg> Edit Job</a></div>
+		</div>
+	</div>
+</div>
+
+<div class="card">
+	<div class="kpis">
+		<div class="kpi kpi-lg bg-success text-success">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value">Success</div>
+					<div class="kpi-label"><span class="label">Last Result</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value">7m ago <span class="label">2018-09-11 00:00:01SLIDWZ</span></div>
+					<div class="kpi-label"><span class="label">Last Run</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-content">
+				<div class="kpi-body">
+					<div class="kpi-value"><a href="#" class="arrow-right">Production</a></div>
+					<div class="kpi-label"><span class="label">Environment</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="tokens">
+	<div class="tokens-actions">
+		<div class="token">
+			<div class="token-element"><a href="#" class="btn btn-sm btn-text btn-icon"><svg class="glyph"><use xlink:href="#glyph-refresh"></use></svg></a></div>
+		</div>
+		<div class="token">
+			<div class="token-element"><a href="#" class="btn btn-sm btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> view in run history</a></div>
+		</div>
+		<!-- <div class="token">
+			<div class="token-element">
+				<div class="btn-group" >
+					<button type="button" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-left"></use></svg></button>
+					<div class="btn-group dropdown" >
+						<button type="button" class="btn btn-sm btn-default dropdown-toggle arrow-down" data-toggle="dropdown">2 of 5</button>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">Pages</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Show</li>
+							<li><a href="#">50</a></li>
+							<li><a href="#">100</a></li>
+							<li><a href="#">250</a></li>
+							<li><a href="#">500</a></li>
+						</ul>
+					</div>
+					<button type="button" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button>
+				</div>
+			</div>
+		</div> -->
+	</div>
+	<div class="tokens-content">
+		<div class="token">
+			<div class="token-element"><a href="#" class="btn btn-sm btn-success">run job</a></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="card">
+	<div class="table-responsive">
+		<table class="table table-compact table-middle table-justified table-hover table-large table-linked text-light">
+			<thead><tr><th class="table-link"></th><th>Status</th><th>Job/Trigger</th><th>Info</th><th>Timing</th><th></th></tr></thead>
+			<tbody>
+				{% for i in (1..10) %}
+					<tr>
+						<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/run"></a></td>
+						<td class="success"><span class="label label-success">success</span></td>
+						<td><h6>Incremental </h6><p>Scheduled</p></td>
+						<td><h6>master <code class="text-info">#12345</code></h6><p><em>default schema</em></p></td>
+						<td><p><span class="text-dark">triggered about 2 hours ago</span></p><p>17 minutes</p></td>
+						<td><svg class="glyph faint"><use xlink:href="#glyph-chevron-right"></use></svg></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>

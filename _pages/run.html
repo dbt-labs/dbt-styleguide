@@ -1,0 +1,107 @@
+---
+title: Run
+layout: cloud
+menu: jobs
+---
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<ol class="breadcrumb breadcrumb-flush h1">
+			<li><a href="{{site.baseurl}}/runs"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Run History</a></li>
+			<li><a href="{{site.baseurl}}/job">Incremental</a></li>
+			<li class="active">Job 1234</li>
+		</ol>
+	</div>
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control"><a href="{{site.baseurl}}/table-cloud" class="btn btn-primary"><svg class="glyph glyph-before"><use xlink:href="#glyph-book-open"></use></svg> View Docs</a></div>
+		</div>
+	</div>
+</div>
+
+<div class="card">
+	<div class="kpis">
+		<div class="kpi kpi-lg bg-success text-success">
+			<div class="kpi-value">Success</div>
+			<div class="kpi-label"><span class="label">Run Result</div>
+		</div>
+		<div class="kpi kpi-lg">
+			<div class="kpi-value">19m <small class="label">00:19:01</small></div>
+			<div class="kpi-label"><span class="label">Total Duration</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">31s <small class="label">00:00:31</small></div>
+			<div class="kpi-label"><span class="label">In Queue</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">18m <small class="label">00:18:30</small></div>
+			<div class="kpi-label"><span class="label">In Queue</div>
+		</div>
+		<div class="kpi">
+			<div class="kpi-value">7m ago <small class="label">2018-09-11 00:00:01SLIDWZ</small></div>
+			<div class="kpi-label"><span class="label">Triggered</div>
+		</div>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-tabs">
+		<ul class="nav nav-tabs nav-tabs-fill">
+			<li class="active"><a href="#steps" data-toggle="tab">View Steps</a></li>
+			<li><a href="#logs" data-toggle="tab">View Logs</a></li>
+		</ul>
+	</div>
+	<div class="card-body card-flush">
+		<div class="tab-content">
+			<div class="tab-pane active" id="steps">
+				<div class="table-responsive">
+					<table class="table table-compact table-middle table-justified table-hover table-linked text-light">
+						<thead><tr><th class="table-link"></th><th class="sm">Status</th><th>Description</th><th>Logs</th></tr></thead>
+						<tbody>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Clone Github Repository</p></td>
+								<td><p><a href="{{site.baseurl}}/logs" class="arrow-right">logs</a><a href="{{site.baseurl}}/logs" class="margin-left"><code class="arrow-right">debug</code></a></p></td>
+							</tr>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Create Profile from Connection Garage - Redshift</p></td>
+								<td><p><em>n/a</em></p></td>
+							</tr>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Invoke dbt with <code>dbt deps</code></p></td>
+								<td><p><a href="{{site.baseurl}}/logs" class="arrow-right">logs</a><a href="{{site.baseurl}}/logs" class="margin-left"><code class="arrow-right">debug</code></a></p></td>
+							</tr>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Invoke dbt with <code>dbt seed</code></p></td>
+								<td><p><a href="{{site.baseurl}}/logs" class="arrow-right">logs</a><a href="{{site.baseurl}}/logs" class="margin-left"><code class="arrow-right">debug</code></a></p></td>
+							</tr>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Invoke dbt with <code>dbt run</code></p></td>
+								<td><p><a href="{{site.baseurl}}/logs" class="arrow-right">logs</a><a href="{{site.baseurl}}/logs" class="margin-left"><code class="arrow-right">debug</code></a></p></td>
+							</tr>
+							<tr>
+								<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/logs"></a></td>
+								<td class="success sm"><span class="label label-success">success <span class="faint">- 00:00:01</span></span></td>
+								<td><p class="text-dark">Invoke dbt with <code>dbt docs generate</code></p></td>
+								<td><p><a href="{{site.baseurl}}/logs" class="arrow-right">logs</a><a href="{{site.baseurl}}/logs" class="margin-left"><code class="arrow-right">debug</code></a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="tab-pane" id="logs">
+
+			</div>
+		</div>
+	</div>
+</div>

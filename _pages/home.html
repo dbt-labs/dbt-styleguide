@@ -1,0 +1,71 @@
+---
+title: Home
+layout: cloud
+menu: home
+---
+
+<div class="title">
+	<div class="title-header">
+		<h5><a href="{{site.baseurl}}/environments" class="arrow-right">Environments</a></h5>
+	</div>
+</div>
+
+{% assign envs = 'Production, Development, Continuous Integration' | split: ',' %}
+{% assign count = 1 %}
+<div class="flex-row flex-buffer flex-flush">
+	{% for env in envs %}
+		<div class="card flex-item flex-buffer flex-column text-light">
+			<div class="card-header snug">
+				<h3><a href="{{site.baseurl}}/environment" class="text-inherit arrow-right">{{env}}</a></h3>
+				<div class="compact">
+					<p>Repository: <a href="#">fishtown-analytics/snowplow</a></p>
+					<p>Connection: <a href="{{site.baseurl}}/connection">Production</a></p>
+					<p>dbt version: 0.11.1</p>
+				</div>
+			</div>
+			<div class="card-list flex-grow">
+				<div class="list">
+					{% assign jobs = 'Global,NYC,Southeast,East Coast, Canada' | split: ',' %}
+					{% for job in jobs %}
+						{% if forloop.index > count %}
+							<div class="list-item">
+								<a href="#" class="list-link"></a>
+								<div class="list-row list-row-xs">
+									<div class="list-row-group"><h6>{{job}} <span class="label margin-left"><span class="text-success">Success</span> 7m</span></h6></div>
+									<div class="list-row-arrow"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		{% assign count = count | plus: 1 %}
+	{% endfor %}
+</div>
+
+
+<div class="title">
+	<div class="title-header">
+		<h5><a href="{{site.baseurl}}/runs" class="arrow-right">Run History</a></h5>
+	</div>
+</div>
+<div class="card">
+	<div class="table-responsive">
+		<table class="table table-compact table-middle table-justified table-hover table-large table-linked text-light">
+			<thead><tr><th class="table-link"></th><th>Status</th><th>Job/Trigger</th><th>Info</th><th>Timing</th><th></th></tr></thead>
+			<tbody>
+				{% for i in (1..10) %}
+					<tr>
+						<td class="table-link"><a class="table-anchor" href="{{site.baseurl}}/run"></a></td>
+						<td class="success"><span class="label label-success">success</span></td>
+						<td><h6>Incremental </h6><p>Scheduled</p></td>
+						<td><h6>master <code class="text-info">#12345</code></h6><p><em>default schema</em></p></td>
+						<td><p><span class="text-dark">triggered about 2 hours ago</span></p><p>17 minutes</p></td>
+						<td><svg class="glyph faint"><use xlink:href="#glyph-chevron-right"></use></svg></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>

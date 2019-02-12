@@ -1,0 +1,60 @@
+$settings-pad: 15px;
+
+.setting {
+	@include flex-row;
+	//@include flex-wrap;
+	margin: 0 $settings-pad*-2;
+	
+	> * { padding: $settings-pad $settings-pad*2; }
+	&-header {
+		@include flex(1,0,percentage(2/7));
+		min-width: 200px;
+		&-text {
+			@include snug;
+			#{h()} {
+				display: inline;
+				a {
+					@include font-size-small;
+					font-weight: bold;
+					margin-left: .75em;
+				}
+			}
+		}
+	}
+	&-body {
+		@include flex(1,0,percentage(5/7));
+		min-width: 600px;
+	}
+	
+	&-row {
+		@include flex-row;
+		&:not(:last-child) { border-bottom: 1px solid $line; }
+		margin: 0 -4px;
+		> * { padding: 4px; }
+		&-label {
+			@include flex(0,0,percentage(1/4));
+			min-width: 120px;
+			padding-top: 8px;
+		}
+		&-response { @include flex(1,1,auto); }
+		&-edit { @include flex(0,0,auto); }
+		&-actions { @include flex(1,1,auto); }
+	}
+	&-form {
+		
+	}
+}
+
+.settings {
+	@extend .buffer;
+}
+
+
+[setting-active] { body:not(.editing) .setting-form:not(.editing) & { display: none; } }
+[setting-static] { .editing & { display: none; } }
+[setting-old] { body.editing & { display: none; } }
+[setting-new] { body:not(.editing) & { display: none; } }
+
+.setting-row:not(.setting-row-border) {
+	.editing & { border-color: transparent; }
+}

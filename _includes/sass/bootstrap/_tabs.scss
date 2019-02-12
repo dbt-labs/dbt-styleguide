@@ -2,6 +2,7 @@
 .nav-tabs {
 	border: 0;
 	box-shadow: 0 1px 0 $line;
+	color: $dark;
 	&:before, &:after { display: none; }
 	@include flex-row;
 	@include flex-wrap;
@@ -44,6 +45,18 @@
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 	}
+	.card-tabs & {
+		background: $silver;
+		border-radius: $border-radius-base $border-radius-base 0 0;
+		> li {
+			&:first-child { border-top-left-radius: $border-radius-base; }
+			&:last-child { border-top-right-radius: $border-radius-base; }
+			&.active {
+				box-shadow: 0 1px 0 white !important;
+				background: white !important;
+			}
+		}
+	}
 }
 
 
@@ -53,6 +66,7 @@
 		height: 0;
 		display: block;
 		overflow: hidden;
+		&:not(.active) { padding: 0; }
 		&.active {
 			height: auto;
 			overflow: visible;

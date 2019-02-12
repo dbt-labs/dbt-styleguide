@@ -1,28 +1,31 @@
-$arr: ( "up":"a", "right":"b", "down":"c", "left":"d", "close":"e", "vertical":"f", "horizontal":"g", "north":"h", "west":"i", "south":"j", "east":"k", "check":"l", "moveup":"m", "moveright":"n", "movedown":"o", "moveleft":"p" );
-@mixin arrow-styles(){ font-family: "arrows"; text-transform: none; font-style: normal; }
-@mixin arrow-pseudo(){ &:before, &:after { @content; } }
+$arrows: (
+	"up":"a",
+	"right":"b",
+	"down":"c",
+	"left":"d",
+	"close":"e",
+	"check":"f",
+);
 
-//
-// Classes
-// --------------------------------------------------
-@include font-face-woff("arrows","../fonts/arrows/arrows.woff");
-@include font-face-woff("arrows","../fonts/arrows/arrows-bold.woff",bold);
-@each $var, $glyph in $arr { .arrow-#{$var} { @include arrow-pseudo { content: " #{$glyph} "; } } }
-[class*="arrow-"] {
-	@include arrow-pseudo { @include arrow-styles; }
-	&.arrow-before:after { content: ''; }
-	&:not(.arrow-before):before { content: ''; }
+@mixin arrow-pseudo(){
+	&:not(.arrow-before):after,
+	&.arrow-before:before {
+		@content;
+	}
 }
-.arrow-large { @include arrow-pseudo { text-transform: uppercase !important; } }
-.arrow-bold { @include arrow-pseudo { font-weight: bold !important; } }
 
-//
-// Mixins
-// --------------------------------------------------
+@mixin arrow-styles(){
+	font-family: "arrows";
+	text-transform: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: .5;
+}
+
 @mixin arrow($type,$position:after,$large:false){
 	&:#{$position} {
 		@include arrow-styles;
-		@each $var, $glyph in $arr {
+		@each $var, $glyph in $arrows {
 			@if $var == $type {
 				content: " #{$glyph} ";
 			}
@@ -30,5 +33,23 @@ $arr: ( "up":"a", "right":"b", "down":"c", "left":"d", "close":"e", "vertical":"
 		@if $large {
 			text-transform: uppercase;
 		}
+	}
+}
+
+@include font-face-woff("arrows","../fonts/arrows/arrows.woff");
+
+[class*="arrow-"] {
+	@include arrow-pseudo {
+		@include arrow-styles;
+	}
+}
+
+.arrow-large {
+	@include arrow-pseudo { text-transform: uppercase; }
+}
+
+@each $var, $glyph in $arrows {
+	.arrow-#{$var} {
+		@include arrow-pseudo { content: " #{$glyph} "; }
 	}
 }

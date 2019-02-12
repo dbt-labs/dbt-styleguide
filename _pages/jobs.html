@@ -1,0 +1,51 @@
+---
+title: List
+layout: cloud
+menu: jobs
+---
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<h1>Jobs</h1>
+	</div>
+	<div class="title-actions">
+		<div class="controls">
+			<div class="control"><a href="{{site.baseurl}}/runs" class="btn btn-default arrow-right"><svg class="glyph glyph-before"><use xlink:href="#glyph-list"></use></svg> Run History</a></div>
+			<div class="control"><a href="{{site.baseurl}}/job-settings?editing=1" class="btn btn-primary">New Job</a></div>
+		</div>
+	</div>
+</div>
+
+{% assign environments = 'Production,Development' | split: ',' %}
+{% for environment in environments %}
+	<div class="title">
+		<div class="title-header">
+			<h5><a href="{{site.baseurl}}/environment" class="arrow-right">{{environment}}</a></h5>
+		</div>
+	</div>
+	<div class="card">
+		<div class="list">
+			<div class="list-item">
+				<a href="{{site.baseurl}}/job" class="list-link"></a>
+				<div class="list-row">
+					<div class="list-row-graphic"><svg class="glyph glyph-md"><use xlink:href="#glyph-play-circle"></use></svg></div>
+					<div class="list-row-group"><h4>Global</h4><p>Environment: <a href="{{site.baseurl}}/environment">Production</a></p></div>
+					<div class="list-row-group"><p>Commands: 4 Steps</p><p>Last Run: 10 min ago</p></div>
+					<div class="list-row-group"><p><a href="{{site.baseurl}}/table-cloud" class="arrow-right">Documentation</a></p><p><a href="{{site.baseurl}}/run" class="arrow-right">Run History</a></p></div>
+					<div class="list-row-arrow"><svg class="glyph"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+				</div>
+			</div>
+			<div class="list-item">
+				<a href="{{site.baseurl}}/job" class="list-link"></a>
+				<div class="list-row">
+					<div class="list-row-graphic"><svg class="glyph glyph-md"><use xlink:href="#glyph-play-circle"></use></svg></div>
+					<div class="list-row-group"><h4>NYC</h4><p>Environment: <a href="{{site.baseurl}}/environment">Development</a></p></div>
+					<div class="list-row-group"><p>Commands: 3 Steps</p><p>Last Run: 45 min ago</p></div>
+					<div class="list-row-group"><p><a href="{{site.baseurl}}/table-cloud" class="arrow-right">Documentation</a></p><p><a href="{{site.baseurl}}/run" class="arrow-right">Run History</a></p></div>
+					<div class="list-row-arrow"><svg class="glyph"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}

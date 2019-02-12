@@ -8,37 +8,37 @@ section: forms
 
 <label class="option">
 	<input type="checkbox" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option one is this and that &mdash; be sure to include why it's great
 </label>
 <label class="option">
 	<input type="checkbox" checked />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option two is checked
 </label>
 <label class="option">
 	<input type="checkbox" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option three
 </label>
 <label class="option">
 	<input type="checkbox" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option four
 </label>
 <label class="option">
 	<input type="checkbox" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option five
 </label>
 <label class="option">
 	<input type="checkbox" disabled checked />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option six is disabled but still checked
 </label>
 <label class="option">
 	<input type="checkbox" disabled />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	Option seven is just disabled
 </label>
 
@@ -46,37 +46,37 @@ section: forms
 
 <label class="option">
 	<input type="radio" name="radio1" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option one is this and that &mdash; be sure to include why it's great
 </label>
 <label class="option">
 	<input type="radio" name="radio1" checked />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option two is selected by default
 </label>
 <label class="option">
 	<input type="radio" name="radio1" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option three
 </label>
 <label class="option">
 	<input type="radio" name="radio1" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option four
 </label>
 <label class="option">
 	<input type="radio" name="radio1" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option five
 </label>
 <label class="option">
 	<input type="radio" name="radio1" />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option six
 </label>
 <label class="option">
 	<input type="radio" name="radio1" disabled />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option seven is disabled
 </label>
 <br>
@@ -86,7 +86,7 @@ section: forms
 
 <label class="option">
 	<input type="checkbox" id="changeme"/>
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
 	This option is indeterminate
 </label>
 
@@ -97,17 +97,17 @@ section: forms
 
 <label class="option">
 	<input type="radio" name="radio2" disabled />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option one is this and that &mdash; be sure to include why it's great
 </label>
 <label class="option">
 	<input type="radio" name="radio2" disabled />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option two is selected by default
 </label>
 <label class="option">
 	<input type="radio" name="radio2" disabled checked />
-	<i class="option-icon"></i>
+	<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 	Option three is disabled
 </label>
 
@@ -117,22 +117,22 @@ section: forms
 <div class="has-error">
 	<label class="option">
 		<input type="radio" name="radio3" checked />
-		<i class="option-icon"></i>
+		<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 		Radio 1
 	</label>
 	<label class="option">
 		<input type="radio" name="radio3" />
-		<i class="option-icon"></i>
+		<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 		Radio 2
 	</label>
 	<label class="option">
 	<input type="checkbox" checked />
-		<i class="option-icon"></i>
+		<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 		Check 1
 	</label>
 	<label class="option">
 		<input type="checkbox" />
-		<i class="option-icon"></i>
+		<svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> 
 		Check 2
 	</label>
 </div>

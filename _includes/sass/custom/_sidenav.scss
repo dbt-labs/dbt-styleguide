@@ -1,0 +1,97 @@
+.sidenav {
+	z-index: 20;
+	&-overlay, &-content {
+		@include transitions;
+	}
+	&-content {
+		@include scroll;
+		@include transform(translateX(-120%));
+		@include set(top bottom left,0);
+		background: white;
+		@include shadow;
+		position: fixed;
+		width: 320px;
+		.navigating & { @include transform(translateX(0)); }
+	}
+	&-overlay {
+		@include fill;
+		position: fixed;
+		background: $silver;
+		pointer-events: none;
+		opacity: 0;
+		.navigating & {
+			pointer-events: auto;
+			opacity: .5;
+		}
+	}
+	&-body {
+		padding: 0 24px;
+	}
+	&-region {
+		padding-bottom: .25em;
+	}
+	&-divider {
+		@include flex-row;
+		@include flex-align(center);
+		&:after {
+			content: '';
+			display: block;
+			border-top: 1px solid $line;
+			@include flex(1,1,auto);
+		}
+		&-heading {
+			@include flex(0,0,auto);
+			padding-right: 1em;
+		}
+	}
+	&-section {
+		padding: 24px 0;
+		& + & { border-top: 1px solid $line; }
+	}
+	&-link {
+		color: $light;
+		display: block;
+		padding: .25em 0;
+		padding-left: 40px;
+		.glyph {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			@include transform(translateY(-50%));
+		}
+		@include active { color: $dark; }
+		&:not(.active) .glyph { opacity: (1/3); }
+		&.active { color: $brand; }
+		&-main {
+			color: inherit;
+			@include set(padding-top padding-bottom,.5em);
+			font-weight: bold;
+		}
+	}
+	
+}
+
+
+body.navigating {
+	overflow: hidden;
+	.navigating-hide { display: none; }
+}
+body:not(.navigating) {
+	.navigating-show { display: none; }
+}
+
+.navigating-overlay {
+	@include fill;
+	background: $silver;
+	opacity: .5;
+	display: none;
+	z-index: 9;
+	.navigating & { display: block; }
+}
+
+.navigating-blur {
+	.navigating & {
+		pointer-events: none;
+		@include filter(blur(5px));
+	}
+}
