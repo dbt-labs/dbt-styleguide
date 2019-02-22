@@ -1,0 +1,21 @@
+.table-master-detail {
+	&-toggle {
+		@include transitions;
+	}
+	.table-master {
+
+	}
+	&:not(.open) {
+		.table-detail {
+			display: none;
+		}
+	}
+	&.open {
+		.table-master {
+			td, th { background: white !important; }
+		}
+		.table-master-detail-toggle {
+			@include transform(rotate(90deg));
+		}
+	}
+}

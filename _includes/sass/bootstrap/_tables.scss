@@ -30,6 +30,8 @@ th, td {
 		width: 1px;
 		white-space: nowrap;
 	}
+	&.flush-left { padding-left: 0 !important; }
+	&.flush-right { padding-right: 0 !important; }
 }
 
 //
@@ -39,6 +41,10 @@ thead > tr > * {
 	.table:not(.table-borderless) > & {
 		border-width: 1px;
 	}
+}
+
+thead > tr > *,
+.table-label {
 	@include labels;
 	color: $light;
 }
@@ -51,6 +57,11 @@ thead > tr > * {
 		border-width: 0 !important;
 	}
 }
+.table {
+	tbody + tbody {
+		border-top-width: 1px;
+	}
+}
 
 //
 // Spacing
@@ -58,7 +69,10 @@ thead > tr > * {
 .table-compact { th, td { @include compact; } }
 .table-middle { th, td { vertical-align: middle !important; } }
 .table-large {
-	tbody { th, td { @include set(padding-top padding-bottom, 1rem !important); } }
+	@include font-size-base;
+	tbody th, tbody td, > td, > th {
+		@include set(padding-top padding-bottom, 1rem !important);
+	}
 }
 .card .table {
 	th, td { @include set(padding-left padding-right,$padding-large-horizontal); }
@@ -114,3 +128,28 @@ thead > tr > * {
 .table-td { display: table-cell; }
 .table-col { display: table-column; }
 .table-tr { display: table-row; }
+
+
+
+//
+// Variants
+// --------------------------------------------------
+.table-sticky {
+	box-shadow: 0 1px 0 #ecedee;
+	z-index: 2;
+	position: sticky;
+	top: 0;
+	background: $silver-light;
+	tbody & {
+		top: 28px;
+		background: white;
+	}
+}
+.table {
+	.secondary {
+		td, th {
+			background: $silver-light;
+			color: $light;
+		}
+	}
+}
