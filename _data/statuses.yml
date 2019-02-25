@@ -1,0 +1,457 @@
+- source: close
+  loader: Stitch
+  status: warning
+  quality: warning
+  snap: 1h
+  tables:
+    - name: activities
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__attachments
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__bcc
+    - name: activities__body_html_quoted
+    - name: activities__body_text_quoted
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__cc
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__envelope__bcc
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__envelope__cc
+    - name: activities__envelope__from
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__envelope__reply_to
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__envelope__sender
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__envelope__to
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__message_ids
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__opens
+      loaded: 2h
+      snap: 1h
+      quality: warning
+      status: warning
+    - name: activities__references
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: activities__to
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: custom_fields
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: custom_fields__choices
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: custom_fields__editable_with_roles
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: event_log
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: event_log__changed_fields
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__contacts
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__contacts__emails
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__contacts__integration_links
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__custom_fields
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__integration_links
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__opportunities
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: leads__tasks
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: tasks
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: users
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: users__organizations
+      status: ok
+      loaded: 2h
+      snap: 1h
+- source: fishtown_snowplow
+  loader: Snowplow
+  snap: 2h
+  tables:
+    - name: change_form
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: change_form__elementclasses
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: event
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: invocation
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: invocation_env
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: link_click
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: link_click__elementclasses
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: package_install
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: performancetiming
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: platform
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: rejected_records
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: run_model
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: run_model__timing
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: submit_form
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: submit_form__elements
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: submit_form__formclasses
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: web_page
+      status: ok
+      loaded: 2h
+      snap: 1h
+- source: github
+  loader: Fivetran
+  snap: 1h
+  tables:
+    - name: commit
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: commit_file
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: commit_parent
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: fivetran_audit
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_assignee
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_assignee_history
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_closed_history
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_comment
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_label
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_label_history
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_mention
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_merged
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_milestone_history
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_referenced
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: issue_renamed
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: milestone
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: pull_request
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: pull_request_review
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: pull_request_review_dismissed
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: repository
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: requested_reviewer_history
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: user
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: user_email
+      status: ok
+      loaded: 2h
+      snap: 1h
+- source: github_stars
+  loader: Stitch
+  snap: 2h
+  tables:
+    - name: stargazers
+      status: ok
+      loaded: 2h
+      snap: 1h
+- source: google_sheets
+  status: stale
+  quality: danger
+  loader: Stitch
+  snap: 2h
+  tables:
+    - name: estimates
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: sprints
+      loaded: 2h
+      snap: 1h
+      status: stale
+      quality: danger
+- source: quickbooks
+  loader: Stitch
+  snap: 2h
+  tables:
+    - name: quickbooks_accounts
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_billpayments
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_billpayments__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_billpayments__line__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_bills
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_bills__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_bills__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_creditmemos
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_creditmemos__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_customers
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_deposits
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_deposits__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_deposits__line__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_employees
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_invoices
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_invoices__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_invoices__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_items
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_journalentries
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_journalentries__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_paymentmethods
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_payments
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_payments__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_payments__line__lineex__any
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_payments__line__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_payments__linkedtxn
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_purchases
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_purchases__line
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_purchases__purchaseex__any
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_terms
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_transfers
+      status: ok
+      loaded: 2h
+      snap: 1h
+    - name: quickbooks_vendors
+      status: ok
+      loaded: 2h
+      snap: 1h
+
+
+
+

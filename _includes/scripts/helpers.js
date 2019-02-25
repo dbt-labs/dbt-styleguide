@@ -2,9 +2,6 @@
 
 function async(u,c){var d=document,t='script',o=d.createElement(t),s=d.getElementsByTagName(t)[0];o.src=u;if(c){o.addEventListener('load',function(e){c(null,e);},false);}s.parentNode.insertBefore(o,s);};
 
-// ------------------------------------ READY ------------------------------------
-$(document).ready(function(){ if ( typeof window.velllum_ready === 'function' ) { window.velllum_ready(); } });
-
 // ------------------------------------ COOKIES ------------------------------------
 function set_cookie(name,value,days) { var d = new Date(); d.setTime(d.getTime() + ((days?days:60)*24*60*60*1000)); var expires = "expires="+ d.toUTCString(); document.cookie = name + "=" + value + ";" + expires + ";path=/"; }
 function get_cookie(cname) { var name = cname + "="; var ca = document.cookie.split(';'); for(var i = 0; i <ca.length; i++) { var c = ca[i]; while (c.charAt(0)==' ') { c = c.substring(1); } if (c.indexOf(name) == 0) { return c.substring(name.length,c.length); } } return ""; }
