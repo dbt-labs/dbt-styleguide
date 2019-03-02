@@ -1,0 +1,91 @@
+---
+title: Source Freshness
+menu: freshness
+layout: cloud
+---
+
+
+<div class="title title-fix">
+	<div class="title-header">
+		<h1>Source Freshness</h1>
+	</div>
+</div>
+
+<div class="card">
+	<div class="kpis">
+		<div class="kpi">
+			<div class="kpi-value strong">214</div>
+			<div class="kpi-label"><span class="label">Sources</div>
+		</div>
+		<div class="kpi text-success">
+			<div class="kpi-value strong">209</div>
+			<div class="kpi-label"><span class="label label-success">OK</div>
+		</div>
+		<div class="kpi text-warning">
+			<div class="kpi-value strong">1</div>
+			<div class="kpi-label"><span class="label label-warning">Warning</div>
+		</div>
+		<div class="kpi text-danger">
+			<div class="kpi-value strong">1</div>
+			<div class="kpi-label"><span class="label label-danger">Stale</div>
+		</div>
+		<div class="kpi text-light">
+			<div class="kpi-value strong">3h <small class="label">03:18:30</small></div>
+			<div class="kpi-label"><span class="label">Oldest Snapshot</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="card">
+	<table class="table table-condensed text-dark">
+		<thead class="bg-silver-light">
+			<tr>
+				<th class="table-sticky sm flush-right"></th>
+				<th class="table-sticky ">Source</th>
+				<th class="table-sticky ">Loader / Loaded</th>
+				<th class="table-sticky ">Last Snapshot</th>
+				<th class="table-sticky ">Status</th>
+			</tr>
+		</thead>
+		{% for status in site.data.statuses %}
+			<tbody class="table-master-detail">
+				<tr class="table-large table-master {{status.quality}} table-clickable" data-masterdetail-toggle>
+					<td class="table-sticky sm flush-right"><div class=" table-master-detail-toggle"><svg class="icn icn-md"><use xlink:href="#icn-right"></use></svg></div></td>
+					<td class="table-sticky"><h6>{{status.source}} <span class="label margin-left">({{status.tables.size}})</span></h6></td>
+					<td class="table-sticky text-dark">{{status.loader}}</td>
+					<td class="table-sticky text-light text-small">{{status.snap}}</td>
+					<td class="table-sticky">
+						<div class="status">
+							<div class="status-text"><span class="label label-{{status.quality | default: 'success'}}">{{status.status | default: 'OK'}}</span></div>
+							{% if status.quality %}<div class="status-icon"><span class="dot dot-{{status.quality}}"></span></div>{% endif %}
+						</div>
+					</td>
+				</tr>
+				{% for table in status.tables %}
+					<tr class="table-detail {{table.quality}} {% unless table.status %} text-light em {% endunless %}">
+						<td class="sm flush-right"></td>
+						<td>{{table.name}}</td>
+						<td>{{table.loaded}}</td>
+						<td>{{table.snap}}</td>
+						<td>{% if table.status %}
+							<div class="status">
+								<div class="status-text"><span class="label label-{{table.quality | default: 'success'}}">{{table.status}}</span></div>
+								{% if table.quality %}<div class="status-icon"><span class="dot dot-{{table.quality | default: 'success'}}"></span></div>{% endif %}
+							</div>
+						{% endif %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		{% endfor %}
+	</table>
+</div>
+
+
+
+<script>
+	window.addEventListener('DOMContentLoaded', function() { (function($) {
+		$('[data-masterdetail-toggle]').on('click',function(){ $(this).closest('.table-master-detail').toggleClass('open'); return false; });
+	})(jQuery); });
+</script>

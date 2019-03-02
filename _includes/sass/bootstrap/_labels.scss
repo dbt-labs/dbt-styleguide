@@ -6,10 +6,10 @@
 	padding: 0;
 	border: 0;
 	&-default { color: $label-color; }
-	&-success { color: #{dark($green)}; }
-	&-info { color: #{dark($blue)}; }
-	&-warning { color: #{dark($yellow)}; }
-	&-danger { color: #{dark($red)}; }
+	&-success { color: #{dark($brand-success)}; }
+	&-info { color: #{dark($brand-info)}; }
+	&-warning { color: #{dark($brand-warning)}; }
+	&-danger { color: #{dark($brand-danger)}; }
 	+ .label {
 		&:not(.block) {
 			margin-left: 1.5em;
@@ -19,10 +19,10 @@
 
 a.label {
 	&:hover, &:focus {
-		&.label-default { color: darkest($light); }
-		&.label-success { color: darkest($green); }
-		&.label-info { color: darkest($blue); }
-		&.label-warning { color: darkest($yellow); }
-		&.label-danger { color: darkest($red); }
+		&.label-default { color: darkest($label-color); }
+		&.label-success { color: darkest($brand-success); }
+		&.label-info { color: darkest($brand-info); }
+		&.label-warning { color: darkest($brand-warning); }
+		&.label-danger { color: darkest($brand-danger); }
 	}
 }

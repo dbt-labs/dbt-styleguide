@@ -1,3 +1,5 @@
+$nav-height: 72px;
+
 .layout {
 	min-height: 100vh;
 	&-pad { @include set(padding-top padding-bottom,20px); }
@@ -15,6 +17,15 @@
 	&-navigation {
 		@include shadow;
 		background: white;
+		height: $nav-height;
+		position: fixed;
+		@include set(top left right,0);
+	}
+	&-content {
+		position: fixed;
+		top: ($nav-height - 1px);
+		@include set(bottom left right,0);
+		@include scroll;
 	}
 	&-row {
 		@include flex-row;

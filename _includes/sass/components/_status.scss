@@ -1,0 +1,11 @@
+.status {
+	@include flex-row;
+	&-text {
+		@include flex(1,1,auto);
+		white-space: nowrap;
+		min-width: 0;
+	}
+	&-icon {
+		@include flex(0,0,auto);
+	}
+}
