@@ -19,20 +19,24 @@
 				{% if page.alert %}
 					<div class="layout-alert text-center">{{ page.alert }}</div>
 				{% endif %}
-				<div class="layout-row">
-					{% if page.include contains 'menu' %}
-						<div class="layout-menu">
+				{% if page.fill %}
+					{{content}}
+				{% else %}
+					<div class="layout-row">
+						{% if page.include contains 'menu' %}
+							<div class="layout-menu">
+								<div class="layout-frame layout-pad">
+									{% include sidemenu.html %}
+								</div>
+							</div>
+						{% endif %}
+						<div class="layout-body">
 							<div class="layout-frame layout-pad">
-								{% include sidemenu.html %}
+								{{content}}
 							</div>
 						</div>
-					{% endif %}
-					<div class="layout-body">
-						<div class="layout-frame layout-pad">
-							{{content}}
-						</div>
 					</div>
-				</div>
+				{% endif %}
 			</div>
 		</div>
 		<script>

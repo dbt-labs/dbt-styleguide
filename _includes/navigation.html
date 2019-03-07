@@ -8,12 +8,53 @@
 			<div class="logo"><svg class="logo"><use xlink:href="#brand"></use></svg></div>
 		</div>
 		<div class="navigation-item dropdown">
-			<a href="#" class="btn btn-text arrow-down" data-toggle="dropdown">Fishtown Analytics</a>
+			<a href="#" class="btn btn-sm btn-text arrow-down" data-toggle="dropdown">Fishtown Analytics</a>
 			<ul class="dropdown-menu"><li><a href="#">Openlane</a></li><li><a href="#">Yearin</a></li><li><a href="#">Goodsilron</a></li><li><a href="#">Condax</a></li><li><a href="#">Opentech</a></li><li><a href="#">Golddex</a></li><li><a href="#">year-job</a></li><li><a href="#">Isdom</a></li><li><a href="#">Gogozoom</a></li><li><a href="#">Y-corporation</a></li></ul>
 		</div>
-		<div class="navigation-item navigation-grow">
-			<input type="text" class="form-control input-pill" placeholder="search for tables, columns..."/>
-		</div>
+		<!-- 
+			<div class="navigation-item navigation-grow">
+				<input type="text" class="form-control input-pill" placeholder="search for tables, columns..."/>
+			</div>
+		-->
+		{% if page.ide %}
+			<div class="navigation-item navigation-grow"></div>
+			<div class="navigation-item">
+				<div class="btn-toolbar">
+					<div class="btn-group">
+						<a href="#" class="btn btn-xs btn-info">Compile</a>
+					</div>
+					<div class="btn-group">
+						<a href="#" class="btn btn-xs btn-success"><svg class="glyph glyph-sm glyph-solid glyph-before"><use xlink:href="#glyph-play"></use></svg> Run</a>
+					</div>
+					<div class="btn-group dropdown">
+						<a href="#" class="btn btn-xs btn-clear arrow-down text-inherit margin-left margin-right" data-toggle="dropdown" data-ide-env-string>Production</a>
+						<ul class="dropdown-menu">
+							<li class="active"><a href="#" data-ide-env="Production">Production</a></li>
+							<li><a href="#" data-ide-env="Development">Development</a></li>
+							<li><a href="#" data-ide-env="Staging">Staging</a></li>
+						</ul>
+					</div>
+					<div class="btn-group">
+						<label class="option input-sm"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
+					</div>
+					<div class="btn-group">
+						<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-layout="x"><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-x"></use></svg></a>
+						<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit fainter" data-ide-layout="y"><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-y"></use></svg></a>
+					</div>
+					<div class="btn-group dropdown">
+						<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-toggle="dropdown"><svg class="glyph glyph-sm"><use xlink:href="#glyph-more-vertical"></use></svg></a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li class="active"><a href="#" data-ide-theme="light">Light Mode</a></li>
+							<li><a href="#" data-ide-theme="dark">Dark Mode</a></li>
+							<li><a href="#">Recompile</a></li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+		{% endif %}
+		<div class="navigation-item navigation-grow"></div>
 		<div class="navigation-item">
 			<div class="controls controls-nowrap">
 				<div class="control"><a href="#" class="navigation-link"><svg class="glyph"><use xlink:href="#glyph-message-square"></use></svg><span class="badge badge-danger badge-digit badge-corner">3</span></a></div>

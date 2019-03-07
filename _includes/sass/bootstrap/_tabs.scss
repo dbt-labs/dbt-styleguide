@@ -13,7 +13,9 @@
 		margin: 0;
 		&:not(:first-child) { margin-left: .75em; }
 		&:not(:last-child) { margin-right: .75em; }
-		> a {
+		> a,
+		> span {
+			display: block;
 			line-height: $component-line-height;
 			background: transparent !important;
 			padding: $padding-large-vertical 0;
@@ -28,14 +30,25 @@
 			}
 		}
 	}
+	&-sm {
+		> li {
+			> a,
+			> span {
+				@include font-size-small;
+				padding: $padding-base-vertical 0;
+
+			}
+		}
+	}
 	&-fill {
 		> li {
 			@include flex(1,0,auto);
 			margin: 0 !important;
-			> a {
+			> a,
+			> span {
 				text-align: center;
-				padding-left: $padding-large-horizontal;
-				padding-right: $padding-large-horizontal;
+				padding-left: 20px;
+				padding-right: 20px;
 			}
 		}
 	}

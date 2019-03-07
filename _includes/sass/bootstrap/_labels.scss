@@ -10,6 +10,7 @@
 	&-info { color: #{dark($brand-info)}; }
 	&-warning { color: #{dark($brand-warning)}; }
 	&-danger { color: #{dark($brand-danger)}; }
+	&-inherit { color: inherit; }
 	+ .label {
 		&:not(.block) {
 			margin-left: 1.5em;

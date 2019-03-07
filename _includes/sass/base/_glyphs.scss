@@ -5,7 +5,12 @@ $glyph-size: 24px;
 @mixin glyph-size($variant,$scale:1,$stroke:2) {
 	&-#{$variant} {
 		font-size: $glyph-size * $scale;
-		use { stroke-width: (2/$scale); }
+		use {
+			stroke-width: (2/$scale);
+			@include hidef {
+				stroke-width: (1.5/$scale);
+			}
+		}
 	}
 }
 
@@ -35,8 +40,8 @@ $glyph-size: 24px;
 		}
 	}
 	&-middle, .btn & { margin-top: -10px; margin-bottom: -8px; }
-	&-before { margin-right: .375em; margin-left: -.125em; }
-	&-after { margin-left: .375em; margin-right: -.125em; }
+	&-before { margin-right: .25em; margin-left: -.125em; }
+	&-after { margin-left: .25em; margin-right: -.125em; }
 	@include glyph-size(sm,(2/3));
 	@include glyph-size(md,1.5);
 	@include glyph-size(lg,2);
@@ -46,19 +51,40 @@ $glyph-size: 24px;
 
 // Form icons
 
+// .glyph {
+// 	&-check, &-radio {
+// 		font-size: 18px;
+// 		color: white;
+// 		background: white;
+// 		use { opacity: 0; }
+// 		border: 2px solid $silver-darker;
+// 		:hover > &, :focus ~ & { border-color: $silver-darkest; }
+// 		:checked ~ &, :disabled ~ &, [type="checkbox"]:indeterminate ~ & { border-color: transparent !important; }
+// 		:checked ~ &, [type="checkbox"]:indeterminate ~ & { background: $link-color; use { opacity: 1; } }
+// 		:checked:hover ~ &, :checked:focus ~ &, [type="checkbox"]:indeterminate:hover ~ &, [type="checkbox"]:indeterminate:focus ~ &, :hover > :checked ~ &, :focus > :checked ~ & { background: $link-hover-color; }
+// 		[type="checkbox"]:indeterminate ~ & { use { fill: currentColor; stroke: transparent; } }
+// 		:disabled ~ &, :checked:disabled ~ &, [type="checkbox"]:indeterminate:disabled ~ & { background: dark($input-bg-disabled); color: inherit; }
+// 	}
+// 	&-radio { @include circle; use { fill: currentColor; } }
+// 	&-check { @include radius($border-radius-small); }
+// }
+
+
+
+// Form icons
+
 .glyph {
 	&-check, &-radio {
 		font-size: 18px;
-		color: white;
-		background: white;
 		use { opacity: 0; }
-		border: 2px solid $silver-darker;
-		:hover > &, :focus ~ & { border-color: $silver-darkest; }
+		border: 2px solid currentColor;
+		opacity: .25;
+		:hover > &, :focus ~ & { opacity: .5; }
 		:checked ~ &, :disabled ~ &, [type="checkbox"]:indeterminate ~ & { border-color: transparent !important; }
-		:checked ~ &, [type="checkbox"]:indeterminate ~ & { background: $link-color; use { opacity: 1; } }
+		:checked ~ &, [type="checkbox"]:indeterminate ~ & { opacity: 1; background: $link-color; use { opacity: 1; color: white; } }
 		:checked:hover ~ &, :checked:focus ~ &, [type="checkbox"]:indeterminate:hover ~ &, [type="checkbox"]:indeterminate:focus ~ &, :hover > :checked ~ &, :focus > :checked ~ & { background: $link-hover-color; }
 		[type="checkbox"]:indeterminate ~ & { use { fill: currentColor; stroke: transparent; } }
-		:disabled ~ &, :checked:disabled ~ &, [type="checkbox"]:indeterminate:disabled ~ & { background: dark($input-bg-disabled); color: inherit; }
+		:disabled ~ &, :checked:disabled ~ &, [type="checkbox"]:indeterminate:disabled ~ & { opacity: .5; background: dark($input-bg-disabled); color: inherit; use { color: inherit; } }
 	}
 	&-radio { @include circle; use { fill: currentColor; } }
 	&-check { @include radius($border-radius-small); }

@@ -1,8 +1,10 @@
-$nav-height: 72px;
+
 
 .layout {
 	min-height: 100vh;
 	&-pad { @include set(padding-top padding-bottom,20px); }
+	&-pad-l, &-pad-x { padding-left: 20px; }
+	&-pad-r, &-pad-x { padding-right: 20px; }
 	&-sticky {
 		position: sticky;
 		z-index: 20;
@@ -17,13 +19,13 @@ $nav-height: 72px;
 	&-navigation {
 		@include shadow;
 		background: white;
-		height: $nav-height;
+		height: $navigation-height;
 		position: fixed;
 		@include set(top left right,0);
 	}
 	&-content {
 		position: fixed;
-		top: ($nav-height - 1px);
+		top: ($navigation-height - 1px);
 		@include set(bottom left right,0);
 		@include scroll;
 	}

@@ -3,6 +3,7 @@
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
+
 	&:not(.on) {
 		.launcher-content { display: none; }
 	}
@@ -14,7 +15,11 @@
 }
 
 .launcher-btn {
+	font-size: 0;
 	.btn {
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
 		@include shadow(20px);
 		@include active {
 			@include shadow(40px);
