@@ -210,5 +210,10 @@ $ide-focus-offset: 10px;
 		.ide-list-item {
 			box-shadow: 0 1px 0 rgba(255,255,255,.1);
 		}
+		.ide-panel-header,
+		.ide-panel-footer {
+			.btn-default { @include button-variant(white,$navy,$navy,light($navy)); }
+			//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
+		}
 	}
 }

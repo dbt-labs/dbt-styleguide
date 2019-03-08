@@ -29,6 +29,7 @@
 	&-green { @include button-variant(white,$green,$green); }
 	&-orange { @include button-variant(white,$orange,$orange); }
 	&-yellow { @include button-variant(white,$yellow,$yellow); }
+	&-purple { @include button-variant(white,$purple,$purple); }
 	&-white { @include button-variant($btn-default-color,white,white,$silver-light); }
 	&-default { @include button-variant($btn-default-color,$btn-default-bg,$btn-default-bg); }
 	&-clear, &-text, &-link { background: transparent !important; }

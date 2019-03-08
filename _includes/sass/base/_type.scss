@@ -84,3 +84,5 @@ small, .small, .text-small { @include font-size-small; }
 
 .margin-right { margin-right: .75em !important; }
 .margin-left { margin-left: .75em !important; }
+.margin-right-small { margin-right: .375em !important; }
+.margin-left-small { margin-left: .375em !important; }

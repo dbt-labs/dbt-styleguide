@@ -11,7 +11,7 @@ fill: true
 
 <div class="ide ide-dark">
 	<div class="ide-panels">
-		<div class="ide-panel-group ide-panel-sm ide-vertical" id="history">
+		<div class="ide-panel-group ide-panel-sm ide-vertical hidden" id="history">
 			<div class="ide-panel">
 				<div class="ide-panel-header ide-pad-x">
 					<div class="ide-controls">
@@ -67,14 +67,15 @@ fill: true
 				<div class="ide-panel-header ide-pad-x">
 					<div class="ide-controls">
 						<div class="ide-control">
-							<a href="#" class="btn btn-xs btn-info">Compile</a>
-							<a href="#" class="btn btn-xs btn-success"><svg class="glyph glyph-sm glyph-solid glyph-before"><use xlink:href="#glyph-play"></use></svg> Run</a>
-							<div class="btn-group margin-left">
+							<a href="#" class="btn btn-xs btn-danger hidden" data-ide-load><span class="loading loading-inline loading-small"></span> Cancel</a>
+							<a href="#" class="btn btn-xs btn-info" data-ide-load>Compile</a>
+							<a href="#" class="btn btn-xs btn-success" data-ide-load><svg class="glyph glyph-sm glyph-solid glyph-before"><use xlink:href="#glyph-play"></use></svg> Run</a>
+							<div class="btn-group margin-left" data-ide-loading>
 								<label class="option input-sm strong"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
 							</div>
 						</div>
 						<div class="ide-control text-right">
-							<div class="btn-group dropdown">
+							<div class="btn-group dropdown" data-ide-loading>
 								<a href="#" class="btn btn-xs btn-clear arrow-down text-inherit normal" data-toggle="dropdown" data-ide-env-string>Production</a>
 								<ul class="dropdown-menu">
 									<li class="active"><a href="#" data-ide-env="Production">Production</a></li>
@@ -89,8 +90,10 @@ fill: true
 								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-layout="x" data-toggle="tooltip" title="Horizontal Layout"><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-x"></use></svg></a>
 								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit fainter" data-ide-layout="y" data-toggle="tooltip" title="Vertical Layout"><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-y"></use></svg></a>
 							</div>
-							<div class="btn-group dropdown">
+							<div class="btn-group margin-left-small">
 								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit normal" data-toggle="tooltip" title="View History" data-ide-history><svg class="glyph glyph-sm"><use xlink:href="#glyph-history"></use></svg></a>
+							</div>
+							<div class="btn-group dropdown">
 								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-toggle="dropdown"><svg class="glyph glyph-sm"><use xlink:href="#glyph-more-vertical"></use></svg></a>
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li class="active"><a href="#" data-ide-theme="dark">Dark Mode</a></li>
@@ -108,9 +111,9 @@ fill: true
 			<div class="ide-panel ide-panel-resizable" id="result">
 				<div class="ide-panel-header">
 					<div class="ide-controls">
-						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL</a></div>
-						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables</a></div>
-						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph</a></div>
+						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 					</div>
 				</div>
 				<div class="ide-panel-body" data-ide-tab-content="compiled">
@@ -150,7 +153,7 @@ select 1 as id
 					<div class="ide-panel-scroll">
 					</div>
 				</div>
-				<div class="ide-panel-footer ide-pad-x">
+				<div class="ide-panel-footer ide-pad-x" data-ide-loading>
 					<div class="ide-controls">
 						<div class="ide-control">
 							<span class="label label-success"><span class="dot"></span> Success</span>
@@ -226,6 +229,11 @@ select 1 as id
 
 		$('[data-ide-insert]').on('mousedown',function(){
 			$('#editor').html($(this).attr('data-ide-insert')).focus();
+			return false;
+		});
+
+		$('[data-ide-load]').on('click',function(){
+			$('[data-ide-load], [data-ide-loading]').toggleClass('hidden');
 			return false;
 		});
 
