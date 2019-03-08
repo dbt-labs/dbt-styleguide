@@ -1,8 +1,8 @@
-@mixin scrollbar($color: $silver-dark) {
+@mixin scrollbar($color: $silver-dark,$bg:transparent,$hover:false) {
 	&::-webkit-scrollbar {
-		background: transparent;
-		width: 10px;
-		height: 10px;
+		background: $bg;
+		width: 7px;
+		height: 7px;
 	}
 	&::-webkit-scrollbar-button {
 		display: none;
@@ -18,14 +18,18 @@
 		@include transitions();
 	}
 	&::-webkit-scrollbar-corner {
-		background: transparent;
+		background: $bg;
 	}
 	&::-webkit-resizer {
 		background: transparent;
 	}
 	&:hover {
 		&::-webkit-scrollbar-thumb {
-			background: darker($color);
+			@if $hover {
+				background: $hover;
+			} @else {
+				background: darker($color);
+			}
 		}
 	}
 }

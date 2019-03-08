@@ -13,6 +13,7 @@ $ide-focus-offset: 10px;
 
 
 .ide {
+	overflow: hidden;
 	@include font-size-small;
 	@include fill;
 	background: white;
@@ -84,6 +85,12 @@ $ide-focus-offset: 10px;
 				height: 1px;
 				opacity: .06;
 			}
+			.btn {
+				&:focus,
+				&:active {
+					z-index: auto;
+				}
+			}
 		}
 		&-header {
 			&:after {
@@ -107,6 +114,7 @@ $ide-focus-offset: 10px;
 		&-scroll {
 			@include fill;
 			@include scroll;
+			@include scrollbar(mix($silver,$light,75%),$silver-dark);
 		}
 		&-handle {
 			@include cover(right);
@@ -214,6 +222,9 @@ $ide-focus-offset: 10px;
 		.ide-panel-footer {
 			.btn-default { @include button-variant(white,$navy,$navy,light($navy)); }
 			//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
+		}
+		.ide-panel-scroll {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
 		}
 	}
 }
