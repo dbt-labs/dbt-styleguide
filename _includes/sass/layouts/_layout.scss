@@ -1,7 +1,10 @@
 $nav-height: 72px;
 
 .layout {
-	min-height: 100vh;
+	width: 100vw;
+	height: 100vh;
+	min-width: $tablet;
+	@include scroll;
 	&-pad { @include set(padding-top padding-bottom,20px); }
 	&-sticky {
 		position: sticky;
@@ -18,12 +21,12 @@ $nav-height: 72px;
 		@include shadow;
 		background: white;
 		height: $nav-height;
-		position: fixed;
+		position: absolute;
 		@include set(top left right,0);
 	}
 	&-content {
-		position: fixed;
-		top: ($nav-height - 1px);
+		position: absolute;
+		top: ($nav-height + 1px);
 		@include set(bottom left right,0);
 		@include scroll;
 	}
