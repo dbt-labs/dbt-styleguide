@@ -153,7 +153,7 @@ $ide-focus-offset: 10px;
 			color: inherit;
 			box-shadow: 0 1px 0 $outline;
 			@include ellipsis;
-			
+
 			@include active {
 				color: inherit;
 			}
@@ -178,7 +178,7 @@ $ide-focus-offset: 10px;
 		resize: none;
 		padding: 0;
 		background: transparent;
-		
+
 	}
 	table {
 		white-space: nowrap;
@@ -226,5 +226,12 @@ $ide-focus-offset: 10px;
 		.ide-panel-scroll {
 			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
 		}
+		.ace_scrollbar {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+		.ide-code {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+
 	}
 }
