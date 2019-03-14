@@ -7,7 +7,7 @@
 	@include scroll;
 	&-pad { @include set(padding-top padding-bottom,20px); }
 	&-ide {
-            height: calc(100vh - 54px);
+            height: calc(100vh - 53px);
         }
 	&-pad-l, &-pad-x { padding-left: 20px; }
 	&-pad-r, &-pad-x { padding-right: 20px; }
