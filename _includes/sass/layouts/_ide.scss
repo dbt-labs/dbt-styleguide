@@ -1,0 +1,242 @@
+$ide-controls: $navigation-height - 8px;
+$ide-pad-y: 14px;
+$ide-pad-x: 16px;
+$ide-focus-offset: 10px;
+
+@mixin ide-vertical(){
+	width: auto !important;
+}
+
+@mixin ide-horizontal(){
+	height: auto !important;
+}
+
+
+.ide {
+	overflow: hidden;
+	@include font-size-small;
+	@include fill;
+	background: white;
+	&-pad { padding: $ide-pad-y $ide-pad-x !important; }
+	&-pad-l, &-pad-x { padding-left: $ide-pad-x !important; }
+	&-pad-r, &-pad-x { padding-right: $ide-pad-x !important; }
+	&-panels { @include fill; }
+	&-panels, &-panel-group {
+		@include flex-row;
+		background: inherit;
+		&.ide-vertical {
+			@include flex-column;
+		}
+		@include small {
+			@include flex-column;
+		}
+	}
+	&-panel, &-panel-group {
+		@include flex(1,0,0);
+	}
+	&-panel {
+		.ide-horizontal & {
+			@include ide-horizontal();
+			&[style*="width"] { @include flex(0,0,auto); }
+		}
+		.ide-vertical & {
+			@include ide-vertical();
+			&[style*="height"] { @include flex(0,0,auto); }
+		}
+		@include small {
+			@include ide-vertical();
+		}
+		@include transition-properties((box-shadow,transform));
+		box-shadow: 0 0 0 2px transparent;
+		@include set(min-height min-width,200px);
+		&-sm {
+			@include flex(0,0,280px);
+		}
+		&:before {
+			content: '';
+			@include cover;
+			box-shadow: 0 0 0 1px currentColor;
+			opacity: .125;
+		}
+		&:focus {
+			z-index: 3;
+			box-shadow: 0 0 0 2px $blue, 0 10px 20px rgba(0,30,60,.3);
+			@include transform(translate($ide-focus-offset,$ide-focus-offset*-1));
+			@include radius;
+		}
+		> * {
+			&:first-child { @include set(border-top-left-radius border-top-right-radius,inherit); }
+			&:last-child { @include set(border-bottom-left-radius border-bottom-right-radius,inherit); }
+		}
+		background: inherit;
+		@include flex-column;
+		&-header, &-footer {
+			@include flex(0,0,auto);
+			background: $outline;
+			// box-shadow: inset 0 -1px 0 $line, 0 -1px 0 $line;
+			&:before,
+			&:after {
+				content: '';
+				@include cover;
+				background: currentColor;
+				opacity: .0075;
+			}
+			&:after {
+				height: 1px;
+				opacity: .06;
+			}
+			.btn {
+				&:focus,
+				&:active {
+					z-index: auto;
+				}
+			}
+		}
+		&-header {
+			&:after {
+				top: auto;
+			}
+		}
+		&-footer {
+			&:before {
+				display: none;
+			}
+			&:after {
+				//display: none;
+				bottom: auto;
+			}
+		}
+		&-body {
+			color: $dark;
+			background: inherit;
+			@include flex(1,1,auto);
+		}
+		&-scroll {
+			@include fill;
+			@include scroll;
+			@include scrollbar(mix($silver,$light,75%),$silver-dark);
+		}
+		&-handle {
+			@include cover(right);
+			background: white;
+			width: 10px;
+		}
+	}
+	&-controls {
+		@include table(middle);
+		height: $ide-controls;
+	}
+	&-control {
+		white-space: nowrap;
+		&-sm { width: 1px; }
+		&-link, &-text {
+			display: block;
+			padding: $padding-base-vertical 0;
+		}
+		&-link {
+			@include set(padding-left padding-right,$padding-base-horizontal);
+			text-align: center;
+		}
+		&-inline-link {
+                    display: inline-block;
+			padding: $padding-base-vertical 0;
+			text-align: center;
+		}
+		&.active {
+			box-shadow: inset 0 -1px 0 $link;
+			.ide-control-link, .ide-control-inline-link {
+				color: inherit;
+				font-weight: bold;
+			}
+		}
+	}
+	&-list {
+		padding: $ide-pad-y/2 0;
+		&-item {
+			display: block;
+			padding: $ide-pad-y/2 $ide-pad-x;
+			color: inherit;
+			box-shadow: 0 1px 0 $outline;
+			@include ellipsis;
+
+			@include active {
+				color: inherit;
+			}
+			&-body {}
+			&-footer {
+				padding: .375em 0;
+				@include flex-row;
+				@include flex-justify(space-between);
+			}
+		}
+	}
+	&-interactive {
+		@include active {
+			background: $silver-light;
+		}
+	}
+	&-active {
+		background: $silver-darker !important;
+	}
+	&-code {
+		color: inherit;
+		resize: none;
+		padding: 0;
+		background: transparent;
+
+	}
+	table {
+		white-space: nowrap;
+		td, th {
+			&:first-child { padding-left: $ide-pad-x; }
+			&:last-child { padding-right: $ide-pad-x; }
+		}
+	}
+	&-table-heading {
+		color: inherit;
+		position: sticky;
+		top: 0;
+		z-index: 3;
+		background: white;
+		box-shadow: 0 1px 0 $outline;
+	}
+}
+
+
+.ide {
+	&-dark {
+		&, .ide-table-heading {
+			background: darkest($navy);
+		}
+		color: white;
+		.ide-panel-body { color: inherit; }
+		.ide-panel:focus,
+		.ide-panel-header, .ide-panel-footer,
+		.table-striped > tbody > tr:nth-of-type(odd) {
+			background: mix(darkest($navy),darker($navy));
+		}
+		.ide-active {
+			background: $navy !important;
+			color: white !important;
+		}
+		.ide-table-heading,
+		.ide-list-item {
+			box-shadow: 0 1px 0 rgba(255,255,255,.1);
+		}
+		.ide-panel-header,
+		.ide-panel-footer {
+			.btn-default { @include button-variant(white,$navy,$navy,light($navy)); }
+			//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
+		}
+		.ide-panel-scroll {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+		.ace_scrollbar {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+		.ide-code {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+
+	}
+}

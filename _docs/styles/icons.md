@@ -16,6 +16,8 @@ order: 98
 	<svg class="icn"><use xlink:href="#icn-doc-on"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-db"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-db-on"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-split-v"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-split-h"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-down"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-up"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-left"></use></svg>
@@ -26,6 +28,10 @@ order: 98
 	<svg class="icn"><use xlink:href="#icn-search"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-tree"></use></svg>
 	<svg class="icn"><use xlink:href="#icn-tree-on"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-flow"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-expand"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-contract"></use></svg>
+	<svg class="icn"><use xlink:href="#icn-filter"></use></svg>
 </div>
 
 <div class="icns">
@@ -36,6 +42,8 @@ order: 98
 	<svg class="icn icn-lg"><use xlink:href="#icn-doc-on"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-db"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-db-on"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-split-v"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-split-h"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-down"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-up"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-left"></use></svg>
@@ -46,4 +54,8 @@ order: 98
 	<svg class="icn icn-lg"><use xlink:href="#icn-search"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-tree"></use></svg>
 	<svg class="icn icn-lg"><use xlink:href="#icn-tree-on"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-flow"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-expand"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-contract"></use></svg>
+	<svg class="icn icn-lg"><use xlink:href="#icn-filter"></use></svg>
 </div>

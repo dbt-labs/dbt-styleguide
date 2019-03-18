@@ -114,3 +114,12 @@ tr.ui-sortable-helper {
 .ui-sortable-sorting {
 	z-index: 5001 !important;
 }
+
+.ui-resizable {
+	&-n, &-s { cursor: ns-resize; }
+	&-e, &-w { cursor: ew-resize; }
+	// &-e { right: 0; }
+	// &-w { left: 0; }
+	// &-n { top: 0; }
+	// &-s { bottom: 0; }
+}

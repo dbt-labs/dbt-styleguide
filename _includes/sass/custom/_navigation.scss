@@ -1,21 +1,21 @@
-$nav-pad: 14px;
+$nav-pad: 15px;
 
 .navigation {
 	color: $headings-color;
 	&-row {
-		height: 72px;
+		height: $navigation-height;
 		margin: 0 $nav-pad*-1;
 		@include flex-row;
 		@include flex-align(center);
 	}
 	&-item {
 		@include flex(0,0,auto);
-		padding: $nav-pad;
+		padding: 10px $nav-pad;
 	}
 	&-grow { @include flex(1,0,auto); }
 	&-link {
 		color: $lighter;
 		@include active { color: $dark; }
 	}
-	&-pad { padding: 0 24px; }
+	&-pad { padding: 0 20px; }
 }

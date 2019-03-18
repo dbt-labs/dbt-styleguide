@@ -7,6 +7,7 @@
 
 @mixin font-size-label(){ @include scale-rem(font-size,$font-size-label); }
 @mixin font-size-code(){ @include scale-rem(font-size,$font-size-code); }
+@mixin font-size-code-small(){ @include scale-rem(font-size,$font-size-code-small); }
 @mixin font-size-small(){ @include scale-rem(font-size,$font-size-small); }
 @mixin font-size-base(){ @include scale-rem(font-size,$font-size-base); }
 @mixin font-size-large(){ @include scale-rem(font-size,$font-size-large); }
@@ -47,7 +48,7 @@
 	text-transform: uppercase;
 	letter-spacing: .15em;
 	font-size: $font-size-label;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 @mixin code(){
