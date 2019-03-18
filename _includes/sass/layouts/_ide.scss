@@ -137,9 +137,14 @@ $ide-focus-offset: 10px;
 			@include set(padding-left padding-right,$padding-base-horizontal);
 			text-align: center;
 		}
+		&-inline-link {
+                    display: inline-block;
+			padding: $padding-base-vertical 0;
+			text-align: center;
+		}
 		&.active {
 			box-shadow: inset 0 -1px 0 $link;
-			.ide-control-link {
+			.ide-control-link, .ide-control-inline-link {
 				color: inherit;
 				font-weight: bold;
 			}
@@ -153,7 +158,7 @@ $ide-focus-offset: 10px;
 			color: inherit;
 			box-shadow: 0 1px 0 $outline;
 			@include ellipsis;
-			
+
 			@include active {
 				color: inherit;
 			}
@@ -178,7 +183,7 @@ $ide-focus-offset: 10px;
 		resize: none;
 		padding: 0;
 		background: transparent;
-		
+
 	}
 	table {
 		white-space: nowrap;
@@ -226,5 +231,12 @@ $ide-focus-offset: 10px;
 		.ide-panel-scroll {
 			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
 		}
+		.ace_scrollbar {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+		.ide-code {
+			@include scrollbar(desaturate($navy,10%),dark($navy),light(desaturate($navy,10%)));
+		}
+
 	}
 }
