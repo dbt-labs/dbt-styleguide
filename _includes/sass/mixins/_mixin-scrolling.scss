@@ -15,6 +15,7 @@
 	}
 	&::-webkit-scrollbar-thumb {
 		background: $color;
+		@include pill;
 		@include transitions();
 	}
 	&::-webkit-scrollbar-corner {

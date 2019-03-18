@@ -113,13 +113,21 @@ fill: true
 					<div class="ide-controls">
 						<div class="ide-control dropdown">
 							<a class="ide-control-link text-center arrow-down" href="#" data-toggle="dropdown">Info/Logs</a>
-							<!-- <ul class="dropdown-menu">
-								 data-ide-tab="info" -->
+							<ul class="dropdown-menu">
+								<li><a href="#" data-ide-tab="info">Info</a></li>
+								<li><a href="#" data-ide-tab="info">Logs</a></li>
+							</ul>
 						</div>
 						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 					</div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="info">
+					<div class="ide-panel-scroll"></div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="logs">
+					<div class="ide-panel-scroll"></div>
 				</div>
 				<div class="ide-panel-body" data-ide-tab-content="compiled">
 					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>create  table "DBT_TEST_ALT".dbt_dbanin_schema_override.debug__dbt_tmp
