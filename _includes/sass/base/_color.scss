@@ -30,16 +30,21 @@ $colors: (
 }
 
 
-.text-success { color: $brand-success !important; }
-.text-danger { color: $brand-danger !important; }
-.text-warning { color: $brand-warning !important; }
-.text-info { color: $brand-info !important; }
+.text-success { color: dark($brand-success) !important; }
+.text-danger { color: dark($brand-danger) !important; }
+.text-warning { color: dark($brand-warning) !important; }
+.text-info { color: dark($brand-info) !important; }
 
 .text-white { color: white !important; }
 .text-light { color: $light !important; }
 .text-lighter { color: $lighter !important; }
 .text-dark { color: $dark !important; }
-.text-inherit { color: inherit; }
+.text-inherit {
+	color: inherit;
+	@include active {
+		color: inherit;
+	}
+}
 
 .text-silver { color: $silver !important; }
 .text-silver-light { color: $silver-light !important; }
@@ -56,6 +61,7 @@ $colors: (
 .bg-transparent { background-color: transparent !important; }
 
 .faint { opacity: .5; }
+.fainter { opacity: .3; }
 .inherit { color: inherit; }
 
 ::selection {

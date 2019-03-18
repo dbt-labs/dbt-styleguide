@@ -29,10 +29,12 @@
 	&-green { @include button-variant(white,$green,$green); }
 	&-orange { @include button-variant(white,$orange,$orange); }
 	&-yellow { @include button-variant(white,$yellow,$yellow); }
+	&-purple { @include button-variant(white,$purple,$purple); }
 	&-white { @include button-variant($btn-default-color,white,white,$silver-light); }
 	&-default { @include button-variant($btn-default-color,$btn-default-bg,$btn-default-bg); }
 	&-clear, &-text, &-link { background: transparent !important; }
-	&-text {
+	&-text,
+	&.text-inherit {
 		color: inherit;
 		@include active {
 			color: inherit;
@@ -52,6 +54,16 @@
 		height: $component-height-small;
 		@include font-size-small;
 	}
+	&-xs {
+		padding: $padding-xsmall-vertical $padding-xsmall-horizontal;
+		height: $component-height-xsmall;
+		@include font-size-small;
+	}
+	&-md {
+		padding: $padding-medium-vertical $padding-medium-horizontal;
+		height: $component-height-medium;
+		@include font-size-base;
+	}
 	&-pill {
 		@include pill;
 	}
@@ -59,7 +71,9 @@
 		padding-left: 0;
 		padding-right: 0;
 		@include set(width min-width,$component-height-base);
+		&.btn-xs { @include set(width min-width,$component-height-xsmall); }
 		&.btn-sm { @include set(width min-width,$component-height-small); }
+		&.btn-md { @include set(width min-width,$component-height-medium); }
 		&.btn-lg { @include set(width min-width,$component-height-large); }
 		.icon, .glyph {
 			margin: 0;

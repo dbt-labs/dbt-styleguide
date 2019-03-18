@@ -158,8 +158,8 @@
 <symbol viewBox="0 0 24 24" id="glyph-minus"><line x1="5" y1="12" x2="19" y2="12"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
-<symbol viewBox="0 0 24 24" id="glyph-more-horizontal"><rect x="11" y="11" width="1" height="1"/><rect x="18" y="11" width="1" height="1"/><rect x="4" y="11" width="1" height="1"/></symbol>
-<symbol viewBox="0 0 24 24" id="glyph-more-vertical"><rect x="11" y="11" width="1" height="1"/><rect x="11" y="18" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-more-horizontal"><line x1="4" y1="12" x2="4" y2="12"/><line x1="12" y1="12" x2="12" y2="12"/><line x1="20" y1="12" x2="20" y2="12"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-more-vertical"><line x1="12" y1="4" x2="12" y2="4"/><line x1="12" y1="12" x2="12" y2="12"/><line x1="12" y1="20" x2="12" y2="20"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-move"><polyline points="5 9 2 12 5 15"/><polyline points="9 5 12 2 15 5"/><polyline points="15 19 12 22 9 19"/><polyline points="19 9 22 12 19 15"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-music"><path d="M9 17H5a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm12-2h-4a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2z"/><polyline points="9 17 9 5 21 3 21 15"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-navigation-2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></symbol>
@@ -179,7 +179,7 @@
 <symbol viewBox="0 0 24 24" id="glyph-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-play-circle"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></symbol>
-<symbol viewBox="0 0 24 24" id="glyph-play"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-play"><polygon points="7 3 21 12 7 21 7 3"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-plus-circle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-plus-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-plus"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
@@ -216,7 +216,7 @@
 <symbol viewBox="0 0 24 24" id="glyph-slash"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19" y2="19"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-sliders"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-smartphone"><rect x="6" y="2" width="12" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></symbol>
-<symbol viewBox="0 0 24 24" id="glyph-laptop"><path d="M5,3H19a2,2,0,0,1,2,2V15a0,0,0,0,1,0,0H3a0,0,0,0,1,0,0V5A2,2,0,0,1,5,3Z"/><path d="M21,15l1.8,3.4A1,1,0,0,1,22,20H2a1,1,0,0,1-.8-1.6L3,15" /></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-laptop"><path d="M5,3H19a2,2,0,0,1,2,2V15a0,0,0,0,1,0,0H3a0,0,0,0,1,0,0V5A2,2,0,0,1,5,3Z"/><path d="M21,15l1.8,3.4A1,1,0,0,1,22,20H2a1,1,0,0,1-.8-1.6L3,15"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-speaker"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12" y2="6"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-star"><polygon points="12 2 15 8.26 22 9.27 17 14.14 18.18 21 12 17.77 5.82 21 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
@@ -274,7 +274,12 @@
 <symbol viewBox="0 0 24 24" id="glyph-zoom-out"><circle cx="10" cy="10" r="8"/><line x1="21" y1="21" x2="15.65" y2="15.65"/><line x1="7" y1="10" x2="13" y2="10"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-connection"><line x1="3" y1="7" x2="21" y2="7"/><polyline points="17 3 21 7 17 11"/><line x1="21" y1="17" x2="3" y2="17"/><polyline points="7 21 3 17 7 13"/></symbol>
 
-<symbol viewBox="0 0 14 14" id="glyph-form-check"><polyline points="2 7 5 10 12 3" fill="transparent"/><rect x="2" y="6" width="10" height="2" rx="1" ry="1" stroke="transparent" /></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-split-y"><rect x="3" y="3" width="18" height="18" rx="1" ry="1"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-split-x"><rect x="3" y="3" width="18" height="18" rx="1" ry="1"/><line x1="12" y1="3" x2="12" y2="21"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-sync"><line x1="6" y1="7" x2="19" y2="7"/><polyline points="16 4 19 7 16 10"/><line x1="18" y1="17" x2="5" y2="17"/><polyline points="8 20 5 17 8 14"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-history"><polyline points="12 7.5 12 12 15 15" /><polyline points="6 7.5 1.5 7.5 1.5 3" /><path d="M2.52,16.5a10.5,10.5,0,1,0,0-9" /></symbol>
+
+<symbol viewBox="0 0 14 14" id="glyph-form-check"><polyline points="2 7 5 10 12 3" fill="transparent"/><rect x="2" y="6" width="10" height="2" rx="1" ry="1" stroke="transparent"/></symbol>
 <symbol viewBox="0 0 14 14" id="glyph-form-radio"><circle cx="7" cy="7" r="2" fill="currentColor"/></symbol>
 
 </svg>

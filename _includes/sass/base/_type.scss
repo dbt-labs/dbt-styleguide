@@ -21,6 +21,7 @@ a, .a {
 i, .i, em, .em { font-style: oblique; }
 b, .b, strong, .strong { font-weight: bold; }
 mark { background: $state-info-bg; color: $dark; padding: .1em 0; @include radius; }
+.normal { font-weight: normal !important; }
 
 // MARGINS -------------------------------------------------------
 
@@ -81,5 +82,7 @@ small, .small, .text-small { @include font-size-small; }
 *:first-child { margin-top: 0; }
 *:last-child { margin-bottom: 0; }
 
-.margin-right { margin-right: .75em; }
-.margin-left { margin-left: .75em; }
+.margin-right { margin-right: .75em !important; }
+.margin-left { margin-left: .75em !important; }
+.margin-right-small { margin-right: .375em !important; }
+.margin-left-small { margin-left: .375em !important; }

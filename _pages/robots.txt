@@ -1,7 +1,0 @@
----
-title: Robots
-layout: raw
-permalink: robots.txt
----
-User-agent: *
-{% if site.robots %}Allow: /{% else %}Disallow: /{% endif %}

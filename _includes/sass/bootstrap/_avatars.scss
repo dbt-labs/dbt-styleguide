@@ -4,8 +4,8 @@
 	img {
 		display: block;
 		@include circle;
-		@include set(height width,40px);
+		@include set(height width,28px);
 	}
 	&-square img { @include radius; }
-	&-sm img { @include set(height width,22px); }
+	&-sm img { @include set(height width,20px); }
 }

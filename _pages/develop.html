@@ -1,0 +1,279 @@
+---
+title: Develop
+menu: develop
+layout: cloud
+fill: true
+---
+
+{% assign natalie = site.data.natalie %}
+{% assign cols = natalie | first %}
+{% assign rows = natalie %}
+
+<div class="ide ide-dark">
+	<div class="ide-panels">
+		<div class="ide-panel-group ide-panel-sm ide-vertical hidden" id="history">
+			<div class="ide-panel">
+				<div class="ide-panel-header ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<strong class="ide-control-text">Query History</strong>
+						</div>
+						<div class="ide-control text-right">
+							<div class="btn-group">
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-history><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevrons-left"></use></svg></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-body">
+					<div class="ide-panel-scroll">
+						<div class="ide-list">
+							{% for i in (1..100) %}
+								<a href="#" class="ide-list-item" data-ide-history-details={{i}}>
+									<div class="ide-list-item-body"><code class="ide-code">{% raw %}{% for i in range(10) %} select {{ id }} as id {% endfor %}{% endraw %}</code></div>
+									<div class="ide-list-item-footer"><span class="label label-inherit faint">7:07pm</span> <span class="label label-inherit faint">8 Rows</span></div>
+								</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ide-panel hidden" id="history-details" tabindex="0">
+				<div class="ide-panel-body">
+					<div class="ide-panel-scroll ide-pad">
+						<pre class="ide-code">{% raw %}{% for i in range(10) %}
+	select {{ id }} as id
+{% endfor %}{% endraw %}</pre>
+					</div>
+				</div>
+				<div class="ide-panel-footer ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<div class="btn-group">
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-history-details=0><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a>
+							</div>
+						</div>
+						<div class="ide-control text-right">
+							<a href="#" class="btn btn-xs btn-info arrow-right" data-ide-insert='{% raw %}{% for i in range(10) %}
+	select {{ id }} as id
+{% endfor %}{% endraw %}'>Insert</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ide-panel-group ide-horizontal" id="main">
+			<div class="ide-panel" id="body">
+				<div class="ide-panel-header ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<a href="#" class="btn btn-xs btn-danger hidden" data-ide-load><span class="loading loading-inline loading-small"></span> Cancel</a>
+							<a href="#" class="btn btn-xs btn-info" data-ide-load>Compile</a>
+							<a href="#" class="btn btn-xs btn-success" data-ide-load><svg class="glyph glyph-sm glyph-solid glyph-before"><use xlink:href="#glyph-play"></use></svg> Run</a>
+							<div class="btn-group margin-left" data-ide-loading>
+								<label class="option input-sm strong"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
+							</div>
+						</div>
+						<div class="ide-control text-right">
+							<div class="btn-group dropdown" data-ide-loading>
+								<a href="#" class="btn btn-xs btn-clear arrow-down text-inherit normal" data-toggle="dropdown" data-ide-env-string>Production</a>
+								<ul class="dropdown-menu">
+									<li class="active"><a href="#" data-ide-env="Production">Production</a></li>
+									<li><a href="#" data-ide-env="Development">Development</a></li>
+									<li><a href="#" data-ide-env="Staging">Staging</a></li>
+								</ul>
+							</div>
+							<div class="btn-group">
+								<a href="#" class="btn btn-xs btn-clear text-inherit normal" data-ide-history>History</a>
+							</div>
+							<div class="btn-group">
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-layout="x" ><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-x"></use></svg></a>
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit fainter" data-ide-layout="y" ><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-y"></use></svg></a>
+							</div>
+							<!-- <div class="btn-group margin-left-small">
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit normal" data-ide-history><svg class="glyph glyph-sm"><use xlink:href="#glyph-history"></use></svg></a>
+							</div> -->
+							<div class="btn-group dropdown">
+								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-toggle="dropdown"><svg class="glyph glyph-sm"><use xlink:href="#glyph-more-vertical"></use></svg></a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li class="active"><a href="#" data-ide-theme="dark">Dark Mode</a></li>
+									<li><a href="#" data-ide-theme="light">Light Mode</a></li>
+									<li><a href="#">Recompile</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-body">
+					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>{% raw %}select {{ 1 + 1 }} as example{% endraw %}</pre>
+				</div>
+			</div>
+			<div class="ide-panel ide-panel-resizable" id="result">
+				<div class="ide-panel-header">
+					<div class="ide-controls">
+						<div class="ide-control dropdown">
+							<a class="ide-control-link text-center arrow-down" href="#" data-toggle="dropdown">Info/Logs</a>
+							<ul class="dropdown-menu">
+								<li><a href="#" data-ide-tab="info">Info</a></li>
+								<li><a href="#" data-ide-tab="info">Logs</a></li>
+							</ul>
+						</div>
+						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+					</div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="info">
+					<div class="ide-panel-scroll"></div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="logs">
+					<div class="ide-panel-scroll"></div>
+				</div>
+				<div class="ide-panel-body" data-ide-tab-content="compiled">
+					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>create  table "DBT_TEST_ALT".dbt_dbanin_schema_override.debug__dbt_tmp
+  as (
+    
+
+select 1 as id
+  );
+
+
+</pre>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="tables">
+					<div class="ide-panel-scroll">
+						<table class="table table-condensed table-striped text-mono">
+							<thead>
+								<tr>
+									{% for col in cols %}
+										<th class="ide-table-heading"><span class="label label-inherit faint">{{col | first}}</span></th>
+									{% endfor %}
+								</tr>
+							</thead>
+							<tbody>
+								{% for row in rows %}
+									<tr>
+										{% for cell in row %}
+											<td>{{cell | last}}</td>
+										{% endfor %}
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="graph">
+					<div class="ide-panel-scroll">
+					</div>
+				</div>
+				<div class="ide-panel-footer ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<span class="label label-success"><span class="dot"></span> Success</span>
+						</div>
+						<div class="ide-control text-right">
+							<span class="label text-inherit faint">100 Rows</span>
+							<span class="label text-inherit faint">17 sec</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	window.addEventListener('DOMContentLoaded', function() { (function($) {
+
+		$('[data-ide-layout]').on('click',function(){
+			switch ( $(this).data('ide-layout') ) {
+				case 'x' :
+					$('#main').removeClass('ide-vertical').addClass('ide-horizontal');
+					break;
+				case 'y' :
+					$('#main').addClass('ide-vertical').removeClass('ide-horizontal');
+					break;
+			}
+			$('[data-ide-layout]').addClass('fainter');
+			$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').removeClass('fainter');
+			
+			return false;
+		});
+
+		$('[data-ide-theme]').on('click',function(){
+			switch ( $(this).data('ide-theme') ) {
+				case 'light' : $('.ide').removeClass('ide-dark'); break;
+				case 'dark' : $('.ide').addClass('ide-dark'); break;
+			}
+			$('[data-ide-theme]').closest('li').removeClass('active');
+			$('[data-ide-theme="'+$(this).data('ide-theme')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
+		$('[data-ide-env]').on('click',function(){
+			$('[data-ide-env-string]').text( $(this).data('ide-env') );
+			$('[data-ide-env]').closest('li').removeClass('active');
+			$('[data-ide-env="'+$(this).data('ide-env')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
+		$('[data-ide-history-details]').on('click',function(){
+			if ( $(this).data('ide-history-details') ) {
+				$('[data-ide-history-details]').removeClass('ide-active');
+				$(this).addClass('ide-active');
+				$('#history-details').removeClass('hidden').focus();
+			} else {
+				$('#history-details').addClass('hidden');
+			}
+			return false;
+		});
+
+		$('[data-ide-history]').on('click',function(){
+			if ( $('#history').hasClass('hidden') ) {
+				$('#history').removeClass('hidden');
+			} else {
+				$('[data-ide-history-details]').removeClass('ide-active');
+				$('#history').addClass('hidden');
+				$('#history-details').addClass('hidden');
+			}
+			return false;
+		});
+
+		$('[data-ide-insert]').on('mousedown',function(){
+			$('#editor').html($(this).attr('data-ide-insert')).focus();
+			return false;
+		});
+
+		$('[data-ide-load]').on('click',function(){
+			$('[data-ide-load], [data-ide-loading]').toggleClass('hidden');
+			return false;
+		});
+
+		$('[data-ide-tab]').on('click',function(){
+			var id = $(this).data('ide-tab');
+			$('[data-ide-tab]').closest('.ide-control').removeClass('active');
+			$('[data-ide-tab-content]').addClass('hidden');
+			$('[data-ide-tab='+id+']').closest('.ide-control').addClass('active');
+			$('[data-ide-tab-content='+id+']').removeClass('hidden');
+			return false;
+		});
+
+		// $('#result').resizable({handles: "w"});
+		$('#body').resizable({
+			handles: 'e,s',
+			stop: function(e,ui){
+				console.log(ui);
+				if ( ui.originalSize.width != ui.size.width ) {
+					var percent = 100 * ui.originalElement.outerWidth() / $('#main').outerWidth();
+					ui.originalElement.css('width',percent + '%');
+				}
+				if ( ui.originalSize.height != ui.size.height ) {
+					var percent = 100 * ui.originalElement.outerHeight() / $('#main').outerHeight();
+					ui.originalElement.css('height',percent + '%');
+				}
+			}
+		});
+
+	})(jQuery); });
+</script>

@@ -1,0 +1,11 @@
+.dot {
+	display: inline-block;
+	background: currentColor;
+	@include set(width height,8px);
+	@include circle;
+	&-default { color: $label-color; }
+	&-success { color: #{dark($brand-success)}; }
+	&-info { color: #{dark($brand-info)}; }
+	&-warning { color: #{dark($brand-warning)}; }
+	&-danger { color: #{dark($brand-danger)}; }
+}

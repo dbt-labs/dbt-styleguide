@@ -9,7 +9,7 @@
 		width: 1em;
 		height: 1em;
 		@include circle;
-		color: $brand;
+		// color: $brand;
 		border: 1px solid;
 		border-top-color: $outline;
 		border-right-color: $outline;
@@ -19,6 +19,9 @@
 		height: 10px;
 		display: inline-block;
 		margin: 0 .375em 0 0;
+		&-after {
+			margin: 0 0 0 .375em;
+		}
 		vertical-align: middle;
 		&:after {
 			margin: -10px 0;
