@@ -191,6 +191,11 @@ $ide-focus-offset: 10px;
 			&:first-child { padding-left: $ide-pad-x; }
 			&:last-child { padding-right: $ide-pad-x; }
 		}
+		td {
+			max-width: 300px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 	&-table-heading {
 		color: inherit;
