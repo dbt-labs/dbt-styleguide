@@ -50,3 +50,11 @@
 		}
 	}
 }
+
+.list-clean {
+    @include clean;
+}
+
+.list-columns-2 {
+    columns: 2;
+}

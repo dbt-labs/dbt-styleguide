@@ -1,7 +1,7 @@
 $basis: $component-break + $component-buffer;
 
 .flex-row {
-	@include flex-row; 
+	@include flex-row;
 	@include flex-wrap;
 }
 .flex-column {
@@ -30,6 +30,11 @@ $basis: $component-break + $component-buffer;
 	.flex-column > & { @include flex(1,1,auto); }
 	.flex-row > & { @include flex(1,0,$component-break); }
 	.flex-buffer & { margin: $component-buffer/4; }
+}
+.flex-item-sm {
+	.flex-column > & { @include flex(1,1,auto); }
+	.flex-row > & { @include flex(1,0,$component-break/2); }
+	.flex-buffer & { margin: $component-buffer/8; }
 }
 
 .flex-grow {

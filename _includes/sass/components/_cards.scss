@@ -1,5 +1,9 @@
 $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 
+@mixin active-shadow($color){
+	@include shadow(15px,$color);
+}
+
 .card {
 	@include component;
 	@include flex-column;
@@ -9,8 +13,11 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 		@include flex(0,0);
 	}
 	> .card-body {
-		@include flex(1,0	);
+		@include flex(1,0);
 	}
+        &.active {
+            @include active-shadow($blue);
+        }
 }
 
 .card-footer,
@@ -32,6 +39,8 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-flush-bottom { padding-bottom: 0; }
 .card-flush-vertical { padding-top: 0; padding-bottom: 0; }
 .card-flush { padding: 0; }
+
+.card-sm { padding: 8px 12px; }
 
 .card-control {
 	display: block;
