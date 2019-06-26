@@ -22,4 +22,13 @@
 		//margin: 0 2em;
 		font-weight: bold !important;
 	}
+	&-outline {
+		&:before {
+			content: '';
+			@include fill;
+			border-radius: inherit;
+			border: 1px solid;
+			opacity: .15;
+		}
+	}
 }

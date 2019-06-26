@@ -103,3 +103,16 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-list {
 	&:not(:first-child) { border-top: 1px solid $line; }
 }
+
+
+.card-corner {
+	position: absolute;
+	@include set(top right,0);
+	@include transform(translate(50%,-50%));
+}
+
+.card-hide-singular {
+	.card:only-child & {
+		display: none;
+	}
+}

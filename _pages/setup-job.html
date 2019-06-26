@@ -1,0 +1,29 @@
+---
+title: Job Setup
+layout: cloud
+setup: true
+---
+
+<div class="setup">
+	
+	<div class="title title-fix">
+		<div class="title-header">
+			<ol class="breadcrumb breadcrumb-flush h1">
+				<li><a href="{{site.baseurl}}/setup-environment"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Setup</a></li>
+				<li class="active">Create a Job</li>
+			</ol>
+		</div>
+		<div class="title-actions">
+			<div class="controls">
+				<div class="control"><a href="{{site.baseurl}}/setup-team" class="btn btn-primary arrow-right pill">Continue</a></div>
+			</div>
+		</div>
+	</div>
+
+	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>	
+
+	{% include partial-job.html editing=1 %}
+
+	{% include partial-indicators.html steps=5 active=4 %}
+
+</div>

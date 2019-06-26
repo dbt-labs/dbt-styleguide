@@ -10,11 +10,15 @@
 		{% if page.include contains 'launcher' %}
 			{% include launcher.html %}
 		{% endif %}
+		{% unless page.nonav %}
 		{% include sidenav.html %}
+		{% endunless %}
 		<div class="layout">
+			{% unless page.nonav %}
 			<div class="layout-navigation layout-sticky">
 				{% include navigation.html %}
 			</div>
+			{% endunless %}
 			<div class="layout-content navigating-blur">
 				{% if page.alert %}
 					<div class="layout-alert text-center">{{ page.alert }}</div>

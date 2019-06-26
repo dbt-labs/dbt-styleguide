@@ -1,0 +1,59 @@
+---
+title: New User
+layout: cloud
+nonav: true
+---
+
+<div class="setup setup-small">
+	
+	<div class="title title-fix">
+		<div class="title-header">
+			<ol class="breadcrumb breadcrumb-flush h1">
+				<li class="active">Create a user</li>
+			</ol>
+		</div>
+		<div class="title-actions">
+			<div class="controls">
+				<div class="control"><a href="{{site.baseurl}}/newuser-install" class="btn btn-primary arrow-right pill">Save</a></div>
+			</div>
+		</div>
+	</div>
+
+	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>	
+
+	<div class="settings">
+		<div class="setting">
+			<div class="setting-body">
+				<div >
+					<div class="card">
+						<div class="card-body">
+							<form class="setting-form editing" data-submit>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Username</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md" placeholder="username..." autofocus/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Password</div></div>
+									<div class="setting-row-response" setting-active><input type="password" class="form-control input-md" placeholder="password..." /></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Confirm Password</div></div>
+									<div class="setting-row-response" setting-active><input type="password" class="form-control input-md" placeholder="password..." /></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Schema</div></div>
+									<div class="setting-row-response" setting-active><select class="form-control input-md"><option>dunno</option></select></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% include partial-indicators.html steps=2 active=1 noskip=1 %}
+
+</div>
+

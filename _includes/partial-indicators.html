@@ -1,0 +1,12 @@
+<div class="margin text-center">
+	<div class="indicators">
+		{% for i in (1..include.steps) %}
+			<div class="indicator {% if i == include.active %} active {% endif %}" data-step="{{i}}">
+				<span class="dot"></span>
+			</div>
+		{% endfor %}
+		{% unless include.noskip %}
+			<a class="indicator-link arrow-right">skip</a>
+		{% endunless %}
+	</div>
+</div>

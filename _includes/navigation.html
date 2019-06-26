@@ -55,15 +55,19 @@
 			
 		{% endif %}
 		<div class="navigation-item navigation-grow"></div>
+		
+		{% unless page.setup %}
 		<div class="navigation-item">
 			<div class="controls controls-nowrap">
 				<div class="control"><a href="#" class="navigation-link"><svg class="glyph"><use xlink:href="#glyph-message-square"></use></svg><span class="badge badge-danger badge-digit badge-corner">3</span></a></div>
 				<div class="control"><a href="#" class="navigation-link"><svg class="glyph"><use xlink:href="#glyph-inbox"></use></svg></a></div>
 			</div>
 		</div>
+		{% endunless %}
+
 		<div class="navigation-item dropdown">
 			<a href="#" class="avatar" data-toggle="dropdown">
-				<img src="https://pbs.twimg.com/profile_images/584098247641300992/N25WgvW_.png"/>
+				<img src="/ui/img/sample/avatar.jpg"/>
 			</a>
 			<ul class="dropdown-menu dropdown-menu-right"><li><a href="#">My Account</a></li><li class="divider"></li><li><a href="#">Log out</a></li></ul>
 		</div>

@@ -1,0 +1,15 @@
+.line {
+	&-top, &-bottom {
+		&:before {
+			content: '';
+			@include fill;
+			border: 0 solid;
+			opacity: .15;
+		}
+	}
+	&-top:before { border-top-width: 1px; }
+	&-bottom:before { border-bottom-width: 1px; }
+	&-dashed:before {
+		border-style: dashed;
+	}
+}

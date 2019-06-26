@@ -1,0 +1,32 @@
+.setup {
+	max-width: 1080px;
+	margin: auto;
+	padding: 20px 0;
+	&-small {
+		max-width: 640px;
+	}
+	&-steps {
+
+	}
+	&-step {
+		@include flex-row;
+		padding: 1em 0;
+		&-check, &-icon {
+			@include flex(0,0,48px);
+			padding: .25em;
+		}
+		&-check { color: $green; }
+		&-icon { color: $blue; }
+		&-text {
+			@include flex(1,1,auto);
+			@include compact;
+		}
+		&:not(:last-child) {
+			border-bottom: 1px solid $line;
+		}
+		&:first-child { padding-top: 0; }
+		&:last-child { padding-bottom: 0; }
+		&.setup-step-complete .setup-step-icon { display: none; }
+		&:not(.setup-step-complete) .setup-step-check { display: none; }
+	}
+}
