@@ -1,0 +1,24 @@
+.pricing {
+	&-options {
+		@include flex-row;
+
+	}
+	&-option {
+		@include flex(1,1,0);
+		padding: 20px 30px;
+		@include compact;
+		&, &-price { color: $light; }
+		&-desc { color: $dark; }
+		&.active {
+			box-shadow: 0 0 0 2px $blue, 0 0 0 6px transparentize($blue,.75);
+			@include radius;
+			color: $dark;
+		}
+	}
+	&-disabled {
+		opacity: .5;
+		font-style: oblique;
+		font-weight: normal;
+		color: inherit !important;
+	}
+}

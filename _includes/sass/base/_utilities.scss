@@ -12,6 +12,7 @@
 .fill { @include fill; }
 .full { @include full; }
 .cover { @include cover; }
+.crop { overflow: hidden; }
 
 // CHILDREN -------------------------------------------------------
 

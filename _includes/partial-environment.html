@@ -2,12 +2,14 @@
 <div class="settings">
 	
 	<div class="setting">
+		{% unless include.simple %}
 		<div class="setting-header">
 			<div class="setting-header-text">
 				<h4>Settings</h4>
 				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
 			</div>
 		</div>
+		{% endunless %}
 		<div class="setting-body">
 			<div class="card">
 				<div class="card-body">
@@ -32,6 +34,7 @@
 							</div>
 						</div>
 						{% endunless %}
+						{% unless include.simple %}
 					</form>
 				</div>
 			</div>
@@ -48,6 +51,7 @@
 			<div class="card">
 				<div class="card-body">
 					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% endunless %}
 						<div class="setting-row">
 							<div class="setting-row-label"><div class="label">Repository</div></div>
 							<div class="setting-row-response " setting-static><div class="form-control-static input-md">fishtown-analytics/internal-analytics</div></div>
@@ -68,6 +72,7 @@
 							</div>
 						</div>
 						{% endunless %}
+						{% unless include.simple %}
 					</form>
 				</div>
 			</div>
@@ -84,6 +89,7 @@
 			<div class="card">
 				<div class="card-body">
 					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% endunless %}
 						<div class="setting-row">
 							<div class="setting-row-label"><div class="label">Connection</div></div>
 							<div class="setting-row-response " setting-static><div class="form-control-static input-md">Production</div></div>

@@ -15,15 +15,15 @@ setup: true
 		</div>
 		<div class="title-actions">
 			<div class="controls">
-				<div class="control"><a href="{{site.baseurl}}/setup-team" class="btn btn-primary arrow-right pill">Continue</a></div>
+				<div class="control"><a href="{{site.baseurl}}/setup-plan" class="btn btn-primary arrow-right pill">Continue</a></div>
 			</div>
 		</div>
 	</div>
 
 	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>	
 
-	{% include partial-job.html editing=1 %}
+	{% include partial-job.html editing=1 simple=1 %}
 
-	{% include partial-indicators.html steps=5 active=4 %}
+	{% include partial-indicators.html steps=5 active=4 href="/setup-plan" %}
 
 </div>

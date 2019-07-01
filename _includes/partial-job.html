@@ -1,12 +1,14 @@
 
 <div class="settings">
 	<div class="setting">
+		{% unless include.simple %}
 		<div class="setting-header">
 			<div class="setting-header-text">
 				<h4>Settings</h4>
 				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
 			</div>
 		</div>
+		{% endunless %}
 		<div class="setting-body">
 			<div class="card">
 				<div class="card-body">
@@ -22,6 +24,7 @@
 							<div class="setting-row-actions" setting-active><div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div></div>
 						</div>
 						{% endunless %}
+						{% unless include.simple %}
 					</form>
 				</div>
 			</div>
@@ -38,6 +41,7 @@
 			<div class="card">
 				<div class="card-body">
 					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% endunless %}
 						<div class="setting-row">
 							<div class="setting-row-label"><div class="label">Environment</div></div>
 							<div class="setting-row-response" setting-static><div class="form-control-static input-md">Production</div></div>
@@ -49,6 +53,7 @@
 							<div class="setting-row-actions" setting-active><div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div></div>
 						</div>
 						{% endunless %}
+						{% unless include.simple %}
 					</form>
 				</div>
 			</div>
@@ -65,30 +70,47 @@
 			<div class="card">
 				<div class="card-body">
 					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% else %}
+						<hr class="short">
+						{% endunless %}
 						<div class="setting-row">
-							<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">dbt run -e production</div></div>
-							<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="dbt run -e production" placeholder="value..."/></div>
-							<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+							{% if include.simple %}
+							<div class="setting-row-label"><div class="label">Commands</div></div>
+							{% endif %}
+							<div class="setting-row-list" id="commands">
+								<div class="setting-row">
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">dbt run -e production</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="dbt run -e production" placeholder="value..."/></div>
+									<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">watch...</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="watch..." placeholder="value..."/></div>
+									<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+								</div>
+								{% if include.simple %}
+								<div class="setting-row">
+									<div class="setting-row-actions">
+										<div class="controls">
+											<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#command">add command</a></div>
+										</div>
+									</div>
+								</div>
+								{% endif %}
+							</div>
 						</div>
-						<div class="setting-row">
-							<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">watch...</div></div>
-							<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="watch..." placeholder="value..."/></div>
-							<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
-						</div>
+						{% unless page.setup %}
 						<div class="setting-row">
 							<div class="setting-row-actions">
 								<div class="controls">
-									{% unless page.setup %}
 									<div class="control" setting-static setting-old><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div>
 									<div class="control" setting-active setting-old><input type="submit" class="btn btn-sm btn-primary" value="save"/></div>
-									{% endunless %}
-									<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#command">add command</a></div>
-									{% unless page.setup %}
+									<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#command" data-add-to="#commands">add command</a></div>
 									<div class="control" setting-active setting-old><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div>
-									{% endunless %}
 								</div>
 							</div>
 						</div>
+						{% endunless %}
 					</form>
 				</div>
 			</div>

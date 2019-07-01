@@ -29,7 +29,6 @@ setup: true
 					<div class="setup-step-icon"><svg class="glyph"><use xlink:href="#glyph-connection"></use></svg></div>
 					<div class="setup-step-text">
 						<h4>Connect Database</h4>
-						<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
 					</div>
 				</div>
 				<div class="setup-step setup-step-complete">
@@ -37,7 +36,6 @@ setup: true
 					<div class="setup-step-icon"><svg class="glyph"><use xlink:href="#glyph-book"></use></svg></div>
 					<div class="setup-step-text">
 						<h4>Add Repository</h4>
-						<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
 					</div>
 				</div>
 				<div class="setup-step">
@@ -45,7 +43,6 @@ setup: true
 					<div class="setup-step-icon"><svg class="glyph"><use xlink:href="#glyph-box"></use></svg></div>
 					<div class="setup-step-text">
 						<h4>Create Environment</h4>
-						<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
 					</div>
 				</div>
 				<div class="setup-step">
@@ -53,7 +50,13 @@ setup: true
 					<div class="setup-step-icon"><svg class="glyph"><use xlink:href="#glyph-play-circle"></use></svg></div>
 					<div class="setup-step-text">
 						<h4>Create Job</h4>
-						<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+					</div>
+				</div>
+				<div class="setup-step">
+					<div class="setup-step-check"><svg class="glyph"><use xlink:href="#glyph-check-circle"></use></svg></div>
+					<div class="setup-step-icon"><svg class="glyph"><use xlink:href="#glyph-credit-card"></use></svg></div>
+					<div class="setup-step-text">
+						<h4>Choose Plan</h4>
 					</div>
 				</div>
 			</div>
@@ -61,6 +64,6 @@ setup: true
 	</div>
 
 
-	{% include partial-indicators.html steps=0 %}
+	{% include partial-indicators.html steps=0 skip="skip setup" href="/home" %}
 
 </div>

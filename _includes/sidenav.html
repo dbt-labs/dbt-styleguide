@@ -14,7 +14,6 @@
 			</div>
 		</div>
 		<div class="sidenav-body">
-			{% unless page.setup %}
 			<div class="sidenav-section">
 				<div class="sidenav-region"><a href="{{site.baseurl}}/home" class="sidenav-link sidenav-link-main {% if page.menu == 'home' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-home"></use></svg> Home</a></div>
 				<div class="sidenav-region"><a href="{{site.baseurl}}/jobs" class="sidenav-link sidenav-link-main {% if page.menu == 'jobs' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-play-circle"></use></svg> Jobs</a></div>
@@ -36,15 +35,8 @@
 				<div class="sidenav-region"><a href="{{site.baseurl}}/repos" class="sidenav-link sidenav-link-main {% if page.menu == 'repos' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-book"></use></svg> Repositories</a></div>
 			</div>
 			<div class="sidenav-divider"></div>
-			{% else %}
 			<div class="sidenav-section">
-				<div class="alert alert-info">Complete account setup for a full list of features.</div>
-			</div>
-			{% endunless %}
-			<div class="sidenav-section">
-				{% unless page.setup %}
 				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'team' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-users"></use></svg> Team</a></div>
-				{% endunless %}
 				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'billing' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-credit-card"></use></svg> Billing</a></div>
 				<div class="sidenav-region"><a href="#" class="sidenav-link sidenav-link-main {% if page.menu == 'settings' %}active{% endif %}"><svg class="glyph"><use xlink:href="#glyph-settings"></use></svg> Account Settings</a></div>
 			</div>

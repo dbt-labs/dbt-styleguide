@@ -1,5 +1,5 @@
 ---
-title: Database Setup
+title: Connection Setup
 layout: cloud
 setup: true
 ---
@@ -15,15 +15,15 @@ setup: true
 		</div>
 		<div class="title-actions">
 			<div class="controls">
-				<div class="control"><a href="{{site.baseurl}}/setup-repo" class="btn btn-primary arrow-right pill">Continue</a></div>
+				<div class="control"><a href="{{site.baseurl}}/setup-repo" class="btn btn-primary arrow-right pill">Test & Continue</a></div>
 			</div>
 		</div>
 	</div>
 
 	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
 
-	{% include partial-connection.html editing=1 %}
+	{% include partial-connection.html editing=1 simple=1 %}
 
-	{% include partial-indicators.html steps=5 active=1 %}
+	{% include partial-indicators.html steps=5 active=1 href="/setup-repo" %}
 
 </div>

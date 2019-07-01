@@ -1,4 +1,4 @@
-<div class="flex-row flex-buffer">
+<!-- <div class="flex-row flex-buffer">
 	<div class="card flex-item flex-buffer flex-column">
 		<div class="card-header compact">
 			<h3>Github Accounts</h3>
@@ -43,6 +43,55 @@
 					</div>
 				{% endfor %}
 			</div>
+		</div>
+	</div>
+</div>
+ -->
+
+
+<div class="card" id="repos" {% if include.hide %} style="display: none" {% endif %}>
+	<div class="card-header">
+		<div class="compact">
+			<h3>Choose a Repository</h3>
+			<p class="text-small text-light">Choose the git repository below that you'd like to import.</p>
+		</div>
+		<div class="setting-row margin-top">
+			<div class="setting-row-edit">
+				<div class="dropdown">
+					<a class="btn btn-default arrow-down" data-toggle="dropdown">
+						<span class="avatar avatar-sm avatar-square margin-right"><img src="https://avatars0.githubusercontent.com/u/1541139?s=460&v=4"/></span>
+						<span>drewbanin</span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-lg">
+						{% assign items = 'Nestio;https://avatars1.githubusercontent.com/u/691019?s=200&v=4|drewbanin;https://avatars0.githubusercontent.com/u/1541139?s=460&v=4|CasperSleep;https://avatars0.githubusercontent.com/u/5932962?s=200&v=4|nearmap;https://avatars3.githubusercontent.com/u/6844767?s=200&v=4|CamelotVG;https://avatars3.githubusercontent.com/u/8368145?s=200&v=4|urbanstems;https://avatars3.githubusercontent.com/u/9728604?s=200&v=4|topsteam;https://avatars0.githubusercontent.com/u/13662194?s=200&v=4|fishtown-analytics;https://avatars3.githubusercontent.com/u/18339788?s=200&v=4|simba-sleep;https://avatars2.githubusercontent.com/u/26788389?s=200&v=4' | split: '|'%}
+						{% for item in items %}{% assign name = item | split: ';' | first %}{% assign img = item | split: ';' | last %}
+							<li>
+								<a href="#">
+									<span class="avatar avatar-sm avatar-square margin-right"><img src="{{img}}"/></span>
+									<span>{{name}}</span>
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="setting-row-response">
+				<input type="text" class="form-control input-pill margin-small-top" placeholder="filter repositories...">
+			</div>
+		</div>
+	</div>
+	<div class="card-list flex-grow">
+		<div class="list">
+			{% assign items = 'bq,testing,production,sample' | split: ','%}
+			{% for item in items %}
+				<div class="list-item">
+					<a href="#" class="list-link"></a>
+					<div class="list-row list-row-sm">
+						<div class="list-row-group"><h6>{{item}}</h6><p>git@github.com:drewbanin/{{item}}.git</p></div>
+						<div class="list-row-arrow"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></div>
+					</div>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>

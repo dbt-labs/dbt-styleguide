@@ -7,5 +7,19 @@
 		&:last-child {
 			border-width: 0;
 		}
+		&.active * {
+			color: $list-group-active-color;
+		}
+	}
+	&-sidebar {
+		border-radius: 0;
+		background: transparent;
+		.list-group-item {
+			border-radius: 0;
+			&:not(.active) {
+				background: transparent;
+				//background: $silver-light;
+			}
+		}
 	}
 }

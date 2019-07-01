@@ -1,12 +1,14 @@
 <div class="settings">
 	
 	<div class="setting">
+		{% unless include.simple %}
 		<div class="setting-header">
 			<div class="setting-header-text">
 				<h4>Settings</h4>
 				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut...</p>
 			</div>
 		</div>
+		{% endunless %}
 		<div class="setting-body">
 			<div class="card">
 				<div class="card-body">
@@ -62,15 +64,7 @@
 								</label>
 							</div>
 						</div>
-						{% if page.setup %}
-						<div class="setting-row">
-							<div class="setting-row-actions" setting-active>
-								<div class="controls">
-									<div class="control"><button type="button" class="btn btn-sm btn-highlight-info"><svg class="glyph glyph-sm glyph-before"><use xlink:href="#glyph-check-circle"></use></svg> test connection</div>
-								</div>
-							</div>
-						</div>
-						{% else %}
+						{% unless page.setup %}
 						<div class="setting-row" setting-old>
 							<div class="setting-row-actions " setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
 							<div class="setting-row-actions " setting-active>
@@ -81,7 +75,7 @@
 								</div>
 							</div>
 						</div>
-						{% endif %}
+						{% endunless %}
 					</form>
 				</div>
 				<div class="card-footer line-top line-dashed">

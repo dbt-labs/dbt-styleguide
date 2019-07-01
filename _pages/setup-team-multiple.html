@@ -43,9 +43,14 @@ setup: true
 									<div class="setting-row-response" setting-active><select class="form-control input-md"><option>Dungeon Master</option></select></div>
 								</div>
 							</form>
-
+							<div class="card-corner card-hide-singular">
+								<a class="btn btn-xs btn-white btn-icon pill" data-removeuser><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a>
+							</div>
 						</div>
 					</div>
+				</div>
+				<div class="margin-top text-center">
+					<a href="#" class="btn btn-sm btn-default pill" data-newuser>add another</a>
 				</div>
 			</div>
 		</div>
@@ -56,3 +61,16 @@ setup: true
 
 </div>
 
+
+<script>window.addEventListener('load',function(){ 
+	$(document).on('click','[data-newuser]',function(){
+		 var clone = $('[data-user]:first').clone();
+		 clone.find('input').val('');
+		 clone.appendTo('[data-users]');
+		 return false;
+	});
+	$(document).on('click','[data-removeuser]',function(){
+		$(this).closest('[data-user]').remove();
+		 return false;
+	});
+});</script>

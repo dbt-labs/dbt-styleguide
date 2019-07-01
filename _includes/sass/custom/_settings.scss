@@ -36,9 +36,14 @@ $settings-pad: 15px;
 			min-width: 120px;
 			padding-top: 8px;
 		}
-		&-response { @include flex(1,1,auto); }
+		&-response, &-list { @include flex(1,1,auto); }
 		&-edit { @include flex(0,0,auto); }
 		&-actions { @include flex(1,1,auto); }
+		// &-list {
+		// 	.setting-row:not(:first-child) .setting-row-list-label {
+		// 		visibility: hidden;
+		// 	}
+		// }
 	}
 	&-form {
 		

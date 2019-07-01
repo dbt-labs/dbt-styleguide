@@ -27,6 +27,10 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 	padding: $component-padding;
 }
 
+.card-padding-lg {
+	padding: $component-padding-large;
+}
+
 .card-expand {
 	margin: $component-padding-vertical*-1 $component-padding-horizontal*-1;
 }
@@ -114,5 +118,17 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-hide-singular {
 	.card:only-child & {
 		display: none;
+	}
+}
+
+.card-app {
+	@include flex-row;
+	&-nav {
+		@include flex(0,0,280px);
+		background: $silver-light;
+		box-shadow: inset -1px 0 0 rgba(0,30,60,.1);
+	}
+	&-body {
+		@include flex(1,1,auto);
 	}
 }
