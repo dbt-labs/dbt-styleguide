@@ -7,7 +7,7 @@
 		ul { margin-left: 23px; }
 	}
 	a {
-		color: $brand;
+		color: $gray-darker;
 		display: block;
 		padding: 3px 5px;
 		border-radius: $border-radius-base;
@@ -24,7 +24,7 @@
 		&.menu-node,
 		&.menu-link {
 			&.active:not(.not-active) {
-				background: $silver;
+				background: $silver-dark;
 				color: $dark;
 			}
 		}
