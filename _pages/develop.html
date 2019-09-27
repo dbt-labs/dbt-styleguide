@@ -11,52 +11,89 @@ fill: true
 
 <div class="ide ide-dark">
 	<div class="ide-panels">
-		<div class="ide-panel-group ide-panel-sm ide-vertical hidden" id="history">
+		<div class="ide-panel-group ide-panel-sm ide-vertical">
 			<div class="ide-panel">
+				<div class="ide-panel-header">
+					<div class="ide-sections">
+						<div class="ide-section ide-pad-x">
+							<div class="ide-control">
+								<strong class="ide-control-text">Project</strong>
+							</div>
+						</div>
+						<div class="ide-section ide-section-fixed">
+							<div class="ide-tabs">
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" title="options" data-toggle="dropdown"><svg class="icn"><use xlink:href="#icn-kabob"></use></svg></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li class="dropdown-header">Theme</li>
+										<li class="active"><a href="#" data-ide-theme="dark">Dark Mode</a></li>
+										<li><a href="#" data-ide-theme="light">Light Mode</a></li>
+										<li class="divider"></li>
+										<li class="dropdown-header">Layout</li>
+										<li class="active"><a href="#" data-ide-layout="x" >Horizontal Layout</a>
+										<li><a href="#" data-ide-layout="y" >Vertical Layout</a>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="ide-panel-header ide-pad-x">
 					<div class="ide-controls">
 						<div class="ide-control">
-							<strong class="ide-control-text">Query History</strong>
+							<a href="#" class="btn btn-xs btn-info arrow-down" data-ide-load>git actions</a>
 						</div>
 						<div class="ide-control text-right">
-							<div class="btn-group">
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-history><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevrons-left"></use></svg></a>
-							</div>
+							<a href="#" class="btn btn-xs btn-success" data-ide-load>commit</a>
 						</div>
+					</div>
+					<div class="ide-pad-b">
+						<div>branch: branch_name</div>
+						<div><span class="text-info">2 changed</span>, <span class="text-danger">1 deleted</span></div>
 					</div>
 				</div>
 				<div class="ide-panel-body">
-					<div class="ide-panel-scroll">
-						<div class="ide-list">
-							{% for i in (1..100) %}
-								<a href="#" class="ide-list-item" data-ide-history-details={{i}}>
-									<div class="ide-list-item-body"><code class="ide-code">{% raw %}{% for i in range(10) %} select {{ id }} as id {% endfor %}{% endraw %}</code></div>
-									<div class="ide-list-item-footer"><span class="label label-inherit faint">7:07pm</span> <span class="label label-inherit faint">8 Rows</span></div>
-								</a>
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ide-panel hidden" id="history-details" tabindex="0">
-				<div class="ide-panel-body">
-					<div class="ide-panel-scroll ide-pad">
-						<pre class="ide-code">{% raw %}{% for i in range(10) %}
-	select {{ id }} as id
-{% endfor %}{% endraw %}</pre>
-					</div>
-				</div>
-				<div class="ide-panel-footer ide-pad-x">
-					<div class="ide-controls">
-						<div class="ide-control">
-							<div class="btn-group">
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-history-details=0><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a>
-							</div>
-						</div>
-						<div class="ide-control text-right">
-							<a href="#" class="btn btn-xs btn-info arrow-right" data-ide-insert='{% raw %}{% for i in range(10) %}
-	select {{ id }} as id
-{% endfor %}{% endraw %}'>Insert</a>
+					<div class="ide-panel-scroll ide-pad-y">
+						<div class="menu menu-full" id="models">
+							<ul>
+								<li>{% include menu.html type="dir" name="base" class="edited" %}
+									<ul>
+										<li>{% include menu.html type="dir" name="optional" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_base_events.sql" class="edited" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_base_web_page_context.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="fivetran" %}</li>
+								<li>{% include menu.html type="dir" name="identification" %}
+									<ul>
+										<li>{% include menu.html type="doc" name="snowplow_id_map.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="page_views" class="edited active" %}
+									<ul>
+										<li>{% include menu.html type="dir" name="optional" class="edited active" %}
+											<ul>
+												<li>{% include menu.html type="doc" name="snowplow_web_timing_context.sql" class="edited active" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_ua_parser_context.sql" %}</li>
+											</ul>
+										</li>
+										<li>{% include menu.html type="doc" name="schema.yml" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_page_views.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_internal_fixed.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_scroll_depth.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_timed.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_context.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="sessions" %}
+									<ul>
+										<li>{% include menu.html type="doc" name="schema.yml" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_sessions_tmp.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_sessions.sql" %}</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -64,43 +101,94 @@ fill: true
 		</div>
 		<div class="ide-panel-group ide-horizontal" id="main">
 			<div class="ide-panel" id="body">
-				<div class="ide-panel-header ide-pad-x">
-					<div class="ide-controls">
-						<div class="ide-control">
-							<a href="#" class="btn btn-xs btn-danger hidden" data-ide-load><span class="loading loading-inline loading-small"></span> Cancel</a>
-							<a href="#" class="btn btn-xs btn-info" data-ide-load>Compile</a>
-							<a href="#" class="btn btn-xs btn-success" data-ide-load><svg class="glyph glyph-sm glyph-solid glyph-before"><use xlink:href="#glyph-play"></use></svg> Run</a>
-							<div class="btn-group margin-left" data-ide-loading>
-								<label class="option input-sm strong"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
+				<div class="ide-panel-header">
+					<div class="ide-sections">
+						<div class="ide-section">
+							<div class="ide-tabs">
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-1" href="#" title="schema.yml">schema.yml</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab active success">
+									<a class="ide-tab-link" data-ide-tab="doc-2" href="#" title="snowplow_page_views.sql">snowplow_page_views.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-3" href="#" title="snowplow_web_events_internal_fixed.sql">snowplow_web_events_internal_fixed.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab edited">
+									<a class="ide-tab-link" data-ide-tab="doc-4" href="#" title="snowplow_web_events_scroll_depth.sql">snowplow_web_events_scroll_depth.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab danger">
+									<a class="ide-tab-link" data-ide-tab="doc-5" href="#" title="snowplow_web_events_timed.sql">snowplow_web_events_timed.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-6" href="#" title="snowplow_web_events.sql">snowplow_web_events.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-7" href="#" title="snowplow_web_events_context.sql">snowplow_web_events_context.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="ide-control text-right">
-							<div class="btn-group dropdown" data-ide-loading>
-								<a href="#" class="btn btn-xs btn-clear arrow-down text-inherit normal" data-toggle="dropdown" data-ide-env-string>Production</a>
-								<ul class="dropdown-menu">
-									<li class="active"><a href="#" data-ide-env="Production">Production</a></li>
-									<li><a href="#" data-ide-env="Development">Development</a></li>
-									<li><a href="#" data-ide-env="Staging">Staging</a></li>
-								</ul>
+						<div class="ide-section ide-section-fixed">
+							<div class="ide-tabs">
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" title="new query"><svg class="icn"><use xlink:href="#icn-plus"></use></svg></a>
+								</div>
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" data-toggle="dropdown" title="list open files"><svg class="icn"><use xlink:href="#icn-kabob"></use></svg></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#">schema.yml</a></li>
+										<li><a href="#">snowplow_page_views.sql</a></li>
+										<li><a href="#">snowplow_web_events_internal_fixed.sql</a></li>
+										<li><a href="#">snowplow_web_events_scroll_depth.sql</a></li>
+										<li><a href="#">snowplow_web_events_timed.sql</a></li>
+										<li><a href="#">snowplow_web_events.sql</a></li>
+										<li><a href="#">snowplow_web_events_context.sql</a></li>
+									</ul>
+								</div>
 							</div>
-							<div class="btn-group">
-								<a href="#" class="btn btn-xs btn-clear text-inherit normal" data-ide-history>History</a>
-							</div>
-							<div class="btn-group">
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-ide-layout="x" ><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-x"></use></svg></a>
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit fainter" data-ide-layout="y" ><svg class="glyph glyph-sm"><use xlink:href="#glyph-split-y"></use></svg></a>
-							</div>
-							<!-- <div class="btn-group margin-left-small">
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit normal" data-ide-history><svg class="glyph glyph-sm"><use xlink:href="#glyph-history"></use></svg></a>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-header ide-panel-header-simple ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<a href="#" class="btn btn-xs btn-default" data-ide-load>save</a>
+							<!-- <div class="btn-group margin-left" data-ide-loading>
+								<label class="option input-sm strong"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
 							</div> -->
-							<div class="btn-group dropdown">
-								<a href="#" class="btn btn-xs btn-clear btn-icon text-inherit" data-toggle="dropdown"><svg class="glyph glyph-sm"><use xlink:href="#glyph-more-vertical"></use></svg></a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li class="active"><a href="#" data-ide-theme="dark">Dark Mode</a></li>
-									<li><a href="#" data-ide-theme="light">Light Mode</a></li>
-									<li><a href="#">Recompile</a></li>
-								</ul>
-							</div>
+						</div>
+						<div class="ide-control text-right">
+							<a href="#" class="btn btn-xs btn-danger hidden" data-ide-load><span class="loading loading-inline loading-small"></span> Cancel</a>
+							<a href="#" class="btn btn-xs btn-info" data-ide-load>compile</a>
+							<a href="#" class="btn btn-xs btn-success" data-ide-load>run</a>
 						</div>
 					</div>
 				</div>
@@ -110,7 +198,18 @@ fill: true
 			</div>
 			<div class="ide-panel ide-panel-resizable" id="result">
 				<div class="ide-panel-header">
-					<div class="ide-controls">
+					<div class="ide-sections">
+						<div class="ide-section">
+							<div class="ide-tabs">
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="info" href="#">Info</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="logs" href="#">Logs</a></div>
+								<div class="ide-tab active"><a class="ide-tab-link" data-ide-tab="compiled" href="#">Compiled SQL</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="tables" href="#">Data Tables</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="graph" href="#">Graph</a></div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="ide-controls">
 						<div class="ide-control dropdown">
 							<a class="ide-control-link text-center arrow-down" href="#" data-toggle="dropdown">Info/Logs</a>
 							<ul class="dropdown-menu">
@@ -121,7 +220,7 @@ fill: true
 						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
 						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
-					</div>
+					</div> -->
 				</div>
 				<div class="ide-panel-body hidden" data-ide-tab-content="info">
 					<div class="ide-panel-scroll"></div>
@@ -166,15 +265,52 @@ select 1 as id
 					<div class="ide-panel-scroll">
 					</div>
 				</div>
-				<div class="ide-panel-footer ide-pad-x">
+				<div class="ide-panel-footer ide-panel-footer-simple ide-pad-x">
 					<div class="ide-controls">
 						<div class="ide-control">
-							<span class="label label-success"><span class="dot"></span> Success</span>
+							<strong class="ide-control-text">File Run</strong>
+							<strong class="ide-control-text text-success"><span class="dot"></span> Success</strong>
 						</div>
 						<div class="ide-control text-right">
-							<span class="label text-inherit faint">100 Rows</span>
-							<span class="label text-inherit faint">17 sec</span>
+							<span class="ide-control-text text-inherit faint">100 Rows</span>
+							<span class="ide-control-text text-inherit faint">17 sec</span>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ide-terminal">
+		<div class="ide-panel-group">
+			<div class="ide-panel ide-panel-collapsed" id="terminal">
+				<div class="ide-panel-header ide-panel-target ide-pad-x danger" onclick="$('#terminal').toggleClass('ide-panel-collapsed');">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<strong class="ide-control-text"><svg class="icn ide-panel-toggle"><use xlink:href="#icn-chevrons-down"></use></svg> Project Run</strong>
+							<strong class="ide-control-text text-danger"><span class="dot"></span> Failed</strong>
+						</div>
+						<div class="ide-control text-right">
+							<span class="ide-control-text text-inherit faint">100 Rows</span>
+							<span class="ide-control-text text-inherit faint">17 sec</span>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-header ide-panel-header-simple ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<a href="#" class="btn btn-xs btn-success">dbt run</a>
+						</div>
+						<div class="ide-control text-right">
+							<div class="btn-group btn-group-options">
+								<a href="#" class="btn btn-xs btn-default active">console</a>
+								<a href="#" class="btn btn-xs btn-default">logs</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-body">
+					<div class="ide-panel-scroll">
+					
 					</div>
 				</div>
 			</div>
@@ -186,20 +322,20 @@ select 1 as id
 <script>
 	window.addEventListener('DOMContentLoaded', function() { (function($) {
 
-		$('[data-ide-layout]').on('click',function(){
-			switch ( $(this).data('ide-layout') ) {
-				case 'x' :
-					$('#main').removeClass('ide-vertical').addClass('ide-horizontal');
-					break;
-				case 'y' :
-					$('#main').addClass('ide-vertical').removeClass('ide-horizontal');
-					break;
-			}
-			$('[data-ide-layout]').addClass('fainter');
-			$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').removeClass('fainter');
+		// $('[data-ide-layout]').on('click',function(){
+		// 	switch ( $(this).data('ide-layout') ) {
+		// 		case 'x' :
+		// 			$('#main').removeClass('ide-vertical').addClass('ide-horizontal');
+		// 			break;
+		// 		case 'y' :
+		// 			$('#main').addClass('ide-vertical').removeClass('ide-horizontal');
+		// 			break;
+		// 	}
+		// 	$('[data-ide-layout]').addClass('fainter');
+		// 	$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').removeClass('fainter');
 			
-			return false;
-		});
+		// 	return false;
+		// });
 
 		$('[data-ide-theme]').on('click',function(){
 			switch ( $(this).data('ide-theme') ) {
@@ -211,32 +347,20 @@ select 1 as id
 			return false;
 		});
 
+		$('[data-ide-layout]').on('click',function(){
+			switch ( $(this).data('ide-layout') ) {
+				case 'x' : $('#main').removeClass('ide-vertical').addClass('ide-horizontal'); break;
+				case 'y' : $('#main').addClass('ide-vertical').removeClass('ide-horizontal'); break;
+			}
+			$('[data-ide-layout]').closest('li').removeClass('active');
+			$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
 		$('[data-ide-env]').on('click',function(){
 			$('[data-ide-env-string]').text( $(this).data('ide-env') );
 			$('[data-ide-env]').closest('li').removeClass('active');
 			$('[data-ide-env="'+$(this).data('ide-env')+'"]').closest('li').addClass('active');
-			return false;
-		});
-
-		$('[data-ide-history-details]').on('click',function(){
-			if ( $(this).data('ide-history-details') ) {
-				$('[data-ide-history-details]').removeClass('ide-active');
-				$(this).addClass('ide-active');
-				$('#history-details').removeClass('hidden').focus();
-			} else {
-				$('#history-details').addClass('hidden');
-			}
-			return false;
-		});
-
-		$('[data-ide-history]').on('click',function(){
-			if ( $('#history').hasClass('hidden') ) {
-				$('#history').removeClass('hidden');
-			} else {
-				$('[data-ide-history-details]').removeClass('ide-active');
-				$('#history').addClass('hidden');
-				$('#history-details').addClass('hidden');
-			}
 			return false;
 		});
 
@@ -252,10 +376,12 @@ select 1 as id
 
 		$('[data-ide-tab]').on('click',function(){
 			var id = $(this).data('ide-tab');
-			$('[data-ide-tab]').closest('.ide-control').removeClass('active');
-			$('[data-ide-tab-content]').addClass('hidden');
-			$('[data-ide-tab='+id+']').closest('.ide-control').addClass('active');
-			$('[data-ide-tab-content='+id+']').removeClass('hidden');
+			var tab = $('[data-ide-tab='+id+']');
+			var content = $('[data-ide-tab-content='+id+']');
+			$(this).closest('.ide-tabs').find('.ide-tab').removeClass('active');
+			content.siblings('[data-ide-tab-content]').addClass('hidden')
+			tab.closest('.ide-tab').addClass('active');
+			content.removeClass('hidden');
 			return false;
 		});
 
