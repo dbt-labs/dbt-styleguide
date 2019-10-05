@@ -115,7 +115,7 @@ $headings-font-family:                           $font-family-base;
 $headings-color:                                 $dark;
 $line-height-max:                                5rem;
 $component-line-height:                          1.5;
-$component-height-xsmall:                        rem-full(24px);
+$component-height-xsmall:                        rem-full(22px);
 $component-height-small:                         rem-full(32px);
 $component-height-base:                          rem-full(40px);
 $component-height-medium:                        rem-full(52px);
@@ -149,7 +149,7 @@ $link-hover-decoration:                          none;
 // Spacing
 // --------------------------------------------------
 $padding-xsmall-vertical:                        ( $component-height-xsmall - $font-size-small * $component-line-height ) / 2;
-$padding-xsmall-horizontal:                      .625rem;
+$padding-xsmall-horizontal:                      .5rem;
 $padding-small-vertical:                         ( $component-height-small - $font-size-small * $component-line-height ) / 2;
 $padding-small-horizontal:                       .875rem;
 $padding-base-vertical:                          ( $component-height-base - $font-size-base * $component-line-height ) / 2;
