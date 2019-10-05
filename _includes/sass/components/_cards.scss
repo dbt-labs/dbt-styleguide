@@ -25,6 +25,9 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-body,
 .card-padding {
 	padding: $component-padding;
+	.card-sm & {
+		padding: 8px 12px;
+	}
 }
 
 .card-expand {
@@ -40,7 +43,7 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-flush-vertical { padding-top: 0; padding-bottom: 0; }
 .card-flush { padding: 0; }
 
-.card-sm { padding: 8px 12px; }
+
 
 .card-control {
 	display: block;

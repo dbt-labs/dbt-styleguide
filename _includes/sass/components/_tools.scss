@@ -1,9 +1,10 @@
 .tools {
 	@include flex-row;
 	@include flex-align(center);
+	margin: -2px;
 	.tool {
 		@include flex(0,0,auto);
-		padding: 4px;
+		padding: 2px;
 		&-grow {
 			@include flex(1,1,auto);
 			min-width: 0;
