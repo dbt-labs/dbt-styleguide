@@ -22,4 +22,8 @@
 		//margin: 0 2em;
 		font-weight: bold !important;
 	}
+	&-sm {
+		@include font-size-small;
+		padding: $padding-small-vertical $padding-small-horizontal;
+	}
 }

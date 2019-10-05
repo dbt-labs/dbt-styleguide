@@ -26,6 +26,7 @@
 
 .component { @include component; }
 .transitions { @include transitions(.5s); }
+.spin { @include spin; }
 
 // SPACING -------------------------------------------------------
 
@@ -40,3 +41,4 @@
 
 .flush, .flush-top { margin-top: 0 !important; }
 .flush, .flush-bottom { margin-bottom: 0 !important; }
+

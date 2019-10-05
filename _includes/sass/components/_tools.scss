@@ -1,0 +1,15 @@
+.tools {
+	@include flex-row;
+	@include flex-align(center);
+	.tool {
+		@include flex(0,0,auto);
+		padding: 4px;
+		&-grow {
+			@include flex(1,1,auto);
+			min-width: 0;
+		}
+		&-gap {
+			width: 24px;
+		}
+	}
+}

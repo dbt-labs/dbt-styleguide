@@ -57,6 +57,7 @@ textarea.form-control,
 textarea.form-control {
 	&:not(.form-control-height) {
 		height: $textarea-height;
+		resize: vertical;
 	}
 }
 

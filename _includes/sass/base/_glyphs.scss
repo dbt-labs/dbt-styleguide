@@ -75,7 +75,7 @@ $glyph-size: 24px;
 
 .glyph {
 	&-check, &-radio {
-		font-size: 18px;
+		font-size: 16px;
 		use { opacity: 0; }
 		border: 2px solid currentColor;
 		opacity: .25;

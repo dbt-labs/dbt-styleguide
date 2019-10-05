@@ -6,7 +6,7 @@
 <symbol viewBox="0 0 24 24" id="glyph-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-align-center"><line x1="18" y1="10" x2="6" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="18" y1="18" x2="6" y2="18"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-align-justify"><line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></symbol>
-<symbol viewBox="0 0 24 24" id="glyph-align-left"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-align-left"><line x1="21" y1="6" x2="3" y2="6"/><line x1="17" y1="12" x2="3" y2="12"/><line x1="21" y1="18" x2="3" y2="18"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-align-right"><line x1="21" y1="10" x2="7" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="7" y2="18"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-anchor"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-aperture"><circle cx="12" cy="12" r="10"/><line x1="14.31" y1="8" x2="20" y2="17.94"/><line x1="9.69" y1="8" x2="21.17" y2="8"/><line x1="7.38" y1="12" x2="13.12" y2="2"/><line x1="9.69" y1="16" x2="4" y2="6"/><line x1="14.31" y1="16" x2="2.83" y2="16"/><line x1="16.62" y1="12" x2="10.88" y2="21.94"/></symbol>
@@ -56,6 +56,7 @@
 <symbol viewBox="0 0 24 24" id="glyph-chevrons-right"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-chrome"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="4" y1="6" x2="8.54" y2="14"/><line x1="10.88" y1="22" x2="15.46" y2="14"/></symbol>
+<symbol viewBox="0 0 24 24" id="glyph-circle"><circle cx="12" cy="12" r="10"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-circle"><circle cx="12" cy="12" r="10"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></symbol>
 <symbol viewBox="0 0 24 24" id="glyph-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
@@ -281,5 +282,7 @@
 
 <symbol viewBox="0 0 14 14" id="glyph-form-check"><polyline points="2 7 5 10 12 3" fill="transparent"/><rect x="2" y="6" width="10" height="2" rx="1" ry="1" stroke="transparent"/></symbol>
 <symbol viewBox="0 0 14 14" id="glyph-form-radio"><circle cx="7" cy="7" r="2" fill="currentColor"/></symbol>
+
+<symbol viewBox="0 0 24 24" id="glyph-loading"><path d="M2,12A10,10,0,0,1,12,2"/><path d="M22,12A10,10,0,0,1,12,22"/></symbol>
 
 </svg>

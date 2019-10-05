@@ -1,0 +1,89 @@
+---
+title: Team
+layout: cloud
+menu: team
+fill: true
+---
+
+
+
+<div class="admin">
+	<div class="admin-nav">
+		<div class="sidenav-body">
+			<div class="sidenav-section">
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-copy"></use></svg> Artifacts</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-bell"></use></svg> Notifications</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="/team" class="sidenav-link sidenav-link-main active"><svg class="glyph"><use xlink:href="#glyph-users"></use></svg> Team</a>
+					<a href="/team" class="sidenav-link active">Users</a>
+					<a href="/team-roles" class="sidenav-link">Roles</a>
+					<a href="#" class="sidenav-link">Groups</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-credit-card"></use></svg> Billing</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="admin-content">
+
+		<div class="title title-fix">
+			<div class="title-header">
+				<h1>Team</h1>
+			</div>
+			<div class="title-actions">
+				<div class="controls">
+					<div class="control">
+						<form class="input-group">
+							<input type="text" class="form-control input-sm " value="" placeholder="Search..." size="16"/>
+							<span class="input-group-btn"><button type="reset" class="btn btn-sm btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></button></span>
+						</form>
+					</div>
+					<div class="control"><a href="{{site.baseurl}}/team-add" class="btn btn-primary btn-sm">Invite Users</a></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="table-responsive">
+				<table class="table table-condensed table-small table-justified table-fixed icns-bold">
+					<thead>
+						<tr>
+							<th class="table-fixed-lg">Email</th>
+							<th class="table-fixed-lg">Name</th>
+							<th>Role</th>
+							<th>License</th>
+							<th class="table-btns-2"></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in site.data.users %}
+							<tr>
+								<th>{{user.email}}</th>
+								<td>{{user.first_name}} {{user.last_name}}</td>
+								<td>{{user.role}}</td>
+								<td>{{user.license}}</td>
+								<td class="table-btns">
+									<a class="btn btn-default btn-square btn-sm btn-subtle btn-icon" href="{{site.baseurl}}/team-edit"><svg class="icn"><use xlink:href="#icn-pencil"></use></svg></a>
+									<span class="dropdown inline-block">
+										<a href="#" class="btn btn-default btn-square btn-sm btn-subtle btn-icon" data-toggle="dropdown"><svg class="icn"><use xlink:href="#icn-kabob"></use></svg></a>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+										</ul>
+									</span>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>

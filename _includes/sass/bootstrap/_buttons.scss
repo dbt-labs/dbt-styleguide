@@ -40,6 +40,7 @@
 			color: inherit;
 		}
 	}
+	&-subtle { background: transparent; }
 	&[class*="btn-highlight"], &-default, &-clear, &-text, &-link { box-shadow: none; }
 	&-highlight-info { @include button-variant($state-info-text,$state-info-bg,$state-info-border); }
 	&-highlight-success { @include button-variant($state-success-text,$state-success-bg,$state-success-border); }
@@ -66,6 +67,9 @@
 	}
 	&-pill {
 		@include pill;
+	}
+	&-square {
+		border-radius: 0;
 	}
 	&-icon {
 		padding-left: 0;
