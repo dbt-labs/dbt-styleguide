@@ -10,7 +10,8 @@
 			min-width: 0;
 		}
 		&-gap {
-			width: 24px;
+			width: 20px;
+			&-sm { width: 10px; }
 		}
 	}
 }

@@ -1,4 +1,4 @@
-$ide-controls: 34px;
+$ide-controls: 36px;
 $ide-pad-y: 10px;
 $ide-pad-x: 12px;
 $ide-focus-offset: 10px;
@@ -26,7 +26,10 @@ $ide-edited: $link;
 	&-pad-r, &-pad-x { padding-right: $ide-pad-x !important; }
 	&-pad-t, &-pad-y { padding-top: $ide-pad-y !important; }
 	&-pad-b, &-pad-y { padding-bottom: $ide-pad-y !important; }
-	&-panels { @include cover; bottom: $ide-controls; }
+	&-panels {
+		@include cover;
+		&-withfooter { bottom: $ide-controls; }
+	}
 	&-terminal { position: absolute; @include set(bottom left right,0); z-index: 4; }
 	&-panels, &-terminal { background: inherit; }
 	&-panels, &-panel-group {
@@ -114,7 +117,7 @@ $ide-edited: $link;
 			background: inherit;
 			@include flex(1,1,auto);
 			.ide-terminal & {
-				height: 75vh;
+				height: 65vh;
 			}
 		}
 		&-scroll {
@@ -127,16 +130,23 @@ $ide-edited: $link;
 			background: white;
 			width: 10px;
 		}
+		&-overlay {
+			&:not(.ide-panel-collapsed) {
+				box-shadow: 0 0 0 200vmin rgba(0,0,0,.5);
+				z-index: 20;
+			}
+		}
 		&-collapsed {
+			box-shadow: none;
 			.ide-panel-body,
 			.ide-panel-footer,
 			.ide-panel-header:not(:first-child) { display: none; }
 			.ide-panel-toggle {
 				@include transform(rotate(180deg));
 			}
-		}
-		&-target {
-			cursor: pointer;
+			.ide-panel-toggle {
+				@include transform(rotate(-90deg));
+			}
 		}
 	}
 	&-controls {
@@ -144,11 +154,12 @@ $ide-edited: $link;
 		height: $ide-controls;
 	}
 	&-control {
+		&, &:hover, &:focus { color: inherit; }
 		white-space: nowrap;
 		&-sm { width: 1px; }
 		&-link, &-text {
-			line-height: $ide-controls;
-			padding: 0;
+			line-height: $ide-controls - 2px;
+			padding: 0 0 2px 0;
 		}
 		&-text {
 			display: inline-block;
@@ -372,11 +383,9 @@ $darkmode-line: #3a3a3a;
 		.ide-list-item {
 			box-shadow: 0 1px 0 rgba(255,255,255,.1);
 		}
-		.ide-panel-header,
-		.ide-panel-footer {
-			.btn-default { @include button-variant(white,$darkmode,$darkmode,light($darkmode)); }
-			//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
-		}
+		.btn-default { @include button-variant(white,$darkmode,$darkmode,light($darkmode)); }
+		@include form-control-variation($darkmode,white,$darkmode);
+		//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
 		.ide-panel-scroll {
 			@include scrollbar($darkmode,dark($darkmode),light($darkmode));
 		}

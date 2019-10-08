@@ -1,0 +1,496 @@
+---
+title: Develop
+menu: develop
+layout: cloud
+fill: true
+---
+
+{% assign natalie = site.data.natalie %}
+{% assign cols = natalie | first %}
+{% assign rows = natalie %}
+
+<div class="ide ide-dark">
+	<div class="ide-panels ide-panels-withfooter">
+		<div class="ide-panel-group ide-panel-sm ide-vertical">
+			<div class="ide-panel">
+				<div class="ide-panel-header">
+					<div class="ide-sections">
+						<div class="ide-section ide-pad-x">
+							<div class="ide-control">
+								<strong class="ide-control-text">Project</strong>
+							</div>
+						</div>
+						<div class="ide-section ide-section-fixed">
+							<div class="ide-tabs">
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" title="options" data-toggle="dropdown"><svg class="icn"><use xlink:href="#icn-kabob"></use></svg></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li class="dropdown-header">Theme</li>
+										<li class="active"><a href="#" data-ide-theme="dark">Dark Mode</a></li>
+										<li><a href="#" data-ide-theme="light">Light Mode</a></li>
+										<li class="divider"></li>
+										<li class="dropdown-header">Layout</li>
+										<li class="active"><a href="#" data-ide-layout="x" >Horizontal Layout</a>
+										<li><a href="#" data-ide-layout="y" >Vertical Layout</a>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-header ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<a href="#" class="btn btn-xs btn-info arrow-down" data-ide-load>git actions</a>
+						</div>
+						<div class="ide-control text-right">
+							<a href="#" class="btn btn-xs btn-success" data-ide-load>commit</a>
+						</div>
+					</div>
+					<div class="ide-pad-b">
+						<div>branch: branch_name</div>
+						<div><span class="text-info">2 changed</span>, <span class="text-danger">1 deleted</span></div>
+					</div>
+				</div>
+				<div class="ide-panel-body">
+					<div class="ide-panel-scroll ide-pad-y">
+						<div class="menu menu-full" id="models">
+							<ul>
+								<li>{% include menu.html type="dir" name="base" class="edited" %}
+									<ul>
+										<li>{% include menu.html type="dir" name="optional" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_base_events.sql" class="edited" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_base_web_page_context.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="fivetran" %}</li>
+								<li>{% include menu.html type="dir" name="identification" %}
+									<ul>
+										<li>{% include menu.html type="doc" name="snowplow_id_map.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="page_views" class="edited active" %}
+									<ul>
+										<li>{% include menu.html type="dir" name="optional" class="edited active" %}
+											<ul>
+												<li>{% include menu.html type="doc" name="snowplow_web_timing_context.sql" class="edited active" %}</li>
+												<li>{% include menu.html type="doc" name="snowplow_web_ua_parser_context.sql" %}</li>
+											</ul>
+										</li>
+										<li>{% include menu.html type="doc" name="schema.yml" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_page_views.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_internal_fixed.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_scroll_depth.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_timed.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_web_events_context.sql" %}</li>
+									</ul>
+								</li>
+								<li>{% include menu.html type="dir" name="sessions" %}
+									<ul>
+										<li>{% include menu.html type="doc" name="schema.yml" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_sessions_tmp.sql" %}</li>
+										<li>{% include menu.html type="doc" name="snowplow_sessions.sql" %}</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ide-panel-group ide-horizontal" id="main">
+			<div class="ide-panel" id="body">
+				<div class="ide-panel-header">
+					<div class="ide-sections">
+						<div class="ide-section">
+							<div class="ide-tabs">
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-1" href="#" title="schema.yml">schema.yml</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab active success">
+									<a class="ide-tab-link" data-ide-tab="doc-2" href="#" title="snowplow_page_views.sql">snowplow_page_views.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-3" href="#" title="snowplow_web_events_internal_fixed.sql">snowplow_web_events_internal_fixed.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab edited">
+									<a class="ide-tab-link" data-ide-tab="doc-4" href="#" title="snowplow_web_events_scroll_depth.sql">snowplow_web_events_scroll_depth.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab danger">
+									<a class="ide-tab-link" data-ide-tab="doc-5" href="#" title="snowplow_web_events_timed.sql">snowplow_web_events_timed.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-6" href="#" title="snowplow_web_events.sql">snowplow_web_events.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+								<div class="ide-tab">
+									<a class="ide-tab-link" data-ide-tab="doc-7" href="#" title="snowplow_web_events_context.sql">snowplow_web_events_context.sql</a>
+									<div class="ide-tab-icons">
+										<div class="ide-tab-icon ide-tab-icon-edited"><svg class="icn"><use xlink:href="#icn-status"></use></svg></div>
+										<div class="ide-tab-icon ide-tab-icon-link ide-tab-icon-close"><svg class="icn"><use xlink:href="#icn-close"></use></svg></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ide-section ide-section-fixed">
+							<div class="ide-tabs">
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" title="new query"><svg class="icn"><use xlink:href="#icn-plus"></use></svg></a>
+								</div>
+								<div class="ide-tab ide-tab-action dropdown">
+									<a class="ide-tab-link" href="#" data-toggle="dropdown" title="list open files"><svg class="icn"><use xlink:href="#icn-kabob"></use></svg></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#">schema.yml</a></li>
+										<li><a href="#">snowplow_page_views.sql</a></li>
+										<li><a href="#">snowplow_web_events_internal_fixed.sql</a></li>
+										<li><a href="#">snowplow_web_events_scroll_depth.sql</a></li>
+										<li><a href="#">snowplow_web_events_timed.sql</a></li>
+										<li><a href="#">snowplow_web_events.sql</a></li>
+										<li><a href="#">snowplow_web_events_context.sql</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-header ide-panel-header-simple ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<a href="#" class="btn btn-xs btn-default" data-ide-load>save</a>
+							<!-- <div class="btn-group margin-left" data-ide-loading>
+								<label class="option input-sm strong"><input type="checkbox"><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>  Limit 100</label>
+							</div> -->
+						</div>
+						<div class="ide-control text-right">
+							<a href="#" class="btn btn-xs btn-danger hidden" data-ide-load><span class="loading loading-inline loading-small"></span> Cancel</a>
+							<a href="#" class="btn btn-xs btn-info" data-ide-load>compile</a>
+							<a href="#" class="btn btn-xs btn-success" data-ide-load>run</a>
+						</div>
+					</div>
+				</div>
+				<div class="ide-panel-body">
+					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>{% raw %}select {{ 1 + 1 }} as example{% endraw %}</pre>
+				</div>
+			</div>
+			<div class="ide-panel ide-panel-resizable" id="result">
+				<div class="ide-panel-header">
+					<div class="ide-sections">
+						<div class="ide-section">
+							<div class="ide-tabs">
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="info" href="#">Info</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="logs" href="#">Logs</a></div>
+								<div class="ide-tab active"><a class="ide-tab-link" data-ide-tab="compiled" href="#">Compiled SQL</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="tables" href="#">Data Tables</a></div>
+								<div class="ide-tab"><a class="ide-tab-link" data-ide-tab="graph" href="#">Graph</a></div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="ide-controls">
+						<div class="ide-control dropdown">
+							<a class="ide-control-link text-center arrow-down" href="#" data-toggle="dropdown">Info/Logs</a>
+							<ul class="dropdown-menu">
+								<li><a href="#" data-ide-tab="info">Info</a></li>
+								<li><a href="#" data-ide-tab="info">Logs</a></li>
+							</ul>
+						</div>
+						<div class="ide-control active"><a class="ide-control-link text-center" href="#" data-ide-tab="compiled">Compiled SQL <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="tables">Data Tables <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+						<div class="ide-control"><a class="ide-control-link text-center" href="#" data-ide-tab="graph">Graph <span class="loading loading-inline loading-inline-after loading-small hidden" data-ide-loading></span></a></div>
+					</div> -->
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="info">
+					<div class="ide-panel-scroll"></div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="logs">
+					<div class="ide-panel-scroll"></div>
+				</div>
+				<div class="ide-panel-body" data-ide-tab-content="compiled">
+					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>create  table "DBT_TEST_ALT".dbt_dbanin_schema_override.debug__dbt_tmp
+  as (
+    
+
+select 1 as id
+  );
+
+
+</pre>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="tables">
+					<div class="ide-panel-scroll">
+						<table class="table table-condensed table-striped text-mono">
+							<thead>
+								<tr>
+									{% for col in cols %}
+										<th class="ide-table-heading"><span class="label label-inherit faint">{{col | first}}</span></th>
+									{% endfor %}
+								</tr>
+							</thead>
+							<tbody>
+								{% for row in rows %}
+									<tr>
+										{% for cell in row %}
+											<td>{{cell | last}}</td>
+										{% endfor %}
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="ide-panel-body hidden" data-ide-tab-content="graph">
+					<div class="ide-panel-scroll">
+					</div>
+				</div>
+				<div class="ide-panel-footer ide-panel-footer-simple ide-pad-x">
+					<div class="ide-controls">
+						<div class="ide-control">
+							<strong class="ide-control-text">File Run</strong>
+							<strong class="ide-control-text text-success"><span class="dot"></span> Success</strong>
+						</div>
+						<div class="ide-control text-right">
+							<span class="ide-control-text text-inherit faint">100 Rows</span>
+							<span class="ide-control-text text-inherit faint">17 sec</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ide-terminal">
+		<div class="ide-panel-group">
+			<div class="ide-panel ide-panel-collapsed ide-panel-overlay" id="terminal">
+				<div class="ide-panel-header ide-panel-header-simple ide-pad-x">
+					
+					<div class="ide-controls">
+						<a class="ide-control ide-control-sm" onclick="$('#terminal').toggleClass('ide-panel-collapsed'); return false">
+							<strong class="ide-control-text">
+								<svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> 
+								Runs
+							</strong>
+						</a>
+						<div class="ide-control">
+
+							<div data-terminal="compiling">
+								<div class="tools">
+									<div class="tool tool-gap"></div>
+									<div class="tool tool-grow"></div>
+									<div class="tool tool-gap-sm"></div>
+									<div class="tool">
+										<div class="btn-group">
+											<a href="#" class="btn btn-xs btn-clear text-info">compiling</a>
+											<a href="#" class="btn btn-xs btn-clear text-info btn-icon spin"><svg class="glyph glyph-sm"><use xlink:href="#glyph-loading"></use></svg></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div data-terminal="error" style="display:none">
+								<div class="tools">
+									<div class="tool tool-gap"></div>
+									<div class="tool tool-grow"><div class="alert alert-danger alert-xs ellipsis">{% raw %}Compilation Error in model stg_github_comments (models/staging/github/stg_github_comments.sql)\n unexpected ‘}’\n line 1\n {{ config(defer_to=‘prod.github.comments’) }{% endraw %}</div></div>
+									<div class="tool tool-gap-sm"></div>
+									<div class="tool">
+										<div class="btn-group">
+											<a href="#" class="btn btn-xs btn-clear text-danger danger btn-icon btn-pill"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-square"></use></svg></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+							<div data-terminal="running" style="display:none">
+								<div class="tools">
+									<div class="tool tool-gap"></div>
+									<div class="tool tool-grow">
+										<form class="input-group">
+											<div class="input-group-btn">
+												<span class="btn btn-default btn-xs"><span class="loading loading-inline loading-small loading-bold"></span> running</span>
+											</div>
+											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" disabled />
+											<div class="input-group-btn"><button type="reset" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></button></div>
+										</form>
+									</div>
+									<div class="tool tool-gap-sm"></div>
+									<div class="tool">
+										<div class="btn-group">
+											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div data-terminal="ready" style="display:none">
+								<div class="tools">
+									<div class="tool tool-gap"></div>
+									<div class="tool tool-grow">
+										<form class="input-group">
+											<div class="input-group-btn">
+												<span class="btn btn-default btn-xs"><span class="loading loading-inline loading-small loading-bold"></span> running</span>
+											</div>
+											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
+											<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
+										</form>
+									</div>
+									<div class="tool tool-gap-sm"></div>
+									<div class="tool">
+										<div class="btn-group">
+											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div data-terminal="ran" style="display:none">
+								<div class="tools">
+									<div class="tool tool-gap"></div>
+									<div class="tool tool-grow">
+										<form class="input-group">
+											<div class="input-group-btn">
+												<span class="btn btn-highlight-danger btn-xs">run failed</span>
+											</div>
+											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
+											<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
+										</form>
+									</div>
+									<div class="tool tool-gap-sm"></div>
+									<div class="tool">
+										<div class="btn-group">
+											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<div class="ide-panel-body">
+					<div class="ide-panels">
+						<div class="ide-panel-group ide-panel-sm">
+							<div class="ide-panel">
+								<div class="ide-panel-body"></div>
+							</div>
+						</div>
+						<div class="ide-panel-group">
+							<div class="ide-panel">
+								<div class="ide-panel-body"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	window.addEventListener('DOMContentLoaded', function() { (function($) {
+
+		// $('[data-ide-layout]').on('click',function(){
+		// 	switch ( $(this).data('ide-layout') ) {
+		// 		case 'x' :
+		// 			$('#main').removeClass('ide-vertical').addClass('ide-horizontal');
+		// 			break;
+		// 		case 'y' :
+		// 			$('#main').addClass('ide-vertical').removeClass('ide-horizontal');
+		// 			break;
+		// 	}
+		// 	$('[data-ide-layout]').addClass('fainter');
+		// 	$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').removeClass('fainter');
+			
+		// 	return false;
+		// });
+
+		$('[data-ide-theme]').on('click',function(){
+			switch ( $(this).data('ide-theme') ) {
+				case 'light' : $('.ide').removeClass('ide-dark'); break;
+				case 'dark' : $('.ide').addClass('ide-dark'); break;
+			}
+			$('[data-ide-theme]').closest('li').removeClass('active');
+			$('[data-ide-theme="'+$(this).data('ide-theme')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
+		$('[data-ide-layout]').on('click',function(){
+			switch ( $(this).data('ide-layout') ) {
+				case 'x' : $('#main').removeClass('ide-vertical').addClass('ide-horizontal'); break;
+				case 'y' : $('#main').addClass('ide-vertical').removeClass('ide-horizontal'); break;
+			}
+			$('[data-ide-layout]').closest('li').removeClass('active');
+			$('[data-ide-layout="'+$(this).data('ide-layout')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
+		$('[data-ide-env]').on('click',function(){
+			$('[data-ide-env-string]').text( $(this).data('ide-env') );
+			$('[data-ide-env]').closest('li').removeClass('active');
+			$('[data-ide-env="'+$(this).data('ide-env')+'"]').closest('li').addClass('active');
+			return false;
+		});
+
+		$('[data-ide-insert]').on('mousedown',function(){
+			$('#editor').html($(this).attr('data-ide-insert')).focus();
+			return false;
+		});
+
+		$('[data-ide-load]').on('click',function(){
+			$('[data-ide-load], [data-ide-loading]').toggleClass('hidden');
+			return false;
+		});
+
+		$('[data-ide-tab]').on('click',function(){
+			var id = $(this).data('ide-tab');
+			var tab = $('[data-ide-tab='+id+']');
+			var content = $('[data-ide-tab-content='+id+']');
+			$(this).closest('.ide-tabs').find('.ide-tab').removeClass('active');
+			content.siblings('[data-ide-tab-content]').addClass('hidden')
+			tab.closest('.ide-tab').addClass('active');
+			content.removeClass('hidden');
+			return false;
+		});
+
+		// $('#result').resizable({handles: "w"});
+		$('#body').resizable({
+			handles: 'e,s',
+			stop: function(e,ui){
+				console.log(ui);
+				if ( ui.originalSize.width != ui.size.width ) {
+					var percent = 100 * ui.originalElement.outerWidth() / $('#main').outerWidth();
+					ui.originalElement.css('width',percent + '%');
+				}
+				if ( ui.originalSize.height != ui.size.height ) {
+					var percent = 100 * ui.originalElement.outerHeight() / $('#main').outerHeight();
+					ui.originalElement.css('height',percent + '%');
+				}
+			}
+		});
+
+	})(jQuery); });
+</script>

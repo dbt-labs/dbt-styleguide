@@ -23,6 +23,9 @@
 	&.input-sm {
 		@include font-size-small;
 	}
+	&.input-xs {
+		@include font-size-small;
+	}
 	&::-ms-expand { display: none; }
 	&::-ms-clear { display: none; }
 	&::-ms-value { background: transparent !important; }
@@ -40,6 +43,10 @@ textarea.form-control,
 	&.input-sm {
 		@include set(height min-height,$input-height-small);
 		padding: $padding-small-vertical $padding-small-horizontal;
+	}
+	&.input-xs {
+		@include set(height min-height,$input-height-xsmall);
+		padding: $padding-small-vertical $padding-xsmall-horizontal;
 	}
 	&.input-lg {
 		@include set(height min-height,$input-height-large);
