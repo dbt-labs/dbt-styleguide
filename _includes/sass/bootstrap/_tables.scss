@@ -145,6 +145,7 @@ thead > tr > *,
 	tbody & {
 		top: 28px;
 		background: white;
+		&.table-sticky-top { top: 0; }
 	}
 }
 .table {
@@ -183,3 +184,5 @@ thead > tr > *,
 	}
 	&-lg { width: 30%; }
 }
+
+

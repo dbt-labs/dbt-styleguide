@@ -7,6 +7,11 @@ $ide-shade: $silver-light;
 
 $ide-edited: $link;
 
+
+$darkmode: #444;
+$darkmode-line: #3a3a3a;
+
+
 @mixin ide-vertical(){
 	width: auto !important;
 }
@@ -26,6 +31,9 @@ $ide-edited: $link;
 	&-pad-r, &-pad-x { padding-right: $ide-pad-x !important; }
 	&-pad-t, &-pad-y { padding-top: $ide-pad-y !important; }
 	&-pad-b, &-pad-y { padding-bottom: $ide-pad-y !important; }
+	&-pad-l-lg, &-pad-x-lg { padding-left: $ide-pad-x*2 !important; }
+	&-pad-r-lg, &-pad-x-lg { padding-right: $ide-pad-x*2 !important; }
+
 	&-panels {
 		@include cover;
 		&-withfooter { bottom: $ide-controls; }
@@ -80,9 +88,9 @@ $ide-edited: $link;
 		}
 		background: inherit;
 		@include flex-column;
+		&-header, &-footer, &-shade { background: $ide-shade; }
 		&-header, &-footer {
 			@include flex(0,0,auto);
-			background: $ide-shade;
 			// box-shadow: inset 0 -1px 0 $line, 0 -1px 0 $line;
 			&:before {
 				content: '';
@@ -114,7 +122,7 @@ $ide-edited: $link;
 		}
 		&-body {
 			color: $dark;
-			background: inherit;
+			// background: inherit;
 			@include flex(1,1,auto);
 			.ide-terminal & {
 				height: 65vh;
@@ -131,21 +139,24 @@ $ide-edited: $link;
 			width: 10px;
 		}
 		&-overlay {
-			&:not(.ide-panel-collapsed) {
-				box-shadow: 0 0 0 200vmin rgba(0,0,0,.5);
-				z-index: 20;
-			}
+			background: rgba(0,0,0,.5);
+			@include set(top left bottom right,-200vmin);
+			position: absolute;
+			display: block;
+			z-index: -1;
 		}
 		&-collapsed {
-			box-shadow: none;
 			.ide-panel-body,
 			.ide-panel-footer,
-			.ide-panel-header:not(:first-child) { display: none; }
+			.ide-panel-header + .ide-panel-header { display: none; }
 			.ide-panel-toggle {
 				@include transform(rotate(180deg));
 			}
 			.ide-panel-toggle {
 				@include transform(rotate(-90deg));
+			}
+			.ide-panel-overlay {
+				display: none;
 			}
 		}
 	}
@@ -184,22 +195,20 @@ $ide-edited: $link;
 		}
 	}
 	&-list {
-		padding: $ide-pad-y/2 0;
 		&-item {
 			display: block;
-			padding: $ide-pad-y/2 $ide-pad-x;
+			padding: $ide-pad-y $ide-pad-x;
 			color: inherit;
-			box-shadow: 0 1px 0 $outline;
+			box-shadow: 0 1px 0 $ide-line;
 			@include ellipsis;
-
 			@include active {
 				color: inherit;
 			}
-			&-body {}
-			&-footer {
-				padding: .375em 0;
-				@include flex-row;
-				@include flex-justify(space-between);
+			&.active {
+				background: $blue;
+				color: white;
+				.faint { opacity: 1; }
+				.glyph use { stroke: white !important; }
 			}
 		}
 	}
@@ -220,6 +229,10 @@ $ide-edited: $link;
 	}
 	table {
 		white-space: nowrap;
+		&.ide-table {
+			border-collapse: separate;
+			white-space: normal;
+		}
 		td, th {
 			&:first-child { padding-left: $ide-pad-x; }
 			&:last-child { padding-right: $ide-pad-x; }
@@ -228,6 +241,7 @@ $ide-edited: $link;
 			max-width: 300px;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			border-top: 1px solid $ide-line !important;
 		}
 	}
 	&-table-heading {
@@ -351,18 +365,27 @@ $ide-edited: $link;
 		&.warning:after { background: $yellow; }
 		&.danger:after { background: $red; }
 	}
+	&-outline {
+		box-shadow: 0 0 0 1px $ide-line;
+	}
+	&-tools {
+		margin: 0;
+		height: $ide-controls;
+	}
+	&-logs {
+		background: darkest($darkmode);
+		padding: $ide-pad-y $ide-pad-x*2;
+	}
 }
-
-$darkmode: #444;
-$darkmode-line: #3a3a3a;
 
 
 .ide {
 	&-dark {
 		color: white;
+		#{h()}, .kpi { color: inherit; }
 		.ide-panel-body { color: inherit; }
 		.ide-panel:focus,
-		.ide-panel-header, .ide-panel-footer,
+		.ide-panel-header, .ide-panel-footer, .ide-panel-shade,
 		.table-striped > tbody > tr:nth-of-type(odd),
 		.ide-tab {
 			background: darker($darkmode);
@@ -381,10 +404,10 @@ $darkmode-line: #3a3a3a;
 		}
 		.ide-table-heading,
 		.ide-list-item {
-			box-shadow: 0 1px 0 rgba(255,255,255,.1);
+			box-shadow: 0 1px 0 $darkmode-line;
 		}
 		.btn-default { @include button-variant(white,$darkmode,$darkmode,light($darkmode)); }
-		@include form-control-variation($darkmode,white,$darkmode);
+		@include form-control-variation($darkmode,white,$darkmode,true);
 		//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
 		.ide-panel-scroll {
 			@include scrollbar($darkmode,dark($darkmode),light($darkmode));
@@ -401,8 +424,23 @@ $darkmode-line: #3a3a3a;
 		.btn-group-options {
 			color: $darkmode;
 		}
-		
-	
-
+		.ide-outline {
+			box-shadow: 0 0 0 1px $darkmode-line;
+		}
+		table {
+			td {
+				border-top: 1px solid $darkmode-line !important;
+			}
+		}
+		.table-sticky {
+			background-color: darker($darkmode);
+			box-shadow: 0 1px 0 $darkmode-line;
+		}
+		.table-master-detail.open .table-master td, .table-master-detail.open .table-master th { background-color: darker($darkmode) !important; } 
+		.alert { background-color: $darkmode; }
+		.alert-info, .btn-highlight-info, tr.info > td, tr.info > th { background-color: lowlight($brand-info) !important; }
+		.alert-success, .btn-highlight-success, tr.success > td, tr.success > th { background-color: lowlight($brand-success) !important; }
+		.alert-warning, .btn-highlight-warning, tr.warning > td, tr.warning > th { background-color: lowlight($brand-warning) !important; }
+		.alert-danger, .btn-highlight-danger, tr.danger > td, tr.danger > th { background-color: lowlight($brand-danger) !important; }
 	}
 }

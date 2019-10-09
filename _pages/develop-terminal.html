@@ -3,11 +3,104 @@ title: Develop
 menu: develop
 layout: cloud
 fill: true
+runs: 
+- command: "dbt run --models..."
+  branch: branch_name
+  status: running
+  time: 3min
+- command: "dbt run --models..."
+  branch: branch_name
+  status: pass
+  time: 3min
+  active: true
+- command: "dbt run --models example1 example2"
+  branch: branch_name
+  status: pass
+  time: 3min
+- command: "dbt run --models..."
+  branch: branch_name
+  status: pass
+  time: 3min
+- command: "dbt run --models..."
+  branch: branch_name
+  status: fail
+  time: 3min
+- command: "dbt run --models..."
+  branch: branch_name
+  status: pass
+  time: 3min
+models:
+- quality: info
+  status: Pass
+  duration: 15m
+  metadata:
+  - analytics.table_1
+  - model
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.users.authenticated
+  - text
+  - user id is not null
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.users.intent_to_purchase
+  - model
+  - user id is not null
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.users.authenticated
+  - model
+  - user id is not null
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.table_1
+  - text
+  - user id is not null
+- quality: danger
+  status: Fail
+  duration: 1.5m
+  metadata:
+  - analytics.table_1
+  - model
+  message:
+    type: danger
+    text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim...
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.table_1
+  - model
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.table_1
+  - model
+  - user id is not null
+- quality: success
+  status: Pass
+  duration: 21s
+  metadata:
+  - analytics.table_1
+  - model
+  - some other condition
 ---
 
 {% assign natalie = site.data.natalie %}
 {% assign cols = natalie | first %}
 {% assign rows = natalie %}
+{% capture check %}<input type="checkbox" /><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>{% endcapture %}
+{% capture checked %}<input type="checkbox" checked /><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>{% endcapture %}
+
 
 <div class="ide ide-dark">
 	<div class="ide-panels ide-panels-withfooter">
@@ -229,7 +322,7 @@ fill: true
 					<div class="ide-panel-scroll"></div>
 				</div>
 				<div class="ide-panel-body" data-ide-tab-content="compiled">
-					<pre class="ide-panel-scroll ide-code ide-pad" id="editor" contenteditable>create  table "DBT_TEST_ALT".dbt_dbanin_schema_override.debug__dbt_tmp
+					<pre class="ide-panel-scroll ide-code ide-pad" contenteditable>create  table "DBT_TEST_ALT".dbt_dbanin_schema_override.debug__dbt_tmp
   as (
     
 
@@ -282,109 +375,105 @@ select 1 as id
 	</div>
 	<div class="ide-terminal">
 		<div class="ide-panel-group">
-			<div class="ide-panel ide-panel-collapsed ide-panel-overlay" id="terminal">
+			<div class="ide-panel ide-panel-collapsedxxx" id="terminal">
+				<div class="ide-panel-overlay" data-terminal-toggle></div>
 				<div class="ide-panel-header ide-panel-header-simple ide-pad-x">
 					
-					<div class="ide-controls">
-						<a class="ide-control ide-control-sm" onclick="$('#terminal').toggleClass('ide-panel-collapsed'); return false">
-							<strong class="ide-control-text">
-								<svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> 
-								Runs
-							</strong>
-						</a>
-						<div class="ide-control">
-
-							<div data-terminal="compiling">
-								<div class="tools">
-									<div class="tool tool-gap"></div>
-									<div class="tool tool-grow"></div>
-									<div class="tool tool-gap-sm"></div>
-									<div class="tool">
-										<div class="btn-group">
-											<a href="#" class="btn btn-xs btn-clear text-info">compiling</a>
-											<a href="#" class="btn btn-xs btn-clear text-info btn-icon spin"><svg class="glyph glyph-sm"><use xlink:href="#glyph-loading"></use></svg></a>
-										</div>
-									</div>
-								</div>
+		
+					<div data-terminal="compiling" style="display:none">
+						<div class="tools ide-tools">
+							<a class="tool text-inherit" data-terminal-toggle><svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> <strong>Runs</strong></a>
+							<div class="tool tool-gap"></div>
+							<div class="tool tool-grow"></div>
+							<div class="tool tool-gap-sm"></div>
+							<div class="tool">
+								<a class="btn-group" data-terminal-toolbar="error">
+									<span class="btn btn-xs btn-spacer text-info">compiling</span>
+									<span class="btn btn-xs btn-spacer text-info btn-icon spin"><svg class="glyph glyph-sm"><use xlink:href="#glyph-loading"></use></svg></span>
+								</a>
 							</div>
+						</div>
+					</div>
 
-							<div data-terminal="error" style="display:none">
-								<div class="tools">
-									<div class="tool tool-gap"></div>
-									<div class="tool tool-grow"><div class="alert alert-danger alert-xs ellipsis">{% raw %}Compilation Error in model stg_github_comments (models/staging/github/stg_github_comments.sql)\n unexpected ‘}’\n line 1\n {{ config(defer_to=‘prod.github.comments’) }{% endraw %}</div></div>
-									<div class="tool tool-gap-sm"></div>
-									<div class="tool">
-										<div class="btn-group">
-											<a href="#" class="btn btn-xs btn-clear text-danger danger btn-icon btn-pill"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-square"></use></svg></a>
-										</div>
-									</div>
-								</div>
+					<div data-terminal="error" style="display:none">
+						<div class="tools ide-tools">
+							<a class="tool text-inherit" data-terminal-toggle><svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> <strong>Runs</strong></a>
+							<div class="tool tool-gap"></div>
+							<div class="tool tool-grow"><div class="alert alert-danger alert-xs ellipsis">{% raw %}Compilation Error in model stg_github_comments (models/staging/github/stg_github_comments.sql)\n unexpected ‘}’\n line 1\n {{ config(defer_to=‘prod.github.comments’) }{% endraw %}</div></div>
+							<div class="tool tool-gap-sm"></div>
+							<div class="tool">
+								<a class="btn-group" data-terminal-toolbar="running">
+									<span class="btn btn-xs btn-spacer text-danger">compilation error</span>
+									<span class="btn btn-xs btn-spacer text-danger danger btn-icon btn-pill"><svg class="glyph glyph-xs glyph-solid"><use xlink:href="#glyph-circle"></use></svg></span>
+								</a>
 							</div>
+						</div>
+					</div>
 
-							
-							<div data-terminal="running" style="display:none">
-								<div class="tools">
-									<div class="tool tool-gap"></div>
-									<div class="tool tool-grow">
-										<form class="input-group">
-											<div class="input-group-btn">
-												<span class="btn btn-default btn-xs"><span class="loading loading-inline loading-small loading-bold"></span> running</span>
-											</div>
-											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" disabled />
-											<div class="input-group-btn"><button type="reset" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></button></div>
-										</form>
+					
+					<div data-terminal="running">
+						<div class="tools ide-tools">
+							<a class="tool text-inherit" data-terminal-toggle><svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> <strong>Runs</strong></a>
+							<div class="tool tool-gap"></div>
+							<div class="tool tool-grow">
+								<form class="input-group">
+									<div class="input-group-btn">
+										<span class="btn btn-default btn-xs"><span class="loading loading-inline loading-small loading-bold"></span> running</span>
 									</div>
-									<div class="tool tool-gap-sm"></div>
-									<div class="tool">
-										<div class="btn-group">
-											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
-										</div>
-									</div>
-								</div>
+									<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" disabled />
+									<div class="input-group-btn"><button type="reset" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></button></div>
+								</form>
 							</div>
-
-							<div data-terminal="ready" style="display:none">
-								<div class="tools">
-									<div class="tool tool-gap"></div>
-									<div class="tool tool-grow">
-										<form class="input-group">
-											<div class="input-group-btn">
-												<span class="btn btn-default btn-xs"><span class="loading loading-inline loading-small loading-bold"></span> running</span>
-											</div>
-											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
-											<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
-										</form>
-									</div>
-									<div class="tool tool-gap-sm"></div>
-									<div class="tool">
-										<div class="btn-group">
-											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
-										</div>
-									</div>
-								</div>
+							<div class="tool tool-gap-sm"></div>
+							<div class="tool">
+								<a class="btn-group" data-terminal-toolbar="ready">
+									<span class="btn btn-xs btn-spacer text-success">ready</span>
+									<span class="btn btn-xs btn-spacer text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></span>
+								</a>
 							</div>
+						</div>
+					</div>
 
-							<div data-terminal="ran" style="display:none">
-								<div class="tools">
-									<div class="tool tool-gap"></div>
-									<div class="tool tool-grow">
-										<form class="input-group">
-											<div class="input-group-btn">
-												<span class="btn btn-highlight-danger btn-xs">run failed</span>
-											</div>
-											<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
-											<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
-										</form>
-									</div>
-									<div class="tool tool-gap-sm"></div>
-									<div class="tool">
-										<div class="btn-group">
-											<a href="#" class="btn btn-xs btn-clear text-success btn-icon btn-block"><svg class="glyph glyph-sm glyph-solid"><use xlink:href="#glyph-circle"></use></svg></a>
-										</div>
-									</div>
-								</div>
+					<div data-terminal="ready" style="display:none">
+						<div class="tools ide-tools">
+							<a class="tool text-inherit" data-terminal-toggle><svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> <strong>Runs</strong></a>
+							<div class="tool tool-gap"></div>
+							<div class="tool tool-grow">
+								<form class="input-group">
+									<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
+									<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
+								</form>
 							</div>
+							<div class="tool tool-gap-sm"></div>
+							<div class="tool">
+								<a class="btn-group" data-terminal-toolbar="ran">
+									<span class="btn btn-xs btn-spacer text-success">ready</span>
+									<span class="btn btn-xs btn-spacer text-success btn-icon btn-block"><svg class="glyph glyph-xs glyph-solid"><use xlink:href="#glyph-circle"></use></svg></span>
+								</a>
+							</div>
+						</div>
+					</div>
 
+					<div data-terminal="ran" style="display:none">
+						<div class="tools ide-tools">
+							<a class="tool text-inherit" data-terminal-toggle><svg class="glyph glyph-sm glyph-before ide-panel-toggle"><use xlink:href="#glyph-chevron-down"></use></svg> <strong>Runs</strong></a>
+							<div class="tool tool-gap"></div>
+							<div class="tool tool-grow">
+								<form class="input-group">
+									<div class="input-group-btn">
+										<span class="btn btn-highlight-danger btn-xs">run failed</span>
+									</div>
+									<input type="text" class="form-control input-xs " placeholder="dbt run..." value="dbt run" />
+									<div class="input-group-btn"><button type="submit" class="btn btn-xs btn-default btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-chevron-right"></use></svg></button></div>
+								</form>
+							</div>
+							<div class="tool tool-gap-sm"></div>
+							<div class="tool">
+								<a class="btn-group" data-terminal-toolbar="compiling">
+									<span class="btn btn-xs btn-spacer text-success">ready</span>
+									<span class="btn btn-xs btn-spacer text-success btn-icon btn-block"><svg class="glyph glyph-xs glyph-solid"><use xlink:href="#glyph-circle"></use></svg></span>
+								</a>
+							</div>
 						</div>
 					</div>
 
@@ -393,12 +482,212 @@ select 1 as id
 					<div class="ide-panels">
 						<div class="ide-panel-group ide-panel-sm">
 							<div class="ide-panel">
-								<div class="ide-panel-body"></div>
+								<!-- <div class="ide-panel-header ide-panel-header-simple">
+									<div class="ide-pad">
+										<form class="input-group">
+											<input class="form-control input-sm ide-input " placeholder="dbt run --models..." />
+											<span class="input-group-btn">
+												<button type="submit" class="btn btn-default btn-sm btn-icon"><svg class="glyph glyph-sm"><use xlink:href="#glyph-arrow-right"></use></svg></button>
+  										</span>
+										</form>
+									</div>
+								</div> -->
+								<div class="ide-panel-body">
+									<div class="ide-panel-scroll">
+										<div class="ide-list">
+											{% for run in page.runs %}
+												<a href="#" class="ide-list-item {% if run.active %}active{% endif %}">
+													<div class="tools">
+														<div class="tool tool-overflow"><strong>{{run.command}}</strong></div>
+														<div class="tool">
+															{% case run.status %}
+																{% when 'pass' %}<svg class="glyph glyph-xxs glyph-solid text-success"><use xlink:href="#glyph-circle"></use></svg>
+																{% when 'fail' %}<svg class="glyph glyph-xxs glyph-solid text-danger"><use xlink:href="#glyph-circle"></use></svg>
+																{% when 'running' %}<svg class="glyph glyph-xs text-info spin"><use xlink:href="#glyph-loading"></use></svg>
+															{% endcase %}
+														</div>
+													</div>
+													<div class="tools">
+														<div class="faint tool tool-overflow">{{run.branch}}</div>
+														<div class="faint tool">{{run.time}}</div>
+													</div>
+												</a>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="ide-panel-group">
 							<div class="ide-panel">
-								<div class="ide-panel-body"></div>
+								<div class="ide-panel-body ide-panel-shade">
+									<div class="ide-panel-scroll">
+
+										<div class="ide-pad-y ide-pad-x-lg">
+											<div class="title flush">
+												<div class="title-header">
+													<h1>dbt run --models example1 example2</h1>
+													<p><svg class="glyph glyph-sm glyph-before"><use xlink:href="#glyph-git-branch"></use></svg> branch_name_here</p>
+												</div>
+												<div class="title-actions">
+													<div class="controls">
+														<div class="control"><a href="#" class="btn btn-default btn-sm"><svg class="glyph glyph-before glyph-sm"><use xlink:href="#glyph-arrow-down"></use></svg> Logs</a></div>
+														<div class="control"><a href="#" class="btn btn-default btn-sm arrow-right">Docs</a></div>
+													</div>
+												</div>
+											</div>
+											<div class="kpis kpis-simple">
+												<div class="kpi text-success">
+													<div class="kpi-value strong">Run Passed</div>
+													<div class="kpi-label"><span class="label">Run Status</span></div>
+												</div>
+												<div class="kpi">
+													<div class="kpi-value strong">10</div>
+													<div class="kpi-label"><span class="label label-success">pass</span></div>
+												</div>
+												<div class="kpi">
+													<div class="kpi-value strong">3</div>
+													<div class="kpi-label"><span class="label label-warning">warn</span></div>
+												</div>
+												<div class="kpi">
+													<div class="kpi-value strong">1</div>
+													<div class="kpi-label"><span class="label label-danger">fail</span></div>
+												</div>
+												<div class="kpi">
+													<div class="kpi-value strong">1</div>
+													<div class="kpi-label"><span class="label label-info">queued</span></div>
+												</div>
+												
+												<div class="kpi">
+													<div class="kpi-value strong">07:59:27</div>
+													<div class="kpi-label"><span class="label">Start</span></div>
+												</div>
+												<div class="kpi">
+													<div class="kpi-value strong">7:15 min</div>
+													<div class="kpi-label"><span class="label">Duration</span></div>
+												</div>
+											</div>
+											<hr class="margin-small"/>
+											<div>
+												<strong class="option option-inline input-sm">Filter models:</strong>
+												<label class="option option-inline input-sm">{{checked}} fail</label>
+												<label class="option option-inline input-sm">{{checked}} pass</label>
+												<label class="option option-inline input-sm">{{checked}} warn</label>
+												<label class="option option-inline input-sm">{{check}} skip</label>
+											</div>
+										</div>
+
+
+										<table class="table table-small table-condensed ide-table flush">
+											{% for model in page.models %}
+												<tbody class="table-master-detail">
+													<tr class="table-master table-clickable" data-masterdetail-toggle>
+														<td class="table-sticky table-sticky-top sm flush-right"><div class=" table-master-detail-toggle"><svg class="icn icn-md"><use xlink:href="#icn-right"></use></svg></div></td>
+														<td class="table-sticky table-sticky-top">
+															<div>
+																<strong>model {{forloop.index}}</strong>
+																<ul class="metadata margin-left">
+																	{% for data in model.metadata %}
+																		<li><span class="metadata-info">{{data}}</span></li>
+																	{% endfor %}
+																	<li><a href="#" class="metadata-link">/filepath/goes/here...</a></li>
+																</ul>
+															</div>
+															{% if model.message %}<div class="text-{{model.message.type}}">{{model.message.text}}</div>{% endif %}
+														</td>
+														<td class="table-sticky table-sticky-top sm text-right"><span class='text-faint'>{{model.duration}}</span></td>
+														<td class="table-sticky table-sticky-top sm text-right">
+															{% case model.quality %}
+																{% when 'success' %}<span class="btn btn-spacer btn-icon btn-xs"><svg class="glyph glyph-xxs glyph-solid text-success"><use xlink:href="#glyph-circle"></use></svg></span>
+																{% when 'danger' %}<span class="btn btn-spacer btn-icon btn-xs"><svg class="glyph glyph-xxs glyph-solid text-danger"><use xlink:href="#glyph-circle"></use></svg></span>
+																{% when 'warning' %}<span class="btn btn-spacer btn-icon btn-xs"><svg class="glyph glyph-xxs text-warning"><use xlink:href="#glyph-circle"></use></svg></span>
+																{% when 'info' %}<span class="btn btn-spacer btn-icon btn-xs spin"><svg class="glyph glyph-xs text-info"><use xlink:href="#glyph-loading"></use></svg></span>
+															{% endcase %}
+														</td>
+													</tr>
+													<tr class="table-detail">
+														<td colspan="4" class="padless">
+															<pre class="ide-logs square">Regenerating: 1 file(s) changed at 2019-10-02 10:35:11
+              _pages/develop.html
+              ...done in 3.810455 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:35:19
+              _pages/develop.html
+              ...done in 3.444899 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:07
+              _includes/sass/bootstrap/_tables.scss
+              ...done in 3.646505 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:11
+              .sass-cache/e5efe04584bd42a61a3eeb8f8975f9a6ac842d79/_tables.scssc
+              ...done in 3.643092 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:15
+              _pages/develop.html
+              ...done in 3.462388 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:24
+              _pages/develop.html
+              ...done in 3.850411 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:31
+              _includes/sass/base/_utilities.scss
+              ...done in 3.679495 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:35
+              .sass-cache/962d2b50326d61203506acb8dfc2ac09b72f55b4/_utilities.scssc
+              ...done in 3.474277 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:38
+              _pages/develop.html
+              ...done in 3.490914 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:35:19
+              _pages/develop.html
+              ...done in 3.444899 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:07
+              _includes/sass/bootstrap/_tables.scss
+              ...done in 3.646505 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:11
+              .sass-cache/e5efe04584bd42a61a3eeb8f8975f9a6ac842d79/_tables.scssc
+              ...done in 3.643092 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:15
+              _pages/develop.html
+              ...done in 3.462388 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:36:24
+              _pages/develop.html
+              ...done in 3.850411 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:31
+              _includes/sass/base/_utilities.scss
+              ...done in 3.679495 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:35
+              .sass-cache/962d2b50326d61203506acb8dfc2ac09b72f55b4/_utilities.scssc
+              ...done in 3.474277 seconds.
+
+Regenerating: 1 file(s) changed at 2019-10-02 10:37:38
+              _pages/develop.html
+              ...done in 3.490914 seconds.
+
+</pre>
+														</td>
+													</tr>
+												</tbody>
+											{% endfor %}
+										</table>
+										
+
+
+
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -491,6 +780,23 @@ select 1 as id
 				}
 			}
 		});
+
+		$('[data-masterdetail-toggle]').on('click',function(){ $(this).closest('.table-master-detail').toggleClass('open'); return false; });
+
+		$('[data-terminal-toggle]').click(function(){
+			 $('#terminal').toggleClass('ide-panel-collapsed');
+			 return false;
+		});
+
+
+		$('[data-terminal-toolbar]').click(function(){
+			var toolbar = $(this).data('terminal-toolbar');
+			$('[data-terminal]').hide();
+			$('[data-terminal="'+toolbar+'"]').show();
+			return false;
+		});
+
+
 
 	})(jQuery); });
 </script>

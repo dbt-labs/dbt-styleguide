@@ -6,10 +6,15 @@ $glyph-size: 24px;
 	&-#{$variant} {
 		font-size: $glyph-size * $scale;
 		use {
-			stroke-width: (2/$scale);
-			@include hidef {
-				stroke-width: (1.5/$scale);
+			@if $variant != 'xxs' {
+				stroke-width: (2/$scale);
+				@include hidef {
+					stroke-width: (1.5/$scale);
+				}
+			} @else {
+				stroke-width: (1/$scale);
 			}
+			
 		}
 	}
 }
@@ -36,12 +41,16 @@ $glyph-size: 24px;
 	&-solid {
 		use {
 			fill: currentColor;
-			stroke-width: 0 !important;
+			// stroke: transparent !important;
 		}
 	}
+	&-outline use { stroke: black !important; }
+	&-outline-white use { stroke: white !important; }
 	&-middle, .btn & { margin-top: -10px; margin-bottom: -8px; }
 	&-before { margin-right: .25em; margin-left: -.125em; }
 	&-after { margin-left: .25em; margin-right: -.125em; }
+	@include glyph-size(xxs,(1/3));
+	@include glyph-size(xs,(1/2));
 	@include glyph-size(sm,(2/3));
 	@include glyph-size(md,1.5);
 	@include glyph-size(lg,2);

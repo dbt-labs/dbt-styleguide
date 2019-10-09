@@ -46,7 +46,7 @@ textarea.form-control,
 	}
 	&.input-xs {
 		@include set(height min-height,$input-height-xsmall);
-		padding: $padding-small-vertical $padding-xsmall-horizontal;
+		padding: $padding-xsmall-vertical $padding-xsmall-horizontal;
 	}
 	&.input-lg {
 		@include set(height min-height,$input-height-large);
@@ -133,7 +133,7 @@ textarea.form-control {
 }
 
 
-@mixin form-control-variation($bg,$text,$border){
+@mixin form-control-variation($bg,$text,$border,$lighten:false){
 	.input-group-addon,
 	.form-control {
 		border-color: transparent !important;
@@ -148,8 +148,13 @@ textarea.form-control {
 	.form-control:not(:disabled):not(.disabled) {
 		&:hover {
 			@include placeholder(mix($text,white,75%));
-			background-color: darkest($bg);
-			color: darker($text);
+			@if $lighten {
+				background-color: light($bg);
+				color: light($text);
+			} @else {
+				background-color: darkest($bg);
+				color: darker($text);
+			}
 		}
 		&:focus {
 			@include focus-shadow($border);
