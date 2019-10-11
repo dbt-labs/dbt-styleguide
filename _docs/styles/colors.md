@@ -12,6 +12,7 @@ class: bg-silver-light
 	<div class="swatch card text-blue">
 		<div class="swatch-color"></div>
 		<div class="swatch-variations">
+			<span class="bg-blue-lowlight"></span>
 			<span class="bg-blue-darkest"></span>
 			<span class="bg-blue-darker"></span>
 			<span class="bg-blue-dark"></span>
@@ -26,6 +27,7 @@ class: bg-silver-light
 	<div class="swatch card text-green">
 		<div class="swatch-color"></div>
 		<div class="swatch-variations">
+			<span class="bg-green-lowlight"></span>
 			<span class="bg-green-darkest"></span>
 			<span class="bg-green-darker"></span>
 			<span class="bg-green-dark"></span>
@@ -40,6 +42,7 @@ class: bg-silver-light
 	<div class="swatch card text-yellow">
 		<div class="swatch-color"></div>
 		<div class="swatch-variations">
+			<span class="bg-yellow-lowlight"></span>
 			<span class="bg-yellow-darkest"></span>
 			<span class="bg-yellow-darker"></span>
 			<span class="bg-yellow-dark"></span>
@@ -54,6 +57,7 @@ class: bg-silver-light
 	<div class="swatch card text-orange">
 		<div class="swatch-color"></div>
 		<div class="swatch-variations">
+			<span class="bg-orange-lowlight"></span>
 			<span class="bg-orange-darkest"></span>
 			<span class="bg-orange-darker"></span>
 			<span class="bg-orange-dark"></span>
@@ -68,6 +72,7 @@ class: bg-silver-light
 	<div class="swatch card text-purple">
 		<div class="swatch-color"></div>
 		<div class="swatch-variations">
+			<span class="bg-purple-lowlight"></span>
 			<span class="bg-purple-darkest"></span>
 			<span class="bg-purple-darker"></span>
 			<span class="bg-purple-dark"></span>

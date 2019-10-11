@@ -1,0 +1,155 @@
+---
+title: Edit User
+layout: cloud
+menu: team
+fill: true
+---
+
+{% capture check %}<input type="checkbox" /><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>{% endcapture %}
+{% capture checked %}<input type="checkbox" checked /><svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg>{% endcapture %}
+
+
+
+<div class="admin">
+	<div class="admin-nav">
+		<div class="sidenav-body">
+			<div class="sidenav-section">
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-copy"></use></svg> Artifacts</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-bell"></use></svg> Notifications</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="/team" class="sidenav-link sidenav-link-main active"><svg class="glyph"><use xlink:href="#glyph-users"></use></svg> Team</a>
+					<a href="/team" class="sidenav-link">Users</a>
+					<a href="/team-roles" class="sidenav-link">Roles</a>
+					<a href="#" class="sidenav-link">Groups</a>
+				</div>
+				<div class="sidenav-region">
+					<a href="#" class="sidenav-link sidenav-link-main"><svg class="glyph"><use xlink:href="#glyph-credit-card"></use></svg> Billing</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="admin-content">
+
+
+		<div class="title title-fix buffer-small">
+			<div class="title-header">
+				<ol class="breadcrumb breadcrumb-flush h1">
+					<li><a href="{{site.baseurl}}/team"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Team</a></li>
+					<li class="active">Edit User</li>
+				</ol>
+			</div>
+		</div>
+
+
+		<div class="settings buffer-small">
+			<div class="setting">
+				<div class="setting-body">
+					<div class="card">
+						<div class="card-body">
+							<form class="setting-form active editing">
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">First Name</div></div>
+									<div class="setting-row-response"><input class="form-control input-md" value="Drew"/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Last Name</div></div>
+									<div class="setting-row-response"><input class="form-control input-md" value="Banin"/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Email</div></div>
+									<div class="setting-row-response"><input class="form-control input-md" value="drew@fishtownalaytics.com"/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Locale</div></div>
+									<div class="setting-row-response">
+										<select class="form-control input-md">
+											<option selected>EN/US</option>
+											<option>...</option>
+											<option>...</option>
+										</select>
+									</div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Timezone</div></div>
+									<div class="setting-row-response">
+										<select class="form-control input-md">
+											<option selected>America - New York</option>
+											<option>...</option>
+											<option>...</option>
+										</select>
+									</div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Password</div></div>
+									<div class="setting-row-response"><a href="#" class="btn btn-sm btn-link">Send reset link</a></div>
+								</div>
+
+								<hr class="margin"/>
+
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">User Roles</div></div>
+									<div class="setting-row-response">
+										<div class="options">
+											<label class="option input-md">{{checked}} Admin</label>
+											<label class="option input-md">{{check}} User</label>
+										</div>
+										<p class="help-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...</p>
+									</div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Groups</div></div>
+									<div class="setting-row-response">
+										<div class="options">
+											<label class="option input-md">{{checked}} Group A</label>
+											<label class="option input-md">{{check}} Group B</label>
+										</div>
+									</div>
+								</div>
+
+								<hr class="margin"/>
+
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">User Attributes</div></div>
+									<div class="setting-row-response">
+										{% for i in (1..8) %}
+											<div class="setting-row">
+												<div class="setting-row-response"><input class="form-control input-md" placeholder="key..." /></div>
+												<div class="setting-row-response"><input class="form-control input-md" placeholder="value" /></div>
+												<div class="setting-row-edit"><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+											</div>
+										{% endfor %}
+										<div class="setting-row">
+											<div class="setting-row-actions">
+												<div class="controls">
+													<div class="control"><a href="#" class="btn btn-sm btn-link">add attribute</a></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<hr class="margin"/>
+
+								<div class="setting-row" setting-old>
+									<div class="setting-row-actions " setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
+									<div class="setting-row-actions " setting-active>
+										<div class="controls">
+											<div class="control"><input type="submit" class="btn btn-sm btn-primary" value="Send Invitations"/></div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+

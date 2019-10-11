@@ -38,3 +38,13 @@ select:not([multiple]).form-control {
 	.glyph { margin-right: .375em; }
 	margin: 0;
 }
+
+
+.options {
+	.option {
+		display: block;
+		+ .option {
+			padding-top: 0;
+		}
+	}
+}

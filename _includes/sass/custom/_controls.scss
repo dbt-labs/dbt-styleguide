@@ -14,5 +14,6 @@ $control-pad: 7px;
 		.btn, .form-control { width: 100%; }
 		&-grow { @include flex(1,0,auto); }
 		&-full { @include flex(0,0,100%); }
+		&-sm { max-width: 240px; }
 	}
 }

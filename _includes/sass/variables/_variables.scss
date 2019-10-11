@@ -114,8 +114,8 @@ $headings-font-weight:                           normal;
 $headings-font-family:                           $font-family-base;
 $headings-color:                                 $dark;
 $line-height-max:                                5rem;
-$component-line-height:                          1.5;
-$component-height-xsmall:                        rem-full(24px);
+$component-line-height:                          rem-full(20px);
+$component-height-xsmall:                        rem-full(22px);
 $component-height-small:                         rem-full(32px);
 $component-height-base:                          rem-full(40px);
 $component-height-medium:                        rem-full(52px);
@@ -148,18 +148,18 @@ $link-hover-decoration:                          none;
 //
 // Spacing
 // --------------------------------------------------
-$padding-xsmall-vertical:                        ( $component-height-xsmall - $font-size-small * $component-line-height ) / 2;
-$padding-xsmall-horizontal:                      .625rem;
-$padding-small-vertical:                         ( $component-height-small - $font-size-small * $component-line-height ) / 2;
+$padding-xsmall-vertical:                        ( $component-height-xsmall - $component-line-height ) / 2;
+$padding-xsmall-horizontal:                      .5rem;
+$padding-small-vertical:                         ( $component-height-small - $component-line-height ) / 2;
 $padding-small-horizontal:                       .875rem;
-$padding-base-vertical:                          ( $component-height-base - $font-size-base * $component-line-height ) / 2;
+$padding-base-vertical:                          ( $component-height-base - $component-line-height ) / 2;
 $padding-base-horizontal:                        1.25rem;
-$padding-medium-vertical:                        ( $component-height-medium - $font-size-base * $component-line-height ) / 2;
+$padding-medium-vertical:                        ( $component-height-medium - $component-line-height ) / 2;
 $padding-medium-horizontal:                      1.5rem;
-$padding-large-vertical:                         ( $component-height-large - $font-size-large * $component-line-height ) / 2;
+$padding-large-vertical:                         ( $component-height-large - $component-line-height ) / 2;
 $padding-large-horizontal:                       1.875rem;
 
-$padding-medium-vertical:                         ( $component-height-small - $font-size-base * $component-line-height ) / 2;
+$padding-medium-vertical:                         ( $component-height-small - $component-line-height ) / 2;
 
 $line-height-large:                              $line-height-base;
 $line-height-small:                              $line-height-base;
@@ -225,6 +225,7 @@ $textarea-height:                                6em;
 $input-height-base:                              $component-height-base;
 $input-height-large:                             $component-height-large;
 $input-height-small:                             $component-height-small;
+$input-height-xsmall:                            $component-height-xsmall;
 $legend-color:                                   $light;
 $legend-border-color:                            $line;
 $input-group-addon-bg:                           $btn-default-bg;

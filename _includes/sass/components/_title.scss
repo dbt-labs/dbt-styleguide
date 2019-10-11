@@ -15,6 +15,7 @@
 	}
 	&-header {
 		@include flex(0,1,auto);
+		@include compact;
 	}
 	&-body {
 		@include flex(1,1,auto);

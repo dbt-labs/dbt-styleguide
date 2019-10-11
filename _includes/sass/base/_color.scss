@@ -18,6 +18,7 @@ $colors: (
 	.text-#{$var}-lighter { color: lighter($color) !important; }
 	.text-#{$var}-lightest { color: lightest($color) !important; }
 	.text-#{$var}-highlight { color: highlight($color) !important; }
+	.text-#{$var}-lowlight { color: lowlight($color) !important; }
 
 	.bg-#{$var} { background-color: $color !important; }
 	.bg-#{$var}-dark { background-color: dark($color) !important; }
@@ -27,6 +28,7 @@ $colors: (
 	.bg-#{$var}-lighter { background-color: lighter($color) !important; }
 	.bg-#{$var}-lightest { background-color: lightest($color) !important; }
 	.bg-#{$var}-highlight { background-color: highlight($color) !important; }
+	.bg-#{$var}-lowlight { background-color: lowlight($color) !important; }
 }
 
 

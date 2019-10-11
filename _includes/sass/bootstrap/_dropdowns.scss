@@ -2,6 +2,7 @@
 	@include transform(scale(.75),(50% 0));
 	@include transition(all .1875s $bezier-bounce);
 	@include font-size-base;
+	.ide & { @include font-size-small; }
 	@include shadow(20px);
 	border-radius: $border-radius-base !important;
 	-webkit-transition-property: opacity, -webkit-transform;

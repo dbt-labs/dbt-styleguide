@@ -23,7 +23,7 @@
 		.layout-menu & { padding-right: 0; }
 	}
 	&-navigation {
-		@include shadow;
+		@include shadow(3px,$line);
 		background: white;
 		height: $navigation-height;
 		position: absolute;

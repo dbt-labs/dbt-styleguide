@@ -1,0 +1,16 @@
+.admin {
+	@include cover;
+	&-nav,
+	&-content {
+		@include cover;
+		@include scroll;
+	}
+	&-nav {
+		right: auto;
+		width: 240px;
+	}
+	&-content {
+		left: 240px;
+		padding: 20px 20px 20px 30px;
+	}
+}

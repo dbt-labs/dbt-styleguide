@@ -30,6 +30,20 @@ $hue: 0%;
   }
 }
 
+@function lowlight($color,$lum:.15) {
+  $desire: $lum;
+  $actual: luminance($color);
+  @if $actual > $desire {
+    $weight: $desire / $actual;
+    $lowlight: mix($color,black,percentage($weight));
+    @return $lowlight;
+  } @else {
+    $weight: ( $desire - 1 ) / ( $actual - 1 );
+    $lowlight: mix($color,white,percentage($weight));
+    @return $lowlight;
+  }
+}
+
 @function text($color,$lum:.55) {
   $desire: $lum;
   @if luminance($color) > $desire {

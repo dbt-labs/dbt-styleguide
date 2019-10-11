@@ -1,14 +1,17 @@
-$settings-pad: 15px;
+$settings-pad: 10px;
 
 .setting {
-	@include flex-row;
+	clear: both;
+	@include clear;
 	//@include flex-wrap;
 	margin: 0 $settings-pad*-2;
 	
-	> * { padding: $settings-pad $settings-pad*2; }
+	> * {
+		padding: $settings-pad $settings-pad*2;
+	}
 	&-header {
-		@include flex(1,0,percentage(2/7));
-		min-width: 200px;
+		float: left;
+		width: 25%;
 		&-text {
 			@include snug;
 			#{h()} {
@@ -22,8 +25,9 @@ $settings-pad: 15px;
 		}
 	}
 	&-body {
-		@include flex(1,0,percentage(5/7));
-		min-width: 600px;
+		float: left;
+		width: 100%;
+		.setting-header + & { width: 75%; }
 	}
 	
 	&-row {
@@ -35,10 +39,15 @@ $settings-pad: 15px;
 			@include flex(0,0,percentage(1/4));
 			min-width: 120px;
 			padding-top: 8px;
+			&.text-right { padding-right: 16px; }
 		}
 		&-response { @include flex(1,1,auto); }
 		&-edit { @include flex(0,0,auto); }
 		&-actions { @include flex(1,1,auto); }
+		& & {
+			margin: -4px;
+			& + .setting-row { margin-top: 4px; }
+		}
 	}
 	&-form {
 		
@@ -47,6 +56,22 @@ $settings-pad: 15px;
 
 .settings {
 	@extend .buffer;
+	&-separate {
+		.setting {
+			&:not(:last-child) {
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					@include set(left right,$settings-pad*2);
+					bottom: 0;
+					border-bottom: 1px solid $line;
+				}
+				padding-bottom: 20px;
+				margin-bottom: 20px;
+			}
+		}
+	}
 }
 
 
