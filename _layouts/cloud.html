@@ -10,11 +10,15 @@
 		{% if page.include contains 'launcher' %}
 			{% include launcher.html %}
 		{% endif %}
+		{% unless page.nonav %}
 		{% include sidenav.html %}
+		{% endunless %}
 		<div class="layout">
+			{% unless page.nonav %}
 			<div class="layout-navigation layout-sticky">
 				{% include navigation.html %}
 			</div>
+			{% endunless %}
 			<div class="layout-content navigating-blur">
 				{% if page.alert %}
 					<div class="layout-alert text-center">{{ page.alert }}</div>
@@ -48,7 +52,11 @@
 				$('[data-add]').on('click',function(){
 					var template = $($(this).attr('data-add')).html();
 					$(this).closest('.setting-form').addClass('editing');
-					$(this).closest('.setting-row').before(template);
+					if ( $(this).data('add-to') ) {
+						$($(this).data('add-to')).append(template)
+					} else {
+						$(this).closest('.setting-row').before(template);
+					}
 					return false;
 				});
 				if ( get_param('editing') ) { $('body').addClass('editing'); }

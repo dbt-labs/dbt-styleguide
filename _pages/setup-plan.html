@@ -1,0 +1,176 @@
+---
+title: Job Plan
+layout: cloud
+setup: true
+levels:
+  - title: Free Forever
+    desc: Evaluate if dbt Cloud is right for your team or use it free until you need increased functionality.
+    price: $0
+    features:
+      - Job Scheduling
+      - Logging
+      - Documentation
+    usage:
+      - 6 runs per day
+      - 1 concurrent run slot
+      - 1 standard seat
+      - no developer seats
+  - title: Basic
+    label: Free Trial
+    desc: Start running dbt in production
+    price: Starts at $100/mo
+    active: true
+    features:
+      - Developer IDE
+    usage:
+      - Unlimited runs per day
+      - 1 concurrent run slot
+      - 4 standard seats
+      - 1  developer seat
+  - title: Pro
+    desc: The preferred choice for mature data teams looking to scale their dbt deployment
+    price: Starts at $500/mo
+    features:
+      - API Access
+      - Build on pull request
+    usage:
+      - Unlimited runs per day
+      - 2 concurrent run slots
+      - 100 standard seats
+      - 5 developer seat
+  - title: Enterprise
+    desc: Customize dbt Cloud to fit the unique needs of your business.
+    price: Customized Pricing
+    usage:
+      - We’ll design a package that’s right for you.
+    features:
+      - Single Sign On (SSO)
+      - On-Premises Deployment
+      - Audit Logging
+      - Custom SLAs
+      - Professional Services
+      - Role-Based ACLs
+---
+
+<div class="setup setup-lg">
+	
+	<div class="title title-fix">
+		<div class="title-header">
+			<ol class="breadcrumb breadcrumb-flush h1">
+				<li><a href="{{site.baseurl}}/setup-environment"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Setup</a></li>
+				<li class="active">Choose a Plan</li>
+			</ol>
+		</div>
+		<div class="title-actions">
+			<div class="controls">
+				<div class="control"><a href="{{site.baseurl}}/home" class="btn btn-primary arrow-right pill">Continue</a></div>
+			</div>
+		</div>
+	</div>
+
+	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>	
+
+	<div class="card active crop">
+		<div class="card-body card-flush">
+			<div class="card-app">
+				<div class="card-app-nav">
+					<ul class="list-group list-group-sidebar" data-level-options>
+						{% for level in page.levels %}{% assign l = forloop.index %}
+							<a class="list-group-item card-padding {% if level.active %}active{% endif %}" data-level-link="{{l}}">
+								<h3>{{level.title}} {% if level.label %}<span class="margin-left label label-info">{{level.label}}</span>{% endif %}</h3>
+								<p class="small">{{level.price}}</p>
+							</a>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="card-app-body card-padding-lg">
+					<h2>
+						{% for level in page.levels %}{% assign l = forloop.index %}
+							<span data-level-hide data-level-filter="{{l}}">{{level.title}} {% if level.label %}<span class="margin-left label label-info label-lg">{{level.label}}</span>{% endif %}</span>
+						{% endfor %}
+					</h2>
+					<h4>Features</h4>
+					<ul class="list-cols">
+						{% for level in page.levels %}{% assign l = forloop.index %}
+							{% for feature in level.features %}
+								<li class="strong text-dark" data-level-disable data-level-filter="{{l}}">{{feature}}</li>
+							{% endfor %}
+						{% endfor %}
+					</ul>
+					{% for level in page.levels %}{% assign l = forloop.index %}
+						{% if level.usage %}
+							<div data-level-hide data-level-filter="{{l}}">
+								<hr class="short"/>
+								<h4>Usage</h4>
+								<ul class="list-unstyled list-cols">
+									{% for usage in level.usage %}
+										<li class="strong text-dark">{{usage}}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="card">
+		<div class="card-body card-flush">
+			<div class="pricing">
+				<div class="pricing-options" data-level-options>
+					{% assign previous = false %}
+					{% for level in page.levels %}{% assign l = forloop.index %}
+						<a class="pricing-option" data-level-link="{{l}}">
+							<h2 class="pricing-option-title">{{level.title}}</h2>
+							<p class="pricing-option-price">{{level.price}}</p>
+							<p class="pricing-option-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+							<hr class="short"/>
+							<h5>Features</h5>
+							<ul class="list-unstyled">
+								{% if previous %}<li>All {{previous}} features</li>{% endif %}
+								{% for feature in level.features %}<li>{{feature}}</li>{% endfor %}
+							</ul>
+							<hr class="short"/>
+							<ul class="list-unstyled">
+								{% for usage in level.usage %}<li>{{usage}}</li>{% endfor %}
+							</ul>
+						</a>
+						{% assign previous = level.title %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+
+	{% include partial-indicators.html steps=5 active=5 href="/home" skip="Choose Later" %}
+
+</div>
+
+
+<style>
+	
+</style>
+
+
+<script>window.addEventListener('load',function(){ 
+
+	$('[data-level-options] a').on('click',function(){
+
+		var l = Number($(this).data('level-link'));
+		var options = $(this).closest('[data-level-options]');
+		// set active in link group
+		options.find('a').removeClass('active');
+		$(this).addClass('active');
+		// hide content
+		$('[data-level-hide]').addClass('hidden').filter('[data-level-filter="'+l+'"]').removeClass('hidden');
+		// disable content
+		$('[data-level-disable]').removeClass('pricing-disabled').filter(function(){
+			return Number($(this).data('level-filter')) > l;
+		}).addClass('pricing-disabled');
+	});
+
+	$('[data-level-link].active').trigger('click');
+
+});</script>

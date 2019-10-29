@@ -1,6 +1,7 @@
 .avatar {
 	display: inline-block;
 	vertical-align: middle;
+	top: -1px;
 	img {
 		display: block;
 		@include circle;

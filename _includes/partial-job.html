@@ -1,0 +1,196 @@
+
+<div class="settings">
+	<div class="setting">
+		{% unless include.simple %}
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Settings</h4>
+				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		{% endunless %}
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Name</div></div>
+							<div class="setting-row-response" setting-static><div class="form-control-static input-md">Continuous Integration</div></div>
+							<div class="setting-row-response" setting-active><input type="text" class="form-control input-md" value="Continuous Integration" autofocus/></div>
+						</div>
+						{% unless page.setup %}
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions" setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
+							<div class="setting-row-actions" setting-active><div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div></div>
+						</div>
+						{% endunless %}
+						{% unless include.simple %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Environment {% unless page.setup %}<a href="{{site.baseurl}}/environment">add</a>{% endunless %}</h4>
+				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% endunless %}
+						<div class="setting-row">
+							<div class="setting-row-label"><div class="label">Environment</div></div>
+							<div class="setting-row-response" setting-static><div class="form-control-static input-md">Production</div></div>
+							<div class="setting-row-response" setting-active><select class="form-control input-md"><option>Production</option></select></div>
+						</div>
+						{% unless page.setup %}
+						<div class="setting-row" setting-old>
+							<div class="setting-row-actions" setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
+							<div class="setting-row-actions" setting-active><div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div></div>
+						</div>
+						{% endunless %}
+						{% unless include.simple %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Commands</h4>
+				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-body">
+					<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+						{% else %}
+						<hr class="short">
+						{% endunless %}
+						<div class="setting-row">
+							{% if include.simple %}
+							<div class="setting-row-label"><div class="label">Commands</div></div>
+							{% endif %}
+							<div class="setting-row-list" id="commands">
+								<div class="setting-row">
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">dbt run -e production</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="dbt run -e production" placeholder="value..."/></div>
+									<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono">watch...</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" value="watch..." placeholder="value..."/></div>
+									<div class="setting-row-edit dropdown" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+								</div>
+								{% if include.simple %}
+								<div class="setting-row">
+									<div class="setting-row-actions">
+										<div class="controls">
+											<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#command">add command</a></div>
+										</div>
+									</div>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+						{% unless page.setup %}
+						<div class="setting-row">
+							<div class="setting-row-actions">
+								<div class="controls">
+									<div class="control" setting-static setting-old><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div>
+									<div class="control" setting-active setting-old><input type="submit" class="btn btn-sm btn-primary" value="save"/></div>
+									<div class="control"><a href="#" class="btn btn-sm btn-link" data-add="#command" data-add-to="#commands">add command</a></div>
+									<div class="control" setting-active setting-old><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div>
+								</div>
+							</div>
+						</div>
+						{% endunless %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if include.triggers %}
+	<div class="setting">
+		<div class="setting-header">
+			<div class="setting-header-text">
+				<h4>Triggers</h4>
+				<p class="text-small text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+			</div>
+		</div>
+		<div class="setting-body">
+			<div class="card">
+				<div class="card-tabs">
+					<ul class="nav nav-tabs nav-tabs-fill">
+						<li class="active"><a href="#schedule" data-toggle="tab">Schedule</a></li>
+						<li><a href="#webhooks" data-toggle="tab">Webhooks</a></li>
+						<li><a href="#api" data-toggle="tab">API</a></li>
+					</ul>
+				</div>
+				<div class="card-body card-flush">
+					<div class="tab-content">
+						<div class="tab-pane card-padding active" id="schedule">
+							<form class="setting-form {% if include.editing %} editing {% endif %}" data-submit>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Schedule</div></div>
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md">Run this job on a schedule</div></div>
+									<div class="setting-row-response" setting-active>
+										<label class="option input-md">
+											<input type="checkbox" checked />
+											<svg class="glyph glyph-check"><use xlink:href="#glyph-form-check"></use></svg> 
+											Run this job on a schedule
+										</label>
+									</div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Frequency</div></div>
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md">every day</div></div>
+									<div class="setting-row-response" setting-active>
+										<label class="option option-inline input-md"><input type="radio" name="frequency" checked /><svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> every day</label>
+										<label class="option option-inline input-md"><input type="radio" name="frequency" /><svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> specific day</label>
+										<label class="option option-inline input-md"><input type="radio" name="frequency" /><svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> custom schedule</label>
+									</div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Timing</div></div>
+									<div class="setting-row-response" setting-static><div class="form-control-static input-md">every 3 hours starting at midnight (UTC)</div></div>
+									<div class="setting-row-response" setting-active>
+										<div class="input-group"><label class="input-group-addon option input-md"><input type="radio" name="timing" name="timing" checked ><svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> every</label><input type="text" class="form-control input-md" placeholder="3..." value="3"></div>
+										<p class="help-block">hours starting at midnight (UTC)</p>
+									</div>
+									<div class="setting-row-response" setting-active>
+										<div class="input-group"><label class="input-group-addon option input-md"><input type="radio" name="timing" name="timing" ><svg class="glyph glyph-radio"><use xlink:href="#glyph-form-radio"></use></svg> exactly</label><input type="text" class="form-control input-md" placeholder="0,4,8,12,16,20..."></div>
+										<p class="help-block">UTC (e.g. “0,12,23” for midnight, noon & 11pm UTC)</p>
+									</div>
+								</div>
+								<div class="setting-row" setting-old>
+									<div class="setting-row-actions" setting-static><div class="controls"><div class="control"><a href="#" class="btn btn-sm btn-link" data-edit>edit</a></div></div></div>
+									<div class="setting-row-actions" setting-active><div class="controls"><div class="control"><input type="submit" class="btn btn-sm btn-primary" value="save"/></div><div class="control"><a href="#" class="btn btn-sm btn-text" data-cancel>cancel</a></div></div></div>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane card-padding" id="webhooks"></div>
+						<div class="tab-pane" id="api">
+							{% highlight html %}{{ api }}{% endhighlight %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+<div style="display: none;" id="command">
+	<div class="setting-row">
+		<div class="setting-row-response" setting-static><div class="form-control-static input-md text-mono"></div></div>
+		<div class="setting-row-response" setting-active><input type="text" class="form-control input-md text-mono" placeholder="command..."/></div>
+		<div class="setting-row-edit" setting-active><a href="#" class="btn btn-text btn-sm btn-icon btn-icon-slim faint"><svg class="glyph"><use xlink:href="#glyph-x"></use></svg></a></div>
+	</div>
+</div>

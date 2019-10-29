@@ -15,7 +15,7 @@ body {
 a, .a {
 	cursor: pointer;
 	color: $link-color;
-	text-decoration: none; 
+	text-decoration: none;
 	@include active { text-decoration: none; color: $link-hover-color; }
 
 }
@@ -28,7 +28,9 @@ mark { background: $state-info-bg; color: $dark; padding: .1em 0; @include radiu
 
 iframe { margin: 0; display: block; }
 label { margin: .5em 0; font-weight: normal; }
-hr { margin: 3em 0; border-top: 1px solid currentColor; opacity: .15; }
+hr { margin: 3em 0; border-top: 1px solid $hr-border; opacity: .15;
+	&.short { margin: 1.5em 0; }
+}
 blockquote, ul, ol, p, .field, .table { margin: 1.5em 0; }
 #{h()} { margin: 1.5em 0 .5em; }
 ul, ol { padding-left: 1.25em; }
@@ -88,3 +90,15 @@ small, .small, .text-small { @include font-size-small; }
 .margin-left { margin-left: .75em !important; }
 .margin-right-small { margin-right: .375em !important; }
 .margin-left-small { margin-left: .375em !important; }
+
+.margin, .margin-top { margin-top: 1rem !important; }
+.margin, .margin-bottom { margin-bottom: 1rem !important; }
+
+.list-cols {
+	@include columns(3,200px,20px);
+	li { @include avoid-break; }
+}
+
+.text-label {
+	@include labels;
+}

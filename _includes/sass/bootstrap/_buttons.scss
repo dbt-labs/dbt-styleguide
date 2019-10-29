@@ -97,6 +97,9 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+	&-shadow {
+		@include shadow;
+	}
 	&.active, &:active {
 		@include box-shadow(none);
 	}

@@ -46,3 +46,7 @@
 .flush, .flush-top { margin-top: 0 !important; }
 .flush, .flush-bottom { margin-bottom: 0 !important; }
 
+// SHAPES -------------------------------------------------------
+
+.circle { border-radius: 50%; }
+.pill { border-radius: 999px; }

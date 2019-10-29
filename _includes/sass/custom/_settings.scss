@@ -5,7 +5,7 @@ $settings-pad: 10px;
 	@include clear;
 	//@include flex-wrap;
 	margin: 0 $settings-pad*-2;
-	
+
 	> * {
 		padding: $settings-pad $settings-pad*2;
 	}
@@ -29,7 +29,7 @@ $settings-pad: 10px;
 		width: 100%;
 		.setting-header + & { width: 75%; }
 	}
-	
+
 	&-row {
 		@include flex-row;
 		&:not(:last-child) { border-bottom: 1px solid $line; }
@@ -41,16 +41,21 @@ $settings-pad: 10px;
 			padding-top: 8px;
 			&.text-right { padding-right: 16px; }
 		}
-		&-response { @include flex(1,1,auto); }
+		&-response, &-list { @include flex(1,1,auto); }
 		&-edit { @include flex(0,0,auto); }
 		&-actions { @include flex(1,1,auto); }
+		// &-list {
+		// 	.setting-row:not(:first-child) .setting-row-list-label {
+		// 		visibility: hidden;
+		// 	}
+		// }
 		& & {
 			margin: -4px;
 			& + .setting-row { margin-top: 4px; }
 		}
 	}
 	&-form {
-		
+
 	}
 }
 

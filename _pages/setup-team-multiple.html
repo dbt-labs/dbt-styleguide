@@ -1,0 +1,76 @@
+---
+title: Team Setup
+layout: cloud
+setup: true
+---
+
+<div class="setup">
+	
+	<div class="title title-fix">
+		<div class="title-header">
+			<ol class="breadcrumb breadcrumb-flush h1">
+				<li><a href="{{site.baseurl}}/setup-job"><svg class="glyph"><use xlink:href="#glyph-chevron-left"></use></svg>Setup</a></li>
+				<li class="active">Invite your Team</li>
+			</ol>
+		</div>
+		<div class="title-actions">
+			<div class="controls">
+				<div class="control"><a href="{{site.baseurl}}/home" class="btn btn-primary arrow-right pill">Finish</a></div>
+			</div>
+		</div>
+	</div>
+
+	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>	
+
+	<div class="settings">
+		<div class="setting">
+			<div class="setting-body">
+				<div data-users>
+					<div class="card" data-user>
+						<div class="card-body">
+							<form class="setting-form editing" data-submit>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Name</div></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md" placeholder="First name..." value="Joshua" autofocus/></div>
+									<div class="setting-row-response" setting-active><input type="text" class="form-control input-md" placeholder="Last name..." value="Smith"/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Email</div></div>
+									<div class="setting-row-response" setting-active><input type="email" class="form-control input-md" placeholder="Email..." value="josh@getdbt.com"/></div>
+								</div>
+								<div class="setting-row">
+									<div class="setting-row-label"><div class="label">Role</div></div>
+									<div class="setting-row-response" setting-active><select class="form-control input-md"><option>Dungeon Master</option></select></div>
+								</div>
+							</form>
+							<div class="card-corner card-hide-singular">
+								<a class="btn btn-xs btn-white btn-icon pill" data-removeuser><svg class="glyph glyph-sm"><use xlink:href="#glyph-x"></use></svg></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="margin-top text-center">
+					<a href="#" class="btn btn-sm btn-default pill" data-newuser>add another</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% include partial-indicators.html steps=5 active=5 %}
+
+</div>
+
+
+<script>window.addEventListener('load',function(){ 
+	$(document).on('click','[data-newuser]',function(){
+		 var clone = $('[data-user]:first').clone();
+		 clone.find('input').val('');
+		 clone.appendTo('[data-users]');
+		 return false;
+	});
+	$(document).on('click','[data-removeuser]',function(){
+		$(this).closest('[data-user]').remove();
+		 return false;
+	});
+});</script>
