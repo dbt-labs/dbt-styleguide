@@ -30,6 +30,7 @@
 			border: 1px solid;
 			opacity: .15;
 		}
+	}
 	&-sm {
 		@include font-size-small;
 		padding: $padding-small-vertical $padding-small-horizontal;
