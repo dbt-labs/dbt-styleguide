@@ -25,6 +25,9 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-body,
 .card-padding {
 	padding: $component-padding;
+	.card-sm & {
+		padding: 6px;
+	}
 }
 
 .card-padding-lg {
@@ -44,7 +47,7 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 .card-flush-vertical { padding-top: 0; padding-bottom: 0; }
 .card-flush { padding: 0; }
 
-.card-sm { padding: 8px 12px; }
+
 
 .card-control {
 	display: block;
@@ -52,7 +55,7 @@ $card-controls: ".btn, .form-control, .input-group-addon, .form-control-static";
 		display: block;
 		margin: 0 !important;
 		height: $input-height-large;
-		padding: ( ( $component-height-large - $font-size-base * $component-line-height ) / 2 ) $component-padding-horizontal;
+		padding: ( ( $component-height-large - $component-line-height ) / 2 ) $component-padding-horizontal;
 		border-radius: 0;
 		width: 100%;
 	}

@@ -3,7 +3,7 @@ title: Arrows
 type: styles
 section: icons
 requirements: "arrows"
-order: 98
+order: 99
 ---
 
 ###### Arrows

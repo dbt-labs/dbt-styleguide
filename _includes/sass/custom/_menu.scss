@@ -7,25 +7,25 @@
 		ul { margin-left: 23px; }
 	}
 	a {
-		color: $brand;
+		color: $gray;
 		display: block;
 		padding: 3px 5px;
 		border-radius: $border-radius-base;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
-		&.menu-tree { color: $light; }
+		//&.menu-tree { color: $light; }
 		&.menu-main { @include font-size-base; margin-bottom: .25em; font-weight: bold; color: $dark; }
-		&.active:not(.not-active) { color: $dark; }
-		@include active { 
-			background: $silver;
-			color: $dark;
-		}
+		//&.active:not(.not-active) { color: inherit; }
+		// @include active { 
+		// 	background: $silver;
+		// 	color: $dark;
+		// }
 		&.menu-node,
 		&.menu-link {
 			&.active:not(.not-active) {
-				background: $silver;
-				color: $dark;
+				background: $link;
+				color: white;
 			}
 		}
 	}
@@ -34,9 +34,37 @@
 	.active + ul {
 		display: block;
 	}
-	
+}
+
+.menu-full a {
+	overflow: visible;
+	&:before {
+		content: '';
+		position: absolute;
+		@include set(top right bottom,0);
+		background: inherit;
+		left: -100%;
+	}
 }
 
 
 .menu-icon-on { a:not(.active) & { display: none; } }
 .menu-icon-off { a.active & { display: none; } }
+
+
+.ide {
+	.menu {
+		margin: 0;
+		line-height: 20px;
+		a {
+			color: mix($normal,$gray);
+			padding: 2px 12px;
+			border-radius: 0;
+			&.edited { color: dark($link); }
+		}
+	}
+	&-dark .menu a {
+		color: $gray;
+		&.edited { color: light($link); }
+	}
+}

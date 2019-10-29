@@ -75,7 +75,9 @@ thead > tr > *,
 	}
 }
 .card .table {
-	th, td { @include set(padding-left padding-right,$padding-large-horizontal); }
+	&:not(.table-small) {
+		th, td { @include set(padding-left padding-right,$padding-large-horizontal); }
+	}
 }
 //
 // Sizes
@@ -143,6 +145,7 @@ thead > tr > *,
 	tbody & {
 		top: 28px;
 		background: white;
+		&.table-sticky-top { top: 0; }
 	}
 }
 .table {
@@ -153,3 +156,33 @@ thead > tr > *,
 		}
 	}
 }
+
+//
+// Buttons
+// --------------------------------------------------
+.table-btns {
+	font-size: 0;
+	@include set(padding,0 !important);
+	overflow: visible !important;
+	white-space: nowrap;
+	&-1 { width: ($component-height-small * 1) !important; }
+	&-2 { width: ($component-height-small * 2) !important; }
+	&-3 { width: ($component-height-small * 3) !important; }
+	&-4 { width: ($component-height-small * 4) !important; }
+}
+
+
+//
+// Fixed
+// --------------------------------------------------
+.table-fixed {
+	table-layout: fixed;
+	td, th {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	&-lg { width: 30%; }
+}
+
+

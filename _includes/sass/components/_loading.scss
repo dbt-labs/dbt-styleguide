@@ -15,12 +15,19 @@
 		border-right-color: $outline;
 		@include spin;
 	}
+	&-bold:after {
+		border-width: 2px;
+	}
 	&.loading-inline {
 		height: 10px;
 		display: inline-block;
 		margin: 0 .375em 0 0;
 		&-after {
 			margin: 0 0 0 .375em;
+		}
+		.btn-icon & {
+			top: 0 !important;
+			margin: 0;
 		}
 		vertical-align: middle;
 		&:after {
@@ -33,6 +40,15 @@
 		}
 		&:after {
 			font-size: 12px;
+			margin: -1px auto;
+		}
+	}
+	&.loading-medium {
+		&.loading-inline {
+			top: -1px;
+		}
+		&:after {
+			font-size: 14px;
 			margin: -1px auto;
 		}
 	}

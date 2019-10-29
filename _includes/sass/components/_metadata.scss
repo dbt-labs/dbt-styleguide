@@ -1,0 +1,9 @@
+.metadata {
+	@include clean;
+	&, > li { display: inline; }
+	> li { margin: 0 .75em 0 0; }
+	&-info { opacity: .5; }
+	&-link {
+
+	}
+}

@@ -13,6 +13,8 @@
 .full { @include full; }
 .cover { @include cover; }
 .crop { overflow: hidden; }
+.round { border-radius: $border-radius-base !important; }
+.square { border-radius: 0 !important; }
 
 // CHILDREN -------------------------------------------------------
 
@@ -27,6 +29,7 @@
 
 .component { @include component; }
 .transitions { @include transitions(.5s); }
+.spin { @include spin; }
 
 // SPACING -------------------------------------------------------
 
@@ -38,6 +41,7 @@
 
 .padding, .padding-top { padding-top: 2em; }
 .padding, .padding-bottom { margin-bottom: 2em; }
+.padless { padding: 0 !important; }
 
 .flush, .flush-top { margin-top: 0 !important; }
 .flush, .flush-bottom { margin-bottom: 0 !important; }

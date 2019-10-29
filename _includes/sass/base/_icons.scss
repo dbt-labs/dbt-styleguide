@@ -19,4 +19,11 @@
 		width: 2em; height: 2em;
 		@include transform(scale(2),0 0);
 	}
+	&-bold, .icns-bold & {
+		use {
+			stroke: currentColor;
+			stroke-width: .5;
+			@include transform(translate(.5px,.5px));
+		}
+	}
 }

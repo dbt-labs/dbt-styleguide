@@ -32,7 +32,7 @@
 	&-purple { @include button-variant(white,$purple,$purple); }
 	&-white { @include button-variant($btn-default-color,white,white,$silver-light); }
 	&-default { @include button-variant($btn-default-color,$btn-default-bg,$btn-default-bg); }
-	&-clear, &-text, &-link { background: transparent !important; }
+	&-clear, &-text, &-link, &-spacer { background: transparent !important; }
 	&-text,
 	&.text-inherit {
 		color: inherit;
@@ -40,6 +40,11 @@
 			color: inherit;
 		}
 	}
+	&-spacer {
+		cursor: inherit;
+		box-shadow: none;
+	}
+	&-subtle { background: transparent; }
 	&[class*="btn-highlight"], &-default, &-clear, &-text, &-link { box-shadow: none; }
 	&-highlight-info { @include button-variant($state-info-text,$state-info-bg,$state-info-border); }
 	&-highlight-success { @include button-variant($state-success-text,$state-success-bg,$state-success-border); }
@@ -66,6 +71,9 @@
 	}
 	&-pill {
 		@include pill;
+	}
+	&-square {
+		border-radius: 0;
 	}
 	&-icon {
 		padding-left: 0;

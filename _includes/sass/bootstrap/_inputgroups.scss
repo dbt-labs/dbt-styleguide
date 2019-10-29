@@ -1,3 +1,7 @@
+.input-group {
+	@include radius;
+}
+
 .input-group-rounded {
 	> * {
 		&:first-child { 
