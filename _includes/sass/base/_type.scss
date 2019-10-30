@@ -28,7 +28,7 @@ mark { background: $state-info-bg; color: $dark; padding: .1em 0; @include radiu
 
 iframe { margin: 0; display: block; }
 label { margin: .5em 0; font-weight: normal; }
-hr { margin: 3em 0; border-top: 1px solid $hr-border; opacity: .15;
+hr { margin: 3em 0; border-top: 1px solid $hr-border;
 	&.short { margin: 1.5em 0; }
 }
 blockquote, ul, ol, p, .field, .table { margin: 1.5em 0; }
