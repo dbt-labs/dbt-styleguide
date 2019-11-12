@@ -20,7 +20,11 @@ setup: true
 		</div>
 	</div>
 
-	<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+	<p class="text-light">
+        Let's get connected! First select your data warehouse, then enter the credentials that you use for development.
+        Later, you'll be able to supply your Deployment credentials separately for scheduled jobs that run in production.<br />
+        <b>Note:</b> These credentials are encrypted at rest, and dbt Cloud never stores credentials in plaintext.
+    </p>
 
 	{% include partial-connection.html editing=1 simple=1 %}
 
