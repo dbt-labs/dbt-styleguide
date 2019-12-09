@@ -1,16 +1,15 @@
 .admin {
-	@include cover;
-	&-nav,
-	&-content {
-		@include cover;
-		@include scroll;
-	}
-	&-nav {
-		right: auto;
-		width: 240px;
-	}
-	&-content {
-		left: 240px;
-		padding: 20px 20px 20px 30px;
-	}
+  @include cover;
+  @include flexbox;
+  &-nav,
+  &-content {
+    @include scroll;
+  }
+  &-nav {
+    @include flex(0, 0, 240px);
+  }
+  &-content {
+    @include flex(1, 1, auto);
+    padding: 20px 20px 20px 30px;
+  }
 }
