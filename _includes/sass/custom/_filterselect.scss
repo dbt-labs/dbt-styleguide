@@ -1,9 +1,9 @@
 $themecolor: $blue;
 
-.dbt-select-container {
+.dbt-cloud-select-container {
     width: 100%;
 
-    .dbt-select__control {
+    .dbt-cloud-select__control {
         &:hover {
             border-color: darker($themecolor);
         }
@@ -13,7 +13,7 @@ $themecolor: $blue;
         }
     }
 
-    .dbt-select__option {
+    .dbt-cloud-select__option {
         display: flex;
         justify-content: space-between;
 
@@ -26,7 +26,7 @@ $themecolor: $blue;
         }
     }
 
-    .dbt-select__grouplabel {
+    .dbt-cloud-select__grouplabel {
         display: flex;
         align-items: center;
         justify-content: space-between;
