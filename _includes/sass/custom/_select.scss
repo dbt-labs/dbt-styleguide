@@ -1,0 +1,34 @@
+$themecolor: $blue;
+
+.dbt-select-container {
+    width: 100%;
+
+    .dbt-select__control {
+        &:hover {
+            border-color: darker($themecolor);
+        }
+        &--is-focused {
+            border-color: darker($themecolor);
+            box-shadow: 0 0 0 1px darker($themecolor);
+        }
+    }
+
+    .dbt-select__option {
+        display: flex;
+        justify-content: space-between;
+
+        &--is-focused, &:active {
+            background-color: lighter($themecolor);
+        }
+
+        &--is-selected {
+            background-color: darkest($themecolor);
+        }
+    }
+
+    .dbt-select__grouplabel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
