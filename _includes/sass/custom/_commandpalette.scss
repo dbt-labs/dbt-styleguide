@@ -1,0 +1,33 @@
+.dbt-cloud-command-palette__search-result-row {
+    padding: 10px;
+    border-top: 1px solid #e6e8ed;
+    background-color: #ffffff;
+    // .ide-dark {
+    //     border-top: 1px solid #3a3a3a;
+    //     background-color: #1e1e1e;
+    // }
+}
+
+.dbt-cloud-command-palette__search-result-row__path {
+    margin-left: 10px;
+    font-size: .9em;
+    font-style: italic;
+    color: #5e666c;
+    // .ide-dark {
+
+    // }
+  }
+
+
+//   .ide-dark .ide-query-results-cell {
+//     border-top: 1px solid #3a3a3a;
+//     background-color: #1e1e1e;
+//   }
+
+//   .ide-dark .ide-query-results-cell.ide-query-results-cell-expand {
+//     border: 1px solid #3a3a3a;
+//   }
+
+//   .ide-dark .ide-query-results-cell.ide-query-results-cell-alt-color {
+//     background-color: #272727;
+//   }
