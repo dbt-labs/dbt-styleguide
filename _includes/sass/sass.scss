@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "sass/maths/maths";
+@import "sass/variables/colors-v1";
 @import "sass/variables/variables";
 @import "sass/mixins/mixins";
 
@@ -22,3 +23,13 @@
 @import "sass/layouts/layouts";
 
 @import "sass/custom/custom";
+
+.brand-v2 {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	// Individually import brand-v2 overridden styles from:
+	// - "sass/base/base"
+	// - "sass/bootstrap/bootstrap"
+	@import "sass/base/color";
+}
