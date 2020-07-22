@@ -19,16 +19,6 @@ $colors: (
 	.text-#{$var}-lightest { color: lightest($color) !important; }
 	.text-#{$var}-highlight { color: highlight($color) !important; }
 	.text-#{$var}-lowlight { color: lowlight($color) !important; }
-
-	.bg-#{$var} { background-color: $color !important; }
-	.bg-#{$var}-dark { background-color: dark($color) !important; }
-	.bg-#{$var}-darker { background-color: darker($color) !important; }
-	.bg-#{$var}-darkest { background-color: darkest($color) !important; }
-	.bg-#{$var}-light { background-color: light($color) !important; }
-	.bg-#{$var}-lighter { background-color: lighter($color) !important; }
-	.bg-#{$var}-lightest { background-color: lightest($color) !important; }
-	.bg-#{$var}-highlight { background-color: highlight($color) !important; }
-	.bg-#{$var}-lowlight { background-color: lowlight($color) !important; }
 }
 
 
@@ -53,14 +43,6 @@ $colors: (
 .text-silver-dark { color: $silver-dark !important; }
 .text-silver-darker { color: $silver-darker !important; }
 .text-silver-darkest { color: $silver-darkest !important; }
-
-.bg-silver { background-color: $silver; }
-.bg-silver-light { background-color: $silver-light !important; }
-.bg-silver-dark { background-color: $silver-dark !important; }
-.bg-silver-darker { background-color: $silver-darker !important; }
-.bg-silver-darkest { background-color: $silver-darkest !important; }
-
-.bg-transparent { background-color: transparent !important; }
 
 .faint { opacity: .5; }
 .fainter { opacity: .3; }

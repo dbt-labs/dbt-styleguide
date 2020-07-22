@@ -24,12 +24,26 @@
 
 @import "sass/custom/custom";
 
-.brand-v2 {
+// Individually import brand-v2 overridden styles from:
+// - "sass/base/base"
+// - "sass/bootstrap/bootstrap"
+.brand-v2-text-color {
 	@import "sass/variables/colors-v2";
 	@import "sass/variables/variables";
 
-	// Individually import brand-v2 overridden styles from:
-	// - "sass/base/base"
-	// - "sass/bootstrap/bootstrap"
 	@import "sass/base/color";
+}
+
+.brand-v2-bg-color {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	@import "sass/base/background";
+}
+
+.brand-v2-label-color {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	@import "sass/bootstrap/labels";
 }
