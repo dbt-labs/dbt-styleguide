@@ -9,6 +9,7 @@ $colors: (
 	"gray":$gray
 );
 
+
 @each $var, $color in $colors {
 	.text-#{$var} { color: $color !important; }
 	.text-#{$var}-dark { color: dark($color) !important; }
@@ -20,12 +21,19 @@ $colors: (
 	.text-#{$var}-highlight { color: highlight($color) !important; }
 	.text-#{$var}-lowlight { color: lowlight($color) !important; }
 }
-
-
-.text-success { color: dark($brand-success) !important; }
-.text-danger { color: dark($brand-danger) !important; }
-.text-warning { color: dark($brand-warning) !important; }
-.text-info { color: dark($brand-info) !important; }
+	
+// v1 customized the variant to use "dark" shade of our brand colors
+@if $version < 2 {
+	.text-success { color: dark($brand-success) !important; }
+	.text-danger { color: dark($brand-danger) !important; }
+	.text-warning { color: dark($brand-warning) !important; }
+	.text-info { color: dark($brand-info) !important; }
+} @else {
+	.text-success { color: $state-success-text !important; }
+	.text-danger { color: $state-info-text !important; }
+	.text-warning { color: $state-warning-text !important; }
+	.text-info { color: $state-danger-text !important; }
+}
 
 .text-white { color: white !important; }
 .text-light { color: $light !important; }

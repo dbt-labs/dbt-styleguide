@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+$version: 1;
+
 @import "sass/maths/maths";
 @import "sass/variables/colors-v1";
 @import "sass/variables/variables";
@@ -27,7 +30,11 @@
 // Individually import brand-v2 overridden styles from:
 // - "sass/base/base"
 // - "sass/bootstrap/bootstrap"
-.brand-v2-text-color:not(.ide-dark) {
+//
+// brand-v2 may change, and should not be considered a stable api
+$version: 2;
+
+.brand-v2-text-color:not(.ide-dark) {	
 	@import "sass/variables/colors-v2";
 	@import "sass/variables/variables";
 
