@@ -9,6 +9,7 @@ $colors: (
 	"gray":$gray
 );
 
+
 @each $var, $color in $colors {
 	.text-#{$var} { color: $color !important; }
 	.text-#{$var}-dark { color: dark($color) !important; }
@@ -19,23 +20,20 @@ $colors: (
 	.text-#{$var}-lightest { color: lightest($color) !important; }
 	.text-#{$var}-highlight { color: highlight($color) !important; }
 	.text-#{$var}-lowlight { color: lowlight($color) !important; }
-
-	.bg-#{$var} { background-color: $color !important; }
-	.bg-#{$var}-dark { background-color: dark($color) !important; }
-	.bg-#{$var}-darker { background-color: darker($color) !important; }
-	.bg-#{$var}-darkest { background-color: darkest($color) !important; }
-	.bg-#{$var}-light { background-color: light($color) !important; }
-	.bg-#{$var}-lighter { background-color: lighter($color) !important; }
-	.bg-#{$var}-lightest { background-color: lightest($color) !important; }
-	.bg-#{$var}-highlight { background-color: highlight($color) !important; }
-	.bg-#{$var}-lowlight { background-color: lowlight($color) !important; }
 }
-
-
-.text-success { color: dark($brand-success) !important; }
-.text-danger { color: dark($brand-danger) !important; }
-.text-warning { color: dark($brand-warning) !important; }
-.text-info { color: dark($brand-info) !important; }
+	
+// v1 customized the variant to use "dark" shade of our brand colors
+@if $version < 2 {
+	.text-success { color: dark($brand-success) !important; }
+	.text-danger { color: dark($brand-danger) !important; }
+	.text-warning { color: dark($brand-warning) !important; }
+	.text-info { color: dark($brand-info) !important; }
+} @else {
+	.text-success { color: $state-success-text !important; }
+	.text-danger { color: $state-info-text !important; }
+	.text-warning { color: $state-warning-text !important; }
+	.text-info { color: $state-danger-text !important; }
+}
 
 .text-white { color: white !important; }
 .text-light { color: $light !important; }
@@ -53,14 +51,6 @@ $colors: (
 .text-silver-dark { color: $silver-dark !important; }
 .text-silver-darker { color: $silver-darker !important; }
 .text-silver-darkest { color: $silver-darkest !important; }
-
-.bg-silver { background-color: $silver; }
-.bg-silver-light { background-color: $silver-light !important; }
-.bg-silver-dark { background-color: $silver-dark !important; }
-.bg-silver-darker { background-color: $silver-darker !important; }
-.bg-silver-darkest { background-color: $silver-darkest !important; }
-
-.bg-transparent { background-color: transparent !important; }
 
 .faint { opacity: .5; }
 .fainter { opacity: .3; }

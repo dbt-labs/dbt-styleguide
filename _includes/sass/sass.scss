@@ -1,5 +1,9 @@
 @charset "utf-8";
+
+$version: 1;
+
 @import "sass/maths/maths";
+@import "sass/variables/colors-v1";
 @import "sass/variables/variables";
 @import "sass/mixins/mixins";
 
@@ -22,3 +26,31 @@
 @import "sass/layouts/layouts";
 
 @import "sass/custom/custom";
+
+// Individually import brand-v2 overridden styles from:
+// - "sass/base/base"
+// - "sass/bootstrap/bootstrap"
+//
+// brand-v2 may change, and should not be considered a stable api
+$version: 2;
+
+.brand-v2-text-color:not(.ide-dark) {	
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	@import "sass/base/color";
+}
+
+.brand-v2-bg-color:not(.ide-dark) {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	@import "sass/base/background";
+}
+
+.brand-v2-label-color:not(.ide-dark) {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
+	@import "sass/bootstrap/labels";
+}
