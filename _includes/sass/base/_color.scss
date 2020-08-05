@@ -30,9 +30,9 @@ $colors: (
 	.text-info { color: dark($brand-info) !important; }
 } @else {
 	.text-success { color: $state-success-text !important; }
-	.text-danger { color: $state-info-text !important; }
+	.text-danger { color: $state-danger-text !important; }
 	.text-warning { color: $state-warning-text !important; }
-	.text-info { color: $state-danger-text !important; }
+	.text-info { color: $state-info-text !important; }
 }
 
 .text-white { color: white !important; }
