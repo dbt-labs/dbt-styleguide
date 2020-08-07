@@ -22,6 +22,9 @@ $darkmode-line: #3a3a3a;
 
 
 .ide {
+	@import "sass/variables/colors-v2";
+	@import "sass/variables/variables";
+
 	overflow: hidden;
 	@include font-size-small;
 	@include fill;
@@ -198,17 +201,32 @@ $darkmode-line: #3a3a3a;
 		&-item {
 			display: block;
 			padding: $ide-pad-y $ide-pad-x;
-			color: inherit;
+			color: $light-gray;
 			box-shadow: 0 1px 0 $ide-line;
 			@include ellipsis;
 			@include active {
 				color: inherit;
 			}
 			&.active {
-				background: $blue;
-				color: white;
+				position: relative;
+				background: $light-blue;
+				color: $off-black;
 				.faint { opacity: 1; }
 				.glyph use { stroke: white !important; }
+
+				&:before {
+					content: "";
+					width: 100%;
+					height: 100%;
+					border-left: 6px solid $dark-blue;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+			&:hover:not(.active) {
+				background: $lighter-blue;
+				color: $light-gray;
 			}
 		}
 	}
@@ -313,6 +331,13 @@ $darkmode-line: #3a3a3a;
 			.ide-tab.active &, &:hover, &:focus { opacity: 1; }
 			@include active { color: inherit; }
 			.ide-section-fixed & { @include set(padding-left padding-right,0); }
+			.ide-tab:not(.active):hover &, ide-tab:not(.active):focus &{
+				background-color: $silver; 
+				color: $light-gray;
+			}
+			.ide-tab.active & {
+				font-weight: bold;
+			}
 		}
 		&-icons {
 			position: absolute;
@@ -376,10 +401,25 @@ $darkmode-line: #3a3a3a;
 		background: darkest($darkmode);
 		padding: $ide-pad-y $ide-pad-x*2;
 	}
+
+	.monaco-tree-row.focused:not(:hover):not(:focus){
+		background: inherit !important;
+	}
+
+	.monaco-tree-row:hover, .monaco-tree-row:focus {
+		background: $lighter-blue !important;
+		color: $off-black;
+	}
+
+	.monaco-tree-row:not(:hover):not(:focus), .monaco-tree-row:not(:hover):not(:focus) {
+		color: $light-gray !important;
+	}
 }
 
 
 .ide {
+	@import "sass/variables/dark-mode-colors-v2";
+	
 	&-dark {
 		color: white;
 		#{h()}, .kpi { color: inherit; }
@@ -405,6 +445,27 @@ $darkmode-line: #3a3a3a;
 		.ide-table-heading,
 		.ide-list-item {
 			box-shadow: 0 1px 0 $darkmode-line;
+			color: white;
+			
+			&.active {
+				position: relative;
+				background: $dark-green;
+				color: white;
+
+				&:before {
+					content: "";
+					width: 100%;
+					height: 100%;
+					border-left: 6px solid $blue;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+			&:hover:not(.active) {
+				background: $light-gray;
+				color: white;
+			}
 		}
 		.btn-default { @include button-variant(white,$darkmode,$darkmode,light($darkmode)); }
 		@include form-control-variation($darkmode,white,$darkmode,true);
@@ -420,6 +481,12 @@ $darkmode-line: #3a3a3a;
 		}
 		.ide-tab {
 			box-shadow: -1px 0 0 $darkmode-line, 1px 0 0 $darkmode-line;
+		}
+		.ide-tab:not(.active):hover, .ide-tab:not(.active):focus {
+			.ide-tab-link {
+				background-color: $gray; 
+				color: white;
+			}
 		}
 		.btn-group-options {
 			color: $darkmode;
@@ -442,5 +509,20 @@ $darkmode-line: #3a3a3a;
 		.alert-success, .btn-highlight-success, tr.success > td, tr.success > th { background-color: lowlight($brand-success) !important; }
 		.alert-warning, .btn-highlight-warning, tr.warning > td, tr.warning > th { background-color: lowlight($brand-warning) !important; }
 		.alert-danger, .btn-highlight-danger, tr.danger > td, tr.danger > th { background-color: lowlight($brand-danger) !important; }
+
+		// Overwrite monaco styles
+		.monaco-tree-row.focused:not(:hover):not(:focus){
+			background: inherit !important;
+		}
+	
+		.monaco-tree-row:hover, .monaco-tree-row:focus {
+			background: $light-gray !important;
+			color: white !important;
+		}
+	
+		.monaco-tree-row:not(:hover):not(:focus), .monaco-tree-row:not(:hover):not(:focus) {
+			color: $lighter-gray !important;
+		}
+	
 	}
 }

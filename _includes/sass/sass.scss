@@ -54,3 +54,7 @@ $version: 2;
 
 	@import "sass/bootstrap/labels";
 }
+
+.brand-v2-colors .ide-dark {
+	@import "sass/variables/dark-mode-colors-v2";
+}
