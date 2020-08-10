@@ -1,0 +1,44 @@
+// this should be moved into dbt-cloud at some point as this is app specific
+.ide-docs-link {
+    .fake-link {
+        @extend .text-blue;
+        &:hover {
+            @extend .text-blue-dark;
+        }
+    }
+    .glyph {
+        margin-left: 3px;
+        font-size: 1rem;
+    }
+    
+    &--enabled {
+        @extend .text-blue-dark;
+
+        &:hover {
+            @extend .text-orange;
+            text-decoration: underline;
+        }
+    }
+
+    &--not-generated {
+        @extend .text-gray-light;
+
+        &:hover {
+            @extend .text-gray-light;
+        }
+    }
+    &--out-dated {
+        &:hover {
+            @extend .text-orange;
+            text-decoration: underline;
+        }
+
+        .glyph {
+            color: $red;
+        }
+    }
+
+    .loading {
+        margin-left: 3px;
+    }
+}

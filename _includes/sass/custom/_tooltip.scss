@@ -1,0 +1,47 @@
+// react-tooltip puts style tags in the dom to provide styling, the importants are required to override.
+.ide-tooltip {
+    background-color: $gray-dark !important;
+    opacity: 1 !important;
+    padding: 5px 10px !important; 
+    font-size: 12px !important;
+    z-index: 99 !important;
+
+    &.place-top:after {
+        border-top-color: $gray-dark !important;
+    }
+
+    &.place-right:after {
+        border-right-color: $gray-dark !important;
+    }
+
+    &.place-left:after {
+        border-left-color: $gray-dark !important;
+    }
+
+    &.place-bottom:after {
+        border-bottom-color: $gray-dark !important;
+    }
+}
+
+.ide-dark {
+    .ide-tooltip {
+        background-color: $silver !important;
+        color: $normal !important;
+
+        &.place-top:after {
+            border-top-color: $silver !important;
+        }
+    
+        &.place-right:after {
+            border-right-color: $silver !important;
+        }
+    
+        &.place-left:after {
+            border-left-color: $silver !important;
+        }
+    
+        &.place-bottom:after {
+            border-bottom-color: $silver !important;
+        }
+    }
+}
