@@ -1,6 +1,6 @@
 {
   "name": "dbt-styleguide",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Styleguide for dbt",
   "main": "ui/js/scripts.js",
   "scripts": {
