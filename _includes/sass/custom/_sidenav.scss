@@ -49,6 +49,7 @@
 		& + & { border-top: 1px solid $line; }
 	}
 	&-link {
+		@import "sass/variables/colors-v2";
 		color: $light;
 		display: block;
 		padding: .25em 0;
@@ -61,11 +62,30 @@
 		}
 		@include active { color: $dark; }
 		&:not(.active) .glyph { opacity: (1/3); }
-		&.active { color: $brand; }
+		&.active { 
+			color: $dark-aqua;
+			font-weight: bold;
+			position: relative;
+
+			&:before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				border-left: 6px solid $dark-aqua;
+				position: absolute;
+				left: -24px;
+				top: 0;
+			}
+		}
+
+		&:hover:not(.active) {
+			color: $off-black;
+			font-weight: bold;
+		}
 		&-main {
 			color: inherit;
 			@include set(padding-top padding-bottom,.5em);
-			font-weight: bold;
+			font-weight: 600;
 		}
 	}
 	

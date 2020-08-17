@@ -32,3 +32,26 @@
     top: 0;
     bottom: 0;
 }
+
+.ide-dark {
+    @import "sass/variables/dark-mode-colors-v2";
+    .dbt-cloud-command-palette__search-input,  
+    .dbt-cloud-command-palette__search-result-row:not(:hover), 
+    .dbt-cloud-command-palette__container,
+    .dbt-cloud-command-palette__container .dropdown-menu{
+        background: $dark-gray;
+    }
+
+    .dbt-cloud-command-palette__search-result-row {
+        border-top: 1px solid $dark-gray;
+
+        &:hover {
+            background: $light-gray;
+            color: white;
+        }
+    }
+
+    .dbt-cloud-command-palette__search-result-row__file {
+        color: $lighter-gray;
+    }
+}
