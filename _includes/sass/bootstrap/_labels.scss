@@ -25,7 +25,7 @@
 a.label {
 	&:hover, &:focus {
 		&.label-default { color: darkest($label-color); }
-		&.label-success { color: darkest($brand-success); }
+		&.label-success { color: $green; }
 		&.label-info { color: darkest($brand-info); }
 		&.label-warning { color: darkest($brand-warning); }
 		&.label-danger { color: darkest($brand-danger); }
