@@ -1,0 +1,48 @@
+{
+  "name": "dbt-styleguide",
+  "version": "0.0.1",
+  "description": "Styleguide for dbt",
+  "main": "ui/js/scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fishtown-analytics/dbt-styleguide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fishtown-analytics/dbt-styleguide/issues"
+  },
+  "homepage": "https://github.com/fishtown-analytics/dbt-styleguide#readme",
+  "devDependencies": {
+    "auto-changelog": "^2.2.0",
+    "release-it": "^13.6.6"
+  },
+  "release-it": {
+    "github": {
+      "release": false
+    },
+    "npm": {
+      "publish": false
+    },
+    "git": {
+      "addUntrackedFiles": true,
+      "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs",
+      "tag": true,
+      "requireCommits": true,
+      "tagAnnotation": "Release ${version}",
+      "tagArgs": [],
+      "push": true,
+      "pushArgs": [
+        "--follow-tags"
+      ],
+      "requireUpstream": false
+    },
+    "hooks": {
+      "after:bump": "npx auto-changelog -p"
+    }
+  }
+}
