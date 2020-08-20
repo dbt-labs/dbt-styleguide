@@ -6,7 +6,7 @@
 	padding: 0;
 	border: 0;
 	&-default { color: $label-color; }
-	&-success { color: #{dark($brand-success)}; }
+	&-success { color: $green; }
 	&-info { color: #{dark($brand-info)}; }
 	&-warning { color: #{dark($brand-warning)}; }
 	&-danger { color: #{dark($brand-danger)}; }
