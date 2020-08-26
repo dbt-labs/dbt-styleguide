@@ -1,0 +1,61 @@
+.dbt-cloud-table {
+    &.ReactVirtualized__Table {
+        background-color: white;
+        border-radius: 4px;
+        border: 1px solid $silver-darkest;
+    }
+
+    .ReactVirtualized__Table__headerRow {
+        display: flex;
+        padding: 0 40px !important; // override inline react-virtualized styles
+        border-bottom: 1px solid $silver-darkest;
+    }
+
+    .ReactVirtualized__Table__headerColumn {
+        color: $gray;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 50px;
+    }
+
+    .ReactVirtualized__Table__row {
+        display: flex;
+        padding: 0 40px !important;
+        border-bottom: 1px solid $silver-darkest;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__row--clickable {
+        cursor: pointer;
+    }
+
+    .ReactVirtualized__Table__rowColumn {
+        line-height: 75px;
+        font-size: 12px;
+    }
+
+    .ReactVirtualized__Table__sortableHeaderIcon {
+        path:first-child {
+            fill: $gray-darker
+        }
+        top: 4px;
+    }
+
+    .ReactVirtualized__Table__sortableHeaderColumn {
+        cursor: pointer;
+
+        &[aria-sort="ascending"], &[aria-sort="descending"] {
+            color: $gray-darker;
+        }
+    }
+    
+    .dbt-cloud-table__action-column {
+        line-height: 75px;
+        text-align: right;
+        color: $gray-light;
+        cursor: pointer;
+    }
+}
