@@ -21,10 +21,6 @@ baseurl: "/dbt-docs"
 # --------------------------------------------------
 # Includes
 
-# Fonts
-entypo: true
-arrows: true
-
 # Frameworks
 bootstrap: true
 jqueryui: true
@@ -38,7 +34,7 @@ inliner: true
 
 sass:
   style: compressed
-  sass_dir: _includes
+  sass_dir: /
 
 collections:
   docs:
@@ -49,18 +45,13 @@ collections:
     permalink: /:path/
 
 defaults:
--
-  scope:
-    path: ""
-    type: "docs"
-  values:
-    layout: "doc"
--
-  scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-
-
-
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

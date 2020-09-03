@@ -1,0 +1,54 @@
+$version: 1;
+
+@import "maths/maths";
+@import "variables/colors-v1";
+@import "variables/variables";
+@import "mixins/mixins";
+
+@import "bootstrap/bootstrap-sass";
+
+@import "fonts/arrows";
+@import "fonts/entypo";
+
+@import "base/base";
+
+@import "../_includes/vendors/jqueryui/jquery-ui-1.12.1/jquery-ui.structure.min";
+@import "widgets/jqueryui";
+
+@import "bootstrap/bootstrap";
+@import "components/components";
+@import "layouts/layouts";
+
+@import "custom/custom";
+
+// Individually import brand-v2 overridden styles from:
+// - "base/base"
+// - "bootstrap/bootstrap"
+//
+// brand-v2 may change, and should not be considered a stable api
+$version: 2;
+
+.brand-v2-text-color:not(.ide-dark) {	
+	@import "variables/colors-v2";
+	@import "variables/variables";
+
+	@import "base/color";
+}
+
+.brand-v2-bg-color:not(.ide-dark) {
+	@import "variables/colors-v2";
+	@import "variables/variables";
+
+	@import "base/background";
+}
+
+.brand-v2-label-color:not(.ide-dark) {
+	@import "variables/colors-v2";
+	@import "variables/variables";
+
+	@import "bootstrap/labels";
+}
+
+.brand-v2-colors .ide-dark {
+	@import "variables/dark-mode-colors-v2";
+}

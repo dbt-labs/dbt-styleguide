@@ -23,14 +23,15 @@ $(document).on('click','a[data-toggle="datepicker"]', function(e){
 //
 // Autocomplete
 // --------------------------------------------------
-
-$.extend($.ui.autocomplete.prototype.options, {
-	open: function(event, ui) {
-		$(this).autocomplete("widget").css({
-			"width": ($(this).outerWidth() + "px")
-		});
-	}
-});
+if ($.ui.autocomplete) {
+	$.extend($.ui.autocomplete.prototype.options, {
+		open: function(event, ui) {
+			$(this).autocomplete("widget").css({
+				"width": ($(this).outerWidth() + "px")
+			});
+		}
+	});
+}
 
 $(document).ready(function(){
 	$('[data-toggle="autocomplete"]').each(function(){

@@ -1,0 +1,528 @@
+$ide-controls: 36px;
+$ide-pad-y: 10px;
+$ide-pad-x: 12px;
+$ide-focus-offset: 10px;
+$ide-line: $silver-darkest;
+$ide-shade: $silver-light;
+
+$ide-edited: $link;
+
+
+$darkmode: #444;
+$darkmode-line: #3a3a3a;
+
+
+@mixin ide-vertical(){
+	width: auto !important;
+}
+
+@mixin ide-horizontal(){
+	height: auto !important;
+}
+
+
+.ide {
+	@import "../variables/colors-v2";
+	@import "../variables/variables";
+
+	overflow: hidden;
+	@include font-size-small;
+	@include fill;
+	&, &-tab.active { background: white; }
+	&-pad { padding: $ide-pad-y $ide-pad-x !important; }
+	&-pad-l, &-pad-x { padding-left: $ide-pad-x !important; }
+	&-pad-r, &-pad-x { padding-right: $ide-pad-x !important; }
+	&-pad-t, &-pad-y { padding-top: $ide-pad-y !important; }
+	&-pad-b, &-pad-y { padding-bottom: $ide-pad-y !important; }
+	&-pad-l-lg, &-pad-x-lg { padding-left: $ide-pad-x*2 !important; }
+	&-pad-r-lg, &-pad-x-lg { padding-right: $ide-pad-x*2 !important; }
+
+	&-panels {
+		@include cover;
+		&-withfooter { bottom: $ide-controls; }
+	}
+	&-terminal { position: absolute; @include set(bottom left right,0); z-index: 4; }
+	&-panels, &-terminal { background: inherit; }
+	&-panels, &-panel-group {
+		@include flex-row;
+		background: inherit;
+		&.ide-vertical {
+			@include flex-column;
+		}
+		@include small {
+			@include flex-column;
+		}
+	}
+	&-panel, &-panel-group {
+		@include flex(1,0,0);
+	}
+	&-panel {
+		.ide-horizontal & {
+			@include ide-horizontal();
+			&[style*="width"] { @include flex(0,0,auto); }
+		}
+		.ide-vertical & {
+			@include ide-vertical();
+			&[style*="height"] { @include flex(0,0,auto); }
+		}
+		@include small {
+			@include ide-vertical();
+		}
+		@include transition-properties((box-shadow,transform));
+		box-shadow: 0 0 0 2px transparent;
+		@include set(min-width,200px);
+		&-sm {
+			@include flex(0,0,280px);
+		}
+		&:before {
+			content: '';
+			@include cover;
+			box-shadow: 0 0 0 1px $ide-line;
+		}
+		&:focus {
+			z-index: 3;
+			box-shadow: 0 0 0 2px $blue, 0 10px 20px rgba(0,30,60,.3);
+			@include transform(translate($ide-focus-offset,$ide-focus-offset*-1));
+			@include radius;
+		}
+		> * {
+			&:first-child { @include set(border-top-left-radius border-top-right-radius,inherit); }
+			&:last-child { @include set(border-bottom-left-radius border-bottom-right-radius,inherit); }
+		}
+		background: inherit;
+		@include flex-column;
+		&-header, &-footer, &-shade { background: $ide-shade; }
+		&-header, &-footer {
+			@include flex(0,0,auto);
+			// box-shadow: inset 0 -1px 0 $line, 0 -1px 0 $line;
+			&:before {
+				content: '';
+				@include cover;
+				background: $ide-line;
+				height: 1px;
+				//z-index: 3;
+			}
+			.btn {
+				&:focus,
+				&:active {
+					z-index: auto;
+				}
+			}
+			&-simple {
+				background: transparent !important;
+			}
+		}
+		&-header {
+			&:before {
+				top: auto;
+			}
+		}
+		&-footer {
+			&:before {
+				//display: none;
+				bottom: auto;
+			}
+		}
+		&-body {
+			color: $dark;
+			// background: inherit;
+			@include flex(1,1,auto);
+			.ide-terminal & {
+				height: 65vh;
+			}
+		}
+		&-scroll {
+			@include fill;
+			@include scroll;
+			@include scrollbar(mix($silver,$light,75%),$silver-dark);
+		}
+		&-handle {
+			@include cover(right);
+			background: white;
+			width: 10px;
+		}
+		&-overlay {
+			background: rgba(0,0,0,.5);
+			@include set(top left bottom right,-200vmin);
+			position: absolute;
+			display: block;
+			z-index: -1;
+		}
+		&-collapsed {
+			.ide-panel-body,
+			.ide-panel-footer,
+			.ide-panel-header + .ide-panel-header { display: none; }
+			.ide-panel-toggle {
+				@include transform(rotate(180deg));
+			}
+			.ide-panel-toggle {
+				@include transform(rotate(-90deg));
+			}
+			.ide-panel-overlay {
+				display: none;
+			}
+		}
+	}
+	&-controls {
+		@include table(middle);
+		height: $ide-controls;
+	}
+	&-control {
+		&, &:hover, &:focus { color: inherit; }
+		white-space: nowrap;
+		&-sm { width: 1px; }
+		&-link, &-text {
+			line-height: $ide-controls - 2px;
+			padding: 0 0 2px 0;
+		}
+		&-text {
+			display: inline-block;
+			& + & { margin-left: .75em; }
+		}
+		&-link {
+			display: block;
+			@include set(padding-left padding-right,$padding-base-horizontal);
+			text-align: center;
+		}
+		&-inline-link {
+                    display: inline-block;
+			padding: $padding-base-vertical 0;
+			text-align: center;
+		}
+		&.active {
+			box-shadow: inset 0 -1px 0 $link;
+			.ide-control-link, .ide-control-inline-link {
+				color: inherit;
+				font-weight: bold;
+			}
+		}
+	}
+	&-list {
+		&-item {
+			display: block;
+			padding: $ide-pad-y $ide-pad-x;
+			color: $light-gray;
+			box-shadow: 0 1px 0 $ide-line;
+			@include ellipsis;
+			@include active {
+				color: inherit;
+			}
+			&.active {
+				position: relative;
+				background: $light-blue;
+				color: $off-black;
+				.faint { opacity: 1; }
+				.glyph use { stroke: white !important; }
+
+				&:before {
+					content: "";
+					width: 100%;
+					height: 100%;
+					border-left: 6px solid $dark-blue;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+			&:hover:not(.active) {
+				background: $lighter-blue;
+				color: $light-gray;
+			}
+		}
+	}
+	&-interactive {
+		@include active {
+			background: $silver-light;
+		}
+	}
+	&-active {
+		background: $silver-darker !important;
+	}
+	&-code {
+		color: inherit;
+		resize: none;
+		padding: 0;
+		background: transparent;
+
+	}
+	table {
+		white-space: nowrap;
+		&.ide-table {
+			border-collapse: separate;
+			white-space: normal;
+		}
+		td, th {
+			&:first-child { padding-left: $ide-pad-x; }
+			&:last-child { padding-right: $ide-pad-x; }
+		}
+		td {
+			max-width: 300px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			border-top: 1px solid $ide-line !important;
+		}
+	}
+	&-table-heading {
+		color: inherit;
+		position: sticky;
+		top: 0;
+		z-index: 3;
+		background: white;
+		box-shadow: 0 1px 0 $outline;
+	}
+	&-sections {
+		height: $ide-controls;
+		@include flex-row;
+	}
+	&-section {
+		height: $ide-controls;
+		&:not(.ide-section-fixed) {
+			@include flex(1,0,0);
+			.ide-tabs {
+				position: absolute;
+				@include set(top left bottom right,0);
+			}
+		}
+		&-fixed {
+			@include flex(0,0,auto);
+			
+		}
+	}
+	&-tabs {
+		@include flex-row;
+		height: $ide-controls;
+	}
+		// &-content, &-actions {
+			
+			
+		// }
+		// &-actions {
+		// 	//z-index: 2;
+		// 	width: $ide-controls;
+		// 	left: auto;
+		// 	+ .ide-tabs-content {
+		// 		right: $ide-controls;
+		// 	}
+		// }
+	
+	&-tab {
+		&:before {
+			content: '';
+			@include cover;
+			background: $ide-line;
+			height: 1px;
+			top: auto;
+		}
+		& { background: $ide-shade; }
+		box-shadow: -1px 0 0 $ide-line, 1px 0 0 $ide-line;
+		&.active:before { display: none; }
+		@include flex(1,1,0);
+		min-width: 48px;
+		.ide-section-fixed & { min-width: $ide-controls; }
+		&-link {
+			display: block;
+			text-align: center;
+			line-height: 24px;
+			@include ellipsis;
+			@include transitions;
+			color: inherit;
+			opacity: .5;
+			padding: #{($ide-controls - 24px)/2} $ide-pad-x;
+			.ide-tab.active &, &:hover, &:focus { opacity: 1; }
+			@include active { color: inherit; }
+			.ide-section-fixed & { @include set(padding-left padding-right,0); }
+			.ide-tab:not(.active):hover &, ide-tab:not(.active):focus &{
+				background-color: $silver; 
+				color: $light-gray;
+			}
+			.ide-tab.active & {
+				font-weight: bold;
+			}
+		}
+		&-icons {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: inherit;
+		}
+		&-icon {
+			display: block;
+			position: absolute;
+			background: inherit;
+			@include set(width height,$icon-size);
+			@include set(top right,($ide-controls - $icon-size )/2);
+			@include circle;
+			@include transitions;
+			.icn { display: block; top: 0; }
+			&-close,
+			&-edited {
+				display: none;
+			}
+			&-edited {
+				pointer-events: none;
+				color: $ide-edited;
+				.ide-tab.edited & {
+					display: block;
+				}
+			}
+			&-link {
+				cursor: pointer;
+				&:hover {
+					background: $ide-edited !important;
+					color: white !important;
+				}
+			}
+		}
+		&-link:hover ~ .ide-tab-icons,
+		&:hover .ide-tab-icons {
+			.ide-tab-icon-close { display: block; }
+		}
+	}
+	&-tab,
+	&-panel-header {
+		&:after {
+			content: '';
+			@include cover;
+			bottom: auto;
+			height: 3px;
+		}
+		&.success:after { background: $green; }
+		&.warning:after { background: $yellow; }
+		&.danger:after { background: $red; }
+	}
+	&-outline {
+		box-shadow: 0 0 0 1px $ide-line;
+	}
+	&-tools {
+		margin: 0;
+		height: $ide-controls;
+	}
+	&-logs {
+		background: darkest($darkmode);
+		padding: $ide-pad-y $ide-pad-x*2;
+	}
+
+	.monaco-tree-row.focused:not(:hover):not(:focus){
+		background: inherit !important;
+	}
+
+	.monaco-tree-row:hover, .monaco-tree-row:focus {
+		background: $lighter-blue !important;
+		color: $off-black;
+	}
+
+	.monaco-tree-row:not(:hover):not(:focus), .monaco-tree-row:not(:hover):not(:focus) {
+		color: $light-gray !important;
+	}
+}
+
+
+.ide {
+	@import "../variables/dark-mode-colors-v2";
+	
+	&-dark {
+		color: white;
+		#{h()}, .kpi { color: inherit; }
+		.ide-panel-body { color: inherit; }
+		.ide-panel:focus,
+		.ide-panel-header, .ide-panel-footer, .ide-panel-shade,
+		.table-striped > tbody > tr:nth-of-type(odd),
+		.ide-tab {
+			background: darker($darkmode);
+			&:before {
+				background: $darkmode-line;
+			}
+		}
+		&, .ide-table-heading, .ide-tab.active {
+			background: darkest($darkmode);
+		}
+		.ide-panel:before { box-shadow: 0 0 0 1px $darkmode-line; }
+		.ide-panel-header:before, .ide-panel-footer:before { background: $darkmode-line; }
+		.ide-active {
+			background: $darkmode !important;
+			color: white !important;
+		}
+		.ide-table-heading,
+		.ide-list-item {
+			box-shadow: 0 1px 0 $darkmode-line;
+			color: white;
+			
+			&.active {
+				position: relative;
+				background: $dark-green;
+				color: white;
+
+				&:before {
+					content: "";
+					width: 100%;
+					height: 100%;
+					border-left: 6px solid $blue;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+			&:hover:not(.active) {
+				background: $light-gray;
+				color: white;
+			}
+		}
+		.btn-default { @include button-variant(white,$darkmode,$darkmode,light($darkmode)); }
+		@include form-control-variation($darkmode,white,$darkmode,true);
+		//.btn-danger { @include button-variant(white,mix($red,darkest($navy)),mix($red,darkest($navy))); }
+		.ide-panel-scroll {
+			@include scrollbar($darkmode,dark($darkmode),light($darkmode));
+		}
+		.ace_scrollbar {
+			@include scrollbar($darkmode,dark($darkmode),light($darkmode));
+		}
+		.ide-code {
+			@include scrollbar($darkmode,dark($darkmode),light($darkmode));
+		}
+		.ide-tab {
+			box-shadow: -1px 0 0 $darkmode-line, 1px 0 0 $darkmode-line;
+		}
+		.ide-tab:not(.active):hover, .ide-tab:not(.active):focus {
+			.ide-tab-link {
+				background-color: $gray; 
+				color: white;
+			}
+		}
+		.btn-group-options {
+			color: $darkmode;
+		}
+		.ide-outline {
+			box-shadow: 0 0 0 1px $darkmode-line;
+		}
+		table {
+			td {
+				border-top: 1px solid $darkmode-line !important;
+			}
+		}
+		.table-sticky {
+			background-color: darker($darkmode);
+			box-shadow: 0 1px 0 $darkmode-line;
+		}
+		.table-master-detail.open .table-master td, .table-master-detail.open .table-master th { background-color: darker($darkmode) !important; } 
+		.alert { background-color: $darkmode; }
+		.alert-info, .btn-highlight-info, tr.info > td, tr.info > th { background-color: lowlight($brand-info) !important; }
+		.alert-success, .btn-highlight-success, tr.success > td, tr.success > th { background-color: lowlight($brand-success) !important; }
+		.alert-warning, .btn-highlight-warning, tr.warning > td, tr.warning > th { background-color: lowlight($brand-warning) !important; }
+		.alert-danger, .btn-highlight-danger, tr.danger > td, tr.danger > th { background-color: lowlight($brand-danger) !important; }
+
+		// Overwrite monaco styles
+		.monaco-tree-row.focused:not(:hover):not(:focus){
+			background: inherit !important;
+		}
+	
+		.monaco-tree-row:hover, .monaco-tree-row:focus {
+			background: $light-gray !important;
+			color: white !important;
+		}
+	
+		.monaco-tree-row:not(:hover):not(:focus), .monaco-tree-row:not(:hover):not(:focus) {
+			color: $lighter-gray !important;
+		}
+	
+	}
+}
