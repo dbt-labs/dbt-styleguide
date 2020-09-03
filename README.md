@@ -1,8 +1,10 @@
 # dbt Styleguide
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+<a href="https://community.getdbt.com">
+  <img src="https://community.getdbt.com/badge.svg" alt="Slack" />
+</a>
 
-A suite of custom styles, fonts, images and JS from [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/) and [jQuery UI](https://jqueryui.com/). Built and documented using [Jekyll](https://jekyllrb.com/).
+A suite of custom styles, fonts, images and JS from [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/) and [jQuery UI](https://jqueryui.com/) for the [dbt](https://github.com/fishtown-analytics/dbt) ecosystem. Built and documented using [Jekyll](https://jekyllrb.com/).
 
 ## Install
 
@@ -22,17 +24,9 @@ npm install --save-dev fishtown-analytics/dbt-styleguide
 
 For basic usage, it's recommended to consume assets from the `dist` directory. See the [example/index.html](example/index.html) for example HTML markup.
 
-If you'd like to customize the styleguide in your project or tree-shake unused styles, we've done so with webpack in dbt-cloud. It's suggested you reference that project for this approach.
-
-## Roadmap
-
-TODO
+If you'd like to customize the styleguide in your project or tree-shake unused styles, it's possible to do so with webpack.
 
 ## Contributing
-
-If you aren't a Fishtown Analytics employee, can you reach out to us before you make a contribution? We recommend doing so in our [Slack community](https://community.getdbt.com/).
-
-For internal contribution (Fishtown Analytics employees), follow Fishtown Analytics internal communication and contribution standards.
 
 Use npm to install JS packages.
 
@@ -52,18 +46,12 @@ Use the run script to serve the site locally.
 ./_run.sh
 ```
 
-After changes have been approved, publish a release using release-it.
-
-```sh
-npm run release
-```
-
-More information on releases can be found in Notion under Engineering/Styleguide.
+> Internal use: More information on releases can be found in Notion under Engineering/Styleguide.
 
 ### Constraints
 
-We have duplicate fonts, both under `ui/fonts/` and `sass/fonts`, due to limitations of our build process (Jekyll + Liquid). Some fonts may not work in the Jekyll site.
+We have duplicate fonts under `ui/fonts` and `sass/fonts` due to limitations of our build process (Jekyll + Liquid). Some fonts may not work in the Jekyll site, but work for distribution.
 
 ## License
 
-Pending review
+[Apache License, Version 2.0](LICENSE)
