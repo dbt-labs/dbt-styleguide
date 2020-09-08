@@ -14,8 +14,20 @@
     .ReactVirtualized__Table__headerColumn {
         color: $gray;
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: .75rem;
+        letter-spacing: .15em;
         line-height: 50px;
+
+        &.dbt-cloud-table__link-header {
+            text-transform: none;
+            text-align: right;
+            letter-spacing: normal;
+            font-size: .85rem;
+
+            .glyph {
+                margin: 0 5px;
+            }
+        }
     }
 
     .ReactVirtualized__Table__row {
@@ -34,7 +46,8 @@
 
     .ReactVirtualized__Table__rowColumn {
         line-height: 75px;
-        font-size: 12px;
+        font-size: 1rem;
+        text-overflow: ellipsis;
     }
 
     .ReactVirtualized__Table__sortableHeaderIcon {
@@ -52,10 +65,18 @@
         }
     }
     
-    .dbt-cloud-table__action-column {
+    &__action-column {
         line-height: 75px;
         text-align: right;
         color: $gray-light;
         cursor: pointer;
+    }
+
+    &__empty-state {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
     }
 }
