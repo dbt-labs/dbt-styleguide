@@ -2,7 +2,15 @@ $themecolor: $blue;
 
 .dbt-cloud-select-container {
     width: 100%;
+    
+    &.dbt-cloud-select--is-errored .dbt-cloud-select__control {
+        border-color: $red;
 
+        &:hover, &--is-focused {
+            border-color: $red;
+        }
+    }
+    
     .dbt-cloud-select__control {
         &:hover {
             border-color: darker($themecolor);
@@ -30,5 +38,106 @@ $themecolor: $blue;
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+}
+
+.dbt-cloud-multi-select__value-wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.dbt-cloud-select__indicator-separator {
+    display: none;
+}
+
+.dbt-cloud-multi-select {
+    max-width: 400px;
+    
+    &__value {
+        display: inline;
+        &:before {
+            content: ',';
+            margin-right: 3px;
+        }
+        &:first-child {
+            &:before {
+                content: '';
+                margin-right: 0;
+            }
+        }
+
+        
+    }
+}
+
+.dbt-cloud-multi-select__indicator {
+    border: 1px solid $light-gray;
+    border-radius: 2px;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    top: 4px;
+    margin-right: 5px;
+    flex-shrink: 0;
+
+    .glyph {
+        display: none;
+        top: -5px;
+        left: 0px;
+        width: 12px;
+        height: 12px;
+    }
+
+    &--selected {
+        border-color: $themecolor;
+        background-color: $themecolor;
+        color: $silver-light;
+
+        .glyph {
+            display: inline-block;
+        }
+    }
+}
+
+.dbt-cloud-select__menu {
+    .dbt-cloud-multi-select__label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .dbt-cloud-multi-select__option {
+        justify-content: flex-start;
+        cursor: pointer;
+        
+        &:hover {
+            .dbt-cloud-multi-select__indicator {
+                color: lightest($gray);
+                
+                .glyph {
+                    display: inline-block;
+                }
+            }
+        }
+        
+        &--is-selected:hover .dbt-cloud-multi-select__indicator {
+            color: $silver-light;
+        }
+    }
+
+    .dbt-cloud-multi-select__option, .dbt-cloud-multi-select__option--is-selected, .dbt-cloud-multi-select__option--is-focused, .dbt-cloud-multi-select__option:active {
+        display: flex;
+        background: white;
+        color: $normal;
+    }
+}
+
+// Special handling for selects inside tables
+.dbt-cloud-table__row {
+    .dbt-cloud-select-container {
+        display: inline-block;
+        margin-left: 1px;
+        width: 99%;
     }
 }
