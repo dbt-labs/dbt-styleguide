@@ -1,0 +1,25 @@
+.input-list {
+    .input-list-item {
+        @import "sass/variables/colors-v2";
+        padding-bottom: 11px;
+
+        &__field {
+            background: $lightest-gray;
+            border: none;
+            border-radius: 4px;
+            height: 24px;
+            width: 239px;
+        }
+        
+        &__delete {
+            use {
+                fill: $light-gray;
+                color: $light-gray;
+                &:hover {
+                    fill: $red;
+                    color: $red;
+                }
+            }
+        }
+    }
+}
