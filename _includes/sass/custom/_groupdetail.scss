@@ -12,3 +12,9 @@
     height: 24px;
     width: 195px;
 }
+
+.group-detail__delete-btn {
+    @import "sass/variables/colors-v2";
+    background: $red;
+    color: white;
+}
