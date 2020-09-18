@@ -1,0 +1,20 @@
+.group-sso-mapping__warning {
+    @import "sass/variables/colors-v2";
+    color: $red;
+    padding-left: 20px;
+}
+
+.group-info__name-field {
+    @import "sass/variables/colors-v2";
+    background: $lightest-gray;
+    border: none;
+    border-radius: 4px;
+    height: 24px;
+    width: 195px;
+}
+
+.group-detail__delete-btn {
+    @import "sass/variables/colors-v2";
+    background: $red;
+    color: white;
+}
