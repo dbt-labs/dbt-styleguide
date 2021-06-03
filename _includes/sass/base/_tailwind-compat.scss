@@ -1,0 +1,12 @@
+  // This file should only override styles applied by Fishtown UI/Tailwind
+
+// Tailwind messes with border styles, which affected table headers
+// https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
+.table * {
+	border-style: none;
+}
+
+// Tailwind strips lists by defaul
+.ul {
+  list-style-type: disc;
+}
