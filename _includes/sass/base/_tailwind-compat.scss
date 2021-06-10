@@ -2,7 +2,7 @@
 
 // Tailwind messes with border styles, which affected table headers
 // https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
-.table * {
+.table th {
 	border-style: none;
 }
 
