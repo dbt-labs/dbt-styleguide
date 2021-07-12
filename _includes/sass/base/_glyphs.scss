@@ -86,6 +86,7 @@ $glyph-size: 24px;
 	&-check, &-radio {
 		font-size: 16px;
 		use { opacity: 0; }
+		border-style: solid;
 		border: 2px solid currentColor;
 		opacity: .25;
 		:hover > &, :focus ~ & { opacity: .5; }
