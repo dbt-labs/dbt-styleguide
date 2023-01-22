@@ -1,0 +1,9 @@
+name: dbt-styleguide
+services:
+  jekyll:
+    build: .
+    ports:
+      - 5000:5000  
+    volumes:
+      - .:/src
+    command: jekyll serve --baseurl '' -w --port 5000 --host 0.0.0.0
