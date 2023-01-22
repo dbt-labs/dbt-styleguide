@@ -17,6 +17,7 @@ poster: /ui/img/graph/poster.png
 
 url: "https://somegoodpixels.github.io"
 baseurl: "/dbt-docs"
+exclude: ["Dockerfile", "docker-compose.yml", "Gemfile", "Gemfile.lock"]  
 
 # --------------------------------------------------
 # Includes
