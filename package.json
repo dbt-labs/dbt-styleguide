@@ -19,7 +19,7 @@
   "homepage": "https://github.com/fishtown-analytics/dbt-styleguide#readme",
   "devDependencies": {
     "auto-changelog": "^2.2.0",
-    "release-it": "^13.6.6"
+    "release-it": "^15.6.0"
   },
   "release-it": {
     "github": {
